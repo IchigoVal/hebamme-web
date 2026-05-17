@@ -6,6 +6,8 @@
     <meta
       name="description"
       content="Marina Rymmer begleitet dich als Hebamme mit Ruhe, Wärme und Verlässlichkeit durch Schwangerschaft, Geburt und Wochenbett."
+      data-i18n="meta.description"
+      data-i18n-attr="content"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,7 +15,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Marina Rymmer | Hebamme</title>
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <title data-i18n="meta.title">Marina Rymmer | Hebamme</title>
   </head>
   <body>
     <div class="page-shell">
@@ -26,80 +29,123 @@
             aria-controls="mobile-navigation"
             aria-label="Menü öffnen"
             data-menu-toggle
+            data-menu-label-open-key="aria.menuOpen"
+            data-menu-label-close-key="aria.menuClose"
           >
             <span></span>
             <span></span>
             <span></span>
           </button>
 
-          <a class="brand" href="#top" aria-label="Zur Startseite">
+          <a
+            class="brand"
+            href="#top"
+            aria-label="Zur Startseite"
+            data-i18n="aria.home"
+            data-i18n-attr="aria-label"
+          >
             <span class="brand-monogram" aria-hidden="true">MR</span>
             <span class="brand-name">Marina Rymmer</span>
-            <span class="brand-subline">Hebamme</span>
+            <span class="brand-subline" data-i18n="brand.subline">Hebamme</span>
           </a>
 
           <div class="header-side">
+            <div
+              class="lang-switch"
+              role="group"
+              aria-label="Sprache wählen"
+              data-i18n="aria.languageSwitch"
+              data-i18n-attr="aria-label"
+            >
+              <button class="lang-switch__button is-active" type="button" data-lang-option="de" aria-pressed="true">
+                DE
+              </button>
+              <button class="lang-switch__button" type="button" data-lang-option="ru" aria-pressed="false">
+                RU
+              </button>
+            </div>
+
             <span class="leaf-detail" aria-hidden="true"></span>
-            <nav class="desktop-nav" aria-label="Hauptnavigation">
-              <a href="#leistungen">Leistungen</a>
-              <a href="#ueber-mich">Über mich</a>
-              <a href="#kontakt">Kontakt</a>
+
+            <nav
+              class="desktop-nav"
+              aria-label="Hauptnavigation"
+              data-i18n="aria.mainNavigation"
+              data-i18n-attr="aria-label"
+            >
+              <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
+              <a href="#ueber-mich" data-i18n="nav.about">Über mich</a>
+              <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
             </nav>
           </div>
         </div>
 
-        <div
+        <nav
           class="mobile-nav"
           id="mobile-navigation"
           aria-label="Mobile Navigation"
+          aria-hidden="true"
           data-mobile-nav
+          data-i18n="aria.mobileNavigation"
+          data-i18n-attr="aria-label"
         >
           <div class="mobile-nav-card">
-            <a href="#leistungen">Leistungen</a>
-            <a href="#begleitung">Begleitung</a>
-            <a href="#ueber-mich">Über mich</a>
-            <a href="#kontakt">Kontakt</a>
-            <a class="btn btn--primary btn--full" href="#kontakt">Platz anfragen</a>
+            <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
+            <a href="#begleitung" data-i18n="nav.guidance">Begleitung</a>
+            <a href="#ueber-mich" data-i18n="nav.about">Über mich</a>
+            <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+            <a class="btn btn--primary btn--full" href="#kontakt" data-i18n="cta.requestSpot">
+              Platz anfragen
+            </a>
           </div>
-        </div>
+        </nav>
       </header>
 
       <main id="top">
         <section class="section hero-section">
           <div class="container hero-grid">
             <div class="hero-copy">
-              <span class="eyebrow">Sanfte Begleitung mit Ruhe und Vertrauen</span>
-              <h1 class="hero-title">Ein ruhiger Ort für deine Schwangerschaft, Geburt und erste Zeit als Familie.</h1>
-              <p class="hero-text">
-                Mit Wärme, Erfahrung und einem offenen Ohr begleite ich dich durch eine Zeit,
-                in der du dich verstanden, getragen und sicher fühlen darfst.
+              <span class="eyebrow" data-i18n="hero.eyebrow">Sanfte Begleitung mit Ruhe und Vertrauen</span>
+              <h1 class="hero-title" data-i18n="hero.title">
+                Ein ruhiger Ort für deine Schwangerschaft, Geburt und erste Zeit als Familie.
+              </h1>
+              <p class="hero-text" data-i18n="hero.text">
+                Mit Wärme, Erfahrung und einem offenen Ohr begleite ich dich durch eine Zeit, in der du
+                dich verstanden, getragen und sicher fühlen darfst.
               </p>
 
               <div class="hero-actions">
-                <a class="btn btn--primary" href="#kontakt">Platz anfragen</a>
-                <a class="btn btn--secondary" href="#leistungen">Leistungen entdecken</a>
+                <a class="btn btn--primary" href="#kontakt" data-i18n="cta.requestSpot">Platz anfragen</a>
+                <a class="btn btn--secondary" href="#leistungen" data-i18n="cta.discoverServices">
+                  Leistungen entdecken
+                </a>
               </div>
 
               <div class="hero-note">
-                <strong>Persönlich, ruhig und nahbar.</strong>
-                <span>Begleitung von der ersten Orientierung bis weit ins Wochenbett.</span>
+                <strong data-i18n="hero.noteTitle">Persönlich, ruhig und nahbar.</strong>
+                <span data-i18n="hero.noteText">
+                  Begleitung von der ersten Orientierung bis weit ins Wochenbett.
+                </span>
               </div>
             </div>
 
             <div class="hero-media">
               <figure class="image-frame image-frame--hero image-frame--hero-compact">
-                <!-- Später ersetzen: ruhiges Mutter-Kind-Bild oder sanftes Neugeborenenmotiv -->
                 <img
                   src="/images/hero.jpg"
                   alt="Sanfte Szene einer Mutter mit Baby"
                   width="900"
                   height="1120"
+                  data-i18n="images.heroAlt"
+                  data-i18n-attr="alt"
                 />
               </figure>
 
               <div class="floating-card">
-                <span class="floating-label">Für dich da</span>
-                <p>Raum für Fragen, leise Sorgen und eine Begleitung, die sich nach dir richtet.</p>
+                <span class="floating-label" data-i18n="hero.mediaLabel">Für dich da</span>
+                <p data-i18n="hero.mediaText">
+                  Raum für Fragen, leise Sorgen und eine Begleitung, die sich nach dir richtet.
+                </p>
               </div>
             </div>
           </div>
@@ -109,29 +155,38 @@
           <div class="container">
             <article class="soft-card split-card split-card--warm">
               <div class="card-copy">
-                <span class="eyebrow">Du fragst dich vielleicht</span>
-                <h2>Wer ist an meiner Seite, wenn alles neu und manchmal auch überwältigend wirkt?</h2>
+                <span class="eyebrow" data-i18n="guidance.eyebrow">Du fragst dich vielleicht</span>
+                <h2 data-i18n="guidance.title">
+                  Wer ist an meiner Seite, wenn alles neu und manchmal auch überwältigend wirkt?
+                </h2>
                 <ul class="question-list">
-                  <li>Bin ich mit meinen Fragen gerade zu viel?</li>
-                  <li>Wie finde ich in all den Informationen Sicherheit?</li>
-                  <li>Was hilft mir, wenn Unsicherheit oder Druck spürbar werden?</li>
-                  <li>Wie kann die erste Zeit mit meinem Baby ruhiger beginnen?</li>
+                  <li data-i18n="guidance.questions.0">Bin ich mit meinen Fragen gerade zu viel?</li>
+                  <li data-i18n="guidance.questions.1">Wie finde ich in all den Informationen Sicherheit?</li>
+                  <li data-i18n="guidance.questions.2">
+                    Was hilft mir, wenn Unsicherheit oder Druck spürbar werden?
+                  </li>
+                  <li data-i18n="guidance.questions.3">
+                    Wie kann die erste Zeit mit meinem Baby ruhiger beginnen?
+                  </li>
                 </ul>
 
                 <div class="button-row">
-                  <a class="btn btn--primary" href="#kontakt">Platz anfragen</a>
-                  <a class="btn btn--secondary" href="#leistungen">Leistungen entdecken</a>
+                  <a class="btn btn--primary" href="#kontakt" data-i18n="cta.requestSpot">Platz anfragen</a>
+                  <a class="btn btn--secondary" href="#leistungen" data-i18n="cta.discoverServices">
+                    Leistungen entdecken
+                  </a>
                 </div>
               </div>
 
               <figure class="image-frame image-frame--square image-frame--trust">
-                <!-- Später ersetzen: großes ruhiges Mutter-Kind-Bild mit warmer, heller Stimmung -->
                 <img
                   src="/images/trust-1.jpg"
                   alt="Mutter und Baby in einer ruhigen, warmen Szene"
                   width="900"
                   height="1020"
                   loading="lazy"
+                  data-i18n="images.trustAlt"
+                  data-i18n-attr="alt"
                 />
               </figure>
             </article>
@@ -141,41 +196,68 @@
         <section class="section">
           <div class="container">
             <div class="section-heading">
-              <span class="eyebrow">Vertrauensvolle Begleitung</span>
-              <h2>Warum Frauen sich für mich entscheiden</h2>
-              <p>
-                Weil gute Begleitung nicht laut sein muss. Sondern aufmerksam, klar und voller
-                Ruhe.
+              <span class="eyebrow" data-i18n="reasons.eyebrow">Vertrauensvolle Begleitung</span>
+              <h2 data-i18n="reasons.title">Warum Frauen sich für mich entscheiden</h2>
+              <p data-i18n="reasons.text">
+                Weil gute Begleitung nicht laut sein muss. Sondern aufmerksam, klar und voller Ruhe.
               </p>
             </div>
 
             <article class="soft-card split-card">
               <figure class="image-frame image-frame--portrait image-frame--why">
-                <!-- Später ersetzen: Schwangerschaftsporträt oder ruhige Begleitungsszene -->
                 <img
                   src="/images/why-me.jpg"
                   alt="Ruhiges Schwangerschaftsporträt"
                   width="900"
                   height="1080"
                   loading="lazy"
+                  data-i18n="images.whyAlt"
+                  data-i18n-attr="alt"
                 />
               </figure>
 
               <div class="card-copy">
-                <p class="lead">
-                  Ich nehme mir Zeit für das, was dich wirklich beschäftigt, und begleite dich mit
-                  einer Haltung, die Sicherheit schenkt statt zusätzlichen Druck zu machen.
+                <p class="lead" data-i18n="reasons.lead">
+                  Ich nehme mir Zeit für das, was dich wirklich beschäftigt, und begleite dich mit einer
+                  Haltung, die Sicherheit schenkt statt zusätzlichen Druck zu machen.
                 </p>
 
                 <ul class="benefit-list">
-                  <li>Ruhige, persönliche Begleitung statt schneller Standardantworten</li>
-                  <li>Zeit für Fragen, Sorgen und alles, was zwischen den Zeilen mitschwingt</li>
-                  <li>Klare Orientierung in einer sensiblen und intensiven Lebensphase</li>
+                  <li data-i18n="reasons.benefits.0">
+                    Ruhige, persönliche Begleitung statt schneller Standardantworten
+                  </li>
+                  <li data-i18n="reasons.benefits.1">
+                    Zeit für Fragen, Sorgen und alles, was zwischen den Zeilen mitschwingt
+                  </li>
+                  <li data-i18n="reasons.benefits.2">
+                    Klare Orientierung in einer sensiblen und intensiven Lebensphase
+                  </li>
                 </ul>
 
-                <blockquote>
+                <blockquote data-i18n="reasons.quote">
                   „Du sollst dich in dieser Zeit nicht allein durch alles hindurchtragen müssen.“
                 </blockquote>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section reviews-section">
+          <div class="container">
+            <article class="soft-card reviews-card">
+              <div class="section-heading reviews-heading">
+                <span class="eyebrow" data-i18n="reviews.eyebrow">Liebe Worte</span>
+                <h2 data-i18n="reviews.title">Was Familien über meine Begleitung sagen</h2>
+                <p data-i18n="reviews.text">
+                  Einblick in echte Rückmeldungen und Erfahrungen aus Google Rezensionen.
+                </p>
+              </div>
+
+              <div class="reviews-widget-shell">
+                <div
+                  class="elfsight-app-6e2e4c6f-ebc0-4005-93a9-b414b24ac284"
+                  data-elfsight-app-lazy
+                ></div>
               </div>
             </article>
           </div>
@@ -184,17 +266,16 @@
         <section class="section" id="leistungen">
           <div class="container">
             <div class="section-heading">
-              <span class="eyebrow">Dein Weg mit mir</span>
-              <h2>Wie ich dir helfen kann</h2>
-              <p>
-                Vom ersten Kennenlernen bis zur Zeit danach begleite ich dich Schritt für Schritt
-                mit Ruhe, Klarheit und Wärme.
+              <span class="eyebrow" data-i18n="services.eyebrow">Dein Weg mit mir</span>
+              <h2 data-i18n="services.title">Wie ich dir helfen kann</h2>
+              <p data-i18n="services.text">
+                Vom ersten Kennenlernen bis zur Zeit danach begleite ich dich Schritt für Schritt mit
+                Ruhe, Klarheit und Wärme.
               </p>
             </div>
 
             <div class="steps-grid">
               <article class="step-card">
-                <!-- Später ersetzen: Schwangerschaftsporträt oder ruhige Bauchaufnahme -->
                 <img
                   class="step-image"
                   src="/images/step-1.jpg"
@@ -202,14 +283,18 @@
                   width="700"
                   height="860"
                   loading="lazy"
+                  data-i18n="images.step1Alt"
+                  data-i18n-attr="alt"
                 />
                 <span class="step-number">01</span>
-                <h3>Schwangerschaft</h3>
-                <p>Ein guter Anfang mit Raum für Fragen, Veränderungen und das Gefühl, nicht allein zu sein.</p>
+                <h3 data-i18n="services.steps.0.title">Schwangerschaft</h3>
+                <p data-i18n="services.steps.0.text">
+                  Ein guter Anfang mit Raum für Fragen, Veränderungen und das Gefühl, nicht allein zu
+                  sein.
+                </p>
               </article>
 
               <article class="step-card">
-                <!-- Später ersetzen: warmes Bild zu Geburt oder Geburtsvorbereitung -->
                 <img
                   class="step-image"
                   src="/images/step-2.jpg"
@@ -217,14 +302,18 @@
                   width="700"
                   height="860"
                   loading="lazy"
+                  data-i18n="images.step2Alt"
+                  data-i18n-attr="alt"
                 />
                 <span class="step-number">02</span>
-                <h3>Geburt &amp; Vorbereitung</h3>
-                <p>Orientierung, Gespräche und Vorbereitung, damit du deinen Weg mit mehr Vertrauen gehen kannst.</p>
+                <h3 data-i18n="services.steps.1.title">Geburt &amp; Vorbereitung</h3>
+                <p data-i18n="services.steps.1.text">
+                  Orientierung, Gespräche und Vorbereitung, damit du deinen Weg mit mehr Vertrauen gehen
+                  kannst.
+                </p>
               </article>
 
               <article class="step-card">
-                <!-- Später ersetzen: schlafendes Baby oder ruhige Wochenbett-Szene -->
                 <img
                   class="step-image"
                   src="/images/step-3.jpg"
@@ -232,14 +321,18 @@
                   width="700"
                   height="860"
                   loading="lazy"
+                  data-i18n="images.step3Alt"
+                  data-i18n-attr="alt"
                 />
                 <span class="step-number">03</span>
-                <h3>Wochenbett</h3>
-                <p>Sanfte Begleitung für die erste Zeit mit deinem Baby, wenn Nähe, Erholung und Sicherheit wichtig sind.</p>
+                <h3 data-i18n="services.steps.2.title">Wochenbett</h3>
+                <p data-i18n="services.steps.2.text">
+                  Sanfte Begleitung für die erste Zeit mit deinem Baby, wenn Nähe, Erholung und Sicherheit
+                  wichtig sind.
+                </p>
               </article>
 
               <article class="step-card">
-                <!-- Später ersetzen: junge Familie oder warmes Nachsorge-Motiv -->
                 <img
                   class="step-image"
                   src="/images/step-4.jpg"
@@ -247,10 +340,15 @@
                   width="700"
                   height="860"
                   loading="lazy"
+                  data-i18n="images.step4Alt"
+                  data-i18n-attr="alt"
                 />
                 <span class="step-number">04</span>
-                <h3>Danach</h3>
-                <p>Auch nach der ersten intensiven Zeit bleibe ich ansprechbar, wenn du Begleitung und Klarheit brauchst.</p>
+                <h3 data-i18n="services.steps.3.title">Danach</h3>
+                <p data-i18n="services.steps.3.text">
+                  Auch nach der ersten intensiven Zeit bleibe ich ansprechbar, wenn du Begleitung und
+                  Klarheit brauchst.
+                </p>
               </article>
             </div>
           </div>
@@ -260,29 +358,33 @@
           <div class="container">
             <article class="soft-card about-card">
               <figure class="image-frame image-frame--portrait image-frame--about">
-                <!-- Später ersetzen: warmes Porträt von Marina -->
                 <img
                   src="/images/about.jpg"
                   alt="Warmes Porträt von Marina"
                   width="900"
                   height="1140"
                   loading="lazy"
+                  data-i18n="images.aboutAlt"
+                  data-i18n-attr="alt"
                 />
               </figure>
 
               <div class="card-copy">
-                <span class="eyebrow">Über mich</span>
-                <h2>Ich begleite dich mit einer ruhigen Präsenz und einem offenen Blick für das, was du brauchst.</h2>
-                <p>
-                  Mir ist wichtig, dass du dich nicht nur gut informiert, sondern vor allem
-                  gesehen fühlst. Jede Familie bringt ihre eigene Geschichte, ihr eigenes Tempo und
-                  ihre eigenen Fragen mit.
+                <span class="eyebrow" data-i18n="about.eyebrow">Über mich</span>
+                <h2 data-i18n="about.title">
+                  Ich begleite dich mit einer ruhigen Präsenz und einem offenen Blick für das, was du
+                  brauchst.
+                </h2>
+                <p data-i18n="about.paragraphs.0">
+                  Mir ist wichtig, dass du dich nicht nur gut informiert, sondern vor allem gesehen
+                  fühlst. Jede Familie bringt ihre eigene Geschichte, ihr eigenes Tempo und ihre eigenen
+                  Fragen mit.
                 </p>
-                <p>
-                  Deshalb soll meine Begleitung dir nicht noch mehr Anforderungen machen, sondern
-                  dir Halt geben, wenn du ihn brauchst, und Raum lassen, wenn du ihn suchst.
+                <p data-i18n="about.paragraphs.1">
+                  Deshalb soll meine Begleitung dir nicht noch mehr Anforderungen machen, sondern dir Halt
+                  geben, wenn du ihn brauchst, und Raum lassen, wenn du ihn suchst.
                 </p>
-                <a class="btn btn--secondary" href="#kontakt">Mehr über mich</a>
+                <a class="btn btn--secondary" href="#kontakt" data-i18n="about.cta">Mehr über mich</a>
               </div>
             </article>
           </div>
@@ -292,29 +394,32 @@
           <div class="container">
             <article class="soft-card split-card split-card--soft">
               <div class="card-copy">
-                <span class="eyebrow">Ich bin für dich da</span>
-                <h2>Dein Weg darf sich getragen, klar und warm anfühlen.</h2>
-                <p class="lead">
-                  Gemeinsam schaffen wir einen Rahmen, in dem du Fragen stellen, durchatmen und
-                  dich sicherer fühlen kannst.
+                <span class="eyebrow" data-i18n="support.eyebrow">Ich bin für dich da</span>
+                <h2 data-i18n="support.title">Dein Weg darf sich getragen, klar und warm anfühlen.</h2>
+                <p class="lead" data-i18n="support.lead">
+                  Gemeinsam schaffen wir einen Rahmen, in dem du Fragen stellen, durchatmen und dich
+                  sicherer fühlen kannst.
                 </p>
 
                 <ul class="support-list">
-                  <li>für Gespräche, die entlasten und sortieren</li>
-                  <li>für Orientierung bei kleinen und großen Fragen</li>
-                  <li>für eine Begleitung, die sich nach deinem Alltag richtet</li>
-                  <li>für einen Start, der nicht perfekt, sondern getragen sein darf</li>
+                  <li data-i18n="support.points.0">für Gespräche, die entlasten und sortieren</li>
+                  <li data-i18n="support.points.1">für Orientierung bei kleinen und großen Fragen</li>
+                  <li data-i18n="support.points.2">für eine Begleitung, die sich nach deinem Alltag richtet</li>
+                  <li data-i18n="support.points.3">
+                    für einen Start, der nicht perfekt, sondern getragen sein darf
+                  </li>
                 </ul>
               </div>
 
               <figure class="image-frame image-frame--square image-frame--support">
-                <!-- Später ersetzen: großes Baby- oder Mutter-Kind-Bild mit weicher, heller Stimmung -->
                 <img
                   src="/images/support.jpg"
                   alt="Ruhige Baby- und Mutter-Kind-Szene"
                   width="900"
                   height="1020"
                   loading="lazy"
+                  data-i18n="images.supportAlt"
+                  data-i18n-attr="alt"
                 />
               </figure>
             </article>
@@ -324,49 +429,87 @@
         <section class="section contact-section" id="kontakt">
           <div class="container">
             <article class="contact-card">
-              <span class="eyebrow">Kontakt</span>
-              <h2>Du möchtest dich melden?</h2>
-              <p>
+              <span class="eyebrow" data-i18n="contact.eyebrow">Kontakt</span>
+              <h2 data-i18n="contact.title">Du möchtest dich melden?</h2>
+              <p data-i18n="contact.text">
                 Wenn du dir eine ruhige, persönliche Begleitung wünschst, freue ich mich auf deine
                 Nachricht oder deinen Anruf.
               </p>
 
               <div class="contact-actions">
-                <!-- Später ersetzen: WhatsApp-Link mit echter Nummer -->
-                <a class="btn btn--olive" href="https://wa.me/491234567890" target="_blank" rel="noreferrer">
+                <a class="btn btn--olive" href="https://wa.me/491234567890" target="_blank" rel="noreferrer" data-i18n="contact.whatsapp">
                   WhatsApp schreiben
                 </a>
-                <!-- Später ersetzen: Telefonnummer -->
-                <a class="btn btn--secondary" href="tel:+491234567890">Anrufen</a>
+                <a class="btn btn--secondary" href="tel:+491234567890" data-i18n="contact.call">Anrufen</a>
               </div>
 
               <div class="contact-meta">
-                <!-- Später ersetzen: echte Kontaktdaten -->
                 <div class="meta-item">
-                  <span>Telefon</span>
-                  <strong>+49 123 4567890</strong>
+                  <span data-i18n="contact.meta.phoneLabel">Telefon</span>
+                  <strong data-i18n="contact.meta.phoneValue">+49 123 4567890</strong>
                 </div>
                 <div class="meta-item">
-                  <span>E-Mail</span>
-                  <strong>hallo@marina-hebamme.de</strong>
+                  <span data-i18n="contact.meta.emailLabel">E-Mail</span>
+                  <strong data-i18n="contact.meta.emailValue">hallo@marina-hebamme.de</strong>
                 </div>
                 <div class="meta-item">
-                  <span>Ort</span>
-                  <strong>Rund um deine Stadt</strong>
+                  <span data-i18n="contact.meta.locationLabel">Ort</span>
+                  <strong data-i18n="contact.meta.locationValue">Rund um deine Stadt</strong>
                 </div>
               </div>
 
               <footer class="site-footer">
-                <p>Marina Rymmer · Hebamme</p>
+                <p data-i18n="footer.brand">Marina Rymmer · Hebamme</p>
                 <div class="footer-links">
-                  <a href="#">Impressum</a>
-                  <a href="#">Datenschutz</a>
+                  <a href="#" data-i18n="footer.imprint">Impressum</a>
+                  <a href="#" data-i18n="footer.privacy">Datenschutz</a>
                 </div>
               </footer>
             </article>
           </div>
         </section>
       </main>
+
+      <div
+        class="floating-cta-group"
+        role="group"
+        aria-label="Schnellkontakt"
+        data-i18n="aria.quickContact"
+        data-i18n-attr="aria-label"
+      >
+        <a
+          class="floating-cta floating-cta--phone"
+          href="tel:+491234567890"
+          aria-label="Anrufen"
+          data-i18n="floating.callAria"
+          data-i18n-attr="aria-label"
+        >
+          <span class="floating-cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 4.75h3.1l1.35 4.3-1.72 1.72a15.2 15.2 0 0 0 5.5 5.5l1.72-1.72 4.3 1.35V19a1 1 0 0 1-1 1A15.25 15.25 0 0 1 4 5.75a1 1 0 0 1 1-1Z" />
+            </svg>
+          </span>
+          <span class="floating-cta-text" data-i18n="floating.call">Anrufen</span>
+        </a>
+
+        <a
+          class="floating-cta floating-cta--whatsapp"
+          href="https://wa.me/491234567890"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="WhatsApp schreiben"
+          data-i18n="floating.whatsappAria"
+          data-i18n-attr="aria-label"
+        >
+          <span class="floating-cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12.04 4.75a7.97 7.97 0 0 0-6.92 11.93L4 20l3.47-1.08a7.95 7.95 0 1 0 4.57-14.17Z" />
+              <path d="M9.2 8.96c.17-.38.34-.39.5-.4h.43c.14 0 .35.05.53.44.18.39.62 1.52.67 1.64.06.12.09.26.01.42-.08.16-.12.26-.24.4-.12.14-.26.31-.37.41-.12.1-.24.22-.1.43.15.21.66 1.08 1.41 1.76.97.87 1.79 1.14 2.04 1.27.26.13.41.11.56-.07.15-.18.65-.76.82-1.02.17-.26.34-.22.57-.13.23.09 1.47.69 1.72.82.25.13.42.19.48.29.06.1.06.58-.14 1.13-.2.55-1.15 1.08-1.57 1.13-.4.05-.91.07-1.47-.11-.34-.11-.78-.26-1.34-.5-2.37-1.03-3.92-3.45-4.04-3.62-.12-.17-.96-1.27-.96-2.42 0-1.15.6-1.72.82-1.96Z" />
+            </svg>
+          </span>
+          <span class="floating-cta-text" data-i18n="floating.whatsapp">WhatsApp</span>
+        </a>
+      </div>
     </div>
 
     <script type="module" src="/src/main.js"></script>
