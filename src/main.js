@@ -1,451 +1,371 @@
-import './style.css';
+import './style.css'
 
 const translations = {
   de: {
     meta: {
-      title: 'Marina Rymmer | Hebamme',
-      description:
-        'Marina Rymmer begleitet dich als Hebamme mit Ruhe, Wärme und Verlässlichkeit durch Schwangerschaft, Geburt und Wochenbett.',
+      title: 'Marina Rymmer | Hebamme in Nürnberg',
+      description: 'Marina Rymmer ist Hebamme in Nürnberg und auf Deutsch und Russisch erreichbar.',
     },
     aria: {
       home: 'Zur Startseite',
       languageSwitch: 'Sprache wählen',
       mainNavigation: 'Hauptnavigation',
       mobileNavigation: 'Mobile Navigation',
-      quickContact: 'Schnellkontakt',
       menuOpen: 'Menü öffnen',
       menuClose: 'Menü schließen',
+      contactOptions: 'Kontaktmöglichkeiten',
+      legalNavigation: 'Rechtliche Hinweise',
+      quickContact: 'Schnellkontakt',
+      floatingPhone: 'Marina Rymmer unter 0176 23488396 anrufen',
+      floatingWhatsapp: 'WhatsApp-Chat mit Marina Rymmer öffnen',
     },
     brand: {
       subline: 'Hebamme',
     },
     nav: {
       services: 'Leistungen',
-      guidance: 'Begleitung',
+      process: 'Ablauf',
       about: 'Über mich',
+      reviews: 'Bewertungen',
       contact: 'Kontakt',
     },
     cta: {
-      requestSpot: 'Platz anfragen',
-      discoverServices: 'Leistungen entdecken',
+      checkAvailability: 'Betreuung anfragen',
+      viewServices: 'Angebot ansehen',
+      askWithoutObligation: 'Kurz nachfragen',
     },
     hero: {
-      eyebrow: 'Sanfte Begleitung mit Ruhe und Vertrauen',
-      title: 'Ein ruhiger Ort für deine Schwangerschaft, Geburt und erste Zeit als Familie.',
-      text:
-        'Mit Wärme, Erfahrung und einem offenen Ohr begleite ich dich durch eine Zeit, in der du dich verstanden, getragen und sicher fühlen darfst.',
-      noteTitle: 'Persönlich, ruhig und nahbar.',
-      noteText: 'Begleitung von der ersten Orientierung bis weit ins Wochenbett.',
-      mediaLabel: 'Für dich da',
-      mediaText: 'Raum für Fragen, leise Sorgen und eine Begleitung, die sich nach dir richtet.',
-    },
-    guidance: {
-      eyebrow: 'Du fragst dich vielleicht',
-      title: 'Wer ist an meiner Seite, wenn alles neu und manchmal auch überwältigend wirkt?',
-      questions: [
-        'Bin ich mit meinen Fragen gerade zu viel?',
-        'Wie finde ich in all den Informationen Sicherheit?',
-        'Was hilft mir, wenn Unsicherheit oder Druck spürbar werden?',
-        'Wie kann die erste Zeit mit meinem Baby ruhiger beginnen?',
-      ],
-    },
-    reasons: {
-      eyebrow: 'Vertrauensvolle Begleitung',
-      title: 'Warum Frauen sich für mich entscheiden',
-      text: 'Weil gute Begleitung nicht laut sein muss. Sondern aufmerksam, klar und voller Ruhe.',
-      lead:
-        'Ich nehme mir Zeit für das, was dich wirklich beschäftigt, und begleite dich mit einer Haltung, die Sicherheit schenkt statt zusätzlichen Druck zu machen.',
-      benefits: [
-        'Ruhige, persönliche Begleitung statt schneller Standardantworten',
-        'Zeit für Fragen, Sorgen und alles, was zwischen den Zeilen mitschwingt',
-        'Klare Orientierung in einer sensiblen und intensiven Lebensphase',
-      ],
-      quote: '„Du sollst dich in dieser Zeit nicht allein durch alles hindurchtragen müssen.“',
-    },
-    reviews: {
-      eyebrow: 'Liebe Worte',
-      title: 'Was Familien über meine Begleitung sagen',
-      text: 'Einblick in echte Rückmeldungen und Erfahrungen aus Google Rezensionen.',
+      title: 'Hebamme in Nürnberg.',
+      intro: 'Ich bin Marina Rymmer. Du kannst dich auf Deutsch oder Russisch an mich wenden.',
+      cardTitle: 'Direkter Kontakt',
+      cardText: 'Telefon und WhatsApp',
     },
     services: {
-      eyebrow: 'Dein Weg mit mir',
-      title: 'Wie ich dir helfen kann',
-      text:
-        'Vom ersten Kennenlernen bis zur Zeit danach begleite ich dich Schritt für Schritt mit Ruhe, Klarheit und Wärme.',
-      steps: [
+      title: 'In welchen Phasen ich ansprechbar bin',
+      intro: 'Was im Einzelnen möglich ist, richtet sich nach deiner Situation und wird vorab besprochen.',
+      cards: [
         {
           title: 'Schwangerschaft',
-          text: 'Ein guter Anfang mit Raum für Fragen, Veränderungen und das Gefühl, nicht allein zu sein.',
+          text: 'Orientierung bei Veränderungen und Unsicherheiten während der Schwangerschaft.',
         },
         {
           title: 'Geburt & Vorbereitung',
-          text: 'Orientierung, Gespräche und Vorbereitung, damit du deinen Weg mit mehr Vertrauen gehen kannst.',
+          text: 'Vorbereitung auf die Geburt und auf die erste Zeit danach.',
         },
         {
           title: 'Wochenbett',
-          text:
-            'Sanfte Begleitung für die erste Zeit mit deinem Baby, wenn Nähe, Erholung und Sicherheit wichtig sind.',
+          text: 'Unterstützung beim Ankommen mit dem Baby nach der Geburt.',
         },
         {
-          title: 'Danach',
+          title: 'Erste Zeit als Familie',
+          text: 'Ansprechbar für Themen, die sich im neuen Familienalltag entwickeln.',
+        },
+      ],
+      footer: 'Du möchtest wissen, ob dein Anliegen dazugehört?',
+    },
+    process: {
+      title: 'So kommen wir zusammen',
+      intro: 'Für die erste Anfrage reicht eine kurze Nachricht oder ein Anruf.',
+      steps: [
+        {
+          title: 'Anfrage senden',
           text:
-            'Auch nach der ersten intensiven Zeit bleibe ich ansprechbar, wenn du Begleitung und Klarheit brauchst.',
+            'Schreib per WhatsApp oder ruf an. Wenn du schwanger bist, nenne bitte deinen errechneten Geburtstermin.',
+        },
+        {
+          title: 'Kurz abstimmen',
+          text: 'Wir besprechen dein Anliegen und klären die wichtigsten Punkte.',
+        },
+        {
+          title: 'Nächste Schritte',
+          text: 'Wenn es passt, vereinbaren wir alles Weitere direkt miteinander.',
         },
       ],
     },
     about: {
-      eyebrow: 'Über mich',
-      title: 'Ich begleite dich mit einer ruhigen Präsenz und einem offenen Blick für das, was du brauchst.',
-      paragraphs: [
-        'Mir ist wichtig, dass du dich nicht nur gut informiert, sondern vor allem gesehen fühlst. Jede Familie bringt ihre eigene Geschichte, ihr eigenes Tempo und ihre eigenen Fragen mit.',
-        'Deshalb soll meine Begleitung dir nicht noch mehr Anforderungen machen, sondern dir Halt geben, wenn du ihn brauchst, und Raum lassen, wenn du ihn suchst.',
-      ],
-      cta: 'Mehr über mich',
+      title: 'Wie ich arbeite',
+      lead: 'Gute Zusammenarbeit beginnt für mich mit einem offenen Gespräch.',
+      text:
+        'Ich höre aufmerksam zu, erkläre verständlich und treffe Absprachen klar. So weißt du, was als Nächstes ansteht.',
+      imageNote: 'Symbolisches Motiv',
     },
-    support: {
-      eyebrow: 'Ich bin für dich da',
-      title: 'Dein Weg darf sich getragen, klar und warm anfühlen.',
-      lead:
-        'Gemeinsam schaffen wir einen Rahmen, in dem du Fragen stellen, durchatmen und dich sicherer fühlen kannst.',
-      points: [
-        'für Gespräche, die entlasten und sortieren',
-        'für Orientierung bei kleinen und großen Fragen',
-        'für eine Begleitung, die sich nach deinem Alltag richtet',
-        'für einen Start, der nicht perfekt, sondern getragen sein darf',
-      ],
+    reviews: {
+      title: 'Erfahrungen von Familien',
+      text: 'Die folgenden Bewertungen werden direkt aus Google geladen.',
     },
     contact: {
-      eyebrow: 'Kontakt',
-      title: 'Du möchtest dich melden?',
-      text: 'Wenn du dir eine ruhige, persönliche Begleitung wünschst, freue ich mich auf deine Nachricht oder deinen Anruf.',
+      title: 'Melde dich gerne direkt.',
+      intro:
+        'Schreib kurz, worum es geht. Wenn du schwanger bist, nenne bitte deinen errechneten Geburtstermin. Ich sage dir, ob aktuell eine Betreuung möglich ist.',
       whatsapp: 'WhatsApp schreiben',
-      call: 'Anrufen',
-      meta: {
-        phoneLabel: 'Telefon',
-        phoneValue: '+49 123 4567890',
-        emailLabel: 'E-Mail',
-        emailValue: 'hallo@marina-hebamme.de',
-        locationLabel: 'Ort',
-        locationValue: 'Rund um deine Stadt',
-      },
+      phone: 'Jetzt anrufen',
     },
     footer: {
-      brand: 'Marina Rymmer · Hebamme',
       imprint: 'Impressum',
       privacy: 'Datenschutz',
     },
-    floating: {
-      call: 'Anrufen',
-      whatsapp: 'WhatsApp',
-      callAria: 'Anrufen',
-      whatsappAria: 'WhatsApp schreiben',
-    },
     images: {
-      heroAlt: 'Sanfte Szene einer Mutter mit Baby',
-      trustAlt: 'Mutter und Baby in einer ruhigen, warmen Szene',
-      whyAlt: 'Ruhiges Schwangerschaftsporträt',
-      step1Alt: 'Sanftes Schwangerschaftsporträt',
-      step2Alt: 'Szene zur Geburtsvorbereitung',
-      step3Alt: 'Schlafendes Baby in einer ruhigen Szene',
-      step4Alt: 'Warme Familienszene nach der Geburt',
-      aboutAlt: 'Warmes Porträt von Marina',
-      supportAlt: 'Ruhige Baby- und Mutter-Kind-Szene',
+      symbolicNote: 'Symbolisches Motiv',
+      heroAlt: 'Atmosphärisches Motiv rund um Schwangerschaft und Familie',
+      step1Alt: 'Symbolisches Bild einer Schwangerschaft',
+      step2Alt: 'Atmosphärisches Motiv einer Schwangeren',
+      step3Alt: 'Atmosphärisches Motiv eines Neugeborenen',
+      step4Alt: 'Atmosphärisches Mutter-Kind-Motiv',
+      trustAlt: 'Atmosphärisches Mutter-Kind-Motiv',
+      whyAlt: 'Symbolisches Bild einer Schwangeren',
+      aboutAlt: 'Atmosphärisches Motiv rund um Schwangerschaft',
+      supportAlt: 'Atmosphärisches Mutter-Kind-Motiv',
     },
   },
   ru: {
     meta: {
-      title: 'Marina Rymmer | Акушерка',
-      description:
-        'Marina Rymmer сопровождает тебя как акушерка с теплотой, спокойствием и надежностью во время беременности, родов и послеродового периода.',
+      title: 'Marina Rymmer | Акушерка в Нюрнберге',
+      description: 'Marina Rymmer работает акушеркой в Нюрнберге и говорит на немецком и русском языках.',
     },
     aria: {
       home: 'На главную',
       languageSwitch: 'Выбрать язык',
       mainNavigation: 'Основная навигация',
       mobileNavigation: 'Мобильная навигация',
-      quickContact: 'Быстрый контакт',
       menuOpen: 'Открыть меню',
       menuClose: 'Закрыть меню',
+      contactOptions: 'Способы связи',
+      legalNavigation: 'Правовая информация',
+      quickContact: 'Быстрая связь',
+      floatingPhone: 'Позвонить Marina Rymmer по номеру 0176 23488396',
+      floatingWhatsapp: 'Открыть чат WhatsApp с Marina Rymmer',
     },
     brand: {
       subline: 'Акушерка',
     },
     nav: {
       services: 'Услуги',
-      guidance: 'Сопровождение',
+      process: 'Как всё проходит',
       about: 'Обо мне',
-      contact: 'Контакт',
+      reviews: 'Отзывы',
+      contact: 'Контакты',
     },
     cta: {
-      requestSpot: 'Оставить заявку',
-      discoverServices: 'Смотреть услуги',
+      checkAvailability: 'Связаться',
+      viewServices: 'Посмотреть услуги',
+      askWithoutObligation: 'Задать вопрос',
     },
     hero: {
-      eyebrow: 'Мягкое сопровождение с доверием и спокойствием',
-      title: 'Спокойное пространство для твоей беременности, родов и первых дней вашей семьи.',
-      text:
-        'С теплотой, опытом и вниманием я сопровождаю тебя в период, когда особенно важно чувствовать поддержку, понимание и безопасность.',
-      noteTitle: 'Лично, спокойно и бережно.',
-      noteText: 'Сопровождение от первых вопросов до длительного послеродового периода.',
-      mediaLabel: 'Я рядом',
-      mediaText: 'Здесь есть место для вопросов, тихих тревог и сопровождения, которое подстраивается под тебя.',
-    },
-    guidance: {
-      eyebrow: 'Возможно, ты спрашиваешь себя',
-      title: 'Кто будет рядом со мной, когда всё новое и временами кажется слишком тяжёлым?',
-      questions: [
-        'Не слишком ли много у меня сейчас вопросов?',
-        'Как почувствовать уверенность среди всей этой информации?',
-        'Что поможет, если становятся заметны тревога или давление?',
-        'Как сделать первые дни с малышом более спокойными?',
-      ],
-    },
-    reasons: {
-      eyebrow: 'Сопровождение, которому можно доверять',
-      title: 'Почему женщины выбирают меня',
-      text: 'Потому что хорошее сопровождение не должно быть громким. Оно должно быть внимательным, ясным и спокойным.',
-      lead:
-        'Я уделяю время тому, что действительно тебя волнует, и сопровождаю тебя так, чтобы давать опору, а не создавать дополнительное давление.',
-      benefits: [
-        'Спокойное и личное сопровождение вместо быстрых стандартных ответов',
-        'Время для вопросов, тревог и всего, что чувствуется между строк',
-        'Понятная опора в чувствительный и насыщенный жизненный период',
-      ],
-      quote: '«В это время тебе не нужно проходить через всё в одиночку.»',
-    },
-    reviews: {
-      eyebrow: 'Тёплые слова',
-      title: 'Что семьи говорят о моём сопровождении',
-      text: 'Небольшой взгляд на настоящие отзывы и впечатления из Google Reviews.',
+      title: 'Акушерка в Нюрнберге.',
+      intro: 'Меня зовут Marina Rymmer. Со мной можно общаться на немецком и русском языках.',
+      cardTitle: 'Прямая связь',
+      cardText: 'Телефон и WhatsApp',
     },
     services: {
-      eyebrow: 'Твой путь со мной',
-      title: 'Чем я могу тебе помочь',
-      text:
-        'От первого знакомства до времени после родов я сопровождаю тебя шаг за шагом с теплотой, ясностью и спокойствием.',
-      steps: [
+      title: 'В какие периоды можно обратиться',
+      intro: 'Формат помощи зависит от вашей ситуации и обсуждается заранее.',
+      cards: [
         {
           title: 'Беременность',
-          text: 'Хорошее начало с местом для вопросов, перемен и чувства, что ты не одна.',
+          text: 'Помощь с вопросами и неуверенностью во время беременности.',
         },
         {
           title: 'Роды и подготовка',
-          text: 'Ориентиры, разговоры и подготовка, чтобы ты могла идти своим путем с большим доверием.',
+          text: 'Подготовка к родам и первым дням после них.',
         },
         {
-          title: 'Послеродовой период',
-          text: 'Мягкое сопровождение в первые недели с малышом, когда особенно важны близость, восстановление и чувство безопасности.',
+          title: 'После родов',
+          text: 'Поддержка в первые недели после рождения малыша.',
         },
         {
-          title: 'После этого',
-          text: 'И после первой интенсивной фазы я остаюсь рядом, если тебе нужны сопровождение и ясность.',
+          title: 'Первые месяцы в семье',
+          text: 'Вопросы, которые возникают в новом семейном ритме.',
+        },
+      ],
+      footer: 'Хотите уточнить, подходит ли ваш запрос?',
+    },
+    process: {
+      title: 'Как проходит обращение',
+      intro: 'Для первого обращения достаточно короткого сообщения или звонка.',
+      steps: [
+        {
+          title: 'Отправить запрос',
+          text:
+            'Напишите в WhatsApp или позвоните. Если вы беременны, укажите предполагаемую дату родов.',
+        },
+        {
+          title: 'Коротко всё обсудить',
+          text: 'Мы обсудим ваш запрос и уточним основные детали.',
+        },
+        {
+          title: 'Договориться о дальнейшем',
+          text: 'Если всё подходит, мы сразу согласуем дальнейшие шаги.',
         },
       ],
     },
     about: {
-      eyebrow: 'Обо мне',
-      title: 'Я сопровождаю тебя спокойным присутствием и открытым взглядом на то, что тебе действительно нужно.',
-      paragraphs: [
-        'Для меня важно, чтобы ты чувствовала себя не только хорошо информированной, но прежде всего замеченной и понятой. У каждой семьи своя история, свой темп и свои вопросы.',
-        'Поэтому мое сопровождение не должно создавать тебе дополнительные требования, а должно давать опору, когда она нужна, и пространство, когда ты его ищешь.',
-      ],
-      cta: 'Узнать больше',
+      title: 'Как я работаю',
+      lead: 'Для меня хорошее сотрудничество начинается с открытого разговора.',
+      text:
+        'Я внимательно слушаю, объясняю понятным языком и чётко договариваюсь о следующих шагах. Так вы знаете, что будет дальше.',
+      imageNote: 'Символическое изображение',
     },
-    support: {
-      eyebrow: 'Я рядом с тобой',
-      title: 'Твой путь может ощущаться поддержанным, ясным и теплым.',
-      lead:
-        'Вместе мы создадим пространство, в котором ты сможешь задавать вопросы, выдохнуть и почувствовать себя увереннее.',
-      points: [
-        'для разговоров, которые помогают выдохнуть и разобраться',
-        'для ориентира в маленьких и больших вопросах',
-        'для сопровождения, которое подстраивается под твой повседневный ритм',
-        'для старта, который не обязан быть идеальным, но может быть поддержанным',
-      ],
+    reviews: {
+      title: 'Отзывы семей',
+      text: 'Отзывы ниже загружаются напрямую из Google.',
     },
     contact: {
-      eyebrow: 'Контакт',
-      title: 'Хочешь связаться?',
-      text: 'Если ты хочешь спокойного и личного сопровождения, я буду рада твоему сообщению или звонку.',
+      title: 'Свяжитесь со мной.',
+      intro:
+        'Кратко опишите ваш запрос. Если вы беременны, укажите предполагаемую дату родов. Я сообщу, возможно ли сейчас сопровождение.',
       whatsapp: 'Написать в WhatsApp',
-      call: 'Позвонить',
-      meta: {
-        phoneLabel: 'Телефон',
-        phoneValue: '+49 123 4567890',
-        emailLabel: 'Эл. почта',
-        emailValue: 'hallo@marina-hebamme.de',
-        locationLabel: 'Место',
-        locationValue: 'В твоем городе и рядом',
-      },
+      phone: 'Позвонить',
     },
     footer: {
-      brand: 'Marina Rymmer · Акушерка',
       imprint: 'Импрессум',
       privacy: 'Защита данных',
     },
-    floating: {
-      call: 'Звонок',
-      whatsapp: 'WhatsApp',
-      callAria: 'Позвонить',
-      whatsappAria: 'Написать в WhatsApp',
-    },
     images: {
-      heroAlt: 'Спокойная сцена мамы с малышом',
-      trustAlt: 'Мама и малыш в спокойной теплой сцене',
-      whyAlt: 'Спокойный портрет беременности',
-      step1Alt: 'Нежный портрет беременности',
-      step2Alt: 'Сцена подготовки к родам',
-      step3Alt: 'Спящий малыш в спокойной обстановке',
-      step4Alt: 'Теплая семейная сцена после родов',
-      aboutAlt: 'Теплый портрет Марины',
-      supportAlt: 'Спокойная сцена малыша и мамы',
+      symbolicNote: 'Символическое изображение',
+      heroAlt: 'Атмосферное изображение на тему беременности и семьи',
+      step1Alt: 'Символическое изображение беременности',
+      step2Alt: 'Атмосферное изображение беременной женщины',
+      step3Alt: 'Атмосферное изображение новорождённого',
+      step4Alt: 'Атмосферное изображение мамы с ребёнком',
+      trustAlt: 'Атмосферное изображение мамы с ребёнком',
+      whyAlt: 'Символическое изображение беременной женщины',
+      aboutAlt: 'Атмосферное изображение на тему беременности',
+      supportAlt: 'Атмосферное изображение мамы с ребёнком',
     },
   },
-};
+}
 
-const body = document.body;
-const menuToggle = document.querySelector('[data-menu-toggle]');
-const mobileNav = document.querySelector('[data-mobile-nav]');
-const mobileLinks = document.querySelectorAll('[data-mobile-nav] a');
-const languageButtons = document.querySelectorAll('[data-lang-option]');
-const translatableElements = document.querySelectorAll('[data-i18n]');
-const preferredLanguageKey = 'preferred-language';
+const menuToggle = document.querySelector('[data-menu-toggle]')
+const mobileNav = document.querySelector('[data-mobile-nav]')
+const languageButtons = document.querySelectorAll('[data-lang-option]')
+const translatableElements = document.querySelectorAll('[data-i18n]')
 
-let currentLanguage = 'de';
+let activeLanguage = getStoredLanguage()
+let isMenuOpen = false
 
-const resolveTranslation = (language, key) => {
-  return key.split('.').reduce((value, segment) => {
-    if (value == null) {
-      return undefined;
-    }
-
-    if (Array.isArray(value)) {
-      return value[Number(segment)];
-    }
-
-    return value[segment];
-  }, translations[language]);
-};
-
-const getSavedLanguage = () => {
+function getStoredLanguage() {
   try {
-    const savedLanguage = window.localStorage.getItem(preferredLanguageKey);
-    return savedLanguage && translations[savedLanguage] ? savedLanguage : null;
+    const storedLanguage = window.localStorage.getItem('preferred-language')
+    return storedLanguage && translations[storedLanguage] ? storedLanguage : 'de'
   } catch {
-    return null;
+    return 'de'
   }
-};
+}
 
-const saveLanguage = (language) => {
-  try {
-    window.localStorage.setItem(preferredLanguageKey, language);
-  } catch {
-    // Ignore storage issues in restrictive environments.
+function getTranslation(language, path) {
+  return path.split('.').reduce((value, key) => value?.[key], translations[language])
+}
+
+function updateMenuLabel() {
+  if (!menuToggle) return
+
+  const key = isMenuOpen ? menuToggle.dataset.menuLabelCloseKey : menuToggle.dataset.menuLabelOpenKey
+  const label = getTranslation(activeLanguage, key)
+
+  if (typeof label === 'string') {
+    menuToggle.setAttribute('aria-label', label)
   }
-};
+}
 
-const updateLanguageButtons = (language) => {
-  languageButtons.forEach((button) => {
-    const isActive = button.dataset.langOption === language;
-    button.classList.toggle('is-active', isActive);
-    button.setAttribute('aria-pressed', String(isActive));
-  });
-};
+function applyLanguage(language) {
+  if (!translations[language]) return
 
-const updateMenuLabel = (isOpen) => {
-  if (!menuToggle) {
-    return;
-  }
-
-  const translationKey = isOpen
-    ? menuToggle.dataset.menuLabelCloseKey
-    : menuToggle.dataset.menuLabelOpenKey;
-  const label = resolveTranslation(currentLanguage, translationKey);
-
-  if (label) {
-    menuToggle.setAttribute('aria-label', label);
-  }
-};
-
-const applyTranslations = (language) => {
-  currentLanguage = language;
-  document.documentElement.lang = language;
+  activeLanguage = language
+  document.documentElement.lang = language
 
   translatableElements.forEach((element) => {
-    const translationKey = element.dataset.i18n;
-    const translation = resolveTranslation(language, translationKey);
+    const value = getTranslation(language, element.dataset.i18n)
 
-    if (typeof translation !== 'string') {
-      return;
+    if (typeof value !== 'string') return
+
+    const attributes = element.dataset.i18nAttr?.split(',').map((attribute) => attribute.trim())
+
+    if (attributes?.length) {
+      attributes.forEach((attribute) => element.setAttribute(attribute, value))
+    } else {
+      element.textContent = value
     }
+  })
 
-    const targetAttribute = element.dataset.i18nAttr;
+  languageButtons.forEach((button) => {
+    const isActive = button.dataset.langOption === language
+    button.classList.toggle('is-active', isActive)
+    button.setAttribute('aria-pressed', String(isActive))
+  })
 
-    if (targetAttribute) {
-      element.setAttribute(targetAttribute, translation);
-      return;
-    }
+  updateMenuLabel()
 
-    element.textContent = translation;
-  });
-
-  updateLanguageButtons(language);
-  updateMenuLabel(body.classList.contains('menu-open'));
-};
-
-const setLanguage = (language) => {
-  if (!translations[language]) {
-    return;
+  try {
+    window.localStorage.setItem('preferred-language', language)
+  } catch {
+    // The language still works when storage is unavailable.
   }
+}
 
-  applyTranslations(language);
-  saveLanguage(language);
-};
+function setMenuState(open) {
+  if (!menuToggle || !mobileNav) return
 
-const setMenuState = (isOpen) => {
-  if (!menuToggle || !mobileNav) {
-    return;
-  }
-
-  body.classList.toggle('menu-open', isOpen);
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-  mobileNav.hidden = !isOpen;
-  mobileNav.setAttribute('aria-hidden', String(!isOpen));
-  updateMenuLabel(isOpen);
-};
-
-currentLanguage = getSavedLanguage() || 'de';
-
-if (menuToggle && mobileNav) {
-  setMenuState(false);
-
-  menuToggle.addEventListener('click', () => {
-    setMenuState(!body.classList.contains('menu-open'));
-  });
-
-  mobileLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      setMenuState(false);
-    });
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 960) {
-      setMenuState(false);
-    }
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      setMenuState(false);
-    }
-  });
+  isMenuOpen = open
+  menuToggle.classList.toggle('is-open', open)
+  menuToggle.setAttribute('aria-expanded', String(open))
+  mobileNav.classList.toggle('is-open', open)
+  mobileNav.setAttribute('aria-hidden', String(!open))
+  document.body.classList.toggle('menu-open', open)
+  updateMenuLabel()
 }
 
 languageButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    setLanguage(button.dataset.langOption);
-  });
-});
+  button.addEventListener('click', () => applyLanguage(button.dataset.langOption))
+})
 
-applyTranslations(currentLanguage);
+menuToggle?.addEventListener('click', () => setMenuState(!isMenuOpen))
+
+mobileNav?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => setMenuState(false))
+})
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && isMenuOpen) {
+    setMenuState(false)
+    menuToggle?.focus()
+  }
+})
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 959 && isMenuOpen) {
+    setMenuState(false)
+  }
+})
+
+function initializeReveals() {
+  const revealElements = [...document.querySelectorAll('[data-reveal]')]
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (!revealElements.length || prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealElements.forEach((element) => element.classList.add('is-visible'))
+    return
+  }
+
+  document.documentElement.classList.add('reveal-ready')
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+
+        entry.target.classList.add('is-visible')
+        observer.unobserve(entry.target)
+      })
+    },
+    {
+      rootMargin: '0px 0px -8% 0px',
+      threshold: 0.12,
+    },
+  )
+
+  revealElements.forEach((element) => observer.observe(element))
+}
+
+applyLanguage(activeLanguage)
+setMenuState(false)
+initializeReveals()
