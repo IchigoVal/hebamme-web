@@ -2,6 +2,8 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
+Der aktuelle Arbeitsbranch heißt `rework-content-design`. Die aktive Website-Fassung entspricht `checkpoint/final-polish`; danach wurde nur noch diese Verlaufsdatei um die endgültige Commit-ID ergänzt.
+
 ## Checkpoints
 
 | Reihenfolge | Datum | Git-Tag | Commit | Zustand |
@@ -9,7 +11,7 @@ Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Bra
 | 1 | 19.09.2026 | `checkpoint/pre-rethink` | `22a4fbb` | Website exakt vor der Überarbeitung von Inhalt und Design. Enthält auch alle Änderungen, die zu Beginn noch nicht committed waren. |
 | 2 | 19.09.2026 | `checkpoint/content-rework` | `4570c82` | Neu geordnete und vollständig überarbeitete deutsche und russische Inhalte bei weitgehend unverändertem Design. |
 | 3 | 19.09.2026 | `checkpoint/design-rework` | `8ffdf1a` | Neue redaktionelle Gestaltung mit überarbeiteter Typografie, Bildinszenierung, Abschnittsrhythmik und eigenständigen mobilen Layouts. |
-| 4 | 19.09.2026 | `checkpoint/final-polish` | wird nach dem Checkpoint ergänzt | Abschließend geprüfter Stand mit Feinschliff an Text, Bildtransparenz, Navigation, Fokusverhalten und mobilen Kontaktaktionen. |
+| 4 | 19.09.2026 | `checkpoint/final-polish` | `b30682e` | Abschließend geprüfter Stand mit Feinschliff an Text, Bildtransparenz, Navigation, Fokusverhalten und mobilen Kontaktaktionen. |
 
 ### 1. `checkpoint/pre-rethink`
 
