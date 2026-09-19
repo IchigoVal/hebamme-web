@@ -1,15 +1,20 @@
-// Local visual audit. No dependencies; screenshots/reports go to the OS temp folder.
+// Windows/Edge regression QA (Node 22+), no extra dependencies.
+// npm run build
+// npm run preview -- --host 127.0.0.1 --port 4175 --strictPort
+// node scripts/deep-pass-browser.mjs [baseUrl] [final|audit|baseline] [optional case: 390/de]
+// Screenshots/reports stay in OS TEMP; BROWSER_PATH optionally selects another Chromium binary.
 import { spawn } from 'node:child_process'
 import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
+import vm from 'node:vm'
 
-const base = process.argv[2] || 'http://127.0.0.1:5175/hebamme-web/'
-const phase = process.argv[3] || 'audit'
+const base = process.argv[2] || 'http://127.0.0.1:4175/hebamme-web/'
+const phase = process.argv[3] || 'final'
 const profile = await mkdtemp(path.join(os.tmpdir(), 'hebamme-deep-browser-'))
 const output = path.join(os.tmpdir(), `hebamme-astra-${phase}`)
 await mkdir(output, { recursive: true })
-const child = spawn('C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', [
+const child = spawn(process.env.BROWSER_PATH || 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', [
   '--headless=new', '--hide-scrollbars', '--disable-gpu', '--no-first-run',
   '--remote-debugging-port=0', '--remote-allow-origins=*', `--user-data-dir=${profile}`, 'about:blank',
 ], { stdio: 'ignore' })
@@ -52,14 +57,35 @@ const evaluate = async expression => {
   return r.result.value
 }
 const screenshot = async (name, clip) => {
-  const result = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true, ...(clip ? { clip: { ...clip, scale: 1 } } : {}) })
+  const result = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: Boolean(clip), ...(clip ? { clip: { ...clip, scale: 1 } } : {}) })
   await writeFile(path.join(output, `${name}.png`), Buffer.from(result.data, 'base64'))
 }
 await send('Page.enable')
 await send('Runtime.enable')
 await send('Network.enable')
-const matrix = phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']] : [[1440,'de'],[1024,'de'],[768,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
+const fullMatrix = phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']] : [[1440,'de'],[1024,'de'],[768,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
+const matrix = process.argv[4] ? fullMatrix.filter(([width,language])=>`${width}/${language}`===process.argv[4]) : fullMatrix
+if (!matrix.length) throw new Error('Unknown viewport/language case')
 const report = []
+const interactions = []
+const source = await readFile(new URL('../src/main.js', import.meta.url), 'utf8')
+const translations = vm.runInNewContext(source.slice(source.indexOf('const translations ='), source.indexOf('const menuToggle =')) + '\ntranslations')
+const press = async (key, code, virtual, modifiers = 0) => {
+  // Native controls need the character event as well as keydown (custom handlers do not).
+  const text = key === 'Enter' ? '\r' : key === ' ' ? ' ' : undefined
+  await send('Input.dispatchKeyEvent', {type:'keyDown',key,code,windowsVirtualKeyCode:virtual,modifiers,...(text ? {text,unmodifiedText:text} : {})})
+  await send('Input.dispatchKeyEvent', {type:'keyUp',key,code,windowsVirtualKeyCode:virtual,modifiers})
+}
+const click = async selector => {
+  const point = await evaluate(`(() => {const e=document.querySelector(${JSON.stringify(selector)}); e.scrollIntoView({block:'center',behavior:'instant'}); const r=e.getBoundingClientRect(); return {x:r.x+r.width/2,y:r.y+r.height/2}})()`)
+  await send('Input.dispatchMouseEvent', {type:'mousePressed',button:'left',clickCount:1,...point})
+  await send('Input.dispatchMouseEvent', {type:'mouseReleased',button:'left',clickCount:1,...point})
+  await wait(200)
+}
+const assert = (condition, name) => {
+  interactions.push({name,pass:Boolean(condition)})
+  if (!condition) console.error(`FAILED: ${name}`)
+}
 try {
   for (const [width, language] of matrix) {
     await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: false })
@@ -72,8 +98,20 @@ try {
       await wait(120)
     }
     await wait(900)
+    // Visit lazy-loaded images, including cards initially outside the horizontal viewport.
+    await evaluate(`(async () => {
+      for (const img of [...document.querySelectorAll('main img')].filter(i=>new URL(i.src).origin===location.origin)) {
+        img.scrollIntoView({block:'center',inline:'center',behavior:'instant'});
+        if (!img.complete) await new Promise(resolve=>{
+          const timer=setTimeout(resolve,5000);
+          const done=()=>{clearTimeout(timer);resolve()};
+          img.addEventListener('load',done,{once:true}); img.addEventListener('error',done,{once:true});
+        });
+      }
+      document.querySelector('[data-services-track]').scrollTo({left:0,behavior:'instant'});
+    })()`)
     const sections = await evaluate(`Array.from(document.querySelectorAll('main > section')).map(s => ({id:s.id || 'hero', y:s.getBoundingClientRect().top + scrollY, height:s.offsetHeight}))`)
-    if (width === 1440 || width === 390) {
+    if (phase === 'final' || width === 1440 || width === 390) {
       for (const section of sections) {
         const selector = section.id === 'hero' ? '.hero-section' : `#${section.id}`
         await evaluate(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView({behavior:'instant'})`)
@@ -94,10 +132,116 @@ try {
       clippedText: [...document.querySelectorAll('h1,h2,h3,p,summary')].filter(e=>e.scrollWidth>e.clientWidth+1).map(e=>({text:e.textContent.trim(),width:e.clientWidth,scroll:e.scrollWidth})),
       translated: [...document.querySelectorAll('[data-i18n]')].map(e=>({key:e.dataset.i18n,value:e.dataset.i18nAttr?e.getAttribute(e.dataset.i18nAttr):e.textContent.trim()}))
     })`)
-    report.push({ width, language, ...metrics })
+    const missingTranslations = metrics.translated.filter(item => {
+      const expected = item.key.split('.').reduce((obj,key)=>obj?.[key],translations[language])
+      return typeof expected !== 'string' || item.value !== expected
+    })
+    report.push({ width, language, ...metrics, missingTranslations })
+    if (phase === 'final') {
+      assert(!metrics.overflow && !metrics.clippedText.length, `${width}/${language}: no overflow or clipped text`)
+      assert(!missingTranslations.length, `${width}/${language}: translations match`)
+      assert(metrics.images.filter(i=>!i.src.startsWith('http')).every(i=>i.ok), `${width}/${language}: local images`)
+      assert(!metrics.anchors.length, `${width}/${language}: anchors`)
+      assert(metrics.links.filter(l=>l.href.startsWith('tel:')).every(l=>l.href==='tel:+4917623488396') && metrics.links.filter(l=>l.href.includes('wa.me')).every(l=>l.href==='https://wa.me/4917623488396'),`${width}/${language}: telephone and WhatsApp targets`)
+      await evaluate(`document.querySelector('.faq-list summary').focus()`)
+      await press('Enter','Enter',13)
+      assert(await evaluate(`document.querySelector('.faq-list details').open && document.activeElement.matches(':focus-visible')`), `${width}/${language}: keyboard FAQ and visible focus`)
+      await press(' ','Space',32)
+      assert(await evaluate(`!document.querySelector('.faq-list details').open`),`${width}/${language}: Space closes FAQ`)
+      await evaluate(`document.querySelectorAll('.faq-list details').forEach(d=>d.open=true); document.querySelector('#wissen').scrollIntoView({behavior:'instant'})`)
+      await wait(150)
+      assert(await evaluate(`!Array.from(document.querySelectorAll('.faq-answer')).some(e=>e.scrollWidth>e.clientWidth+1)`),`${width}/${language}: expanded FAQ fits`)
+      const faq = await evaluate(`(() => {const e=document.querySelector('#wissen');return {x:0,y:e.getBoundingClientRect().top+scrollY,width:innerWidth,height:e.offsetHeight}})()`)
+      await screenshot(`${width}-${language}-faq-open`,faq)
+      await evaluate(`document.querySelectorAll('.faq-list details').forEach(d=>d.open=false)`)
+      if (width < 960) {
+        await click('[data-menu-toggle]')
+        assert(await evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')==='true' && document.querySelector('main').inert && document.activeElement.closest('.mobile-nav') !== null`),`${width}/${language}: menu opens and focus enters`)
+        await screenshot(`${width}-${language}-menu`)
+        await evaluate(`document.querySelector('.mobile-nav a:last-child').focus()`)
+        await press('Tab','Tab',9)
+        assert(await evaluate(`document.activeElement.matches('[data-menu-toggle]')`),`${width}/${language}: menu focus loops forward`)
+        await press('Tab','Tab',9,8)
+        assert(await evaluate(`document.activeElement.matches('.mobile-nav a:last-child')`),`${width}/${language}: menu focus loops backward`)
+        await press('Escape','Escape',27)
+        assert(await evaluate(`document.querySelector('[data-mobile-nav]').inert && !document.querySelector('main').inert && document.activeElement.matches('[data-menu-toggle]')`),`${width}/${language}: Escape closes and restores focus`)
+        await click('[data-menu-toggle]')
+        await click('.mobile-nav a[href="#wissen"]')
+        await wait(800)
+        assert(await evaluate(`document.activeElement.id==='wissen' && document.querySelector('[data-mobile-nav]').inert && document.querySelector('#wissen').getBoundingClientRect().top >= document.querySelector('.site-header').offsetHeight - 1`),`${width}/${language}: menu anchor focus and sticky offset`)
+      }
+      if (width < 720) {
+        await evaluate(`document.querySelector('[data-services-track]').scrollIntoView({block:'center',behavior:'instant'});document.querySelector('[data-services-track]').focus()`)
+        await press('ArrowRight','ArrowRight',39)
+        await wait(650)
+        assert(await evaluate(`document.querySelector('[data-services-position]').textContent.startsWith('02')`),`${width}/${language}: card keyboard right`)
+        await press('End','End',35)
+        await wait(650)
+        assert(await evaluate(`document.querySelector('[data-services-position]').textContent.startsWith('04') && document.querySelector('[data-services-next]').disabled`),`${width}/${language}: card end and disabled next`)
+        await screenshot(`${width}-${language}-card-04`)
+        await press('Home','Home',36)
+        await wait(650)
+        assert(await evaluate(`document.querySelector('[data-services-position]').textContent.startsWith('01') && document.querySelector('[data-services-prev]').disabled`),`${width}/${language}: card home and disabled previous`)
+        await click('[data-services-next]')
+        await wait(650)
+        assert(await evaluate(`document.querySelector('[data-services-position]').textContent.startsWith('02')`),`${width}/${language}: card pointer next`)
+        await click('[data-services-prev]')
+        await wait(650)
+        assert(await evaluate(`document.querySelector('[data-services-position]').textContent.startsWith('01')`),`${width}/${language}: card pointer previous`)
+      }
+    }
+    console.log(`Checked ${width}/${language}`)
   }
-  await writeFile(path.join(output,'report.json'), JSON.stringify({report,errors,failedRequests},null,2))
-  console.log(JSON.stringify({output, report:report.map(({text,links,translated,...r})=>r),errors,failedRequests},null,2))
+  if (phase === 'final') {
+    await send('Emulation.setDeviceMetricsOverride',{width:390,height:900,deviceScaleFactor:1,mobile:false})
+    await send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1})
+    await send('Page.navigate',{url:base})
+    await wait(800)
+    await evaluate(`document.querySelector('[data-services-track]').scrollIntoView({block:'center',behavior:'instant'})`)
+    const swipe = await evaluate(`(() => {const r=document.querySelector('[data-services-track]').getBoundingClientRect();return {x:r.right-30,y:Math.max(120,r.top+120)}})()`)
+    await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{...swipe,id:1}]})
+    for (let step=1;step<=8;step++) {
+      await send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:swipe.x-step*32,y:swipe.y,id:1}]})
+      await wait(30)
+    }
+    await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]})
+    await wait(700)
+    assert(await evaluate(`document.querySelector('[data-services-track]').scrollLeft>100`),'390: touch swipe moves cards')
+    await send('Emulation.setTouchEmulationEnabled',{enabled:false})
+    await click('[data-menu-toggle]')
+    await send('Emulation.setDeviceMetricsOverride',{width:1024,height:1000,deviceScaleFactor:1,mobile:false})
+    await wait(250)
+    assert(await evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')==='false' && !document.querySelector('main').inert`),'menu closes at desktop breakpoint')
+    await send('Emulation.setDeviceMetricsOverride',{width:390,height:900,deviceScaleFactor:1,mobile:false})
+    await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]})
+    await send('Page.navigate',{url:base})
+    await wait(800)
+    assert(await evaluate(`!document.documentElement.classList.contains('reveal-ready') && [...document.querySelectorAll('[data-reveal]')].every(e=>getComputedStyle(e).opacity==='1')`),'reduced motion: all reveal content visible')
+    await evaluate(`document.querySelector('[data-services-track]').scrollIntoView({behavior:'instant'});document.querySelector('[data-services-track]').focus()`)
+    await press('End','End',35)
+    await wait(50)
+    assert(await evaluate(`document.querySelector('[data-services-position]').textContent.startsWith('04')`),'reduced motion: card jump completes immediately')
+    for (const selector of ['.hero-inquiry-link','.desktop-nav a[href="#hebammenhilfe"]']) {
+      await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false})
+      await click(selector)
+      await wait(150)
+      assert(await evaluate(`(() => {const a=document.querySelector(${JSON.stringify(selector)});const r=document.querySelector(a.hash).getBoundingClientRect();return r.top>=document.querySelector('.site-header').offsetHeight-1})()`),`${selector}: anchor clears sticky header`)
+    }
+    assert(await evaluate(`document.querySelector('.desktop-nav a[href="#hebammenhilfe"]').getAttribute('aria-current')==='location'`),'desktop active section marker')
+    for (const pathname of ['favicon.png','apple-touch-icon.png','impressum.html','datenschutz.html']) {
+      const response = await fetch(new URL(pathname,base))
+      assert(response.ok,`local resource ${pathname}`)
+    }
+    await send('Emulation.setScriptExecutionDisabled',{value:true})
+    await send('Page.navigate',{url:base})
+    await wait(700)
+    const fallback = await evaluate(`({title:document.querySelector('h1').textContent,nav:document.querySelector('.desktop-nav a[href="#leistungen"]').textContent,hidden:[...document.querySelectorAll('main [data-reveal]')].some(e=>getComputedStyle(e).opacity==='0')})`)
+    assert(fallback.title===translations.de.hero.title && fallback.nav===translations.de.nav.services && !fallback.hidden,'German no-JavaScript fallback and visible content')
+    await send('Emulation.setScriptExecutionDisabled',{value:false})
+  }
+  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests},null,2))
+  console.log(JSON.stringify({output,report:report.map(({width,language,overflow,clippedText,missingTranslations})=>({width,language,overflow,clippedText,missingTranslations})),interactions,errors,failedRequests},null,2))
+  if (interactions.some(check=>!check.pass) || errors.length || failedRequests.some(r=>r.url.startsWith(base))) process.exitCode=1
 } finally {
   socket.close()
   child.kill()

@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `legal-pass`. Der jüngste geprüfte Website-Stand liegt auf `checkpoint/micro-polish-final` (`daac283`); der unmittelbar davor liegende Stand ist als `checkpoint/pre-micro-polish` (`d86d800`) gesichert. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch legal-pass`.
+Der aktuelle Arbeitsbranch heißt `astra-deep-final`. Der jüngste geprüfte Website-Stand ist `checkpoint/astra-deep-final` (Commit-ID wird nach Erstellung im Dokumentationsabschluss ergänzt). Der Ausgangspunkt bleibt als `checkpoint/pre-astra-deep-final` (`875e1c3`) und auf `legal-pass` erhalten. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-deep-final`.
 
 ## Checkpoints
 
@@ -28,6 +28,11 @@ Der aktuelle Arbeitsbranch heißt `legal-pass`. Der jüngste geprüfte Website-S
 | 18 | 19.09.2026 | `checkpoint/legal-pass-final` | `be44e7d` | Final geprüfter Legal-Pass; Elfsight lädt für die lokale Entwicklungsphase wieder automatisch und soll vor Veröffentlichung entfernt werden. |
 | 19 | 19.09.2026 | `checkpoint/pre-micro-polish` | `d86d800` | Exakter Projektstand vor dem abschließenden kleinen visuellen Feinschliff. |
 | 20 | 19.09.2026 | `checkpoint/micro-polish-final` | `daac283` | Reduzierte Abschnittseinstiege ohne redundante Eyebrow-Labels; geprüfte DE/RU-Darstellung bei unveränderter CTA-Hierarchie. |
+| 21 | 19.09.2026 | `checkpoint/number-polish-final` | `875e1c3` | Nummernmarker auf 14 px nachjustiert; Ausgangsstand des Astra-Deep-Passes. |
+| 22 | 19.09.2026 | `checkpoint/pre-astra-deep-final` | `875e1c3` | Exakter unveränderter Ausgangspunkt vor dem Deep-Pass; sauberer Working Tree. |
+| 23 | 19.09.2026 | `checkpoint/astra-deep-content` | `b11abc2` | Neue Rollenverteilung der Abschnitte, organisatorisches FAQ und integrierte Marina-/Anfrageinformation in DE/RU. |
+| 24 | 19.09.2026 | `checkpoint/astra-deep-design` | `ce405a4` | Editorialer Namens-Hero, integrierter Kontaktabschluss, neue Review-Komposition und mobile Karten-/Navigationsbedienung. |
+| 25 | 20.09.2026 | `checkpoint/astra-deep-final` | nach Erstellung ergänzt | Design unverändert final geprüft; dauerhaftes Browser-Regressionsskript und Abschlussdokumentation. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -265,6 +270,45 @@ Zum aktuellen Entwicklungsbranch zurückkehren:
 ```bash
 git switch legal-pass
 ```
+
+### 21–25. Astra Deep Final: Content, Art Direction und abschließende QA
+
+Ausgangsstand: `875e1c3` auf `legal-pass`. Der Deep-Pass wurde auf dem separaten Branch `astra-deep-final` durchgeführt; alle älteren Stände blieben unangetastet. `ASTRA_DEEP_PASS_STATUS.md` enthält Prioritäten, Entscheidungen und den Fortsetzungsstatus.
+
+Die größten Schwächen waren der große, informationsarme und zum Hero redundante Marina-Block, eine wiederholende Wochenbett-FAQ und eine Desktop-Bewertungsüberschrift, die ihre Spalte überschritt. Die neue Reihenfolge lautet: Hero mit Name/Beruf/Ort/Sprachen → allgemeine Hebammenhilfe → vier Anfrageanlässe → Erfahrungen → praktisches FAQ → Marina und erste Anfrage als gemeinsamer Abschluss.
+
+Neu ist die organisatorische Frage, was vor einer Betreuung geklärt werden sollte: konkrete Leistungen, Wohnort, Zeitraum und nächste Schritte. Sie ersetzt die doppelte Wochenbett-Erklärung. Die erste Nachricht erhält eine scannbare Liste mit Name, Wohnort, gegebenenfalls Geburtstermin und Anliegen. Keine zusätzliche medizinische Behauptung und keine erfundene Biografie, Verfügbarkeit oder Leistung von Marina. Allgemeine Hebammeninformationen bleiben ausdrücklich von Marinas tatsächlich zu klärendem Angebot getrennt. Deutscher HTML-Fallback und russische Übersetzung sind synchron.
+
+Das Design setzt auf den Namen als großen typografischen Einstieg und einen internen Weg zur Anfragehilfe. Der ehemalige separate Marina-Block entfällt zugunsten der kompakten dunklen Identitätsfläche mit Kontaktfoto neben einer hellen Anfragefläche. Mobile stapelt Identität, schmalen Bildausschnitt und Anfrage; Desktop/Tablet nutzen zwei Spalten. Reviews bekommen einen vollbreiten Einstieg. Die vier Bildkarten bleiben, auf Desktop ruhiger gestaffelt, mobil mit 44-px-Pfeilen und Positionsanzeige. Pfeiltasten/Home/End, Touch-Swipe und Reduced Motion werden unterstützt. Die Navigation zeigt den aktuellen Abschnitt; das mobile Menü hält den Fokus und übergibt ihn an das Sprungziel. Der schwebende Kontakt ist unter 1400 px ausgeblendet, weil er zuvor Lesetext überdeckte.
+
+Keine Bilder generiert, ersetzt oder gelöscht. Das nicht mehr eingesetzte `about-detail.jpg` bleibt als Originaldatei erhalten. Farbpalette, Serifenschrift, lokale Fonts und 14-px-Nummern bleiben bestehen. `impressum.html`, `datenschutz.html` und `LEGAL_RELEASE_CHECKLIST.md` sind gegenüber `875e1c3` unverändert; die Elfsight-Ladefunktion ist ebenfalls identisch. Lediglich die umgebende Review-Komposition wurde gestaltet. Placeholder-Mail und temporäre Elfsight-Entwicklungsintegration bleiben ausdrücklich ungelöste Release-Themen des bestehenden Legal-Plans.
+
+Nach der Usage-Limit-Unterbrechung wurde exakt auf Designcommit `ce405a4` mit dem offenen QA-Skript weitergearbeitet. Keine neue Designphase, kein Reset, keine verworfenen Änderungen. Sieben alte FAQ-Testfehler stammten aus einer unvollständigen CDP-Enter-Simulation; ein isolierter Mobiltest bewertete zudem noch nicht besuchte Lazy-Load-Kartenbilder zu früh. Korrigiert wurden nur Tests, nicht die funktionierende Website. Interaktionsscreenshots wurden auf den echten Viewport begrenzt.
+
+Finale Produktions-QA mit lokalem Headless-Edge: **113/113 Prüfungen bestanden**, 1440/1024/768/390/320 DE und 390/320 RU. Kein horizontaler Dokument-Overflow, keine gemessenen Textüberläufe, fehlenden Übersetzungen, defekten lokalen Bilder/Anker, JS-Ausnahmen oder HTTP-Fehler. FAQ, Menü-Fokusfalle vorwärts/rückwärts, Escape/Fokusrückgabe, Sticky-Anker, aktiver Navigationsstatus, Kartensteuerung einschließlich Randzuständen, Touch-Swipe, Reduced Motion und No-JavaScript-Fallback bestanden. Telefon, WhatsApp, Rechtseiten, Favicon und Apple-Icon geprüft; alle vier externen Quellenlinks HTTP 200. Finale Screenshots und komplette DE/RU-Redaktion geprüft. Build und `git diff --check` erfolgreich. Keine vollständige WCAG-Zertifizierung oder Prüfung auf physischer iOS-/Android-Hardware behauptet.
+
+Das wiederverwendbare Skript `scripts/deep-pass-browser.mjs` bleibt im Repository. Aufruf nach `npm run build` und einer Preview auf Port 4175: `node scripts/deep-pass-browser.mjs`. Node 22+ und Edge, alternativ `BROWSER_PATH`; keine neue Abhängigkeit. Screenshots/Reports und Browserprofile werden nicht committed. Ein separater Dokumentationscommit ergänzt die endgültige Final-Checkpoint-ID, ohne Website oder Tag zu ändern.
+
+Den Zustand vor Astra sicher ansehen (nur mit sauberem Working Tree; neue Branchnamen verwenden):
+
+```bash
+git status
+git switch -c ansehen-vor-astra-deep checkpoint/pre-astra-deep-final
+```
+
+Zur vollständigen Astra-Version einschließlich Dokumentation zurückkehren:
+
+```bash
+git switch astra-deep-final
+```
+
+Alternativ den exakt getesteten Final-Checkpoint in einem eigenen Branch öffnen:
+
+```bash
+git switch -c ansehen-astra-deep-final checkpoint/astra-deep-final
+```
+
+Kein Reset nötig. Kein Tag verschoben, kein Push, kein Deployment. Weitere Variationen von Hero-Größe, Weißraum und Bildmotiven sind Geschmacksfragen, keine offenen QA-Fehler.
 
 ## Einen Checkpoint nur ansehen
 
