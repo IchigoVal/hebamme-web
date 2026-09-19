@@ -95,6 +95,10 @@ html[lang='ru'] .hero-copy h1 { max-width: 12ch; font-size: clamp(3.3rem,4.8vw,5
 .orientation-section { background: var(--sand); }
 .orientation-layout { display: grid; grid-template-columns: minmax(0,.78fr) minmax(0,1.22fr); align-items: start; gap: clamp(4rem,8vw,8rem); }
 .orientation-section .section-heading { max-width: 32rem; }
+.orientation-section h2 { max-width: 100%; }
+@media (min-width: 960px) {
+  .orientation-section h2 { font-size: clamp(2.5rem,4vw,3.75rem); }
+}
 .orientation-section .eyebrow, .faq-section .eyebrow { margin-bottom: 1.35rem; }
 .orientation-note { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(59,49,44,.2); font-size: .86rem !important; line-height: 1.65 !important; }
 .orientation-list { margin: 0; padding: 0; list-style: none; }
@@ -123,7 +127,7 @@ html[lang='ru'] .hero-copy h1 { max-width: 12ch; font-size: clamp(3.3rem,4.8vw,5
 .about-section { padding-block: 0; background: var(--cocoa); color: var(--paper); }
 .about-layout { display: grid; width: 100%; max-width: none; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 0; }
 .about-visual { position: relative; min-height: 40rem; overflow: hidden; }
-.about-visual img { height: 100%; object-fit: cover; object-position: 50% 58%; }
+.about-visual img { position: absolute; inset: 0; height: 100%; object-fit: cover; object-position: 50% 58%; }
 .about-copy { display: flex; max-width: 40rem; flex-direction: column; justify-content: center; padding: clamp(4rem,9vw,9rem) var(--gutter); }
 .about-copy h2 { max-width: 9ch; color: #fff; }
 .about-lead { max-width: 28rem; margin-top: 2.2rem; color: var(--rose); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.45rem,2.2vw,2.1rem); line-height: 1.35; }

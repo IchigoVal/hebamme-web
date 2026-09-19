@@ -17,7 +17,7 @@ const translations = {
       contactOptions: 'Kontaktmöglichkeiten',
       legalNavigation: 'Rechtliche Hinweise',
       quickContact: 'Schnellkontakt',
-      servicesCarousel: 'Leistungsübersicht. Auf kleinen Bildschirmen horizontal scrollbar.',
+      servicesCarousel: 'Anfrageanlässe. Auf kleinen Bildschirmen horizontal scrollbar.',
       floatingPhone: 'Marina Rymmer unter 0176 23488396 anrufen',
       floatingWhatsapp: 'WhatsApp-Chat mit Marina Rymmer öffnen',
     },
@@ -92,7 +92,6 @@ const translations = {
     faq: {
       eyebrow: 'Allgemeine Hinweise',
       title: 'Gut zu wissen',
-      intro: 'Vier kurze Antworten zur Hebammensuche und zum ersten Kontakt.',
       items: [
         {
           question: 'Wann sollte ich mit der Suche beginnen?',
@@ -167,7 +166,7 @@ const translations = {
       contactOptions: 'Способы связи',
       legalNavigation: 'Правовая информация',
       quickContact: 'Быстрая связь',
-      servicesCarousel: 'Обзор услуг. На небольших экранах прокручивается горизонтально.',
+      servicesCarousel: 'Поводы для обращения. На небольших экранах прокручивается горизонтально.',
       floatingPhone: 'Позвонить Marina Rymmer по номеру 0176 23488396',
       floatingWhatsapp: 'Открыть чат WhatsApp с Marina Rymmer',
     },
@@ -244,7 +243,6 @@ const translations = {
     faq: {
       eyebrow: 'Общая информация',
       title: 'Полезно знать',
-      intro: 'Четыре коротких ответа о поиске акушерки и первом обращении.',
       items: [
         {
           question: 'Когда начинать поиск акушерки?',
