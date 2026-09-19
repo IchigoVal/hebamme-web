@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `rework-content-design`. Die aktive Website-Fassung entspricht `checkpoint/final-polish`; danach wurde nur noch diese Verlaufsdatei um die endgültige Commit-ID ergänzt.
+Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Ausgangspunkt dieses Branches ist der vollständig erhaltene Stand `checkpoint/pre-logo-assets-pass`; die vorherige Entwicklung bleibt zusätzlich auf `rework-content-design` erhalten.
 
 ## Checkpoints
 
@@ -12,6 +12,8 @@ Der aktuelle Arbeitsbranch heißt `rework-content-design`. Die aktive Website-Fa
 | 2 | 19.09.2026 | `checkpoint/content-rework` | `4570c82` | Neu geordnete und vollständig überarbeitete deutsche und russische Inhalte bei weitgehend unverändertem Design. |
 | 3 | 19.09.2026 | `checkpoint/design-rework` | `8ffdf1a` | Neue redaktionelle Gestaltung mit überarbeiteter Typografie, Bildinszenierung, Abschnittsrhythmik und eigenständigen mobilen Layouts. |
 | 4 | 19.09.2026 | `checkpoint/final-polish` | `b30682e` | Abschließend geprüfter Stand mit Feinschliff an Text, Bildtransparenz, Navigation, Fokusverhalten und mobilen Kontaktaktionen. |
+| 5 | 19.09.2026 | `checkpoint/pre-logo-assets-pass` | `8eb3f14` | Aktiver Website-Stand vor dem Logo- und Bilder-Pass, einschließlich der beiden neu bereitgestellten Logo-Kandidaten. |
+| 6 | 19.09.2026 | `checkpoint/logo-assets-pass` | wird nach dem Checkpoint ergänzt | Neues Logo in Header und Browser-Tab sowie drei gezielt erneuerte, weboptimierte Bildmotive. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -28,6 +30,28 @@ Dieser Stand enthält die neue visuelle Richtung. Große Typografie, klare Fläc
 ### 4. `checkpoint/final-polish`
 
 Dieser Stand enthält die abschließende, getestete Fassung. Bildhinweise machen bei den beiden besonders personenbezogen wirkenden Motiven ausdrücklich klar, dass Marina nicht abgebildet ist. Die Navigation ist im geschlossenen Zustand auch für die Tastatur deaktiviert, die mobile Schnellkontaktleiste verdeckt weniger Inhalt und Texte wurden ein letztes Mal auf konkrete, belegte Aussagen reduziert.
+
+### 5. `checkpoint/pre-logo-assets-pass`
+
+Dieser Tag markiert den vollständigen Stand unmittelbar vor der Integration des neuen Logos und der Überarbeitung einzelner Bildassets. Er enthält bereits die unveränderten Quelldateien `assets/logo.jpeg` und `assets/logo_big.jpeg`. Der dafür angelegte Arbeitsbranch heißt `asset-logo-pass`; der zuvor aktive Entwicklungsstand bleibt zusätzlich auf `rework-content-design` erhalten.
+
+### 6. `checkpoint/logo-assets-pass`
+
+Für die Logo-Ableitung wurde `assets/logo_big.jpeg` gewählt, weil die Datei mit 906 × 1280 Pixeln eine deutlich bessere Ausgangsauflösung als `assets/logo.jpeg` mit 271 × 323 Pixeln besitzt. Da die ausgeschriebene Wortmarke im Favicon unlesbar wäre und im Header Name und Beruf bereits als Text stehen, verwenden Header und Browser-Tab dasselbe freigestellte Symbol in jeweils passender Auflösung. Die Ableitungen liegen in `public/images/brand-mark.png`, `public/favicon.png` und `public/apple-touch-icon.png`; beide gelieferten Quelldateien bleiben unverändert erhalten.
+
+Gezielt ersetzt wurden das Hero-Motiv, das Bild im Marina-Abschnitt und das Kontaktmotiv. Die neuen Dateien `public/images/hero-editorial.jpg`, `public/images/about-detail.jpg` und `public/images/contact-phone.jpg` zeigen anonyme beziehungsweise nicht personenbezogene Szenen und reduzieren damit den Eindruck eines erfundenen Marina-Porträts. Geändert wurden vor allem `index.html`, `impressum.html`, `datenschutz.html`, `src/main.js` und `src/style.css`.
+
+Diesen Stand später in einem neuen Branch ansehen:
+
+```bash
+git switch -c ansehen-logo-assets checkpoint/logo-assets-pass
+```
+
+Zum aktiven Arbeitsstand zurückkehren:
+
+```bash
+git switch asset-logo-pass
+```
 
 ## Einen Checkpoint nur ansehen
 

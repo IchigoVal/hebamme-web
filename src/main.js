@@ -107,7 +107,7 @@ const translations = {
       privacy: 'Datenschutz',
     },
     images: {
-      heroAlt: 'Atmosphärisches Motiv rund um Schwangerschaft und Familie',
+      heroAlt: 'Anonymes atmosphärisches Motiv einer Schwangeren am Fenster',
       heroCaption: 'Bildmotiv · nicht Marina Rymmer',
       step1Alt: 'Atmosphärisches Motiv einer Schwangerschaft',
       step2Alt: 'Atmosphärisches Motiv einer Schwangeren',
@@ -115,9 +115,9 @@ const translations = {
       step4Alt: 'Atmosphärisches Mutter-Kind-Motiv',
       trustAlt: 'Atmosphärisches Mutter-Kind-Motiv',
       whyAlt: 'Atmosphärisches Motiv einer Schwangeren',
-      aboutAlt: 'Atmosphärisches Motiv rund um Schwangerschaft',
+      aboutAlt: 'Hände falten Babykleidung auf einem Leinentuch',
       aboutCaption: 'Bildmotiv · nicht Marina Rymmer',
-      supportAlt: 'Atmosphärisches Mutter-Kind-Motiv',
+      supportAlt: 'Hand legt ein Smartphone neben gefaltete Babywäsche',
     },
   },
   ru: {
@@ -225,7 +225,7 @@ const translations = {
       privacy: 'Защита данных',
     },
     images: {
-      heroAlt: 'Атмосферное изображение на тему беременности и семьи',
+      heroAlt: 'Атмосферное изображение беременной женщины у окна без узнаваемого лица',
       heroCaption: 'Иллюстрация · на фото не Марина Риммер',
       step1Alt: 'Атмосферное изображение на тему беременности',
       step2Alt: 'Атмосферное изображение беременной женщины',
@@ -233,9 +233,9 @@ const translations = {
       step4Alt: 'Атмосферное изображение мамы с ребёнком',
       trustAlt: 'Атмосферное изображение мамы с ребёнком',
       whyAlt: 'Атмосферное изображение беременной женщины',
-      aboutAlt: 'Атмосферное изображение на тему беременности',
+      aboutAlt: 'Руки складывают детскую одежду на льняной ткани',
       aboutCaption: 'Иллюстрация · на фото не Марина Риммер',
-      supportAlt: 'Атмосферное изображение мамы с ребёнком',
+      supportAlt: 'Рука кладёт смартфон рядом со сложенной детской тканью',
     },
   },
 }
