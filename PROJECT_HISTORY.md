@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `astra-deep-final`. Der jüngste geprüfte Website-Stand ist `checkpoint/astra-deep-final` (Commit-ID wird nach Erstellung im Dokumentationsabschluss ergänzt). Der Ausgangspunkt bleibt als `checkpoint/pre-astra-deep-final` (`875e1c3`) und auf `legal-pass` erhalten. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-deep-final`.
+Der aktuelle Arbeitsbranch heißt `astra-deep-final`. Der jüngste geprüfte Website-Stand ist `checkpoint/astra-deep-final` (`d61af2f`); danach folgt nur der Dokumentationscommit für diese endgültige ID. Der Ausgangspunkt bleibt als `checkpoint/pre-astra-deep-final` (`875e1c3`) und auf `legal-pass` erhalten. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-deep-final`.
 
 ## Checkpoints
 
@@ -32,7 +32,7 @@ Der aktuelle Arbeitsbranch heißt `astra-deep-final`. Der jüngste geprüfte Web
 | 22 | 19.09.2026 | `checkpoint/pre-astra-deep-final` | `875e1c3` | Exakter unveränderter Ausgangspunkt vor dem Deep-Pass; sauberer Working Tree. |
 | 23 | 19.09.2026 | `checkpoint/astra-deep-content` | `b11abc2` | Neue Rollenverteilung der Abschnitte, organisatorisches FAQ und integrierte Marina-/Anfrageinformation in DE/RU. |
 | 24 | 19.09.2026 | `checkpoint/astra-deep-design` | `ce405a4` | Editorialer Namens-Hero, integrierter Kontaktabschluss, neue Review-Komposition und mobile Karten-/Navigationsbedienung. |
-| 25 | 20.09.2026 | `checkpoint/astra-deep-final` | nach Erstellung ergänzt | Design unverändert final geprüft; dauerhaftes Browser-Regressionsskript und Abschlussdokumentation. |
+| 25 | 20.09.2026 | `checkpoint/astra-deep-final` | `d61af2f` | Design unverändert final geprüft; dauerhaftes Browser-Regressionsskript und Abschlussdokumentation. |
 
 ### 1. `checkpoint/pre-rethink`
 

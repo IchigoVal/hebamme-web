@@ -14,7 +14,7 @@
 4. Designrunde 1 umgesetzt und im Browser geprüft: eigenständiger Namens-Hero, ruhigere Kartenstaffelung, vollbreiter Reviews-Einstieg, zusammengeführter Kontaktabschluss. Mobile Karten besitzen Pfeile/Position, Tastatur/Home/End und Reduced-Motion-Verhalten. Navigation besitzt Abschnittsstatus; mobiles Menü fokussiert sein Sprungziel und hält Tab im offenen Menü.
 5. Zweite gezielte Korrektur: schwebender Kontakt unter 1400 px ausgeblendet, da der Kreis im realen mobilen Screenshot Orientierungstext überdeckte. Letzten redundanten Satz der neuen FAQ gestrichen. Design abgeschlossen mit `ce405a4`.
 6. Unterbrochenen QA-Schritt nahtlos fortgesetzt: offene Skriptänderungen erhalten, Tests korrigiert und vollständige Produktions-QA bestanden. Keine weitere Änderung am Website-Code nach dem Designcommit.
-7. Finale Screenshots und deutsche/russische Redaktion geprüft; Historie und reproduzierbares QA-Skript fertiggestellt. Abschlusscheckpoint: `checkpoint/astra-deep-final` (Commit-ID im nachfolgenden Dokumentationsabschluss).
+7. Finale Screenshots und deutsche/russische Redaktion geprüft; Historie und reproduzierbares QA-Skript fertiggestellt. Abschlusscheckpoint: `checkpoint/astra-deep-final` → `d61af2f`. Danach ausschließlich diese Commit-ID dokumentiert.
 
 ## Checkpoints dieses Durchgangs
 
@@ -22,7 +22,7 @@
 - Statusinitialisierung → `11d4c9d`
 - `checkpoint/astra-deep-content` → `b11abc2`
 - `checkpoint/astra-deep-design` → `ce405a4` (bestehend, bei Wiederaufnahme verifiziert).
-- `checkpoint/astra-deep-final` → finaler QA-Abschlusscommit; ID wird nach Erstellung ergänzt, ohne bestehende Tags zu verändern.
+- `checkpoint/astra-deep-final` → `d61af2f` (finaler QA-Abschlusscommit; neu gesetzt, kein bestehender Tag verändert).
 
 ## Entscheidungen / verworfene Ideen
 
@@ -78,7 +78,7 @@ Finale Screenshots von Hero, Orientierung, vier Bildkarten, Reviews, offenem FAQ
 
 Regressionsskript bleibt unter `scripts/deep-pass-browser.mjs`. Start nach Build/Preview: `node scripts/deep-pass-browser.mjs`. Node 22+ und lokaler Edge, alternativ `BROWSER_PATH`; keine neuen npm-Abhängigkeiten. Screenshots und Report: `%TEMP%/hebamme-astra-final`, nicht versioniert. Browserprofile werden nach dem Test beseitigt.
 
-Finaler Website-HEAD: `checkpoint/astra-deep-final`; der anschließende reine Dokumentationscommit ergänzt dessen konkrete ID. Aktuellen Branch-HEAD eindeutig mit `git rev-parse HEAD` ermitteln. Abschluss erfolgt mit sauberem Working Tree; kein Push, kein Deployment.
+Finaler Website-/QA-HEAD: `d61af2f` = `checkpoint/astra-deep-final`. Branch-HEAD ist der direkt nachfolgende reine Dokumentationscommit, der diese ID festhält (`git rev-parse HEAD` liefert seine ID ohne zirkuläre Selbstreferenz). Nach dem Final-Commit war der Working Tree sauber; diese abschließende Dokumentationsänderung wird ebenfalls committed. Kein Push, kein Deployment.
 
 ## NEXT STEP
 
