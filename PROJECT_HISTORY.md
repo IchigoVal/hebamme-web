@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Die aktive Website-Fassung entspricht `checkpoint/visual-cleanup`; danach wurde nur noch diese Verlaufsdatei um die endgültige Commit-ID ergänzt. Der vorherige Entwicklungsstand bleibt zusätzlich auf `rework-content-design` erhalten.
+Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Die aktive Website-Fassung entspricht `checkpoint/content-cta-cleanup`; danach wurde nur noch diese Verlaufsdatei um die endgültige Commit-ID ergänzt. Der vorherige Entwicklungsstand bleibt zusätzlich auf `rework-content-design` erhalten.
 
 ## Checkpoints
 
@@ -16,6 +16,8 @@ Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Die aktive Website-Fassung 
 | 6 | 19.09.2026 | `checkpoint/logo-assets-pass` | `89ebc5a` | Neues Logo in Header und Browser-Tab sowie drei gezielt erneuerte, weboptimierte Bildmotive. |
 | 7 | 19.09.2026 | `checkpoint/pre-visual-cleanup` | `0821dd3` | Vollständiger Stand unmittelbar vor dem gezielten visuellen Cleanup. |
 | 8 | 19.09.2026 | `checkpoint/visual-cleanup` | `e6926cc` | Reduzierter Hero, entfernte sichtbare Bildhinweise und ein bildstarker Abschluss im Kontaktbereich. |
+| 9 | 19.09.2026 | `checkpoint/pre-content-cta-cleanup` | `34b309a` | Dokumentierter Stand unmittelbar vor dem inhaltlichen Cleanup und der CTA-Überarbeitung. |
+| 10 | 19.09.2026 | `checkpoint/content-cta-cleanup` | `WIRD NACH DEM COMMIT ERGÄNZT` | Strafferer unterer Seitenbereich mit kompakter Erstkontakt-Hilfe und überarbeitetem Buttonsystem. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -67,6 +69,28 @@ Diesen Stand später in einem neuen Branch ansehen:
 
 ```bash
 git switch -c ansehen-visual-cleanup checkpoint/visual-cleanup
+```
+
+Zum aktiven Arbeitsstand zurückkehren:
+
+```bash
+git switch asset-logo-pass
+```
+
+### 9. `checkpoint/pre-content-cta-cleanup`
+
+Dieser Tag bewahrt den vollständigen Stand vor dem inhaltlich-visuellen Cleanup. Der Working Tree war sauber, daher liegt der Tag ohne zusätzlichen Zwischen-Commit direkt auf Commit `34b309a`.
+
+### 10. `checkpoint/content-cta-cleanup`
+
+Der dekorative Doppelbild-Abschluss und die kleine Zeile „Nicht sicher, ob dein Anliegen passt?“ wurden entfernt. Der frühere große Anfragebereich mit Bildcollage wurde als kompakter Informationsblock direkt vor dem Kontakt neu aufgebaut. Er erklärt knapp, wann eine Anfrage sinnvoll ist, welche Angaben in die erste Nachricht gehören, welche Sprachen möglich sind und dass WhatsApp unter `0176 23488396` der schnellste Kontaktweg ist. Wiederholungen in Hero, Leistungsintro, Marina- und Kontaktbereich wurden reduziert; Deutsch und Russisch wurden gemeinsam überarbeitet.
+
+Die Buttons verwenden nun eine präzisere, leicht kantige Form, klarere Primär- und Sekundärzustände sowie zurückhaltende Hover- und sichtbare Tastaturfokuszustände. Die mobilen Touch-Ziele bleiben mindestens 52 Pixel hoch. Abschnittssprünge berücksichtigen den Sticky-Header, und der schwebende Schnellkontakt wird im Anfrage- und Kontaktbereich ausgeblendet, damit er keine Inhalte verdeckt. Die Änderungen liegen in `index.html`, `src/main.js` und `src/style.css`.
+
+Diesen Stand später in einem neuen Branch ansehen:
+
+```bash
+git switch -c ansehen-content-cta-cleanup checkpoint/content-cta-cleanup
 ```
 
 Zum aktiven Arbeitsstand zurückkehren:

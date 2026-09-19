@@ -35,18 +35,15 @@ const translations = {
       checkAvailability: 'Direkt Kontakt aufnehmen',
       whatsapp: 'WhatsApp schreiben',
       call: '0176 23488396',
-      askWithoutObligation: 'Situation kurz schildern',
     },
     hero: {
       eyebrow: 'Deutsch · Русский · Nürnberg',
       title: 'Hebamme Marina Rymmer in Nürnberg',
       intro:
-        'Du suchst eine Hebamme und möchtest wissen, ob eine Betreuung möglich ist? Schreib mir per WhatsApp oder ruf mich an. Auf Deutsch oder Russisch.',
+        'Du suchst eine Hebamme in Nürnberg? Hier findest du die wichtigsten Informationen für eine erste Anfrage.',
     },
     services: {
       title: 'Wann eine Anfrage sinnvoll sein kann',
-      intro:
-        'Welche Betreuung möglich ist, hängt von deiner Situation ab. Beschreibe sie kurz; dann lässt sich das direkt klären.',
       cards: [
         {
           title: 'In der Schwangerschaft',
@@ -65,39 +62,36 @@ const translations = {
           text: 'Wenn sich nach den ersten Tagen zu Hause neue Fragen ergeben.',
         },
       ],
-      footer: 'Nicht sicher, ob dein Anliegen passt?',
     },
     process: {
-      title: 'Was ich für die erste Anfrage brauche',
-      intro: 'Eine kurze Nachricht reicht. Mit diesen Angaben kann ich dein Anliegen besser einordnen.',
+      title: 'Deine erste Anfrage',
+      intro:
+        'Melde dich, wenn du in Nürnberg eine Hebamme suchst und klären möchtest, ob eine Betreuung möglich ist.',
       steps: [
         {
-          title: 'Geburtstermin',
-          text: 'Wenn du schwanger bist, schreib deinen errechneten Geburtstermin dazu.',
+          title: 'Für die Nachricht',
+          text:
+            'Dein Name, dein errechneter Geburtstermin (falls relevant) und dein Anliegen in ein oder zwei Sätzen.',
         },
         {
-          title: 'Dein Anliegen',
-          text: 'Ein oder zwei Sätze genügen: Wobei suchst du Unterstützung?',
+          title: 'Deutsch oder Russisch',
+          text: 'Schreib in der Sprache, die dir leichter fällt.',
         },
         {
-          title: 'Sprache und Kontakt',
-          text: 'Schreib auf Deutsch oder Russisch. Wenn du lieber sprichst, ruf einfach an.',
+          title: 'Direkter Kontakt',
+          text: 'Am schnellsten per WhatsApp an 0176 23488396. Wenn du lieber sprichst, ruf dieselbe Nummer an.',
         },
       ],
     },
     about: {
       title: 'Marina Rymmer',
       lead: 'Hebamme in Nürnberg. Ansprechbar auf Deutsch und Russisch.',
-      text:
-        'Für eine Anfrage erreichst du mich telefonisch oder per WhatsApp. Eine E-Mail-Adresse oder ein Kontaktformular gibt es nicht.',
     },
     reviews: {
       title: 'Erfahrungen von Familien',
     },
     contact: {
       title: 'Kontakt aufnehmen',
-      intro:
-        'Schreib deinen Namen, den errechneten Geburtstermin (falls relevant) und kurz dein Anliegen. Du kannst Deutsch oder Russisch verwenden.',
       whatsapp: 'WhatsApp schreiben',
       phone: 'Jetzt anrufen',
     },
@@ -111,11 +105,8 @@ const translations = {
       step2Alt: 'Atmosphärisches Motiv einer Schwangeren',
       step3Alt: 'Atmosphärisches Motiv eines Neugeborenen',
       step4Alt: 'Atmosphärisches Mutter-Kind-Motiv',
-      trustAlt: 'Atmosphärisches Mutter-Kind-Motiv',
-      whyAlt: 'Atmosphärisches Motiv einer Schwangeren',
       aboutAlt: 'Hände falten Babykleidung auf einem Leinentuch',
       supportAlt: 'Hand legt ein Smartphone neben gefaltete Babywäsche',
-      closingAlt: 'Mutter mit Neugeborenem und ruhendes Baby in hellen Tüchern',
     },
   },
   ru: {
@@ -152,18 +143,15 @@ const translations = {
       checkAvailability: 'Связаться напрямую',
       whatsapp: 'Написать в WhatsApp',
       call: '0176 23488396',
-      askWithoutObligation: 'Коротко описать ситуацию',
     },
     hero: {
       eyebrow: 'Русский · Deutsch · Nürnberg',
       title: 'Акушерка Марина Риммер в Нюрнберге',
       intro:
-        'Вы ищете акушерку и хотите узнать, возможно ли сопровождение? Напишите мне в WhatsApp или позвоните. Можно на русском или немецком.',
+        'Ищете акушерку в Нюрнберге? Здесь собрана основная информация для первого обращения.',
     },
     services: {
       title: 'Когда стоит написать',
-      intro:
-        'Возможность сопровождения зависит от вашей ситуации. Коротко опишите её — так это можно уточнить напрямую.',
       cards: [
         {
           title: 'Во время беременности',
@@ -182,38 +170,36 @@ const translations = {
           text: 'Если новые вопросы появились уже дома, после выписки.',
         },
       ],
-      footer: 'Не уверены, подходит ли ваш запрос?',
     },
     process: {
-      title: 'Что написать в первом сообщении',
-      intro: 'Достаточно нескольких строк. Эти данные помогут мне быстрее понять ваш запрос.',
+      title: 'Первое обращение',
+      intro:
+        'Напишите, если вы ищете акушерку в Нюрнберге и хотите уточнить, возможно ли сопровождение.',
       steps: [
         {
-          title: 'Дата родов',
-          text: 'Если вы беременны, укажите предполагаемую дату родов.',
+          title: 'Что указать',
+          text:
+            'Укажите ваше имя, предполагаемую дату родов (если это актуально) и в одном-двух предложениях опишите вопрос.',
         },
         {
-          title: 'Ваш вопрос',
-          text: 'В одном-двух предложениях напишите, какая помощь вам нужна.',
+          title: 'По-русски или по-немецки',
+          text: 'Пишите на том языке, на котором вам удобнее.',
         },
         {
-          title: 'Язык и способ связи',
-          text: 'Пишите по-русски или по-немецки. Если удобнее поговорить, позвоните.',
+          title: 'Прямая связь',
+          text: 'Быстрее всего — через WhatsApp по номеру 0176 23488396. Если удобнее поговорить, позвоните по тому же номеру.',
         },
       ],
     },
     about: {
       title: 'Марина Риммер',
       lead: 'Акушерка в Нюрнберге. Общение на русском и немецком.',
-      text: 'Связаться со мной можно по телефону или в WhatsApp. Без формы и без электронной почты.',
     },
     reviews: {
       title: 'Отзывы семей',
     },
     contact: {
       title: 'Связаться со мной',
-      intro:
-        'Напишите ваше имя, предполагаемую дату родов (если это актуально) и коротко опишите вопрос. Можно на русском или немецком.',
       whatsapp: 'Написать в WhatsApp',
       phone: 'Позвонить',
     },
@@ -227,11 +213,8 @@ const translations = {
       step2Alt: 'Атмосферное изображение беременной женщины',
       step3Alt: 'Атмосферное изображение новорождённого',
       step4Alt: 'Атмосферное изображение мамы с ребёнком',
-      trustAlt: 'Атмосферное изображение мамы с ребёнком',
-      whyAlt: 'Атмосферное изображение беременной женщины',
       aboutAlt: 'Руки складывают детскую одежду на льняной ткани',
       supportAlt: 'Рука кладёт смартфон рядом со сложенной детской тканью',
-      closingAlt: 'Мама с новорождённым и спящий малыш в светлых тканях',
     },
   },
 }
@@ -239,6 +222,7 @@ const translations = {
 const menuToggle = document.querySelector('[data-menu-toggle]')
 const mobileNav = document.querySelector('[data-mobile-nav]')
 const floatingContact = document.querySelector('.floating-contact')
+const inquirySection = document.querySelector('#ablauf')
 const contactSection = document.querySelector('#kontakt')
 const servicesTrack = document.querySelector('[data-services-track]')
 const reviewsWidget = document.querySelector('.reviews-widget')
@@ -378,17 +362,21 @@ function initializeReveals() {
 }
 
 function initializeFloatingContact() {
-  if (!floatingContact || !contactSection || !('IntersectionObserver' in window)) return
+  const hideWithinSections = [inquirySection, contactSection].filter(Boolean)
+  if (!floatingContact || !hideWithinSections.length || !('IntersectionObserver' in window)) return
 
-  const observer = new IntersectionObserver(([entry]) => {
-    const isHidden = entry.isIntersecting
+  const intersectionState = new Map(hideWithinSections.map((section) => [section, false]))
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => intersectionState.set(entry.target, entry.isIntersecting))
+    const isHidden = [...intersectionState.values()].some(Boolean)
 
     floatingContact.classList.toggle('is-hidden', isHidden)
     floatingContact.toggleAttribute('inert', isHidden)
     floatingContact.setAttribute('aria-hidden', String(isHidden))
   })
 
-  observer.observe(contactSection)
+  hideWithinSections.forEach((section) => observer.observe(section))
 }
 
 function initializeServicesTrack() {
