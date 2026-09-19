@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `astra-final-review`. Der geprüfte Website-Stand liegt auf `checkpoint/astra-final-review`. Sein exakter Ausgangspunkt ist `checkpoint/pre-astra-final-review` (`5c605e8`) auf dem weiterhin erhaltenen Branch `content-depth-pass`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-final-review`.
+Der aktuelle Arbeitsbranch heißt `legal-pass`. Der final geprüfte Legal-Stand liegt auf `checkpoint/legal-pass-final` (`be44e7d`). Sein exakter Ausgangspunkt ist `checkpoint/pre-legal-pass` (`da9cdd6`) auf dem weiterhin erhaltenen Branch `astra-final-review`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch legal-pass`.
 
 ## Checkpoints
 
@@ -23,6 +23,9 @@ Der aktuelle Arbeitsbranch heißt `astra-final-review`. Der geprüfte Website-St
 | 13 | 19.09.2026 | `checkpoint/content-depth-final` | `e879399` | Final geprüfter Content-Depth-Stand mit gestrafften Texten, korrekten Ankerabständen und vollständigen Responsive- und Tastaturtests. |
 | 14 | 19.09.2026 | `checkpoint/pre-astra-final-review` | `5c605e8` | Exakter sauberer Ausgangspunkt des unabhängigen Reviews einschließlich der bisherigen Dokumentation. |
 | 15 | 19.09.2026 | `checkpoint/astra-final-review` | `0eec8e1` | Vier gezielte Verbesserungen an Abschnittsproportionen, FAQ-Kürzung und barrierefreier Inhaltsbezeichnung. |
+| 16 | 19.09.2026 | `checkpoint/pre-legal-pass` | `da9cdd6` | Vollständiger Website-Stand unmittelbar vor dem Legal- und Datenschutz-Pass. |
+| 17 | 19.09.2026 | `checkpoint/legal-content` | `80acd58` | Überarbeitete Rechtseiten und datenschutzfreundliche Technik einschließlich lokaler Fonts und Elfsight-Zwei-Klick-Lösung. |
+| 18 | 19.09.2026 | `checkpoint/legal-pass-final` | `be44e7d` | Final geprüfter Legal-Pass; Elfsight lädt für die lokale Entwicklungsphase wieder automatisch und soll vor Veröffentlichung entfernt werden. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -192,6 +195,52 @@ git switch -c ansehen-astra-final checkpoint/astra-final-review
 ```
 
 Alle Befehle arbeiten lokal. Es wurde nichts gepusht oder deployt.
+
+### 16. `checkpoint/pre-legal-pass`
+
+Dieser Tag bewahrt den exakten Stand vor dem Legal- und Datenschutz-Pass. Er liegt auf Commit `da9cdd6`; der Working Tree war beim Setzen sauber. Der damalige Branch `astra-final-review` bleibt unverändert erhalten.
+
+Diesen Ausgangspunkt in einem neuen Besichtigungs-Branch öffnen:
+
+```bash
+git switch -c ansehen-vor-legal checkpoint/pre-legal-pass
+```
+
+### 17. `checkpoint/legal-content`
+
+Dieser Zwischenstand auf Commit `80acd58` enthält das neu aufgebaute Impressum mit vollständiger Anschrift, Telefon, WhatsApp, beruflicher Aufsichtsbehörde und den verifizierten berufsrechtlichen Fundstellen. Die Datenschutzerklärung beschreibt GitHub Pages, Browserspeicher, Elfsight, WhatsApp, Telefon, Empfänger, Betroffenenrechte und die zuständige Datenschutzaufsicht anhand des damaligen technischen Audits. Der eindeutige Entwicklungsplatzhalter `BITTE-ERSETZEN@example.invalid` ist nicht verlinkt und bleibt als Release-Blocker dokumentiert.
+
+Inter und Playfair Display werden in diesem Stand lokal aus dem Repository geladen. Die Startseite fordert bei der ersten WhatsApp-Anfrage nicht zur unaufgeforderten Übermittlung medizinischer Befunde, Fotos oder ausführlicher Gesundheitsdaten auf. `LEGAL_RELEASE_CHECKLIST.md` nennt die noch von Marina beziehungsweise vor Veröffentlichung zu klärenden Punkte.
+
+`checkpoint/legal-content` enthält bewusst die zwischenzeitlich umgesetzte Zwei-Klick-Lösung für Elfsight: Das Review-Widget lädt dort erst nach Betätigung des Buttons „Bewertungen laden“.
+
+Diesen Zwischenstand separat ansehen:
+
+```bash
+git switch -c ansehen-legal-content checkpoint/legal-content
+```
+
+### 18. `checkpoint/legal-pass-final`
+
+Dieser Tag liegt auf Commit `be44e7d` und markiert den final geprüften technischen Stand des Legal-Passes. Auf ausdrücklichen Wunsch wurde nach dem Zwischencheckpoint ausschließlich die Elfsight-Zwei-Klick-Lösung für die lokale Entwicklungsphase entfernt. Das Widget lädt nun ohne Nutzerklick automatisch per `IntersectionObserver`, sobald der Bewertungsbereich in die Nähe des Viewports kommt. Script und Widget werden jeweils nur einmal initialisiert; ein Consent- oder Ladeplatzhalter ist nicht sichtbar.
+
+Die öffentliche Datenschutzerklärung wurde wegen dieser ausdrücklich temporären Entwicklungsentscheidung nicht erneut umgeschrieben. Elfsight muss vor dem öffentlichen Release vollständig entfernt und durch die endgültige Bewertungsdarstellung ersetzt werden. Danach müssen die realen Datenflüsse und der Elfsight-Abschnitt der Datenschutzerklärung erneut geprüft werden.
+
+Erhalten bleiben die lokal eingebundenen Schriften, das überarbeitete Impressum, die vollständige Datenschutzerklärung, die Datenschutzaufsicht, die WhatsApp-Datensparsamkeit und das responsive Legal-Page-Design. Grundlage der Angaben waren § 5 DDG und § 25 TDDDG bei `gesetze-im-internet.de`, Art. 13 DSGVO bei EUR-Lex, das Hebammengesetz, die Bayerische Hebammenberufsordnung, der Nürnberger Behördenwegweiser für Heilberufe, das BayLDA sowie die offiziellen Datenschutz- und GitHub-Pages-Hinweise von GitHub.
+
+Geprüft wurden der Produktions-Build, 1440 Pixel DE, 390 Pixel DE/RU, automatisches einmaliges Review-Laden, Mobile-Menü, FAQ per Tastatur, Reduced Motion, lokale Bilder, interne Anker, Telefon, WhatsApp, externe Quellen und fehlende Google-Font-Requests. Impressum und Datenschutz wurden auf 1440 und 390 Pixeln ohne horizontalen Overflow, Browserfehler oder defekte Assets geprüft. Es wurde nichts gepusht oder deployt.
+
+Diesen Stand separat ansehen:
+
+```bash
+git switch -c ansehen-legal-final checkpoint/legal-pass-final
+```
+
+Zum aktuellen Entwicklungsbranch zurückkehren:
+
+```bash
+git switch legal-pass
+```
 
 ## Einen Checkpoint nur ansehen
 

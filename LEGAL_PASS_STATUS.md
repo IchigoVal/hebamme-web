@@ -11,7 +11,7 @@ Stand: 19. September 2026
 
 ## Aktueller Bearbeitungsstand
 
-Impressum, Datenschutzerklärung und die notwendigen technischen Datenschutzänderungen sind umgesetzt. `checkpoint/legal-content` liegt gesichert auf Commit `80acd58`. Auf ausdrücklichen Wunsch wurde anschließend ausschließlich die Elfsight-Zwei-Klick-Lösung für die lokale Entwicklungsphase wieder durch automatisches Lazy Loading ersetzt. Die finale Produktions-, Link-, Responsive- und Tastaturprüfung ist erfolgreich abgeschlossen. Offen sind nur noch finaler Commit, Tag und Projekthistorie.
+Der Legal- und Datenschutz-Pass ist technisch abgeschlossen. `checkpoint/legal-content` liegt unverändert auf Commit `80acd58`; der final geprüfte Website-Stand liegt auf `checkpoint/legal-pass-final` mit Commit `be44e7d`. Die Projekthistorie ist ergänzt. Es wurde nichts gepusht oder deployt.
 
 ## Bereits abgeschlossen
 
@@ -56,8 +56,8 @@ Impressum, Datenschutzerklärung und die notwendigen technischen Datenschutzänd
 
 ## Noch offen
 
-- finalen Checkpoint `checkpoint/legal-pass-final` erstellen
-- `PROJECT_HISTORY.md` ergänzen
+- keine weiteren Entwicklungsaufgaben in diesem Pass
+- die tatsächlichen Release-Blocker stehen in `LEGAL_RELEASE_CHECKLIST.md`
 
 ## Zuletzt geprüfte Dateien
 
@@ -92,7 +92,9 @@ Impressum, Datenschutzerklärung und die notwendigen technischen Datenschutzänd
 - Placeholder-E-Mail ist sichtbar, aber nicht verlinkt; Telefon und WhatsApp im Impressum stimmen
 - alle externen Inhalts-, Berufsrechts- und Datenschutzlinks erreichbar; Telefon-/WhatsApp-Ziele korrekt
 - im Produktionslauf keine Requests an `fonts.googleapis.com` oder `fonts.gstatic.com`
+- finaler Commit `be44e7d` erstellt und mit `checkpoint/legal-pass-final` getaggt
+- `PROJECT_HISTORY.md` um `checkpoint/pre-legal-pass`, `checkpoint/legal-content` und `checkpoint/legal-pass-final` ergänzt
 
 ## NEXT STEP
 
-Geprüften technischen Stand committen und `checkpoint/legal-pass-final` setzen. Danach `PROJECT_HISTORY.md` mit den drei Legal-Checkpoints und der finalen Commit-ID ergänzen, Abschlussstatus dokumentieren und den Dokumentations-Commit erstellen.
+Vor einem öffentlichen Release zuerst `BITTE-ERSETZEN@example.invalid` durch eine echte erreichbare E-Mail-Adresse ersetzen. Anschließend die übrigen Punkte in `LEGAL_RELEASE_CHECKLIST.md` abarbeiten, Elfsight entfernen, den finalen Datenfluss erneut prüfen und die Rechtstexte fachkundig kontrollieren lassen.
