@@ -132,7 +132,6 @@ html[lang='ru'] .hero-copy h1 { max-width: 12ch; font-size: clamp(3.3rem,4.8vw,5
 @media (min-width: 960px) {
   .orientation-section h2 { font-size: clamp(2.5rem,4vw,3.75rem); }
 }
-.orientation-section .eyebrow, .faq-section .eyebrow { margin-bottom: 1.35rem; }
 .orientation-note { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(59,49,44,.2); font-size: .86rem !important; line-height: 1.65 !important; }
 .orientation-list { margin: 0; padding: 0; list-style: none; }
 .orientation-list li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding-block: 1.45rem; border-top: 1px solid rgba(59,49,44,.2); }

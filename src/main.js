@@ -44,7 +44,6 @@ const translations = {
         'Du suchst eine Hebamme in Nürnberg? Eine kurze Nachricht reicht, um zu klären, ob eine Betreuung möglich ist.',
     },
     orientation: {
-      eyebrow: 'Allgemeine Orientierung',
       title: 'Hebammenhilfe, kurz erklärt',
       intro:
         'Hebammenhilfe kann verschiedene Phasen von der Schwangerschaft bis zur Zeit nach der Geburt umfassen.',
@@ -90,7 +89,6 @@ const translations = {
       ],
     },
     faq: {
-      eyebrow: 'Allgemeine Hinweise',
       title: 'Gut zu wissen',
       items: [
         {
@@ -195,7 +193,6 @@ const translations = {
         'Ищете акушерку в Нюрнберге? Короткого сообщения достаточно, чтобы уточнить, возможно ли сопровождение.',
     },
     orientation: {
-      eyebrow: 'Общая информация',
       title: 'Помощь акушерки: коротко',
       intro:
         'Помощь акушерки может охватывать разные этапы — от беременности до периода после родов.',
@@ -243,7 +240,6 @@ const translations = {
       ],
     },
     faq: {
-      eyebrow: 'Общая информация',
       title: 'Полезно знать',
       items: [
         {
