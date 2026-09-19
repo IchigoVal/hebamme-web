@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `content-depth-pass`. Ausgangspunkt dieses Durchgangs ist `checkpoint/pre-content-depth-pass`. Die früheren Entwicklungsstände bleiben auf `asset-logo-pass` und `rework-content-design` erhalten.
+Der aktuelle Arbeitsbranch heißt `content-depth-pass`. Der fertig geprüfte Stand liegt auf `checkpoint/content-depth-final`; Ausgangspunkt dieses Durchgangs bleibt unverändert `checkpoint/pre-content-depth-pass`. Die früheren Entwicklungsstände bleiben auf `asset-logo-pass` und `rework-content-design` erhalten.
 
 ## Checkpoints
 
@@ -20,6 +20,7 @@ Der aktuelle Arbeitsbranch heißt `content-depth-pass`. Ausgangspunkt dieses Dur
 | 10 | 19.09.2026 | `checkpoint/content-cta-cleanup` | `50f61ae` | Strafferer unterer Seitenbereich mit kompakter Erstkontakt-Hilfe und überarbeitetem Buttonsystem. |
 | 11 | 19.09.2026 | `checkpoint/pre-content-depth-pass` | `fbbb37f` | Vollständiger Stand vor der fachlichen Vertiefung und neuen Informationsarchitektur. |
 | 12 | 19.09.2026 | `checkpoint/content-depth` | `dde7b78` | Nutzbarer Zwischenstand mit fachlicher Orientierung, überarbeiteten Anfrageanlässen, bilingualem FAQ und Quellenhinweisen. |
+| 13 | 19.09.2026 | `checkpoint/content-depth-final` | `e879399` | Final geprüfter Content-Depth-Stand mit gestrafften Texten, korrekten Ankerabständen und vollständigen Responsive- und Tastaturtests. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -56,7 +57,7 @@ git switch -c ansehen-logo-assets checkpoint/logo-assets-pass
 Zum aktiven Arbeitsstand zurückkehren:
 
 ```bash
-git switch asset-logo-pass
+git switch content-depth-pass
 ```
 
 ### 7. `checkpoint/pre-visual-cleanup`
@@ -76,7 +77,7 @@ git switch -c ansehen-visual-cleanup checkpoint/visual-cleanup
 Zum aktiven Arbeitsstand zurückkehren:
 
 ```bash
-git switch asset-logo-pass
+git switch content-depth-pass
 ```
 
 ### 9. `checkpoint/pre-content-cta-cleanup` --- hier war gut oder +-1
@@ -98,7 +99,7 @@ git switch -c ansehen-content-cta-cleanup checkpoint/content-cta-cleanup
 Zum aktiven Arbeitsstand zurückkehren:
 
 ```bash
-git switch asset-logo-pass
+git switch content-depth-pass
 ```
 
 ### 11. `checkpoint/pre-content-depth-pass`
@@ -135,6 +136,26 @@ Zum aktuellen Arbeitsstand zurückkehren:
 git switch content-depth-pass
 ```
 
+### 13. `checkpoint/content-depth-final`
+
+Dieser Tag ist der fertige Stand des Content-Depth-Passes. Gegenüber dem Zwischenstand wurde die erste Bildkarte klarer vom FAQ abgegrenzt, eine wiederholte Aussage aus dem Marina-Abschnitt entfernt und die russische Fassung sprachlich gestrafft. Die Quellenzeile benennt nun eindeutig, dass die Links allgemeine Informationen belegen. Doppelte Abstände bei internen Ankersprüngen wurden entfernt, und die mobilen Sprachschalter besitzen eine Touchfläche von mindestens 44 × 44 Pixeln.
+
+Die vorhandenen Bilder wurden vollständig geprüft und beibehalten. Es wurde kein neues Motiv erzeugt und keine Originaldatei überschrieben. Der Produktions-Build wurde auf 320, 375, 390, 768, 1024 und 1440 Pixeln in Deutsch und Russisch geprüft. Kontrolliert wurden unter anderem Bildpfade, Navigation, Anker, Elfsight-Bewertungen, FAQ per Tastatur, mobiler Kartenstreifen per Pfeiltaste, Mobile-Menü, Fokuszustände, Reduced Motion, Telefon, WhatsApp, Rechtseiten und Favicon.
+
+Die allgemeinen Fachinformationen stützen sich auf gesund.bund.de, den GKV-Spitzenverband, den Deutschen Hebammenverband, das Bundesgesundheitsministerium und familienplanung.de. Sie werden nicht als bestätigte Leistungen oder Verfügbarkeit von Marina Rymmer dargestellt. Die vollständige Zuordnung steht in `CONTENT_SOURCES.md`.
+
+Diesen fertigen Stand später in einem neuen Branch ansehen:
+
+```bash
+git switch -c ansehen-content-depth-final checkpoint/content-depth-final
+```
+
+Zum aktuellen Entwicklungsstand zurückkehren:
+
+```bash
+git switch content-depth-pass
+```
+
 ## Einen Checkpoint nur ansehen
 
 Die folgenden Befehle verändern oder löschen keinen gespeicherten Stand.
@@ -154,7 +175,7 @@ Die folgenden Befehle verändern oder löschen keinen gespeicherten Stand.
 3. Später wieder zum aktuellen Entwicklungsstand zurückkehren:
 
    ```bash
-   git switch asset-logo-pass
+   git switch content-depth-pass
    ```
 
 Der zusätzliche Branch `ansehen-pre-rethink` kann später gelöscht werden, sobald er nicht mehr benötigt wird:
@@ -201,5 +222,5 @@ git log --oneline --decorate --all
 Den Unterschied zwischen dem ursprünglichen Stand und dem aktuellen Stand ansehen:
 
 ```bash
-git diff checkpoint/pre-rethink..rework-content-design
+git diff checkpoint/pre-rethink..content-depth-pass
 ```
