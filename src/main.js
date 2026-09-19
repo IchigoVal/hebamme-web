@@ -25,10 +25,11 @@ const translations = {
       subline: 'Hebamme',
     },
     nav: {
-      services: 'Orientierung',
-      process: 'Erste Anfrage',
+      orientation: 'Hebammenhilfe',
+      services: 'Anlässe',
       about: 'Marina',
       reviews: 'Bewertungen',
+      knowledge: 'Gut zu wissen',
       contact: 'Kontakt',
     },
     cta: {
@@ -40,64 +41,107 @@ const translations = {
       eyebrow: 'Deutsch · Русский · Nürnberg',
       title: 'Hebamme Marina Rymmer in Nürnberg',
       intro:
-        'Du suchst eine Hebamme in Nürnberg? Hier findest du die wichtigsten Informationen für eine erste Anfrage.',
+        'Du suchst eine Hebamme in Nürnberg? Eine kurze Nachricht reicht, um zu klären, ob eine Betreuung möglich ist.',
+    },
+    orientation: {
+      eyebrow: 'Allgemeine Orientierung',
+      title: 'Hebammenhilfe, kurz erklärt',
+      intro:
+        'Hebammenhilfe kann verschiedene Phasen von der Schwangerschaft bis zur Zeit nach der Geburt umfassen.',
+      note:
+        'Welche dieser Bereiche Marina konkret anbietet und ob eine Betreuung möglich ist, wird bei der Anfrage geklärt.',
+      items: [
+        {
+          title: 'In der Schwangerschaft',
+          text: 'Beratung, Vorsorge und Hilfe bei Schwangerschaftsbeschwerden können zur Hebammenhilfe gehören.',
+        },
+        {
+          title: 'Vorbereitung und Geburt',
+          text:
+            'Hebammen können auf Geburt, Wochenbett und die erste Zeit mit dem Baby vorbereiten und Geburten begleiten.',
+        },
+        {
+          title: 'Nach der Geburt',
+          text:
+            'Im Wochenbett geht es unter anderem um Mutter und Kind, Rückbildung sowie Fragen zu Stillen, Ernährung und Säuglingspflege.',
+        },
+      ],
     },
     services: {
       title: 'Wann eine Anfrage sinnvoll sein kann',
       cards: [
         {
-          title: 'In der Schwangerschaft',
-          text: 'Wenn Fragen auftauchen oder du klären möchtest, ob eine Betreuung möglich ist.',
+          title: 'Früh in der Schwangerschaft',
+          text:
+            'Wenn du eine Hebamme suchst: Eine frühe Anfrage ist sinnvoll, weil Kapazitäten begrenzt sein können.',
         },
         {
           title: 'Vor der Geburt',
-          text: 'Für Fragen zur Vorbereitung auf die Geburt und die erste Zeit danach.',
+          text:
+            'Wenn du klären möchtest, welche Unterstützung bei der Vorbereitung und für die erste Zeit danach möglich ist.',
         },
         {
-          title: 'Nach der Geburt',
-          text: 'Wenn du eine Hebamme für das Wochenbett suchst.',
+          title: 'Für das Wochenbett',
+          text: 'Wenn du nach der Geburt Hebammenhilfe für dich und dein Baby suchst.',
         },
         {
-          title: 'Im Alltag mit Baby',
-          text: 'Wenn sich nach den ersten Tagen zu Hause neue Fragen ergeben.',
+          title: 'Wenn neue Fragen auftauchen',
+          text: 'Wenn es um Stillen, Ernährung des Babys oder den Alltag nach der Geburt geht.',
         },
       ],
     },
-    process: {
-      title: 'Deine erste Anfrage',
-      intro:
-        'Melde dich, wenn du in Nürnberg eine Hebamme suchst und klären möchtest, ob eine Betreuung möglich ist.',
-      steps: [
+    faq: {
+      eyebrow: 'Allgemeine Hinweise',
+      title: 'Gut zu wissen',
+      intro: 'Vier kurze Antworten für die Suche und die erste Orientierung.',
+      items: [
         {
-          title: 'Für die Nachricht',
-          text:
-            'Dein Name, dein errechneter Geburtstermin (falls relevant) und dein Anliegen in ein oder zwei Sätzen.',
+          question: 'Wann sollte ich mit der Suche beginnen?',
+          answer:
+            'Möglichst früh in der Schwangerschaft. So bleibt mehr Zeit, eine Hebamme mit passenden Kapazitäten zu finden.',
         },
         {
-          title: 'Deutsch oder Russisch',
-          text: 'Schreib in der Sprache, die dir leichter fällt.',
+          question: 'Welche Kosten übernimmt die gesetzliche Krankenversicherung?',
+          answer:
+            'Gesetzlich Versicherte haben grundsätzlich Anspruch auf Hebammenhilfe in Schwangerschaft und Mutterschaft. Welche Leistungen im Einzelfall umfasst sind, richtet sich nach dem gesetzlichen Rahmen und der persönlichen Situation. Privat Versicherte sollten ihren Tarif prüfen.',
         },
         {
-          title: 'Direkter Kontakt',
-          text: 'Am schnellsten per WhatsApp an 0176 23488396. Wenn du lieber sprichst, ruf dieselbe Nummer an.',
+          question: 'Kann Hebammenhilfe auch nach der Geburt wichtig sein?',
+          answer:
+            'Ja. Im Wochenbett kann Hebammenhilfe die Beobachtung von Mutter und Neugeborenem sowie Beratung zu Rückbildung, Stillen, Ernährung und Säuglingspflege umfassen.',
+        },
+        {
+          question: 'Was gilt bei akuten Beschwerden?',
+          answer:
+            'Diese Website und WhatsApp sind keine Notfallkanäle. Bei Lebensgefahr oder starken Beschwerden wähle 112. Bei dringenden, nicht lebensbedrohlichen Beschwerden außerhalb ärztlicher Sprechzeiten hilft 116117.',
         },
       ],
     },
     about: {
       title: 'Marina Rymmer',
-      lead: 'Hebamme in Nürnberg. Ansprechbar auf Deutsch und Russisch.',
+      lead: 'Ich bin Hebamme in Nürnberg und spreche Deutsch und Russisch.',
+      text: 'Welche Betreuung möglich ist, klären wir direkt anhand deiner Situation.',
     },
     reviews: {
       title: 'Erfahrungen von Familien',
     },
     contact: {
-      title: 'Kontakt aufnehmen',
+      title: 'Deine erste Anfrage',
+      intro:
+        'Schreib deinen Namen, deinen Wohnort, den errechneten Geburtstermin (falls relevant) und kurz dein Anliegen. Deutsch oder Russisch ist beides möglich.',
       whatsapp: 'WhatsApp schreiben',
       phone: 'Jetzt anrufen',
     },
     footer: {
       imprint: 'Impressum',
       privacy: 'Datenschutz',
+    },
+    sources: {
+      label: 'Fachliche Informationen:',
+      health: 'gesund.bund.de',
+      gkv: 'GKV-Spitzenverband',
+      dhv: 'Deutscher Hebammenverband',
+      emergency: 'Notfallnummern',
     },
     images: {
       heroAlt: 'Anonymes atmosphärisches Motiv einer Schwangeren am Fenster',
@@ -133,10 +177,11 @@ const translations = {
       subline: 'Акушерка',
     },
     nav: {
-      services: 'Ориентиры',
-      process: 'Первое обращение',
+      orientation: 'О помощи акушерки',
+      services: 'Когда обратиться',
       about: 'Марина',
       reviews: 'Отзывы',
+      knowledge: 'Полезно знать',
       contact: 'Контакты',
     },
     cta: {
@@ -148,64 +193,108 @@ const translations = {
       eyebrow: 'Русский · Deutsch · Nürnberg',
       title: 'Акушерка Марина Риммер в Нюрнберге',
       intro:
-        'Ищете акушерку в Нюрнберге? Здесь собрана основная информация для первого обращения.',
+        'Ищете акушерку в Нюрнберге? Короткого сообщения достаточно, чтобы уточнить, возможно ли сопровождение.',
+    },
+    orientation: {
+      eyebrow: 'Общая информация',
+      title: 'Помощь акушерки: коротко',
+      intro:
+        'Помощь акушерки может охватывать разные этапы — от беременности до периода после родов.',
+      note:
+        'Какие именно услуги предлагает Марина и есть ли возможность сопровождения, уточняется при первом обращении.',
+      items: [
+        {
+          title: 'Во время беременности',
+          text:
+            'К помощи акушерки могут относиться консультации, наблюдение беременности и помощь при недомоганиях.',
+        },
+        {
+          title: 'Подготовка и роды',
+          text:
+            'Акушерки могут готовить к родам, послеродовому периоду и первым неделям с малышом, а также сопровождать роды.',
+        },
+        {
+          title: 'После родов',
+          text:
+            'В послеродовом периоде речь может идти о состоянии матери и ребёнка, восстановлении, грудном вскармливании, питании малыша и уходе за ним.',
+        },
+      ],
     },
     services: {
       title: 'Когда стоит написать',
       cards: [
         {
-          title: 'Во время беременности',
-          text: 'Если появились вопросы или вы хотите узнать, возможно ли сопровождение.',
+          title: 'В начале беременности',
+          text: 'Если вы ищете акушерку, лучше обратиться заранее: свободные места могут быть ограничены.',
         },
         {
           title: 'Перед родами',
-          text: 'Если вам нужна информация о подготовке к родам и первым дням после них.',
+          text:
+            'Если вы хотите уточнить, какая поддержка возможна при подготовке и в первое время после родов.',
         },
         {
-          title: 'После рождения ребёнка',
-          text: 'Если вы ищете акушерку для послеродового периода.',
+          title: 'Для послеродового периода',
+          text: 'Если после родов вы ищете помощь акушерки для себя и малыша.',
         },
         {
-          title: 'Первые дни дома',
-          text: 'Если новые вопросы появились уже дома, после выписки.',
+          title: 'Когда появились новые вопросы',
+          text:
+            'Если есть вопросы о грудном вскармливании, питании малыша или первых буднях после родов.',
         },
       ],
     },
-    process: {
-      title: 'Первое обращение',
-      intro:
-        'Напишите, если вы ищете акушерку в Нюрнберге и хотите уточнить, возможно ли сопровождение.',
-      steps: [
+    faq: {
+      eyebrow: 'Общая информация',
+      title: 'Полезно знать',
+      intro: 'Четыре коротких ответа для поиска акушерки и первой ориентировки.',
+      items: [
         {
-          title: 'Что указать',
-          text:
-            'Укажите ваше имя, предполагаемую дату родов (если это актуально) и в одном-двух предложениях опишите вопрос.',
+          question: 'Когда начинать поиск акушерки?',
+          answer:
+            'Лучше как можно раньше во время беременности. Так остаётся больше времени найти акушерку со свободными местами.',
         },
         {
-          title: 'По-русски или по-немецки',
-          text: 'Пишите на том языке, на котором вам удобнее.',
+          question: 'Что оплачивает государственная медицинская страховка?',
+          answer:
+            'Застрахованные в государственной системе в принципе имеют право на помощь акушерки во время беременности и материнства. Какие услуги покрываются в конкретном случае, зависит от законодательства и личной ситуации. При частной страховке стоит проверить свой тариф.',
         },
         {
-          title: 'Прямая связь',
-          text: 'Быстрее всего — через WhatsApp по номеру 0176 23488396. Если удобнее поговорить, позвоните по тому же номеру.',
+          question: 'Нужна ли помощь акушерки после родов?',
+          answer:
+            'Да. В послеродовом периоде помощь может включать наблюдение за состоянием матери и новорождённого, а также консультации по восстановлению, грудному вскармливанию, питанию и уходу за малышом.',
+        },
+        {
+          question: 'Что делать при острых жалобах?',
+          answer:
+            'Этот сайт и WhatsApp не предназначены для экстренных случаев. При угрозе жизни или сильных жалобах звоните 112. При срочной, но не угрожающей жизни проблеме вне часов работы врачебной практики поможет служба 116117.',
         },
       ],
     },
     about: {
       title: 'Марина Риммер',
-      lead: 'Акушерка в Нюрнберге. Общение на русском и немецком.',
+      lead: 'Я акушерка в Нюрнберге и говорю по-русски и по-немецки.',
+      text: 'Какая помощь возможна, мы уточним напрямую с учётом вашей ситуации.',
     },
     reviews: {
       title: 'Отзывы семей',
     },
     contact: {
-      title: 'Связаться со мной',
+      title: 'Первое обращение',
+      intro:
+        'Напишите ваше имя, место жительства, предполагаемую дату родов (если это актуально) и коротко опишите вопрос. Можно по-русски или по-немецки.',
       whatsapp: 'Написать в WhatsApp',
       phone: 'Позвонить',
     },
     footer: {
       imprint: 'Импрессум',
       privacy: 'Защита данных',
+    },
+    sources: {
+      label: 'Медицинская информация:',
+      health: 'gesund.bund.de',
+      gkv: 'GKV-Spitzenverband',
+      dhv: 'Союз акушерок Германии',
+      emergency: 'Экстренные номера',
     },
     images: {
       heroAlt: 'Атмосферное изображение беременной женщины у окна без узнаваемого лица',
