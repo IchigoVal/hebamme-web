@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `legal-pass`. Der final geprüfte Legal-Stand liegt auf `checkpoint/legal-pass-final` (`be44e7d`). Sein exakter Ausgangspunkt ist `checkpoint/pre-legal-pass` (`da9cdd6`) auf dem weiterhin erhaltenen Branch `astra-final-review`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch legal-pass`.
+Der aktuelle Arbeitsbranch heißt `legal-pass`. Der jüngste geprüfte Website-Stand liegt auf `checkpoint/micro-polish-final` (`daac283`); der unmittelbar davor liegende Stand ist als `checkpoint/pre-micro-polish` (`d86d800`) gesichert. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch legal-pass`.
 
 ## Checkpoints
 
@@ -26,6 +26,8 @@ Der aktuelle Arbeitsbranch heißt `legal-pass`. Der final geprüfte Legal-Stand 
 | 16 | 19.09.2026 | `checkpoint/pre-legal-pass` | `da9cdd6` | Vollständiger Website-Stand unmittelbar vor dem Legal- und Datenschutz-Pass. |
 | 17 | 19.09.2026 | `checkpoint/legal-content` | `80acd58` | Überarbeitete Rechtseiten und datenschutzfreundliche Technik einschließlich lokaler Fonts und Elfsight-Zwei-Klick-Lösung. |
 | 18 | 19.09.2026 | `checkpoint/legal-pass-final` | `be44e7d` | Final geprüfter Legal-Pass; Elfsight lädt für die lokale Entwicklungsphase wieder automatisch und soll vor Veröffentlichung entfernt werden. |
+| 19 | 19.09.2026 | `checkpoint/pre-micro-polish` | `d86d800` | Exakter Projektstand vor dem abschließenden kleinen visuellen Feinschliff. |
+| 20 | 19.09.2026 | `checkpoint/micro-polish-final` | `daac283` | Reduzierte Abschnittseinstiege ohne redundante Eyebrow-Labels; geprüfte DE/RU-Darstellung bei unveränderter CTA-Hierarchie. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -234,6 +236,28 @@ Diesen Stand separat ansehen:
 
 ```bash
 git switch -c ansehen-legal-final checkpoint/legal-pass-final
+```
+
+Zum aktuellen Entwicklungsbranch zurückkehren:
+
+```bash
+git switch legal-pass
+```
+
+### 19. `checkpoint/pre-micro-polish`
+
+Dieser Tag sichert den vollständigen Stand unmittelbar vor dem kleinen Abschluss-Pass. Er enthält den final dokumentierten Legal-Pass und dient als direkter Rücksprungpunkt.
+
+### 20. `checkpoint/micro-polish-final`
+
+In diesem Stand entfallen auf der Startseite die redundanten Labels „Allgemeine Orientierung“ und „Allgemeine Hinweise“ einschließlich ihrer russischen Übersetzungen und der dafür benötigten CSS-Abstände. Die Hero-Metazeile bleibt erhalten. Das bestehende Buttonsystem wurde geprüft und bewusst nicht verändert: WhatsApp ist bereits als gefüllte Primäraktion klar von der konturierten Telefonaktion abgesetzt.
+
+Geprüft wurden der Produktions-Build, 1440 Pixel DE sowie 390 Pixel DE/RU, Übersetzungen, horizontaler Overflow, CTA-Ziele und Browserfehler. Es wurde nichts gepusht oder deployt.
+
+Diesen Stand separat ansehen:
+
+```bash
+git switch -c ansehen-micro-polish checkpoint/micro-polish-final
 ```
 
 Zum aktuellen Entwicklungsbranch zurückkehren:
