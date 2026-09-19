@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Die aktive Website-Fassung entspricht `checkpoint/content-cta-cleanup`; danach wurde nur noch diese Verlaufsdatei um die endgültige Commit-ID ergänzt. Der vorherige Entwicklungsstand bleibt zusätzlich auf `rework-content-design` erhalten.
+Der aktuelle Arbeitsbranch heißt `content-depth-pass`. Ausgangspunkt dieses Durchgangs ist `checkpoint/pre-content-depth-pass`. Die früheren Entwicklungsstände bleiben auf `asset-logo-pass` und `rework-content-design` erhalten.
 
 ## Checkpoints
 
@@ -18,6 +18,7 @@ Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Die aktive Website-Fassung 
 | 8 | 19.09.2026 | `checkpoint/visual-cleanup` | `e6926cc` | Reduzierter Hero, entfernte sichtbare Bildhinweise und ein bildstarker Abschluss im Kontaktbereich. |
 | 9 | 19.09.2026 | `checkpoint/pre-content-cta-cleanup` | `34b309a` | Dokumentierter Stand unmittelbar vor dem inhaltlichen Cleanup und der CTA-Überarbeitung. |
 | 10 | 19.09.2026 | `checkpoint/content-cta-cleanup` | `50f61ae` | Strafferer unterer Seitenbereich mit kompakter Erstkontakt-Hilfe und überarbeitetem Buttonsystem. |
+| 11 | 19.09.2026 | `checkpoint/pre-content-depth-pass` | `fbbb37f` | Vollständiger Stand vor der fachlichen Vertiefung und neuen Informationsarchitektur. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -97,6 +98,22 @@ Zum aktiven Arbeitsstand zurückkehren:
 
 ```bash
 git switch asset-logo-pass
+```
+
+### 11. `checkpoint/pre-content-depth-pass`
+
+Dieser Tag markiert den vollständigen Ausgangspunkt vor der fachlichen Vertiefung der Website. Er enthält auch die zuletzt ergänzten persönlichen Bewertungsnotizen zu den vorherigen Checkpoints. Der neue Arbeitsbranch für diesen Durchgang heißt `content-depth-pass`.
+
+Diesen Ausgangspunkt später in einem neuen Branch ansehen:
+
+```bash
+git switch -c ansehen-pre-content-depth checkpoint/pre-content-depth-pass
+```
+
+Zum aktuellen Arbeitsstand zurückkehren:
+
+```bash
+git switch content-depth-pass
 ```
 
 ## Einen Checkpoint nur ansehen
