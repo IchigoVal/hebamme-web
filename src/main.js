@@ -72,8 +72,7 @@ const translations = {
       cards: [
         {
           title: 'Früh in der Schwangerschaft',
-          text:
-            'Wenn du eine Hebamme suchst: Eine frühe Anfrage ist sinnvoll, weil Kapazitäten begrenzt sein können.',
+          text: 'Sobald du weißt, dass du schwanger bist und eine Betreuung für die nächste Zeit suchst.',
         },
         {
           title: 'Vor der Geburt',
@@ -93,7 +92,7 @@ const translations = {
     faq: {
       eyebrow: 'Allgemeine Hinweise',
       title: 'Gut zu wissen',
-      intro: 'Vier kurze Antworten für die Suche und die erste Orientierung.',
+      intro: 'Vier kurze Antworten zur Hebammensuche und zum ersten Kontakt.',
       items: [
         {
           question: 'Wann sollte ich mit der Suche beginnen?',
@@ -120,7 +119,6 @@ const translations = {
     about: {
       title: 'Marina Rymmer',
       lead: 'Ich bin Hebamme in Nürnberg und spreche Deutsch und Russisch.',
-      text: 'Welche Betreuung möglich ist, klären wir direkt anhand deiner Situation.',
     },
     reviews: {
       title: 'Erfahrungen von Familien',
@@ -137,7 +135,7 @@ const translations = {
       privacy: 'Datenschutz',
     },
     sources: {
-      label: 'Fachliche Informationen:',
+      label: 'Quellen zu den allgemeinen Informationen:',
       health: 'gesund.bund.de',
       gkv: 'GKV-Spitzenverband',
       dhv: 'Deutscher Hebammenverband',
@@ -225,7 +223,7 @@ const translations = {
       cards: [
         {
           title: 'В начале беременности',
-          text: 'Если вы ищете акушерку, лучше обратиться заранее: свободные места могут быть ограничены.',
+          text: 'Когда вы узнали о беременности и ищете сопровождение на ближайшее время.',
         },
         {
           title: 'Перед родами',
@@ -246,7 +244,7 @@ const translations = {
     faq: {
       eyebrow: 'Общая информация',
       title: 'Полезно знать',
-      intro: 'Четыре коротких ответа для поиска акушерки и первой ориентировки.',
+      intro: 'Четыре коротких ответа о поиске акушерки и первом обращении.',
       items: [
         {
           question: 'Когда начинать поиск акушерки?',
@@ -256,7 +254,7 @@ const translations = {
         {
           question: 'Что оплачивает государственная медицинская страховка?',
           answer:
-            'Застрахованные в государственной системе в принципе имеют право на помощь акушерки во время беременности и материнства. Какие услуги покрываются в конкретном случае, зависит от законодательства и личной ситуации. При частной страховке стоит проверить свой тариф.',
+            'При государственной медицинской страховке в целом есть право на помощь акушерки во время беременности и после родов. Конкретный объём зависит от правовых норм и личной ситуации. При частной страховке стоит проверить условия своего тарифа.',
         },
         {
           question: 'Нужна ли помощь акушерки после родов?',
@@ -264,16 +262,15 @@ const translations = {
             'Да. В послеродовом периоде помощь может включать наблюдение за состоянием матери и новорождённого, а также консультации по восстановлению, грудному вскармливанию, питанию и уходу за малышом.',
         },
         {
-          question: 'Что делать при острых жалобах?',
+          question: 'Что делать при острых симптомах?',
           answer:
-            'Этот сайт и WhatsApp не предназначены для экстренных случаев. При угрозе жизни или сильных жалобах звоните 112. При срочной, но не угрожающей жизни проблеме вне часов работы врачебной практики поможет служба 116117.',
+            'Этот сайт и WhatsApp не подходят для экстренных обращений. При угрозе жизни или тяжёлых симптомах звоните 112. Если помощь нужна срочно, но угрозы жизни нет, а врачебная практика закрыта, звоните 116117.',
         },
       ],
     },
     about: {
       title: 'Марина Риммер',
       lead: 'Я акушерка в Нюрнберге и говорю по-русски и по-немецки.',
-      text: 'Какая помощь возможна, мы уточним напрямую с учётом вашей ситуации.',
     },
     reviews: {
       title: 'Отзывы семей',
@@ -290,7 +287,7 @@ const translations = {
       privacy: 'Защита данных',
     },
     sources: {
-      label: 'Медицинская информация:',
+      label: 'Источники общей информации:',
       health: 'gesund.bund.de',
       gkv: 'GKV-Spitzenverband',
       dhv: 'Союз акушерок Германии',

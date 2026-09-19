@@ -36,7 +36,6 @@ h3 { font-size: 1.45rem; font-weight: 600; letter-spacing: -0.025em; line-height
 ::selection { background: var(--rose); color: var(--cocoa); }
 .page-shell { width: 100%; overflow: clip; }
 .container { width: min(var(--container), calc(100% - (2 * var(--gutter)))); margin-inline: auto; }
-#hebammenhilfe, #leistungen, #ueber-mich, #bewertungen, #wissen, #ablauf, #kontakt { scroll-margin-top: calc(var(--header-height) + 1rem); }
 .skip-link { position: fixed; z-index: 100; top: .75rem; left: .75rem; padding: .8rem 1rem; background: var(--cocoa); color: #fff; transform: translateY(-150%); transition: transform 160ms ease; }
 .skip-link:focus { transform: translateY(0); }
 
@@ -128,7 +127,6 @@ html[lang='ru'] .hero-copy h1 { max-width: 12ch; font-size: clamp(3.3rem,4.8vw,5
 .about-copy { display: flex; max-width: 40rem; flex-direction: column; justify-content: center; padding: clamp(4rem,9vw,9rem) var(--gutter); }
 .about-copy h2 { max-width: 9ch; color: #fff; }
 .about-lead { max-width: 28rem; margin-top: 2.2rem; color: var(--rose); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.45rem,2.2vw,2.1rem); line-height: 1.35; }
-.about-copy > p:last-child { max-width: 31rem; margin-top: 1.5rem; color: rgba(255,253,249,.7); }
 
 /* Reviews */
 .reviews-section { background: var(--paper); }
@@ -253,7 +251,7 @@ html.reveal-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0
   .brand-name { font-size: .87rem; }
   .brand-subline { font-size: .5rem; }
   .lang-switch { gap: .28rem; }
-  .lang-switch__button { min-width: 1.9rem; min-height: 2.6rem; font-size: .68rem; }
+  .lang-switch__button { min-width: 2.75rem; min-height: 2.75rem; font-size: .68rem; }
   .menu-toggle { width: 2.75rem; height: 2.75rem; }
   .menu-toggle span { left: .72rem; }
   .menu-toggle span:nth-child(1) { top: .92rem; }
