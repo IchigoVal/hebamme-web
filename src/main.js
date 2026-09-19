@@ -8,6 +8,7 @@ const translations = {
     },
     aria: {
       home: 'Zur Startseite',
+      skipToContent: 'Zum Inhalt springen',
       languageSwitch: 'Sprache wählen',
       mainNavigation: 'Hauptnavigation',
       mobileNavigation: 'Mobile Navigation',
@@ -16,6 +17,7 @@ const translations = {
       contactOptions: 'Kontaktmöglichkeiten',
       legalNavigation: 'Rechtliche Hinweise',
       quickContact: 'Schnellkontakt',
+      servicesCarousel: 'Leistungsübersicht. Auf kleinen Bildschirmen horizontal scrollbar.',
       floatingPhone: 'Marina Rymmer unter 0176 23488396 anrufen',
       floatingWhatsapp: 'WhatsApp-Chat mit Marina Rymmer öffnen',
     },
@@ -37,8 +39,6 @@ const translations = {
     hero: {
       title: 'Hebamme in Nürnberg.',
       intro: 'Ich bin Marina Rymmer. Du kannst dich auf Deutsch oder Russisch an mich wenden.',
-      cardTitle: 'Direkter Kontakt',
-      cardText: 'Telefon und WhatsApp',
     },
     services: {
       title: 'In welchen Phasen ich ansprechbar bin',
@@ -87,7 +87,6 @@ const translations = {
       lead: 'Gute Zusammenarbeit beginnt für mich mit einem offenen Gespräch.',
       text:
         'Ich höre aufmerksam zu, erkläre verständlich und treffe Absprachen klar. So weißt du, was als Nächstes ansteht.',
-      imageNote: 'Symbolisches Motiv',
     },
     reviews: {
       title: 'Erfahrungen von Familien',
@@ -105,14 +104,13 @@ const translations = {
       privacy: 'Datenschutz',
     },
     images: {
-      symbolicNote: 'Symbolisches Motiv',
       heroAlt: 'Atmosphärisches Motiv rund um Schwangerschaft und Familie',
-      step1Alt: 'Symbolisches Bild einer Schwangerschaft',
+      step1Alt: 'Atmosphärisches Motiv einer Schwangerschaft',
       step2Alt: 'Atmosphärisches Motiv einer Schwangeren',
       step3Alt: 'Atmosphärisches Motiv eines Neugeborenen',
       step4Alt: 'Atmosphärisches Mutter-Kind-Motiv',
       trustAlt: 'Atmosphärisches Mutter-Kind-Motiv',
-      whyAlt: 'Symbolisches Bild einer Schwangeren',
+      whyAlt: 'Atmosphärisches Motiv einer Schwangeren',
       aboutAlt: 'Atmosphärisches Motiv rund um Schwangerschaft',
       supportAlt: 'Atmosphärisches Mutter-Kind-Motiv',
     },
@@ -124,6 +122,7 @@ const translations = {
     },
     aria: {
       home: 'На главную',
+      skipToContent: 'Перейти к содержанию',
       languageSwitch: 'Выбрать язык',
       mainNavigation: 'Основная навигация',
       mobileNavigation: 'Мобильная навигация',
@@ -132,6 +131,7 @@ const translations = {
       contactOptions: 'Способы связи',
       legalNavigation: 'Правовая информация',
       quickContact: 'Быстрая связь',
+      servicesCarousel: 'Обзор услуг. На небольших экранах прокручивается горизонтально.',
       floatingPhone: 'Позвонить Marina Rymmer по номеру 0176 23488396',
       floatingWhatsapp: 'Открыть чат WhatsApp с Marina Rymmer',
     },
@@ -153,8 +153,6 @@ const translations = {
     hero: {
       title: 'Акушерка в Нюрнберге.',
       intro: 'Меня зовут Marina Rymmer. Со мной можно общаться на немецком и русском языках.',
-      cardTitle: 'Прямая связь',
-      cardText: 'Телефон и WhatsApp',
     },
     services: {
       title: 'В какие периоды можно обратиться',
@@ -203,7 +201,6 @@ const translations = {
       lead: 'Для меня хорошее сотрудничество начинается с открытого разговора.',
       text:
         'Я внимательно слушаю, объясняю понятным языком и чётко договариваюсь о следующих шагах. Так вы знаете, что будет дальше.',
-      imageNote: 'Символическое изображение',
     },
     reviews: {
       title: 'Отзывы семей',
@@ -221,14 +218,13 @@ const translations = {
       privacy: 'Защита данных',
     },
     images: {
-      symbolicNote: 'Символическое изображение',
       heroAlt: 'Атмосферное изображение на тему беременности и семьи',
-      step1Alt: 'Символическое изображение беременности',
+      step1Alt: 'Атмосферное изображение на тему беременности',
       step2Alt: 'Атмосферное изображение беременной женщины',
       step3Alt: 'Атмосферное изображение новорождённого',
       step4Alt: 'Атмосферное изображение мамы с ребёнком',
       trustAlt: 'Атмосферное изображение мамы с ребёнком',
-      whyAlt: 'Символическое изображение беременной женщины',
+      whyAlt: 'Атмосферное изображение беременной женщины',
       aboutAlt: 'Атмосферное изображение на тему беременности',
       supportAlt: 'Атмосферное изображение мамы с ребёнком',
     },
@@ -237,6 +233,10 @@ const translations = {
 
 const menuToggle = document.querySelector('[data-menu-toggle]')
 const mobileNav = document.querySelector('[data-mobile-nav]')
+const floatingContact = document.querySelector('.floating-contact')
+const contactSection = document.querySelector('#kontakt')
+const servicesTrack = document.querySelector('[data-services-track]')
+const reviewsWidget = document.querySelector('.reviews-widget')
 const languageButtons = document.querySelectorAll('[data-lang-option]')
 const translatableElements = document.querySelectorAll('[data-i18n]')
 
@@ -312,6 +312,10 @@ function setMenuState(open) {
   mobileNav.setAttribute('aria-hidden', String(!open))
   document.body.classList.toggle('menu-open', open)
   updateMenuLabel()
+
+  if (open) {
+    window.requestAnimationFrame(() => mobileNav.querySelector('a')?.focus({ preventScroll: true }))
+  }
 }
 
 languageButtons.forEach((button) => {
@@ -366,6 +370,78 @@ function initializeReveals() {
   revealElements.forEach((element) => observer.observe(element))
 }
 
+function initializeFloatingContact() {
+  if (!floatingContact || !contactSection || !('IntersectionObserver' in window)) return
+
+  const observer = new IntersectionObserver(([entry]) => {
+    const isHidden = entry.isIntersecting
+
+    floatingContact.classList.toggle('is-hidden', isHidden)
+    floatingContact.toggleAttribute('inert', isHidden)
+    floatingContact.setAttribute('aria-hidden', String(isHidden))
+  })
+
+  observer.observe(contactSection)
+}
+
+function initializeServicesTrack() {
+  if (!servicesTrack) return
+
+  const mobileQuery = window.matchMedia('(max-width: 719px)')
+  const updateTabStop = () => {
+    if (mobileQuery.matches) {
+      servicesTrack.setAttribute('tabindex', '0')
+    } else {
+      servicesTrack.removeAttribute('tabindex')
+    }
+  }
+
+  updateTabStop()
+  mobileQuery.addEventListener?.('change', updateTabStop)
+
+  servicesTrack.addEventListener('keydown', (event) => {
+    if (!mobileQuery.matches || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return
+
+    event.preventDefault()
+    const direction = event.key === 'ArrowRight' ? 1 : -1
+    servicesTrack.scrollBy({ left: direction * servicesTrack.clientWidth * 0.85, behavior: 'smooth' })
+  })
+}
+
+function initializeReviewsWidget() {
+  if (!reviewsWidget) return
+
+  const loadPlatform = () => {
+    if (document.querySelector('[data-elfsight-platform]')) return
+
+    const script = document.createElement('script')
+    script.src = 'https://elfsightcdn.com/platform.js'
+    script.async = true
+    script.dataset.elfsightPlatform = ''
+    document.head.append(script)
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    loadPlatform()
+    return
+  }
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) return
+
+      loadPlatform()
+      observer.disconnect()
+    },
+    { rootMargin: '600px 0px' },
+  )
+
+  observer.observe(reviewsWidget)
+}
+
 applyLanguage(activeLanguage)
 setMenuState(false)
 initializeReveals()
+initializeFloatingContact()
+initializeServicesTrack()
+initializeReviewsWidget()

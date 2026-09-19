@@ -11,14 +11,15 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://elfsightcdn.com/platform.js" async></script>
     <title data-i18n="meta.title">Marina Rymmer | Hebamme</title>
   </head>
   <body>
+    <a class="skip-link" href="#top" data-i18n="aria.skipToContent">Zum Inhalt springen</a>
     <div class="page-shell">
       <header class="site-header">
         <div class="container header-inner">
@@ -103,7 +104,7 @@
         </nav>
       </header>
 
-      <main id="top">
+      <main id="top" tabindex="-1">
         <section class="hero-section">
           <div class="container hero-layout">
             <div class="hero-copy" data-reveal>
@@ -129,18 +130,11 @@
                   alt="Atmosphärisches Motiv rund um Schwangerschaft und Familie"
                   width="1024"
                   height="1536"
+                  fetchpriority="high"
                   data-i18n="images.heroAlt"
                   data-i18n-attr="alt"
                 />
-                <figcaption class="hero-image__caption" data-i18n="images.symbolicNote">
-                  Symbolisches Motiv
-                </figcaption>
               </figure>
-
-              <div class="hero-info-card">
-                <strong data-i18n="hero.cardTitle">Direkter Kontakt</strong>
-                <span data-i18n="hero.cardText">Telefon und WhatsApp</span>
-              </div>
             </div>
           </div>
         </section>
@@ -154,15 +148,23 @@
               </p>
             </div>
 
-            <div class="services-grid">
+            <div
+              class="services-grid"
+              role="region"
+              aria-label="Leistungsübersicht. Auf kleinen Bildschirmen horizontal scrollbar."
+              data-services-track
+              data-i18n="aria.servicesCarousel"
+              data-i18n-attr="aria-label"
+            >
               <article class="service-card" data-reveal style="--reveal-delay: 40ms">
                 <figure class="service-card__image">
                   <img
                     src="./images/step-1.jpg"
-                    alt="Symbolisches Bild einer Schwangerschaft"
+                    alt="Atmosphärisches Motiv einer Schwangerschaft"
                     width="1024"
                     height="1536"
                     loading="lazy"
+                    decoding="async"
                     data-i18n="images.step1Alt"
                     data-i18n-attr="alt"
                   />
@@ -184,6 +186,7 @@
                     width="1024"
                     height="1536"
                     loading="lazy"
+                    decoding="async"
                     data-i18n="images.step2Alt"
                     data-i18n-attr="alt"
                   />
@@ -205,6 +208,7 @@
                     width="1024"
                     height="1536"
                     loading="lazy"
+                    decoding="async"
                     data-i18n="images.step3Alt"
                     data-i18n-attr="alt"
                   />
@@ -226,6 +230,7 @@
                     width="1024"
                     height="1536"
                     loading="lazy"
+                    decoding="async"
                     data-i18n="images.step4Alt"
                     data-i18n-attr="alt"
                   />
@@ -300,6 +305,7 @@
                   width="1024"
                   height="1536"
                   loading="lazy"
+                  decoding="async"
                   data-i18n="images.trustAlt"
                   data-i18n-attr="alt"
                 />
@@ -307,10 +313,11 @@
               <figure class="process-gallery__secondary">
                 <img
                   src="./images/why-me.jpg"
-                  alt="Symbolisches Bild einer Schwangeren"
+                  alt="Atmosphärisches Motiv einer Schwangeren"
                   width="1024"
                   height="1536"
                   loading="lazy"
+                  decoding="async"
                   data-i18n="images.whyAlt"
                   data-i18n-attr="alt"
                 />
@@ -328,10 +335,10 @@
                 width="1024"
                 height="1536"
                 loading="lazy"
+                decoding="async"
                 data-i18n="images.aboutAlt"
                 data-i18n-attr="alt"
               />
-              <figcaption class="about-visual__caption" data-i18n="about.imageNote">Symbolisches Motiv</figcaption>
             </figure>
 
             <div class="about-copy" data-reveal style="--reveal-delay: 100ms">
@@ -373,6 +380,7 @@
                   width="1536"
                   height="1024"
                   loading="lazy"
+                  decoding="async"
                   data-i18n="images.supportAlt"
                   data-i18n-attr="alt"
                 />
@@ -387,6 +395,7 @@
 
                 <div
                   class="contact-actions"
+                  role="group"
                   aria-label="Kontaktmöglichkeiten"
                   data-i18n="aria.contactOptions"
                   data-i18n-attr="aria-label"
@@ -437,6 +446,7 @@
 
       <div
         class="floating-contact"
+        role="group"
         aria-label="Schnellkontakt"
         data-i18n="aria.quickContact"
         data-i18n-attr="aria-label"
