@@ -25,77 +25,80 @@ const translations = {
       subline: 'Hebamme',
     },
     nav: {
-      services: 'Leistungen',
-      process: 'Ablauf',
-      about: 'Über mich',
+      services: 'Orientierung',
+      process: 'Erste Anfrage',
+      about: 'Marina',
       reviews: 'Bewertungen',
       contact: 'Kontakt',
     },
     cta: {
-      checkAvailability: 'Betreuung anfragen',
-      viewServices: 'Angebot ansehen',
-      askWithoutObligation: 'Kurz nachfragen',
+      checkAvailability: 'Direkt Kontakt aufnehmen',
+      whatsapp: 'WhatsApp schreiben',
+      call: '0176 23488396',
+      askWithoutObligation: 'Situation kurz schildern',
     },
     hero: {
-      title: 'Hebamme in Nürnberg.',
-      intro: 'Ich bin Marina Rymmer. Du kannst dich auf Deutsch oder Russisch an mich wenden.',
+      eyebrow: 'Deutsch · Русский · Nürnberg',
+      title: 'Hebamme Marina Rymmer in Nürnberg',
+      intro:
+        'Du suchst eine Hebamme und möchtest wissen, ob eine Betreuung möglich ist? Schreib mir per WhatsApp oder ruf mich an. Auf Deutsch oder Russisch.',
     },
     services: {
-      title: 'In welchen Phasen ich ansprechbar bin',
-      intro: 'Was im Einzelnen möglich ist, richtet sich nach deiner Situation und wird vorab besprochen.',
+      title: 'Wann eine Anfrage sinnvoll sein kann',
+      intro:
+        'Eine pauschale Leistungsliste hilft oft wenig. Beschreibe kurz deine Situation; dann lässt sich klären, was konkret möglich ist.',
       cards: [
         {
-          title: 'Schwangerschaft',
-          text: 'Orientierung bei Veränderungen und Unsicherheiten während der Schwangerschaft.',
+          title: 'In der Schwangerschaft',
+          text: 'Wenn Fragen auftauchen oder du klären möchtest, ob eine Betreuung möglich ist.',
         },
         {
-          title: 'Geburt & Vorbereitung',
-          text: 'Vorbereitung auf die Geburt und auf die erste Zeit danach.',
+          title: 'Vor der Geburt',
+          text: 'Für Fragen zur Vorbereitung auf die Geburt und die erste Zeit danach.',
         },
         {
-          title: 'Wochenbett',
-          text: 'Unterstützung beim Ankommen mit dem Baby nach der Geburt.',
+          title: 'Nach der Geburt',
+          text: 'Wenn du eine Hebamme für das Wochenbett suchst.',
         },
         {
-          title: 'Erste Zeit als Familie',
-          text: 'Ansprechbar für Themen, die sich im neuen Familienalltag entwickeln.',
+          title: 'Im Alltag mit Baby',
+          text: 'Wenn sich nach den ersten Tagen zu Hause neue Fragen ergeben.',
         },
       ],
-      footer: 'Du möchtest wissen, ob dein Anliegen dazugehört?',
+      footer: 'Nicht sicher, ob dein Anliegen passt?',
     },
     process: {
-      title: 'So kommen wir zusammen',
-      intro: 'Für die erste Anfrage reicht eine kurze Nachricht oder ein Anruf.',
+      title: 'Was ich für die erste Anfrage brauche',
+      intro: 'Eine kurze Nachricht reicht. Mit diesen Angaben kann ich dein Anliegen besser einordnen.',
       steps: [
         {
-          title: 'Anfrage senden',
-          text:
-            'Schreib per WhatsApp oder ruf an. Wenn du schwanger bist, nenne bitte deinen errechneten Geburtstermin.',
+          title: 'Geburtstermin',
+          text: 'Wenn du schwanger bist, schreib deinen errechneten Geburtstermin dazu.',
         },
         {
-          title: 'Kurz abstimmen',
-          text: 'Wir besprechen dein Anliegen und klären die wichtigsten Punkte.',
+          title: 'Dein Anliegen',
+          text: 'Ein oder zwei Sätze genügen: Wobei suchst du Unterstützung?',
         },
         {
-          title: 'Nächste Schritte',
-          text: 'Wenn es passt, vereinbaren wir alles Weitere direkt miteinander.',
+          title: 'Sprache und Kontakt',
+          text: 'Schreib auf Deutsch oder Russisch. Wenn du lieber sprichst, ruf einfach an.',
         },
       ],
     },
     about: {
-      title: 'Wie ich arbeite',
-      lead: 'Gute Zusammenarbeit beginnt für mich mit einem offenen Gespräch.',
+      title: 'Marina Rymmer',
+      lead: 'Hebamme in Nürnberg. Ansprechbar auf Deutsch und Russisch.',
       text:
-        'Ich höre aufmerksam zu, erkläre verständlich und treffe Absprachen klar. So weißt du, was als Nächstes ansteht.',
+        'Der direkte Kontakt läuft über Telefon oder WhatsApp. So kannst du ohne Formular klären, ob dein Anliegen zu meinem Angebot passt.',
     },
     reviews: {
       title: 'Erfahrungen von Familien',
-      text: 'Die folgenden Bewertungen werden direkt aus Google geladen.',
+      text: 'Die Bewertungen werden über Elfsight direkt aus Google geladen.',
     },
     contact: {
-      title: 'Melde dich gerne direkt.',
+      title: 'Kontakt aufnehmen',
       intro:
-        'Schreib kurz, worum es geht. Wenn du schwanger bist, nenne bitte deinen errechneten Geburtstermin. Ich sage dir, ob aktuell eine Betreuung möglich ist.',
+        'Schreib deinen Namen, den errechneten Geburtstermin (falls relevant) und kurz dein Anliegen. Du kannst Deutsch oder Russisch verwenden.',
       whatsapp: 'WhatsApp schreiben',
       phone: 'Jetzt anrufen',
     },
@@ -105,6 +108,7 @@ const translations = {
     },
     images: {
       heroAlt: 'Atmosphärisches Motiv rund um Schwangerschaft und Familie',
+      heroCaption: 'Bildmotiv · nicht Marina Rymmer',
       step1Alt: 'Atmosphärisches Motiv einer Schwangerschaft',
       step2Alt: 'Atmosphärisches Motiv einer Schwangeren',
       step3Alt: 'Atmosphärisches Motiv eines Neugeborenen',
@@ -112,6 +116,7 @@ const translations = {
       trustAlt: 'Atmosphärisches Mutter-Kind-Motiv',
       whyAlt: 'Atmosphärisches Motiv einer Schwangeren',
       aboutAlt: 'Atmosphärisches Motiv rund um Schwangerschaft',
+      aboutCaption: 'Atmosphärisches Bildmotiv',
       supportAlt: 'Atmosphärisches Mutter-Kind-Motiv',
     },
   },
@@ -139,77 +144,79 @@ const translations = {
       subline: 'Акушерка',
     },
     nav: {
-      services: 'Услуги',
-      process: 'Как всё проходит',
-      about: 'Обо мне',
+      services: 'Ориентиры',
+      process: 'Первое обращение',
+      about: 'Марина',
       reviews: 'Отзывы',
       contact: 'Контакты',
     },
     cta: {
-      checkAvailability: 'Связаться',
-      viewServices: 'Посмотреть услуги',
-      askWithoutObligation: 'Задать вопрос',
+      checkAvailability: 'Связаться напрямую',
+      whatsapp: 'Написать в WhatsApp',
+      call: '0176 23488396',
+      askWithoutObligation: 'Коротко описать ситуацию',
     },
     hero: {
-      title: 'Акушерка в Нюрнберге.',
-      intro: 'Меня зовут Marina Rymmer. Со мной можно общаться на немецком и русском языках.',
+      eyebrow: 'Русский · Deutsch · Nürnberg',
+      title: 'Акушерка Марина Риммер в Нюрнберге',
+      intro:
+        'Вы ищете акушерку и хотите узнать, возможно ли сопровождение? Напишите мне в WhatsApp или позвоните. Можно на русском или немецком.',
     },
     services: {
-      title: 'В какие периоды можно обратиться',
-      intro: 'Формат помощи зависит от вашей ситуации и обсуждается заранее.',
+      title: 'Когда стоит написать',
+      intro:
+        'Универсальный список услуг мало что объясняет. Коротко опишите вашу ситуацию — так можно уточнить, какая помощь возможна.',
       cards: [
         {
-          title: 'Беременность',
-          text: 'Помощь с вопросами и неуверенностью во время беременности.',
+          title: 'Во время беременности',
+          text: 'Если появились вопросы или вы хотите узнать, возможно ли сопровождение.',
         },
         {
-          title: 'Роды и подготовка',
-          text: 'Подготовка к родам и первым дням после них.',
+          title: 'Перед родами',
+          text: 'Если вам нужна информация о подготовке к родам и первым дням после них.',
         },
         {
-          title: 'После родов',
-          text: 'Поддержка в первые недели после рождения малыша.',
+          title: 'После рождения ребёнка',
+          text: 'Если вы ищете акушерку для послеродового периода.',
         },
         {
-          title: 'Первые месяцы в семье',
-          text: 'Вопросы, которые возникают в новом семейном ритме.',
+          title: 'Первые дни дома',
+          text: 'Если новые вопросы появились уже дома, после выписки.',
         },
       ],
-      footer: 'Хотите уточнить, подходит ли ваш запрос?',
+      footer: 'Не уверены, подходит ли ваш запрос?',
     },
     process: {
-      title: 'Как проходит обращение',
-      intro: 'Для первого обращения достаточно короткого сообщения или звонка.',
+      title: 'Что написать в первом сообщении',
+      intro: 'Достаточно нескольких строк. Эти данные помогут мне быстрее понять ваш запрос.',
       steps: [
         {
-          title: 'Отправить запрос',
-          text:
-            'Напишите в WhatsApp или позвоните. Если вы беременны, укажите предполагаемую дату родов.',
+          title: 'Дата родов',
+          text: 'Если вы беременны, укажите предполагаемую дату родов.',
         },
         {
-          title: 'Коротко всё обсудить',
-          text: 'Мы обсудим ваш запрос и уточним основные детали.',
+          title: 'Ваш вопрос',
+          text: 'В одном-двух предложениях напишите, какая помощь вам нужна.',
         },
         {
-          title: 'Договориться о дальнейшем',
-          text: 'Если всё подходит, мы сразу согласуем дальнейшие шаги.',
+          title: 'Язык и способ связи',
+          text: 'Пишите по-русски или по-немецки. Если удобнее поговорить, позвоните.',
         },
       ],
     },
     about: {
-      title: 'Как я работаю',
-      lead: 'Для меня хорошее сотрудничество начинается с открытого разговора.',
-      text:
-        'Я внимательно слушаю, объясняю понятным языком и чётко договариваюсь о следующих шагах. Так вы знаете, что будет дальше.',
+      title: 'Марина Риммер',
+      lead: 'Акушерка в Нюрнберге. Общение на русском и немецком.',
+      text: 'Связаться со мной можно по телефону или в WhatsApp. Без формы и без электронной почты.',
     },
     reviews: {
       title: 'Отзывы семей',
-      text: 'Отзывы ниже загружаются напрямую из Google.',
+      text: 'Отзывы загружаются из Google с помощью сервиса Elfsight.',
     },
     contact: {
-      title: 'Свяжитесь со мной.',
+      title: 'Связаться со мной',
       intro:
-        'Кратко опишите ваш запрос. Если вы беременны, укажите предполагаемую дату родов. Я сообщу, возможно ли сейчас сопровождение.',
+        'Напишите ваше имя, предполагаемую дату родов (если это актуально) и коротко опишите вопрос. Можно на русском или немецком.',
       whatsapp: 'Написать в WhatsApp',
       phone: 'Позвонить',
     },
@@ -219,6 +226,7 @@ const translations = {
     },
     images: {
       heroAlt: 'Атмосферное изображение на тему беременности и семьи',
+      heroCaption: 'Иллюстрация · на фото не Марина Риммер',
       step1Alt: 'Атмосферное изображение на тему беременности',
       step2Alt: 'Атмосферное изображение беременной женщины',
       step3Alt: 'Атмосферное изображение новорождённого',
@@ -226,6 +234,7 @@ const translations = {
       trustAlt: 'Атмосферное изображение мамы с ребёнком',
       whyAlt: 'Атмосферное изображение беременной женщины',
       aboutAlt: 'Атмосферное изображение на тему беременности',
+      aboutCaption: 'Атмосферная иллюстрация',
       supportAlt: 'Атмосферное изображение мамы с ребёнком',
     },
   },
