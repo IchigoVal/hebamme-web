@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Ausgangspunkt dieses Branches ist der vollständig erhaltene Stand `checkpoint/pre-logo-assets-pass`; die vorherige Entwicklung bleibt zusätzlich auf `rework-content-design` erhalten.
+Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Die aktive Website-Fassung entspricht `checkpoint/logo-assets-pass`; danach wurde nur noch diese Verlaufsdatei um die endgültige Commit-ID ergänzt. Der vorherige Entwicklungsstand bleibt zusätzlich auf `rework-content-design` erhalten.
 
 ## Checkpoints
 
@@ -13,7 +13,7 @@ Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Ausgangspunkt dieses Branch
 | 3 | 19.09.2026 | `checkpoint/design-rework` | `8ffdf1a` | Neue redaktionelle Gestaltung mit überarbeiteter Typografie, Bildinszenierung, Abschnittsrhythmik und eigenständigen mobilen Layouts. |
 | 4 | 19.09.2026 | `checkpoint/final-polish` | `b30682e` | Abschließend geprüfter Stand mit Feinschliff an Text, Bildtransparenz, Navigation, Fokusverhalten und mobilen Kontaktaktionen. |
 | 5 | 19.09.2026 | `checkpoint/pre-logo-assets-pass` | `8eb3f14` | Aktiver Website-Stand vor dem Logo- und Bilder-Pass, einschließlich der beiden neu bereitgestellten Logo-Kandidaten. |
-| 6 | 19.09.2026 | `checkpoint/logo-assets-pass` | wird nach dem Checkpoint ergänzt | Neues Logo in Header und Browser-Tab sowie drei gezielt erneuerte, weboptimierte Bildmotive. |
+| 6 | 19.09.2026 | `checkpoint/logo-assets-pass` | `89ebc5a` | Neues Logo in Header und Browser-Tab sowie drei gezielt erneuerte, weboptimierte Bildmotive. |
 
 ### 1. `checkpoint/pre-rethink`
 
