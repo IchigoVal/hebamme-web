@@ -26,7 +26,7 @@ const translations = {
     },
     nav: {
       orientation: 'Hebammenhilfe',
-      services: 'Anlässe',
+      services: 'Wann anfragen',
       about: 'Marina',
       reviews: 'Bewertungen',
       knowledge: 'Gut zu wissen',
@@ -38,15 +38,16 @@ const translations = {
       call: '0176 23488396',
     },
     hero: {
-      eyebrow: 'Deutsch · Русский · Nürnberg',
-      title: 'Hebamme Marina Rymmer in Nürnberg',
+      eyebrow: 'Hebamme in Nürnberg',
+      title: 'Marina Rymmer',
       intro:
-        'Du suchst eine Hebamme in Nürnberg? Eine kurze Nachricht reicht, um zu klären, ob eine Betreuung möglich ist.',
+        'Du suchst eine Hebamme? Schreib mir auf Deutsch oder Russisch. Ob ich dich betreuen kann, klären wir im direkten Kontakt.',
+      inquiryLink: 'Was gehört in meine Anfrage?',
     },
     orientation: {
-      title: 'Hebammenhilfe, kurz erklärt',
+      title: 'Was Hebammenhilfe umfasst',
       intro:
-        'Hebammenhilfe kann verschiedene Phasen von der Schwangerschaft bis zur Zeit nach der Geburt umfassen.',
+        'Von der Schwangerschaft bis zur ersten Zeit mit deinem Baby: Hebammenhilfe kann in verschiedenen Phasen unterstützen.',
       note:
         'Welche dieser Bereiche Marina konkret anbietet und ob eine Betreuung möglich ist, wird bei der Anfrage geklärt.',
       items: [
@@ -67,7 +68,7 @@ const translations = {
       ],
     },
     services: {
-      title: 'Wann eine Anfrage sinnvoll sein kann',
+      title: 'Wann du anfragen kannst',
       cards: [
         {
           title: 'Früh in der Schwangerschaft',
@@ -83,7 +84,7 @@ const translations = {
           text: 'Wenn du nach der Geburt Hebammenhilfe für dich und dein Baby suchst.',
         },
         {
-          title: 'Wenn neue Fragen auftauchen',
+          title: 'Mit neuen Fragen',
           text: 'Wenn es um Stillen, Ernährung des Babys oder den Alltag nach der Geburt geht.',
         },
       ],
@@ -97,14 +98,14 @@ const translations = {
             'Möglichst früh in der Schwangerschaft. So bleibt mehr Zeit, eine Hebamme mit passenden Kapazitäten zu finden.',
         },
         {
-          question: 'Welche Kosten übernimmt die gesetzliche Krankenversicherung?',
+          question: 'Was übernimmt die Krankenversicherung?',
           answer:
             'Gesetzlich Versicherte haben grundsätzlich Anspruch auf Hebammenhilfe in Schwangerschaft und Mutterschaft. Welche Leistungen im Einzelfall umfasst sind, richtet sich nach dem gesetzlichen Rahmen und der persönlichen Situation. Privat Versicherte sollten ihren Tarif prüfen.',
         },
         {
-          question: 'Kann Hebammenhilfe auch nach der Geburt wichtig sein?',
+          question: 'Was sollte ich vor einer Betreuung klären?',
           answer:
-            'Ja. Im Wochenbett kann Hebammenhilfe die Beobachtung von Mutter und Neugeborenem sowie Beratung zu Rückbildung, Stillen, Ernährung und Säuglingspflege umfassen.',
+            'Frag nach den angebotenen Leistungen, einer möglichen Betreuung an deinem Wohnort und im gewünschten Zeitraum sowie dem weiteren Ablauf. Diese Punkte lassen sich im direkten Kontakt klären.',
         },
         {
           question: 'Was gilt bei akuten Beschwerden?',
@@ -115,7 +116,8 @@ const translations = {
     },
     about: {
       title: 'Marina Rymmer',
-      lead: 'Ich bin Hebamme in Nürnberg und spreche Deutsch und Russisch.',
+      lead: 'Hebamme in Nürnberg',
+      languages: 'Deutsch / Русский',
     },
     reviews: {
       title: 'Erfahrungen von Familien',
@@ -123,7 +125,8 @@ const translations = {
     contact: {
       title: 'Deine erste Anfrage',
       intro:
-        'Schreib deinen Namen, deinen Wohnort, den errechneten Geburtstermin (falls relevant) und kurz dein Anliegen. Deutsch oder Russisch ist beides möglich.',
+        'Für den Anfang reichen diese Angaben – auf Deutsch oder Russisch:',
+      details: ['Dein Name', 'Dein Wohnort', 'Errechneter Geburtstermin, falls relevant', 'Dein Anliegen in wenigen Worten'],
       privacyNote:
         'Bitte sende medizinische Befunde, Fotos oder ausführliche Gesundheitsdaten nicht ungefragt über WhatsApp.',
       whatsapp: 'WhatsApp schreiben',
@@ -187,15 +190,16 @@ const translations = {
       call: '0176 23488396',
     },
     hero: {
-      eyebrow: 'Русский · Deutsch · Nürnberg',
-      title: 'Акушерка Марина Риммер в Нюрнберге',
+      eyebrow: 'Акушерка в Нюрнберге',
+      title: 'Марина Риммер',
       intro:
-        'Ищете акушерку в Нюрнберге? Короткого сообщения достаточно, чтобы уточнить, возможно ли сопровождение.',
+        'Ищете акушерку? Напишите мне по-русски или по-немецки. При общении мы уточним, смогу ли я вас сопровождать.',
+      inquiryLink: 'Что написать в первом сообщении?',
     },
     orientation: {
-      title: 'Помощь акушерки: коротко',
+      title: 'Чем помогает акушерка',
       intro:
-        'Помощь акушерки может охватывать разные этапы — от беременности до периода после родов.',
+        'От беременности до первых недель с малышом: помощь акушерки может быть полезна на разных этапах.',
       note:
         'Какие именно услуги предлагает Марина и есть ли возможность сопровождения, уточняется при первом обращении.',
       items: [
@@ -233,7 +237,7 @@ const translations = {
           text: 'Если после родов вы ищете помощь акушерки для себя и малыша.',
         },
         {
-          title: 'Когда появились новые вопросы',
+          title: 'С новыми вопросами',
           text:
             'Если есть вопросы о грудном вскармливании, питании малыша или первых буднях после родов.',
         },
@@ -248,14 +252,14 @@ const translations = {
             'Лучше как можно раньше во время беременности. Так остаётся больше времени найти акушерку со свободными местами.',
         },
         {
-          question: 'Что оплачивает государственная медицинская страховка?',
+          question: 'Что покрывает медицинская страховка?',
           answer:
             'При государственной медицинской страховке в целом есть право на помощь акушерки во время беременности и после родов. Конкретный объём зависит от правовых норм и личной ситуации. При частной страховке стоит проверить условия своего тарифа.',
         },
         {
-          question: 'Нужна ли помощь акушерки после родов?',
+          question: 'Что уточнить до начала сопровождения?',
           answer:
-            'Да. В послеродовом периоде помощь может включать наблюдение за состоянием матери и новорождённого, а также консультации по восстановлению, грудному вскармливанию, питанию и уходу за малышом.',
+            'Уточните, какие услуги предлагает акушерка, возможно ли сопровождение по вашему месту жительства и в нужный период, а также каковы дальнейшие шаги. Эти вопросы можно обсудить напрямую.',
         },
         {
           question: 'Что делать при острых симптомах?',
@@ -266,7 +270,8 @@ const translations = {
     },
     about: {
       title: 'Марина Риммер',
-      lead: 'Я акушерка в Нюрнберге и говорю по-русски и по-немецки.',
+      lead: 'Акушерка в Нюрнберге',
+      languages: 'Русский / Deutsch',
     },
     reviews: {
       title: 'Отзывы семей',
@@ -274,7 +279,8 @@ const translations = {
     contact: {
       title: 'Первое обращение',
       intro:
-        'Напишите ваше имя, место жительства, предполагаемую дату родов (если это актуально) и коротко опишите вопрос. Можно по-русски или по-немецки.',
+        'Для начала достаточно этих сведений — по-русски или по-немецки:',
+      details: ['Ваше имя', 'Место жительства', 'Предполагаемая дата родов, если актуально', 'Кратко — с чем вы обращаетесь'],
       privacyNote:
         'Пожалуйста, не отправляйте без предварительной договорённости медицинские заключения, фотографии или подробные сведения о здоровье через WhatsApp.',
       whatsapp: 'Написать в WhatsApp',
