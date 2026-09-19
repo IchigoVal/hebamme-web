@@ -17,7 +17,7 @@ Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Die aktive Website-Fassung 
 | 7 | 19.09.2026 | `checkpoint/pre-visual-cleanup` | `0821dd3` | Vollständiger Stand unmittelbar vor dem gezielten visuellen Cleanup. |
 | 8 | 19.09.2026 | `checkpoint/visual-cleanup` | `e6926cc` | Reduzierter Hero, entfernte sichtbare Bildhinweise und ein bildstarker Abschluss im Kontaktbereich. |
 | 9 | 19.09.2026 | `checkpoint/pre-content-cta-cleanup` | `34b309a` | Dokumentierter Stand unmittelbar vor dem inhaltlichen Cleanup und der CTA-Überarbeitung. |
-| 10 | 19.09.2026 | `checkpoint/content-cta-cleanup` | `WIRD NACH DEM COMMIT ERGÄNZT` | Strafferer unterer Seitenbereich mit kompakter Erstkontakt-Hilfe und überarbeitetem Buttonsystem. |
+| 10 | 19.09.2026 | `checkpoint/content-cta-cleanup` | `50f61ae` | Strafferer unterer Seitenbereich mit kompakter Erstkontakt-Hilfe und überarbeitetem Buttonsystem. |
 
 ### 1. `checkpoint/pre-rethink`
 
