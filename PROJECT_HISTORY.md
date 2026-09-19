@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `content-depth-pass`. Der fertig geprüfte Stand liegt auf `checkpoint/content-depth-final`; Ausgangspunkt dieses Durchgangs bleibt unverändert `checkpoint/pre-content-depth-pass`. Die früheren Entwicklungsstände bleiben auf `asset-logo-pass` und `rework-content-design` erhalten.
+Der aktuelle Arbeitsbranch heißt `astra-final-review`. Der geprüfte Website-Stand liegt auf `checkpoint/astra-final-review`. Sein exakter Ausgangspunkt ist `checkpoint/pre-astra-final-review` (`5c605e8`) auf dem weiterhin erhaltenen Branch `content-depth-pass`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-final-review`.
 
 ## Checkpoints
 
@@ -21,6 +21,8 @@ Der aktuelle Arbeitsbranch heißt `content-depth-pass`. Der fertig geprüfte Sta
 | 11 | 19.09.2026 | `checkpoint/pre-content-depth-pass` | `fbbb37f` | Vollständiger Stand vor der fachlichen Vertiefung und neuen Informationsarchitektur. |
 | 12 | 19.09.2026 | `checkpoint/content-depth` | `dde7b78` | Nutzbarer Zwischenstand mit fachlicher Orientierung, überarbeiteten Anfrageanlässen, bilingualem FAQ und Quellenhinweisen. |
 | 13 | 19.09.2026 | `checkpoint/content-depth-final` | `e879399` | Final geprüfter Content-Depth-Stand mit gestrafften Texten, korrekten Ankerabständen und vollständigen Responsive- und Tastaturtests. |
+| 14 | 19.09.2026 | `checkpoint/pre-astra-final-review` | `5c605e8` | Exakter sauberer Ausgangspunkt des unabhängigen Reviews einschließlich der bisherigen Dokumentation. |
+| 15 | 19.09.2026 | `checkpoint/astra-final-review` | `0eec8e1` | Vier gezielte Verbesserungen an Abschnittsproportionen, FAQ-Kürzung und barrierefreier Inhaltsbezeichnung. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -155,6 +157,41 @@ Zum aktuellen Entwicklungsstand zurückkehren:
 ```bash
 git switch content-depth-pass
 ```
+
+### 14–15. Unabhängiger Abschlussreview
+
+Ausgangsbranch: `content-depth-pass`. Neuer Arbeitsbranch: `astra-final-review`. Der Working Tree war zu Beginn sauber; Tag `checkpoint/pre-astra-final-review` sichert deshalb den unveränderten HEAD `5c605e8`. Der abschließende Website-Commit ist `0eec8e1`; die Historie wurde danach separat ergänzt.
+
+Prioritäten nach tatsächlicher Sichtprüfung in Chrome:
+
+- **A – umgesetzt:** Die Desktop-Überschrift „Hebammenhilfe“ ragte mit etwa 578 Pixeln Textbreite aus ihrer 439 Pixel breiten Spalte. Eine abschnittsspezifische Schriftgröße und passende Breitenbegrenzung beheben dies. Das Bild im Marina-Bereich bestimmt nicht länger die Abschnittshöhe durch seine intrinsischen Maße; der Desktop-Abschnitt ist nun 640 Pixel hoch und passt besser zum kurzen Inhalt. Der FAQ-Einleitungssatz ohne zusätzlichen Informationswert entfällt in DE/RU. Die Screenreader-Bezeichnung der vier Karten lautet nun „Anfrageanlässe“ beziehungsweise „Поводы для обращения“, damit auch dort kein bestätigtes Leistungsangebot suggeriert wird.
+- **B – nicht umgesetzt:** Weitere Änderungen an Weißraum, Hero-Größe, Bildauswahl oder Buttonform wären überwiegend Geschmacksfragen.
+- **C – erhalten:** Fachliche Aussagen, Abschnittsreihenfolge, vier Bildkarten, Farbwelt, vorhandene Bilder, Kontaktabschluss, Reveal-Logik und Elfsight-Lazy-Loading. Die vorhandenen Inhalte decken die wichtigen Fragen ab; neue Abschnitte würden eher wiederholen. Es wurden keine fachlichen Aussagen ergänzt, keine Marina-spezifischen Angaben erfunden und keine Bilder erzeugt, ersetzt oder gelöscht.
+
+Prüfung am Produktions-Build: 390 Pixel DE/RU und 1440 Pixel DE, ergänzende Kontrolle der betroffenen Überschrift bei 1024 Pixeln. Kein horizontaler Overflow, keine kaputten lokalen Bilder, keine fehlenden Übersetzungsschlüssel oder Anker und keine JavaScript-Ausnahmen. FAQ mit Enter und sichtbarem Fokus, alle Antworten geöffnet, Kartenstreifen mit Pfeiltaste, Mobile-Menü inklusive Escape und Ankersprung, Reduced Motion sowie FAQ-Inhalt ohne JavaScript wurden geprüft. Telefon-/WhatsApp-Ziele stimmen; Rechtseiten, Favicon und alle vier externen Quellenlinks waren erreichbar. Elfsight lädt weiterhin; einzelne externe Bewertungs-Avatare können zeitversetzt nachladen. Build und `git diff --check` erfolgreich. Temporäre Prüfdaten wurden nicht committed.
+
+Vor Veröffentlichung weiterhin offen: Rechtstexte enthalten noch ausdrücklich markierte Pflichtangaben und eine Beispiel-E-Mail-Adresse. Diese Entwürfe müssen anhand der echten Angaben vervollständigt werden; externe Google Fonts, Elfsight und WhatsApp sind bei der Datenschutzprüfung zu berücksichtigen. Der Review macht diese Seiten nicht rechtlich fertig.
+
+Vorherigen Stand ansehen, ohne die aktuelle Entwicklung zu überschreiben:
+
+```bash
+git status
+git switch -c ansehen-vor-astra checkpoint/pre-astra-final-review
+```
+
+Nur bei sauberem Working Tree wechseln; eigene offene Änderungen zuerst sichern. Der neue Besichtigungsbranch bewahrt den alten Stand, während `astra-final-review` unverändert bleibt. Zum neuesten Stand zurückkehren:
+
+```bash
+git switch astra-final-review
+```
+
+Den geprüften Website-Checkpoint separat öffnen:
+
+```bash
+git switch -c ansehen-astra-final checkpoint/astra-final-review
+```
+
+Alle Befehle arbeiten lokal. Es wurde nichts gepusht oder deployt.
 
 ## Einen Checkpoint nur ansehen
 
