@@ -72,7 +72,7 @@
               data-i18n-attr="aria-label"
             >
               <a href="#hebammenhilfe" data-i18n="nav.orientation">Hebammenhilfe</a>
-              <a href="#leistungen" data-i18n="nav.services">Anlässe</a>
+              <a href="#leistungen" data-i18n="nav.services">Wann anfragen</a>
               <a href="#wissen" data-i18n="nav.knowledge">Gut zu wissen</a>
               <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
             </nav>
@@ -90,14 +90,9 @@
         >
           <div class="mobile-nav-card">
             <a href="#hebammenhilfe" data-i18n="nav.orientation">Hebammenhilfe</a>
-            <a href="#leistungen" data-i18n="nav.services">Anlässe</a>
-            <a href="#ueber-mich" data-i18n="nav.about">Marina</a>
-            <a href="#bewertungen" data-i18n="nav.reviews">Bewertungen</a>
+            <a href="#leistungen" data-i18n="nav.services">Wann anfragen</a>
             <a href="#wissen" data-i18n="nav.knowledge">Gut zu wissen</a>
-            <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
-            <a class="btn btn--primary btn--full" href="#kontakt" data-i18n="cta.checkAvailability">
-              Direkt Kontakt aufnehmen
-            </a>
+            <a class="btn btn--primary btn--full" href="#kontakt" data-i18n="cta.checkAvailability">Direkt Kontakt aufnehmen</a>
           </div>
         </nav>
       </header>
@@ -186,6 +181,7 @@
 
             <div
               class="services-grid"
+              id="anfragekarten"
               role="region"
               aria-label="Anfrageanlässe. Auf kleinen Bildschirmen horizontal scrollbar."
               data-services-track
@@ -208,9 +204,7 @@
                 <div class="service-card__body">
                   <span class="service-card__number" aria-hidden="true">01</span>
                   <h3 data-i18n="services.cards.0.title">Früh in der Schwangerschaft</h3>
-                  <p data-i18n="services.cards.0.text">
-                    Sobald du weißt, dass du schwanger bist und eine Betreuung für die nächste Zeit suchst.
-                  </p>
+                  <p data-i18n="services.cards.0.text">Sobald du weißt, dass du schwanger bist und eine Betreuung für die nächste Zeit suchst.</p>
                 </div>
               </article>
 
@@ -274,7 +268,11 @@
                 </div>
               </article>
             </div>
-
+            <div class="services-controls" data-services-controls hidden>
+              <span class="services-position" data-services-position aria-live="polite" aria-atomic="true">01 / 04</span>
+              <button type="button" data-services-prev aria-controls="anfragekarten" aria-label="Vorherige Karte" data-i18n="aria.previousCard" data-i18n-attr="aria-label"><span aria-hidden="true">←</span></button>
+              <button type="button" data-services-next aria-controls="anfragekarten" aria-label="Nächste Karte" data-i18n="aria.nextCard" data-i18n-attr="aria-label"><span aria-hidden="true">→</span></button>
+            </div>
           </div>
         </section>
 
@@ -315,7 +313,7 @@
               <details>
                 <summary data-i18n="faq.items.2.question">Was sollte ich vor einer Betreuung klären?</summary>
                 <div class="faq-answer">
-                  <p data-i18n="faq.items.2.answer">Frag nach den angebotenen Leistungen, einer möglichen Betreuung an deinem Wohnort und im gewünschten Zeitraum sowie dem weiteren Ablauf. Diese Punkte lassen sich im direkten Kontakt klären.</p>
+                  <p data-i18n="faq.items.2.answer">Frag nach den angebotenen Leistungen, einer möglichen Betreuung an deinem Wohnort und im gewünschten Zeitraum sowie dem weiteren Ablauf.</p>
                 </div>
               </details>
               <details>
@@ -376,12 +374,8 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     data-i18n="contact.whatsapp"
-                  >
-                    WhatsApp schreiben
-                  </a>
-                  <a class="btn btn--light" href="tel:+4917623488396" data-i18n="contact.phone">
-                    Jetzt anrufen
-                  </a>
+                  >WhatsApp schreiben</a>
+                  <a class="btn btn--light" href="tel:+4917623488396" data-i18n="contact.phone">Jetzt anrufen</a>
                 </div>
 
               </div>

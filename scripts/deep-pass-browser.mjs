@@ -75,9 +75,11 @@ try {
     const sections = await evaluate(`Array.from(document.querySelectorAll('main > section')).map(s => ({id:s.id || 'hero', y:s.getBoundingClientRect().top + scrollY, height:s.offsetHeight}))`)
     if (width === 1440 || width === 390) {
       for (const section of sections) {
-        await evaluate(`window.scrollTo({top:${Math.max(0, section.y - 90)},behavior:'instant'})`)
+        const selector = section.id === 'hero' ? '.hero-section' : `#${section.id}`
+        await evaluate(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView({behavior:'instant'})`)
         await wait(150)
-        await screenshot(`${width}-${language}-${section.id}`, {x:0, y:section.y, width, height:Math.min(section.height,2200)})
+        const rect = await evaluate(`(() => {const s=document.querySelector(${JSON.stringify(selector)}); return {y:s.getBoundingClientRect().top+scrollY,height:s.offsetHeight}})()`)
+        await screenshot(`${width}-${language}-${section.id}`, {x:0, y:rect.y, width, height:Math.min(rect.height,2200)})
       }
     }
     const metrics = await evaluate(`({

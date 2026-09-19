@@ -11,7 +11,15 @@
 1. Git-Ausgangsstand geprüft und geschützt; Experiment-Branch erstellt.
 2. Quellen, Geschichte, Release-Grenzen, vollständiges HTML/JS/CSS und sichtbare Bilder geprüft. Vollständiger Scroll-Audit 1440 DE sowie 390 DE/RU im lokalen Edge abgeschlossen.
 3. IA/Content umgesetzt: DE/RU-Hero mit Name/beruflicher Ortszeile; kürzere Kartenüberschrift; doppelte Wochenbett-FAQ ersetzt; vier Kontaktangaben als Liste; Marina in Kontakt integriert. Deutscher HTML-Fallback synchronisiert.
-4. Design-Komposition und responsive Interaktionen stehen als nächste Phase an. Der Content-Checkpoint ist ein buildbarer Strukturstand, noch kein finaler visueller Stand.
+4. Designrunde 1 umgesetzt und im Browser geprüft: eigenständiger Namens-Hero, ruhigere Kartenstaffelung, vollbreiter Reviews-Einstieg, zusammengeführter Kontaktabschluss. Mobile Karten besitzen Pfeile/Position, Tastatur/Home/End und Reduced-Motion-Verhalten. Navigation besitzt Abschnittsstatus; mobiles Menü fokussiert sein Sprungziel und hält Tab im offenen Menü.
+5. Zweite gezielte Korrektur: schwebender Kontakt unter 1400 px ausgeblendet, da der Kreis im realen mobilen Screenshot Orientierungstext überdeckte. Letzten redundanten Satz der neuen FAQ gestrichen. Final-QA folgt.
+
+## Checkpoints dieses Durchgangs
+
+- `checkpoint/pre-astra-deep-final` → `875e1c3`
+- Statusinitialisierung → `11d4c9d`
+- `checkpoint/astra-deep-content` → `b11abc2`
+- `checkpoint/astra-deep-design` → Commit dieser Design-Statusfassung (Tag nach Build setzen).
 
 ## Entscheidungen / verworfene Ideen
 
@@ -49,6 +57,8 @@ In-App-Browser wegen `sandboxPolicy`-Verbindungsfehler nicht nutzbar. Lokaler Ed
 
 Content-Phase: `npm run build` und `git diff --check` erfolgreich. Neue organisatorische Checkliste benötigt keine neue fachliche Quelle. Bestehende Aussagen zu Hebammentätigkeit, Kosten und Notfallwegen unverändert abgesichert; keine neue medizinische Behauptung.
 
+Designrunde: 1440/1024/768/390/320 DE sowie 390/320 RU: kein Dokument- oder Text-Overflow, keine JS-Ausnahmen, keine fehlenden lokalen Bilder oder Anker. 1440/390 DE und 390 RU visuell geprüft; Report und Abschnittsbilder unter `%TEMP%/hebamme-astra-design`. Nach zweiter Korrektur Build/diff-check erneut erfolgreich. Funktions-QA und finale Screenshot-Matrix stehen noch aus.
+
 ## NEXT STEP
 
-`checkpoint/astra-deep-content` markiert den Commit dieser Statusfassung. Jetzt Layout für Hero, zusammengeführten Marina-/Kontaktbereich und Reviews entwickeln; Kartensteuerung und Navigationszustand ergänzen. Danach Browseriteration und Design-Checkpoint, zuletzt komplette QA.
+Design-Checkpoint setzen. Dann Produktions-Preview starten; alle geforderten Viewports/Sprachen visuell und funktional prüfen (Menü, Tastatur, Karten/Touch, FAQ, Reduced Motion, Anker, Kontaktziele, Quellen, Bilder/Favicon, Übersetzungsgleichheit, JS/Requests). Rechtseiten/Elfsight gegen Ausgangscommit vergleichen. Danach finaler redaktioneller Check, Historie/Status vervollständigen, Final-Commit/Tag und sauberer Arbeitsbaum.

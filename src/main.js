@@ -18,6 +18,8 @@ const translations = {
       legalNavigation: 'Rechtliche Hinweise',
       quickContact: 'Schnellkontakt',
       servicesCarousel: 'Anfrageanlässe. Auf kleinen Bildschirmen horizontal scrollbar.',
+      previousCard: 'Vorherige Karte',
+      nextCard: 'Nächste Karte',
       floatingPhone: 'Marina Rymmer unter 0176 23488396 anrufen',
       floatingWhatsapp: 'WhatsApp-Chat mit Marina Rymmer öffnen',
     },
@@ -105,7 +107,7 @@ const translations = {
         {
           question: 'Was sollte ich vor einer Betreuung klären?',
           answer:
-            'Frag nach den angebotenen Leistungen, einer möglichen Betreuung an deinem Wohnort und im gewünschten Zeitraum sowie dem weiteren Ablauf. Diese Punkte lassen sich im direkten Kontakt klären.',
+            'Frag nach den angebotenen Leistungen, einer möglichen Betreuung an deinem Wohnort und im gewünschten Zeitraum sowie dem weiteren Ablauf.',
         },
         {
           question: 'Was gilt bei akuten Beschwerden?',
@@ -170,6 +172,8 @@ const translations = {
       legalNavigation: 'Правовая информация',
       quickContact: 'Быстрая связь',
       servicesCarousel: 'Поводы для обращения. На небольших экранах прокручивается горизонтально.',
+      previousCard: 'Предыдущая карточка',
+      nextCard: 'Следующая карточка',
       floatingPhone: 'Позвонить Marina Rymmer по номеру 0176 23488396',
       floatingWhatsapp: 'Открыть чат WhatsApp с Marina Rymmer',
     },
@@ -259,7 +263,7 @@ const translations = {
         {
           question: 'Что уточнить до начала сопровождения?',
           answer:
-            'Уточните, какие услуги предлагает акушерка, возможно ли сопровождение по вашему месту жительства и в нужный период, а также каковы дальнейшие шаги. Эти вопросы можно обсудить напрямую.',
+            'Уточните, какие услуги предлагает акушерка, возможно ли сопровождение по вашему месту жительства и в нужный период, а также каковы дальнейшие шаги.',
         },
         {
           question: 'Что делать при острых симптомах?',
@@ -408,13 +412,33 @@ languageButtons.forEach((button) => {
 menuToggle?.addEventListener('click', () => setMenuState(!isMenuOpen))
 
 mobileNav?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => setMenuState(false))
+  link.addEventListener('click', () => {
+    setMenuState(false)
+    const target = document.querySelector(link.getAttribute('href'))
+    if (target) {
+      target.setAttribute('tabindex', '-1')
+      target.focus({ preventScroll: true })
+    }
+  })
 })
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && isMenuOpen) {
     setMenuState(false)
     menuToggle?.focus()
+  }
+  if (event.key === 'Tab' && isMenuOpen) {
+    const controls = [...document.querySelectorAll('.site-header a, .site-header button')]
+      .filter(element => element.getClientRects().length && getComputedStyle(element).visibility !== 'hidden')
+    const first = controls[0]
+    const last = controls.at(-1)
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault()
+      last?.focus()
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault()
+      first?.focus()
+    }
   }
 })
 
@@ -475,9 +499,32 @@ function initializeServicesTrack() {
   if (!servicesTrack) return
 
   const mobileQuery = window.matchMedia('(max-width: 719px)')
+  const controls = document.querySelector('[data-services-controls]')
+  const previous = document.querySelector('[data-services-prev]')
+  const next = document.querySelector('[data-services-next]')
+  const position = document.querySelector('[data-services-position]')
+  const cards = [...servicesTrack.querySelectorAll('.service-card')]
+  let current = 0
+  const updatePosition = () => {
+    const left = servicesTrack.getBoundingClientRect().left
+    const distances = cards.map(card => Math.abs(card.getBoundingClientRect().left - left))
+    current = servicesTrack.scrollLeft + servicesTrack.clientWidth >= servicesTrack.scrollWidth - 2
+      ? cards.length - 1 : distances.indexOf(Math.min(...distances))
+    previous.disabled = current === 0
+    next.disabled = current === cards.length - 1
+    position.textContent = `${String(current + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`
+  }
+  const goTo = (index) => {
+    const card = cards[Math.max(0, Math.min(cards.length - 1, index))]
+    const left = card.getBoundingClientRect().left - servicesTrack.getBoundingClientRect().left + servicesTrack.scrollLeft
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    servicesTrack.scrollTo({ left, behavior: reduced ? 'instant' : 'smooth' })
+  }
   const updateTabStop = () => {
+    controls.hidden = !mobileQuery.matches
     if (mobileQuery.matches) {
       servicesTrack.setAttribute('tabindex', '0')
+      updatePosition()
     } else {
       servicesTrack.removeAttribute('tabindex')
     }
@@ -485,14 +532,42 @@ function initializeServicesTrack() {
 
   updateTabStop()
   mobileQuery.addEventListener?.('change', updateTabStop)
+  servicesTrack.addEventListener('scroll', updatePosition, { passive: true })
+  window.addEventListener('resize', updatePosition)
+  previous.addEventListener('click', () => goTo(current - 1))
+  next.addEventListener('click', () => goTo(current + 1))
 
   servicesTrack.addEventListener('keydown', (event) => {
-    if (!mobileQuery.matches || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return
+    if (!mobileQuery.matches || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return
 
     event.preventDefault()
-    const direction = event.key === 'ArrowRight' ? 1 : -1
-    servicesTrack.scrollBy({ left: direction * servicesTrack.clientWidth * 0.85, behavior: 'smooth' })
+    if (event.key === 'Home') goTo(0)
+    else if (event.key === 'End') goTo(cards.length - 1)
+    else goTo(current + (event.key === 'ArrowRight' ? 1 : -1))
   })
+}
+
+function initializeNavigationState() {
+  const sections = [...document.querySelectorAll('main > section')]
+  const links = [...document.querySelectorAll('.desktop-nav a, .mobile-nav a')]
+  let scheduled = false
+  const update = () => {
+    scheduled = false
+    const offset = document.querySelector('.site-header').offsetHeight + 40
+    const current = sections.filter(section => section.getBoundingClientRect().top <= offset).at(-1)
+    links.forEach(link => {
+      if (current?.id && link.hash === `#${current.id}`) link.setAttribute('aria-current', 'location')
+      else link.removeAttribute('aria-current')
+    })
+  }
+  const schedule = () => {
+    if (scheduled) return
+    scheduled = true
+    window.requestAnimationFrame(update)
+  }
+  window.addEventListener('scroll', schedule, { passive: true })
+  window.addEventListener('resize', schedule)
+  update()
 }
 
 function initializeReviewsWidget() {
@@ -531,4 +606,5 @@ setMenuState(false)
 initializeReveals()
 initializeFloatingContact()
 initializeServicesTrack()
+initializeNavigationState()
 initializeReviewsWidget()
