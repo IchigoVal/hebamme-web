@@ -77,11 +77,11 @@ Zum aktiven Arbeitsstand zurückkehren:
 git switch asset-logo-pass
 ```
 
-### 9. `checkpoint/pre-content-cta-cleanup`
+### 9. `checkpoint/pre-content-cta-cleanup` --- hier war gut oder +-1
 
 Dieser Tag bewahrt den vollständigen Stand vor dem inhaltlich-visuellen Cleanup. Der Working Tree war sauber, daher liegt der Tag ohne zusätzlichen Zwischen-Commit direkt auf Commit `34b309a`.
 
-### 10. `checkpoint/content-cta-cleanup`
+### 10. `checkpoint/content-cta-cleanup` --- 
 
 Der dekorative Doppelbild-Abschluss und die kleine Zeile „Nicht sicher, ob dein Anliegen passt?“ wurden entfernt. Der frühere große Anfragebereich mit Bildcollage wurde als kompakter Informationsblock direkt vor dem Kontakt neu aufgebaut. Er erklärt knapp, wann eine Anfrage sinnvoll ist, welche Angaben in die erste Nachricht gehören, welche Sprachen möglich sind und dass WhatsApp unter `0176 23488396` der schnellste Kontaktweg ist. Wiederholungen in Hero, Leistungsintro, Marina- und Kontaktbereich wurden reduziert; Deutsch und Russisch wurden gemeinsam überarbeitet.
 
