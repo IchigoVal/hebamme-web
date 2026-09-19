@@ -19,6 +19,7 @@ Der aktuelle Arbeitsbranch heißt `content-depth-pass`. Ausgangspunkt dieses Dur
 | 9 | 19.09.2026 | `checkpoint/pre-content-cta-cleanup` | `34b309a` | Dokumentierter Stand unmittelbar vor dem inhaltlichen Cleanup und der CTA-Überarbeitung. |
 | 10 | 19.09.2026 | `checkpoint/content-cta-cleanup` | `50f61ae` | Strafferer unterer Seitenbereich mit kompakter Erstkontakt-Hilfe und überarbeitetem Buttonsystem. |
 | 11 | 19.09.2026 | `checkpoint/pre-content-depth-pass` | `fbbb37f` | Vollständiger Stand vor der fachlichen Vertiefung und neuen Informationsarchitektur. |
+| 12 | 19.09.2026 | `checkpoint/content-depth` | `dde7b78` | Nutzbarer Zwischenstand mit fachlicher Orientierung, überarbeiteten Anfrageanlässen, bilingualem FAQ und Quellenhinweisen. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -108,6 +109,24 @@ Diesen Ausgangspunkt später in einem neuen Branch ansehen:
 
 ```bash
 git switch -c ansehen-pre-content-depth checkpoint/pre-content-depth-pass
+```
+
+Zum aktuellen Arbeitsstand zurückkehren:
+
+```bash
+git switch content-depth-pass
+```
+
+### 12. `checkpoint/content-depth`
+
+Dieser Zwischenstand enthält die neue Informationsarchitektur in einer bereits gebauten und visuell geprüften Fassung. Neu sind der allgemeine Abschnitt „Hebammenhilfe, kurz erklärt“, vier klar voneinander getrennte Anfrageanlässe, das native und per Tastatur bedienbare FAQ „Gut zu wissen“ sowie der zusammengeführte Abschluss für erste Anfrage und Kontakt. Alle neuen Inhalte liegen auf Deutsch und Russisch vor.
+
+Allgemeine Informationen werden ausdrücklich nicht als bestätigte Leistungen von Marina dargestellt. Verwendet wurden offizielle beziehungsweise fachlich verlässliche Informationen von gesund.bund.de, dem GKV-Spitzenverband, dem Deutschen Hebammenverband, dem Bundesgesundheitsministerium und familienplanung.de. Die genaue Zuordnung der Aussagen ist in `CONTENT_SOURCES.md` dokumentiert. Es wurden keine Bilder ersetzt oder neu erzeugt, weil die vorhandenen Motive weiterhin zu ihren Abschnitten passen.
+
+Diesen Stand später in einem neuen Branch ansehen:
+
+```bash
+git switch -c ansehen-content-depth checkpoint/content-depth
 ```
 
 Zum aktuellen Arbeitsstand zurückkehren:
