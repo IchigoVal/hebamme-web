@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Die aktive Website-Fassung entspricht `checkpoint/logo-assets-pass`; danach wurde nur noch diese Verlaufsdatei um die endgültige Commit-ID ergänzt. Der vorherige Entwicklungsstand bleibt zusätzlich auf `rework-content-design` erhalten.
+Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Die aktive Website-Fassung entspricht `checkpoint/visual-cleanup`; danach wurde nur noch diese Verlaufsdatei um die endgültige Commit-ID ergänzt. Der vorherige Entwicklungsstand bleibt zusätzlich auf `rework-content-design` erhalten.
 
 ## Checkpoints
 
@@ -14,6 +14,8 @@ Der aktuelle Arbeitsbranch heißt `asset-logo-pass`. Die aktive Website-Fassung 
 | 4 | 19.09.2026 | `checkpoint/final-polish` | `b30682e` | Abschließend geprüfter Stand mit Feinschliff an Text, Bildtransparenz, Navigation, Fokusverhalten und mobilen Kontaktaktionen. |
 | 5 | 19.09.2026 | `checkpoint/pre-logo-assets-pass` | `8eb3f14` | Aktiver Website-Stand vor dem Logo- und Bilder-Pass, einschließlich der beiden neu bereitgestellten Logo-Kandidaten. |
 | 6 | 19.09.2026 | `checkpoint/logo-assets-pass` | `89ebc5a` | Neues Logo in Header und Browser-Tab sowie drei gezielt erneuerte, weboptimierte Bildmotive. |
+| 7 | 19.09.2026 | `checkpoint/pre-visual-cleanup` | `0821dd3` | Vollständiger Stand unmittelbar vor dem gezielten visuellen Cleanup. |
+| 8 | 19.09.2026 | `checkpoint/visual-cleanup` | `WIRD NACH DEM COMMIT ERGÄNZT` | Reduzierter Hero, entfernte sichtbare Bildhinweise und ein bildstarker Abschluss im Kontaktbereich. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -53,6 +55,26 @@ Zum aktiven Arbeitsstand zurückkehren:
 git switch asset-logo-pass
 ```
 
+### 7. `checkpoint/pre-visual-cleanup`
+
+Dieser Tag zeigt den unveränderten Stand vor dem visuellen Cleanup. Der Working Tree war sauber, deshalb war kein zusätzlicher Sicherungs-Commit nötig. Der Tag liegt auf Commit `0821dd3` und bewahrt damit auch die zuletzt vervollständigte Projekthistorie.
+
+### 8. `checkpoint/visual-cleanup`
+
+In diesem Stand sind die sichtbaren Hinweise auf Hero- und Marina-Bild entfernt; die neutralen Alternativtexte bleiben erhalten. Die Hero-Überschrift ist moderat kleiner und etwas breiter gesetzt. Der technische Erklärungssatz über Elfsight ist aus dem Bewertungsbereich entfernt, während das Widget selbst unverändert weiterlädt. Das bereits vorhandene Bild `public/images/support.jpg` bildet nun innerhalb des Kontaktbereichs einen breiten Abschluss mit einem eigenen mobilen Ausschnitt. Die Website-Änderungen liegen in `index.html`, `src/main.js` und `src/style.css`.
+
+Diesen Stand später in einem neuen Branch ansehen:
+
+```bash
+git switch -c ansehen-visual-cleanup checkpoint/visual-cleanup
+```
+
+Zum aktiven Arbeitsstand zurückkehren:
+
+```bash
+git switch asset-logo-pass
+```
+
 ## Einen Checkpoint nur ansehen
 
 Die folgenden Befehle verändern oder löschen keinen gespeicherten Stand.
@@ -72,7 +94,7 @@ Die folgenden Befehle verändern oder löschen keinen gespeicherten Stand.
 3. Später wieder zum aktuellen Entwicklungsstand zurückkehren:
 
    ```bash
-   git switch rework-content-design
+   git switch asset-logo-pass
    ```
 
 Der zusätzliche Branch `ansehen-pre-rethink` kann später gelöscht werden, sobald er nicht mehr benötigt wird:

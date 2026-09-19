@@ -93,7 +93,6 @@ const translations = {
     },
     reviews: {
       title: 'Erfahrungen von Familien',
-      text: 'Die Bewertungen werden über Elfsight direkt aus Google geladen.',
     },
     contact: {
       title: 'Kontakt aufnehmen',
@@ -108,7 +107,6 @@ const translations = {
     },
     images: {
       heroAlt: 'Anonymes atmosphärisches Motiv einer Schwangeren am Fenster',
-      heroCaption: 'Bildmotiv · nicht Marina Rymmer',
       step1Alt: 'Atmosphärisches Motiv einer Schwangerschaft',
       step2Alt: 'Atmosphärisches Motiv einer Schwangeren',
       step3Alt: 'Atmosphärisches Motiv eines Neugeborenen',
@@ -116,8 +114,8 @@ const translations = {
       trustAlt: 'Atmosphärisches Mutter-Kind-Motiv',
       whyAlt: 'Atmosphärisches Motiv einer Schwangeren',
       aboutAlt: 'Hände falten Babykleidung auf einem Leinentuch',
-      aboutCaption: 'Bildmotiv · nicht Marina Rymmer',
       supportAlt: 'Hand legt ein Smartphone neben gefaltete Babywäsche',
+      closingAlt: 'Mutter mit Neugeborenem und ruhendes Baby in hellen Tüchern',
     },
   },
   ru: {
@@ -211,7 +209,6 @@ const translations = {
     },
     reviews: {
       title: 'Отзывы семей',
-      text: 'Отзывы загружаются из Google с помощью сервиса Elfsight.',
     },
     contact: {
       title: 'Связаться со мной',
@@ -226,7 +223,6 @@ const translations = {
     },
     images: {
       heroAlt: 'Атмосферное изображение беременной женщины у окна без узнаваемого лица',
-      heroCaption: 'Иллюстрация · на фото не Марина Риммер',
       step1Alt: 'Атмосферное изображение на тему беременности',
       step2Alt: 'Атмосферное изображение беременной женщины',
       step3Alt: 'Атмосферное изображение новорождённого',
@@ -234,8 +230,8 @@ const translations = {
       trustAlt: 'Атмосферное изображение мамы с ребёнком',
       whyAlt: 'Атмосферное изображение беременной женщины',
       aboutAlt: 'Руки складывают детскую одежду на льняной ткани',
-      aboutCaption: 'Иллюстрация · на фото не Марина Риммер',
       supportAlt: 'Рука кладёт смартфон рядом со сложенной детской тканью',
+      closingAlt: 'Мама с новорождённым и спящий малыш в светлых тканях',
     },
   },
 }
