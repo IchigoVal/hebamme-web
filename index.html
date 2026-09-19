@@ -9,14 +9,8 @@
       data-i18n="meta.description"
       data-i18n-attr="content"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" href="./favicon.png" type="image/png" sizes="64x64" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
     <title data-i18n="meta.title">Marina Rymmer | Hebamme</title>
   </head>
   <body>
@@ -338,11 +332,22 @@
               <h2 data-i18n="reviews.title">Erfahrungen von Familien</h2>
             </div>
 
-            <div class="reviews-widget" data-reveal style="--reveal-delay: 80ms">
-              <div
-                class="elfsight-app-6e2e4c6f-ebc0-4005-93a9-b414b24ac284"
-                data-elfsight-app-lazy
-              ></div>
+            <div class="reviews-widget" data-reveal style="--reveal-delay: 80ms" aria-live="polite">
+              <div class="reviews-consent" data-reviews-consent>
+                <p class="reviews-consent__title" data-i18n="reviews.consentTitle">
+                  Google-Bewertungen anzeigen
+                </p>
+                <p data-i18n="reviews.consentText">
+                  Erst nach deiner Zustimmung wird das externe Elfsight-Widget geladen. Dabei werden Daten
+                  an Elfsight übertragen und Drittanbieter-Cookies gesetzt.
+                </p>
+                <div class="reviews-consent__actions">
+                  <button class="btn btn--secondary" type="button" data-reviews-load data-i18n="reviews.load">
+                    Bewertungen laden
+                  </button>
+                  <a href="./datenschutz.html#bewertungen" data-i18n="reviews.privacyLink">Mehr zum Datenschutz</a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -423,6 +428,10 @@
                 <p data-i18n="contact.intro">
                   Schreib deinen Namen, deinen Wohnort, den errechneten Geburtstermin (falls relevant) und
                   kurz dein Anliegen. Deutsch oder Russisch ist beides möglich.
+                </p>
+                <p class="contact-privacy-note" data-i18n="contact.privacyNote">
+                  Bitte sende medizinische Befunde, Fotos oder ausführliche Gesundheitsdaten nicht
+                  ungefragt über WhatsApp.
                 </p>
 
                 <div

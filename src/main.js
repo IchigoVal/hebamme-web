@@ -121,11 +121,20 @@ const translations = {
     },
     reviews: {
       title: 'Erfahrungen von Familien',
+      consentTitle: 'Google-Bewertungen anzeigen',
+      consentText:
+        'Erst nach deiner Zustimmung wird das externe Elfsight-Widget geladen. Dabei werden Daten an Elfsight übertragen und Drittanbieter-Cookies gesetzt.',
+      load: 'Bewertungen laden',
+      loading: 'Bewertungen werden geladen …',
+      error: 'Die Bewertungen konnten nicht geladen werden. Erneut versuchen',
+      privacyLink: 'Mehr zum Datenschutz',
     },
     contact: {
       title: 'Deine erste Anfrage',
       intro:
         'Schreib deinen Namen, deinen Wohnort, den errechneten Geburtstermin (falls relevant) und kurz dein Anliegen. Deutsch oder Russisch ist beides möglich.',
+      privacyNote:
+        'Bitte sende medizinische Befunde, Fotos oder ausführliche Gesundheitsdaten nicht ungefragt über WhatsApp.',
       whatsapp: 'WhatsApp schreiben',
       phone: 'Jetzt anrufen',
     },
@@ -272,11 +281,20 @@ const translations = {
     },
     reviews: {
       title: 'Отзывы семей',
+      consentTitle: 'Показать отзывы Google',
+      consentText:
+        'Внешний виджет Elfsight загрузится только после вашего согласия. При этом данные передаются Elfsight и могут устанавливаться сторонние cookie-файлы.',
+      load: 'Загрузить отзывы',
+      loading: 'Отзывы загружаются …',
+      error: 'Не удалось загрузить отзывы. Попробовать ещё раз',
+      privacyLink: 'Подробнее о защите данных',
     },
     contact: {
       title: 'Первое обращение',
       intro:
         'Напишите ваше имя, место жительства, предполагаемую дату родов (если это актуально) и коротко опишите вопрос. Можно по-русски или по-немецки.',
+      privacyNote:
+        'Пожалуйста, не отправляйте без предварительной договорённости медицинские заключения, фотографии или подробные сведения о здоровье через WhatsApp.',
       whatsapp: 'Написать в WhatsApp',
       phone: 'Позвонить',
     },
@@ -310,6 +328,8 @@ const inquirySection = document.querySelector('#ablauf')
 const contactSection = document.querySelector('#kontakt')
 const servicesTrack = document.querySelector('[data-services-track]')
 const reviewsWidget = document.querySelector('.reviews-widget')
+const reviewsConsent = document.querySelector('[data-reviews-consent]')
+const reviewsLoadButton = document.querySelector('[data-reviews-load]')
 const languageButtons = document.querySelectorAll('[data-lang-option]')
 const translatableElements = document.querySelectorAll('[data-i18n]')
 
@@ -340,7 +360,7 @@ function updateMenuLabel() {
   }
 }
 
-function applyLanguage(language) {
+function applyLanguage(language, persist = true) {
   if (!translations[language]) return
 
   activeLanguage = language
@@ -368,10 +388,12 @@ function applyLanguage(language) {
 
   updateMenuLabel()
 
-  try {
-    window.localStorage.setItem('preferred-language', language)
-  } catch {
-    // The language still works when storage is unavailable.
+  if (persist) {
+    try {
+      window.localStorage.setItem('preferred-language', language)
+    } catch {
+      // The language still works when storage is unavailable.
+    }
   }
 }
 
@@ -488,37 +510,42 @@ function initializeServicesTrack() {
 }
 
 function initializeReviewsWidget() {
-  if (!reviewsWidget) return
+  if (!reviewsWidget || !reviewsConsent || !reviewsLoadButton) return
+
+  let isLoading = false
 
   const loadPlatform = () => {
-    if (document.querySelector('[data-elfsight-platform]')) return
+    if (isLoading || document.querySelector('[data-elfsight-platform]')) return
+
+    isLoading = true
+    reviewsLoadButton.disabled = true
+    reviewsLoadButton.textContent = getTranslation(activeLanguage, 'reviews.loading')
+
+    const widget = document.createElement('div')
+    widget.className = 'elfsight-app-6e2e4c6f-ebc0-4005-93a9-b414b24ac284'
+    widget.dataset.elfsightAppLazy = ''
+    widget.tabIndex = -1
+    reviewsConsent.replaceWith(widget)
+    widget.focus({ preventScroll: true })
 
     const script = document.createElement('script')
     script.src = 'https://elfsightcdn.com/platform.js'
     script.async = true
     script.dataset.elfsightPlatform = ''
+    script.addEventListener('error', () => {
+      isLoading = false
+      script.remove()
+      widget.replaceWith(reviewsConsent)
+      reviewsLoadButton.disabled = false
+      reviewsLoadButton.textContent = getTranslation(activeLanguage, 'reviews.error')
+    })
     document.head.append(script)
   }
 
-  if (!('IntersectionObserver' in window)) {
-    loadPlatform()
-    return
-  }
-
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry.isIntersecting) return
-
-      loadPlatform()
-      observer.disconnect()
-    },
-    { rootMargin: '600px 0px' },
-  )
-
-  observer.observe(reviewsWidget)
+  reviewsLoadButton.addEventListener('click', loadPlatform)
 }
 
-applyLanguage(activeLanguage)
+applyLanguage(activeLanguage, false)
 setMenuState(false)
 initializeReveals()
 initializeFloatingContact()
