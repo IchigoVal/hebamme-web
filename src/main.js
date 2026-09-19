@@ -46,7 +46,7 @@ const translations = {
     services: {
       title: 'Wann eine Anfrage sinnvoll sein kann',
       intro:
-        'Eine pauschale Leistungsliste hilft oft wenig. Beschreibe kurz deine Situation; dann lässt sich klären, was konkret möglich ist.',
+        'Welche Betreuung möglich ist, hängt von deiner Situation ab. Beschreibe sie kurz; dann lässt sich das direkt klären.',
       cards: [
         {
           title: 'In der Schwangerschaft',
@@ -89,7 +89,7 @@ const translations = {
       title: 'Marina Rymmer',
       lead: 'Hebamme in Nürnberg. Ansprechbar auf Deutsch und Russisch.',
       text:
-        'Der direkte Kontakt läuft über Telefon oder WhatsApp. So kannst du ohne Formular klären, ob dein Anliegen zu meinem Angebot passt.',
+        'Für eine Anfrage erreichst du mich telefonisch oder per WhatsApp. Eine E-Mail-Adresse oder ein Kontaktformular gibt es nicht.',
     },
     reviews: {
       title: 'Erfahrungen von Familien',
@@ -116,7 +116,7 @@ const translations = {
       trustAlt: 'Atmosphärisches Mutter-Kind-Motiv',
       whyAlt: 'Atmosphärisches Motiv einer Schwangeren',
       aboutAlt: 'Atmosphärisches Motiv rund um Schwangerschaft',
-      aboutCaption: 'Atmosphärisches Bildmotiv',
+      aboutCaption: 'Bildmotiv · nicht Marina Rymmer',
       supportAlt: 'Atmosphärisches Mutter-Kind-Motiv',
     },
   },
@@ -165,7 +165,7 @@ const translations = {
     services: {
       title: 'Когда стоит написать',
       intro:
-        'Универсальный список услуг мало что объясняет. Коротко опишите вашу ситуацию — так можно уточнить, какая помощь возможна.',
+        'Возможность сопровождения зависит от вашей ситуации. Коротко опишите её — так это можно уточнить напрямую.',
       cards: [
         {
           title: 'Во время беременности',
@@ -234,7 +234,7 @@ const translations = {
       trustAlt: 'Атмосферное изображение мамы с ребёнком',
       whyAlt: 'Атмосферное изображение беременной женщины',
       aboutAlt: 'Атмосферное изображение на тему беременности',
-      aboutCaption: 'Атмосферная иллюстрация',
+      aboutCaption: 'Иллюстрация · на фото не Марина Риммер',
       supportAlt: 'Атмосферное изображение мамы с ребёнком',
     },
   },
@@ -319,6 +319,8 @@ function setMenuState(open) {
   menuToggle.setAttribute('aria-expanded', String(open))
   mobileNav.classList.toggle('is-open', open)
   mobileNav.setAttribute('aria-hidden', String(!open))
+  mobileNav.toggleAttribute('inert', !open)
+  document.querySelector('main')?.toggleAttribute('inert', open)
   document.body.classList.toggle('menu-open', open)
   updateMenuLabel()
 
