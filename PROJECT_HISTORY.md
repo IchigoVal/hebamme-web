@@ -7,7 +7,8 @@ Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Bra
 | Reihenfolge | Datum | Git-Tag | Commit | Zustand |
 | --- | --- | --- | --- | --- |
 | 1 | 19.09.2026 | `checkpoint/pre-rethink` | `22a4fbb` | Website exakt vor der Überarbeitung von Inhalt und Design. Enthält auch alle Änderungen, die zu Beginn noch nicht committed waren. |
-| 2 | 19.09.2026 | `checkpoint/content-rework` | wird nach dem Checkpoint ergänzt | Neu geordnete und vollständig überarbeitete deutsche und russische Inhalte bei weitgehend unverändertem Design. |
+| 2 | 19.09.2026 | `checkpoint/content-rework` | `4570c82` | Neu geordnete und vollständig überarbeitete deutsche und russische Inhalte bei weitgehend unverändertem Design. |
+| 3 | 19.09.2026 | `checkpoint/design-rework` | wird nach dem Checkpoint ergänzt | Neue redaktionelle Gestaltung mit überarbeiteter Typografie, Bildinszenierung, Abschnittsrhythmik und eigenständigen mobilen Layouts. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -16,6 +17,10 @@ Dieser Stand wurde vor jeder Änderung gesichert. Gegenüber dem davor liegenden
 ### 2. `checkpoint/content-rework`
 
 Dieser Stand trennt die Aufgaben der Abschnitte klarer: Der Einstieg nennt Name, Ort, Sprachen und Kontaktweg; die vier Bildkarten sind als Anlässe für eine Anfrage formuliert; der Ablauf erklärt konkret, welche Angaben in die erste Nachricht gehören. Unbelegte Aussagen zur Arbeitsweise wurden entfernt. Die russische Fassung wurde eigenständig und natürlich formuliert. Das Design entspricht an diesem Punkt noch weitgehend dem Ausgangsstand.
+
+### 3. `checkpoint/design-rework`
+
+Dieser Stand enthält die neue visuelle Richtung. Große Typografie, klare Flächen und bewusst gesetzte Bildformate ersetzen die vorherigen runden Karten, Schatten und Dekorverläufe. Die vier bildstarken Karten bleiben erhalten und sind auf dem Desktop versetzt, auf kleinen Bildschirmen bewusst horizontal bedienbar. Hero, Anfrage, Marina, Bewertungen und Kontakt besitzen unterschiedliche Rhythmen. Mobile Navigation, Fokusdarstellung und reduzierte Bewegung bleiben berücksichtigt.
 
 ## Einen Checkpoint nur ansehen
 
