@@ -171,11 +171,6 @@ html[lang='ru'] .hero-copy h1 { max-width: 12ch; font-size: clamp(3.3rem,4.8vw,5
 .reviews-layout .section-heading { position: sticky; top: calc(var(--header-height) + 3rem); }
 .reviews-layout h2 { font-size: clamp(3rem,4.6vw,4.5rem); }
 .reviews-widget { min-height: 12rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
-.reviews-consent { max-width: 43rem; padding-block: clamp(1.5rem,4vw,3rem); }
-.reviews-consent__title { color: var(--cocoa); font-family: 'Playfair Display',Georgia,serif; font-size: clamp(1.45rem,2.3vw,2rem); font-weight: 600; line-height: 1.25; }
-.reviews-consent > p:not(.reviews-consent__title) { max-width: 38rem; margin-top: 1rem; color: var(--ink-soft); font-size: .9rem; line-height: 1.7; }
-.reviews-consent__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem; margin-top: 1.5rem; }
-.reviews-consent__actions a { color: var(--clay-dark); font-size: .78rem; font-weight: 700; text-decoration: underline; text-underline-offset: .2rem; }
 
 /* Frequently asked questions */
 .faq-section { background: var(--cream); }

@@ -11,7 +11,7 @@ Stand: 19. September 2026
 
 ## Aktueller Bearbeitungsstand
 
-Impressum, Datenschutzerklärung und die notwendigen technischen Datenschutzänderungen sind umgesetzt und im Browser geprüft. Der Stand ist bereit für den Zwischencheckpoint `checkpoint/legal-content`.
+Impressum, Datenschutzerklärung und die notwendigen technischen Datenschutzänderungen sind umgesetzt. `checkpoint/legal-content` liegt gesichert auf Commit `80acd58`. Auf ausdrücklichen Wunsch wurde anschließend ausschließlich die Elfsight-Zwei-Klick-Lösung für die lokale Entwicklungsphase wieder durch automatisches Lazy Loading ersetzt. Die finale Produktions-, Link-, Responsive- und Tastaturprüfung ist erfolgreich abgeschlossen. Offen sind nur noch finaler Commit, Tag und Projekthistorie.
 
 ## Bereits abgeschlossen
 
@@ -29,7 +29,7 @@ Impressum, Datenschutzerklärung und die notwendigen technischen Datenschutzänd
   - nach Elfsight-Laden Kontakte zu mehreren `elfsight.com`/`elfsightcdn.com`-Domains und die Cookies `elfsight_viewed_recently` sowie `_cfuvid`
   - im geprüften Lauf keine direkte Google-Domain für das Bewertungswidget
 - Entscheidung: Inter und Playfair Display werden aus den offiziellen Google-Fonts-Dateien lokal bereitgestellt
-- Entscheidung: Elfsight erhält eine lokale Zwei-Klick-Lösung; vor ausdrücklichem Klick wird kein Widget-Skript geladen
+- Zwischenentscheidung in `checkpoint/legal-content`: Elfsight erhielt eine lokale Zwei-Klick-Lösung; vor ausdrücklichem Klick wurde kein Widget-Skript geladen
 - offizielle Grundlagen geprüft: § 5 DDG, § 25 TDDDG, Art. 13 DSGVO, Hebammengesetz, Bayerische Hebammenberufsordnung, Stadt Nürnberg/Gesundheitsamt, BayLDA und GitHub-Pages-Dokumentation
 - zuständige berufliche Aufsicht anhand BayHebBO § 9 und Nürnberger Behördenwegweiser als Gesundheitsamt der Stadt Nürnberg eingeordnet
 - zuständige Datenschutzaufsicht für den nichtöffentlichen Bereich in Bayern als BayLDA bestätigt
@@ -46,11 +46,17 @@ Impressum, Datenschutzerklärung und die notwendigen technischen Datenschutzänd
   - beim ersten Aufruf und beim Scrollen zum Review-Bereich ausschließlich lokale Requests
   - kein Cookie, kein `localStorage` und kein `sessionStorage` ohne Nutzeraktion
   - Elfsight-Requests und Drittanbieter-Cookies erst nach Klick auf „Bewertungen laden“
+- nach `checkpoint/legal-content` auf Wunsch für die lokale Entwicklungsphase geändert:
+  - sichtbarer Consent-/Ladeplatzhalter vollständig entfernt
+  - Elfsight lädt wieder automatisch per `IntersectionObserver`, wenn der Bewertungsbereich in die Nähe des Viewports kommt
+  - Script und Widget werden nur einmal initialisiert; kein Nutzerklick ist erforderlich
+  - Elfsight soll vor einem öffentlichen Release vollständig entfernt und ersetzt werden
+  - `datenschutz.html` wurde wegen dieser ausdrücklich temporären Entwicklungsentscheidung bewusst nicht erneut umgeschrieben
+  - nach Entfernung von Elfsight muss der finale technische Datenschutzstand vor Release erneut geprüft werden
 
 ## Noch offen
 
-- Build, Browser- und Linkprüfung durchführen
-- Checkpoints `checkpoint/legal-content` und `checkpoint/legal-pass-final` erstellen
+- finalen Checkpoint `checkpoint/legal-pass-final` erstellen
 - `PROJECT_HISTORY.md` ergänzen
 
 ## Zuletzt geprüfte Dateien
@@ -73,7 +79,20 @@ Impressum, Datenschutzerklärung und die notwendigen technischen Datenschutzänd
 - `npm run build` nach der Umsetzung erfolgreich
 - Desktop- und Mobile-Darstellung von Impressum und Datenschutz ohne horizontalen Overflow oder Browserfehler geprüft
 - Startseite bei 390 Pixeln in Deutsch und Russisch ohne horizontalen Overflow oder JavaScript-Fehler geprüft
+- finaler Produktions-Build erfolgreich
+- Startseite bei 1440 Pixeln DE sowie 390 Pixeln DE/RU geprüft:
+  - kein Consent- oder Ladeplatzhalter vorhanden
+  - vor Annäherung an den Bewertungsbereich kein Elfsight-Skript geladen
+  - nach Annäherung genau ein Plattformskript, ein Widget und sichtbare Bewertungsinhalte
+  - wiederholtes Weg- und Hinscrollen erzeugt kein doppeltes Skript oder Widget
+  - kein horizontaler Overflow, keine defekten lokalen Bilder, keine fehlenden Anker und keine Browserfehler
+- Mobile Navigation öffnet und schließt per Escape; FAQ öffnet per Leertaste und zeigt einen sichtbaren Tastaturfokus
+- `prefers-reduced-motion` zeigt Reveal-Inhalte ohne ausgeblendeten Zwischenzustand
+- Impressum und Datenschutz bei 1440 und 390 Pixeln ohne Overflow, defekte Bilder, externe Skripte oder Browserfehler geprüft
+- Placeholder-E-Mail ist sichtbar, aber nicht verlinkt; Telefon und WhatsApp im Impressum stimmen
+- alle externen Inhalts-, Berufsrechts- und Datenschutzlinks erreichbar; Telefon-/WhatsApp-Ziele korrekt
+- im Produktionslauf keine Requests an `fonts.googleapis.com` oder `fonts.gstatic.com`
 
 ## NEXT STEP
 
-Temporäre Auditdateien entfernen, `npm run build` und `git diff --check` wiederholen, den Stand committen und `checkpoint/legal-content` setzen. Danach die finale Link-, Fokus- und Produktionsprüfung durchführen.
+Geprüften technischen Stand committen und `checkpoint/legal-pass-final` setzen. Danach `PROJECT_HISTORY.md` mit den drei Legal-Checkpoints und der finalen Commit-ID ergänzen, Abschlussstatus dokumentieren und den Dokumentations-Commit erstellen.
