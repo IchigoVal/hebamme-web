@@ -1,0 +1,1426 @@
+{
+  "meta": {
+    "capturedAt": "2026-09-20T23:28:02.698Z",
+    "placeId": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+    "purpose": "Source-near capture without session tokens or private request parameters"
+  },
+  "google": {
+    "listingSnapshot": {
+      "name": "Hebamme Marina Rymmer",
+      "placeId": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+      "dataId": "0x479f574505ef82c1:0xd5a4fe2be59f25dd",
+      "reportedRating": 5,
+      "reportedReviewCount": 66,
+      "starDistribution": {
+        "1": 0,
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 65
+      },
+      "phone": "+49 176 23488396",
+      "addressDisplayed": null,
+      "websiteDisplayed": null,
+      "defaultSort": "Relevanteste"
+    },
+    "networkCapture": {
+      "transport": "Google Maps qv9Egd batchexecute response observed during public UI actions",
+      "sorts": [
+        "Relevanteste",
+        "Neueste",
+        "Höchste Bewertung",
+        "Niedrigste Bewertung"
+      ],
+      "topics": [
+        "baby",
+        "geburt",
+        "schwangerschaft",
+        "geduld",
+        "fachwissen",
+        "sicherheit",
+        "Spezialist",
+        "sowjet",
+        "psychisch",
+        "neugeborenen"
+      ],
+      "occurrenceCount": 53,
+      "uniqueReviews": 22,
+      "reviews": [
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pNeWVsVkdNRGx0VmxBNFYyOXZNV051UW5SeWVFRRAB",
+          "author": "Elisabeth Bachmann",
+          "rating": 5,
+          "textOriginal": "Wir können Marina wärmstens empfehlen. Das war die beste Entscheidung, sie als Hebamme zu haben. Sie weiß was sie macht, ist sowohl menschlich als auch fachlich perfekt. Haben uns seit dem ersten Tag bei ihr wohl gefühlt. Egal ob Akupunktur vor der Geburt oder Nachsorge nach der Geburt, sie ist für alle Fragen zu haben. Hebamme mit Herz.\nJederzeit wieder. Liebe Grüße, Lisa, Alex und Katharina ❤️❤️❤️",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1780751739473694,
+          "publishedRelative": "vor 3 Monaten",
+          "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjWkECOjikm4oVNiF3YX6YHMV60c7aqQV4_HZ4G-v3soPtxiOJ4=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/103054463519830595760/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/103054463519830595760?hl=de",
+          "authorNumericId": "103054463519830595760",
+          "authorReviewCount": 4,
+          "authorPhotoCount": 3,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pNeWVsVkdNRGx0VmxBNFYyOXZNV051UW5SeWVFRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOjMyelVGMDltVlA4V29vMWNuQnRyeEE%7C%7C?hl=de",
+          "ownerResponseText": "Ich danke euch herzlich für eure Vertrauen 💗",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1783486207000000,
+          "ownerResponseRelative": "vor 2 Monaten",
+          "reviewMedia": [],
+          "contexts": [
+            "sort:relevant",
+            "sort:Neueste",
+            "sort:Höchste Bewertung",
+            "sort:Niedrigste Bewertung",
+            "topic:geburt"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tReWFrZHZNVEZEWm1ka1kwVkxUa1ZpWjFaV1MzYxAB",
+          "author": "Fatima Zahra",
+          "rating": 5,
+          "textOriginal": "Marina ist eine außergewöhnlich kompetente und engagierte Hebamme, die ihre Arbeit mit großer Professionalität und spürbarer Leidenschaft ausübt. Dank ihrer einfühlsamen, ruhigen und wertschätzenden Art habe ich mich jederzeit bestens betreut und verstanden gefühlt. Sie verfügt über ein fundiertes Fachwissen, nimmt sich ausreichend Zeit für individuelle Fragen und vermittelt selbst in herausfordernden Situationen ein Gefühl von Sicherheit und Vertrauen.\n\nDurch ihre wertvolle Unterstützung konnten wir die erste Zeit mit unserem Baby deutlich entspannter erleben.\nFür ihre einfühlsame Begleitung und ihre verlässliche Unterstützung sind wir ihr von Herzen dankbar.\n\nDanke für alles.🫶",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1784211810385869,
+          "publishedRelative": "vor 2 Monaten",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJlVl98dSgenNgk9Xa4ynImKaejmIuJy5lADPM6svI7pSobvCE=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/116284366980099020115/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/116284366980099020115?hl=de",
+          "authorNumericId": "116284366980099020115",
+          "authorReviewCount": 1,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tReWFrZHZNVEZEWm1ka1kwVkxUa1ZpWjFaV1MzYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOkQyakdvMTFDZmdkY0VLTkViZ1ZWS3c%7C%7C?hl=de",
+          "ownerResponseText": "Danke von Herzen für eure Rezension Fatima 🧡Es war mir eine große Freude, euch begleiten zu dürfen . Und ich wünsche euch weiter viel Glück zusammen! 🥰",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1784312839000000,
+          "ownerResponseRelative": "vor 2 Monaten",
+          "reviewMedia": [],
+          "contexts": [
+            "sort:relevant",
+            "sort:Neueste",
+            "sort:Höchste Bewertung",
+            "sort:Niedrigste Bewertung",
+            "topic:baby",
+            "topic:sicherheit"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pkV1ZtWmhjMEl6ZG5kT1dsZzNZMVptUlROTGJrRRAB",
+          "author": "emi",
+          "rating": 5,
+          "textOriginal": "Marina war für uns einfach die beste Hebamme, die wir uns hätten vorstellen können. Sie hat uns die ganze Zeit über begleitet, war immer erreichbar und hat uns mit ihrer tollen Art unglaublich viel Sicherheit gegeben. Wir haben uns in jeder Situation verstanden und gut aufgehoben gefühlt. Von Herzen eine große Empfehlung und ein riesiges Dankeschön 🩷",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1774018889641912,
+          "publishedRelative": "vor 6 Monaten",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJ3P9qD3uC7TkkVr6QdTZPqlbziBlS_FA6JBiVRR9NLdF7H0w=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/117123148921913220807/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/117123148921913220807?hl=de",
+          "authorNumericId": "117123148921913220807",
+          "authorReviewCount": 2,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pkV1ZtWmhjMEl6ZG5kT1dsZzNZMVptUlROTGJrRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOjdWVmZhc0IzdndOWlg3Y1ZmRTNLbkE%7C%7C?hl=de",
+          "ownerResponseText": "Danke liebe Emilie für eure Vertrauen und eure liebe Worte an mich 💕",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1774429038000000,
+          "ownerResponseRelative": "vor 5 Monaten",
+          "reviewMedia": [],
+          "contexts": [
+            "sort:relevant",
+            "sort:Neueste",
+            "sort:Höchste Bewertung",
+            "sort:Niedrigste Bewertung"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT25OU1ZHOHhSRUkyWVZacVZVNXpNbFp1Y0d4a1lsRRAB",
+          "author": "Milana Mitrovic",
+          "rating": 5,
+          "textOriginal": "Ich bin sehr zufrieden mit der Betreuung durch meine Hebamme. Sie war immer freundlich, geduldig und sehr professionell. Ich kann sie von Herzen weiterempfehlen und bin sehr dankbar für ihre Hilfe und Fürsorge.",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1773144437063155,
+          "publishedRelative": "vor 6 Monaten",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJg_RckG5GxPk_B3LcDx0e6IjfHLAUH_sDoWgj8mz3sdlg30w=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/115335300281934344926/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/115335300281934344926?hl=de",
+          "authorNumericId": "115335300281934344926",
+          "authorReviewCount": 1,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25OU1ZHOHhSRUkyWVZacVZVNXpNbFp1Y0d4a1lsRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOnNSVG8xREI2YVZqVU5zMlZucGxkYlE%7C%7C?hl=de",
+          "ownerResponseText": "Danke liebe Milana für unsere Zeit zusammen und natürlich für dein Feedback und schöne Worte an mich ..💗",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1774429621000000,
+          "ownerResponseRelative": "vor 5 Monaten",
+          "reviewMedia": [],
+          "contexts": [
+            "sort:relevant",
+            "sort:Neueste",
+            "sort:Höchste Bewertung",
+            "sort:Niedrigste Bewertung",
+            "topic:geduld"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT25Cb1RYWnJjMmRVTjNJNFIzZFdTbHB0WTBkblRXYxAB",
+          "author": "قولدن Dogruoglu",
+          "rating": 5,
+          "textOriginal": "Ich finde, Hebamme zu sein ist ein Herzensberuf – ein Beruf, den man mit Liebe ausüben muss. Und genau das tut Marina: Sie macht ihren Job mit ganz viel Liebe. ❤️\nMarina ist eine sehr erfahrene, bewusste und einfühlsame Hebamme. Sie hat selbst Kinder und kennt sich mit beiden Geburtsarten sehr gut aus.\nZu manchen Menschen baut man eine ganz besondere Bindung auf – und Marina war für uns so jemand. Sie war wie ein Teil der Familie.\nEs hat uns traurig gemacht, dass sie „nur“ unsere Hebamme war – und eben nur für eine bestimmte Zeit. Wir hätten sie gerne noch viel länger mit offenen Armen empfangen.\n\nIch – bzw. wir – werden ihr für immer dankbar sein, denn ihre Hilfe und Unterstützung werde ich nie vergessen. 🥰\nAn alle werdenden Mamis: Bei Marina könnt ihr euch sicher sein, dass ihr in den besten Händen seid. Sie ist eine absolute Herzensempfehlung! 🫶🏻🫰🏻\n\nDanke, meine liebe Marina! 🧡",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1752991075027373,
+          "publishedRelative": "vor einem Jahr",
+          "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVqQFDc6OQcu528KvA7oa8AcWMdwfg-chX831kfAeAbZBiC9Pf8=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/117196993636223953925/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/117196993636223953925?hl=de",
+          "authorNumericId": "117196993636223953925",
+          "authorReviewCount": 6,
+          "authorPhotoCount": 1,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25Cb1RYWnJjMmRVTjNJNFIzZFdTbHB0WTBkblRXYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOnBoTXZrc2dUN3I4R3dWSlptY0dnTWc%7C%7C?hl=de",
+          "ownerResponseText": "Danke! 🩷",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1769372286000000,
+          "ownerResponseRelative": "vor 7 Monaten",
+          "reviewMedia": [
+            "https://lh3.googleusercontent.com/grass-cs/ACvplmPrRAC0gcSe1oWEIjwRMbxfyG2spgFxMzLXOs_l7v_JJoBKiLvEiI6cpGBdkAwszq1Ynm04tj6OIMRKr3g81DjGyJsWqahl2yoUfS7aAAijWsZGluMaVXs16p5XumSCLGQ7aKtrRSEnrI7f=k-no"
+          ],
+          "contexts": [
+            "sort:relevant",
+            "sort:Höchste Bewertung"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT21VM1dFUm9aV2swY2pSMGJYYzNTVFJKYzFCTGFrRRAB",
+          "author": "Odreea Sincovschi",
+          "rating": 5,
+          "textOriginal": "У меня был просто замечательный опыт с Мариной Рыммер, и я от всей души её рекомендую! Она очень спокойный, терпеливый и чуткий человек, который оказывает поддержку как физически, так и эмоционально на самом высоком уровне. С ней я всегда чувствовала себя в безопасности и под надёжной заботой, а её объяснения были понятными и очень полезными. Видно, что она выполняет свою работу с любовью и полной отдачей. Без сомнений обращусь к ней и во второй раз! Прекрасный человек и специалист на 10 из 10! Огромное спасибо за всю оказанную поддержку! 🤍",
+          "textTranslated": "Ich hatte eine wirklich wunderbare Erfahrung mit Marina Rymmer und kann sie wärmstens empfehlen! Sie ist eine sehr ruhige, geduldige und einfühlsame Person, die hervorragende Unterstützung bietet – sowohl körperlich als auch emotional. Ich habe mich bei ihr immer sicher und gut aufgehoben gefühlt, und ihre Erklärungen waren klar und sehr hilfreich. Es ist deutlich zu spüren, dass sie ihre Arbeit mit viel Liebe und Hingabe macht. Ich werde mich auf jeden Fall wieder an sie wenden! Sie ist ein wunderbarer Mensch und eine absolute Expertin! Vielen Dank für die großartige Unterstützung! 🤍",
+          "languageMetadata": [
+            "ru",
+            "de",
+            "Russisch",
+            "Deutsch",
+            true
+          ],
+          "publishedTimestampMicros": 1777986517948267,
+          "publishedRelative": "vor 4 Monaten",
+          "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjUSzNPl_JfKiBvomv7xSPNCW1oN_GJRGKKJP_Uw0iRHiDXGRF_r=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/112292720916625150374/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/112292720916625150374?hl=de",
+          "authorNumericId": "112292720916625150374",
+          "authorReviewCount": 2,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21VM1dFUm9aV2swY2pSMGJYYzNTVFJKYzFCTGFrRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOmU3WERoZWk0cjR0bXc3STRJc1BLakE%7C%7C?hl=de",
+          "ownerResponseText": "Vielen Dank Odrea für eure lieben Worte und eure Vertrauen! 💛",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1778535011000000,
+          "ownerResponseRelative": "vor 4 Monaten",
+          "reviewMedia": [],
+          "contexts": [
+            "sort:Neueste",
+            "topic:Spezialist"
+          ]
+        },
+        {
+          "sourceReviewId": "ChZDSUhNMG9nS0VJQ0FnSUN1dXJXYmVBEAE",
+          "author": "Andrea Michel",
+          "rating": 2,
+          "textOriginal": "leider kann ich Marina nicht weiter empfehlen. Mir fehlte die Empathie und ein offenes Ohr. Meine Wochenbettdepression wurde nicht ernst genommen und für manche Sachen/Fragen wurde ich belächelt. Nach den meisten Besuchen war ich psychisch fertiger als davor.. schade!",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1658848868744980,
+          "publishedRelative": "vor 4 Jahren",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocK2N-lLVnXdPqyUXgG38bzw0lN8EbPJ0cwYpwmiQuLvERgMOw=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/117636235269481192285/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/117636235269481192285?hl=de",
+          "authorNumericId": "117636235269481192285",
+          "authorReviewCount": 3,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUN1dXJXYmVBEAE!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgICuurWbeA%7C%7C?hl=de",
+          "ownerResponseText": "Liebe Andrea . \nVielen Dank für deine Rezension die ich sehr zu schätzen weiß, denn es bedeutet viel, wenn du offen sagst , was dir nicht gefallen ist oder gefehlt hat..\n\nIch bin mir aber ganz sicher, dass ich dir nur das Beste gewünscht habe! Das ist ein großes Mißverständnis !\n\nEs tut mir wirklich leid, dass ich deine Erwartungen nicht erfüllen konnte und nicht die richtige Ansprechpartnerin war …\nHätte ich früher gewusst , noch im Wochenbett , hätten wir sicher etwas tun können , hätte ich auch andere Kollegen für dich gefunden …\nEs gibt für mich aber keinen schöneren Beruf und keine größere Herausforderung .... Und es gibt mir sehr viel Positives zurück , was auch  Ansporn und Ermutigung für mich sind.\n\nIch wünsche dir von ganzen Herzen, dass es dir gelingt deine negativen Erfahrungen los zu lassen und von ganzen Herzen viel Glück  und wunderschöne Zeit zusammen !",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1677607199000000,
+          "ownerResponseRelative": "vor 3 Jahren",
+          "reviewMedia": [],
+          "contexts": [
+            "sort:Niedrigste Bewertung",
+            "topic:psychisch"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT21oSVZFOWlVWFpUY1hjMmJFWmtOR3N3Wm1KYWRuYxAB",
+          "author": "Adriana-Alexandra Grigore",
+          "rating": 5,
+          "textOriginal": "Ich hatte das große Glück, diese Hebamme Marina nach der Geburt meiner Tochter Selina an meiner Seite zu haben – und ich kann von ganzem Herzen sagen, sie ist wirklich ein Goldstück. 💛\nSie hat so viel Geduld, Wärme und Einfühlungsvermögen, wie man es nur selten findet. Sie war mit großem Fachwissen, aber auch mit Herz bei uns, hat zugehört, beruhigt und mir das Gefühl gegeben, sicher und gut aufgehoben zu sein – sowohl mit dem Baby als auch mit mir selbst.\n\nSelbst beim vierten Kind merkt man, dass jedes Baby neu und anders ist – und sie wusste genau, wie sie uns begleiten musste: mit Ruhe, Verständnis und liebevoller Unterstützung. 🌷\n\nDank ihr war unser Anfang viel leichter, voller Vertrauen und Gelassenheit. Ich kann sie von ganzem Herzen jeder Mama empfehlen, die sich eine kompetente, warmherzige und wirklich engagierte Hebamme wünscht. ❤️\nMit Liebe Adriana 🤗🥰",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1759764923225498,
+          "publishedRelative": "vor 11 Monaten",
+          "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjU42wLMHFN8CrZdzVoL6rHK9qaEalPZ2XeltUWRAkV-jGXvJZnL=s120-c-rp-mo-ba12-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/105745829249529479532/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/105745829249529479532?hl=de",
+          "authorNumericId": "105745829249529479532",
+          "authorReviewCount": 30,
+          "authorPhotoCount": 9,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21oSVZFOWlVWFpUY1hjMmJFWmtOR3N3Wm1KYWRuYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOmhIVE9iUXZTcXc2bEZkNGswZmJadnc%7C%7C?hl=de",
+          "ownerResponseText": "Danke Adriana für deine Liebevollen Worte ! Ich war sehr gerne auch bei euch 🩷",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1769371987000000,
+          "ownerResponseRelative": "vor 7 Monaten",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:baby",
+            "topic:geburt",
+            "topic:geduld"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xWMlpFTmxUbGhWUW5BNWFFTXdUazlwVWw5c2JYYxAB",
+          "author": "Tatiana K",
+          "rating": 5,
+          "textOriginal": "Die Liebe Marina hat uns während unserer ersten Reise als werdende Eltern begleitet und was kann ich sagen: Sie ist wirklich eine super kompetente Frau und einfach eine gute Seele.\n\nSie ist immer sehr herzlich zu uns gewesen,egal welche Fragen man auch hatte,Sie hat diese stets beantwortet bzw. weitergeholfen. In der Schwangerschaft hatte Marina auch die Akupunktur bei mir angewendet, was ich persönlich super fand und ich mir sicher bin,dass das die Dauer meiner Geburt gut verkürzt hat.\nIn den ersten Wochen zu Hause kam Marina jeden zweiten Tag zu uns und wog unseren Kleinen,zeigte wie man richtig stillt,kontrollierte den Bauchnabel,badete unser Baby das erste Mal mit uns und ging sicher,dass es mir als frisch gebackene Mama gut geht. Wir konnten sie alles fragen, direkt vor Ort oder jeder Zeit über WhatsApp.\n\nIch bin sehr froh,dass Marina uns in dieser Zeit betreut hat,uns ein gutes Gefühl gegeben hat und einfach mit Rat und Tat zur Seite stand. Ich würde Sie herzlichst jedem weiterempfehlen.",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1752830570296662,
+          "publishedRelative": "vor einem Jahr",
+          "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVbf6_Ka9eaTUKEI_RDGE2_HIm82Znt_pRKyJMN4uFC888aVWHJ2w=s120-c-rp-mo-ba12-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/100624838225915816128/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/100624838225915816128?hl=de",
+          "authorNumericId": "100624838225915816128",
+          "authorReviewCount": 92,
+          "authorPhotoCount": 98,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xWMlpFTmxUbGhWUW5BNWFFTXdUazlwVWw5c2JYYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOlV2ZENlTlhVQnA5aEMwTk9pUl9sbXc%7C%7C?hl=de",
+          "ownerResponseText": "Herzlichen Dank für dein Feedback Tatiana ! ",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1753018324000000,
+          "ownerResponseRelative": "vor einem Jahr",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:baby",
+            "topic:geburt",
+            "topic:schwangerschaft"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2w4eVRWUXRSVW8yTVVGcWVXeHRka04yU25sb1NXYxAB",
+          "author": "Kirill Vl",
+          "rating": 5,
+          "textOriginal": "Ich kann gar nicht genug betonen, wie unglaublich großartig unsere Hebamme ist! Sie ist ohne Zweifel die beste Hebamme, die man sich in Nürnberg nur vorstellen kann. Von Anfang an hat sie uns mit unendlicher Geduld, Freundlichkeit und Professionalität begleitet.\n\nWas mich am meisten beeindruckt, ist ihre unglaubliche Erreichbarkeit: Sie ignoriert nie Anrufe, nimmt immer sofort das Telefon ab und ist bereit, auch in dringenden Fällen jederzeit zu helfen. Selbst während ihres eigenen Urlaubs hat sie uns nicht im Stich gelassen und stand mit Rat und Tat zur Seite – das ist wirklich außergewöhnlich!\n\nSie geht mit unglaublicher Sorgfalt und Weisheit auf Kinder ein. Alles, was sie tut, wirkt bedacht, sanft und sehr umsichtig. Man merkt sofort, dass sie ihr Wissen mit viel Erfahrung und Herz einsetzt. Sie hat ein wunderbares Gespür für die Bedürfnisse von Eltern und Babys und schafft es, sowohl russischsprachige als auch deutschsprachige Familien gleichermaßen zu unterstützen.\n\nJeder Termin mit ihr ist angenehm, professionell und beruhigend. Sie nimmt sich Zeit, erklärt alles verständlich, und man fühlt sich jederzeit gut aufgehoben. Ihre Geduld, ihr Einfühlungsvermögen und ihre Kompetenz machen sie zu einer Hebamme, die man wirklich nur weiterempfehlen kann.\n\nWer eine Hebamme sucht, die mit Herz, Verstand und grenzenloser Hilfsbereitschaft dabei ist – diese Hebamme ist einfach unschlagbar! Wir sind unendlich dankbar, dass wir sie an unserer Seite hatten und können sie von Herzen jedem empfehlen.💕",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1766325748852919,
+          "publishedRelative": "vor 8 Monaten",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocIMlAogDAc8Go4Q6MZUh92w2SuQKPulxT3YND0WLF4mIkpLTg=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/104568586077098039330/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/104568586077098039330?hl=de",
+          "authorNumericId": "104568586077098039330",
+          "authorReviewCount": 2,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2w4eVRWUXRSVW8yTVVGcWVXeHRka04yU25sb1NXYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOl8yTVQtRUo2MUFqeWxtdkN2SnloSWc%7C%7C?hl=de",
+          "ownerResponseText": "Von Herzen danke für diese wundervolle Rezension und diese schönen Worte!🤍 Das geht mir sehr nahe und bestärkt mich nur noch mehr in meiner Arbeit. Es war mir eine Freude, euch in dieser besonderen Zeit zu begleiten. Ich wünsche dir und deiner Familie nur alles Liebe 🌸🤍",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1766440375000000,
+          "ownerResponseRelative": "vor 8 Monaten",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:baby",
+            "topic:geduld"
+          ]
+        },
+        {
+          "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSURoekpfSHhBRRAB",
+          "author": "Nadja Fleckenstein",
+          "rating": 5,
+          "textOriginal": "Marina hat mich nach der Geburt meiner Zwillinge im Wochenbett betreut. Ich war zum ersten Mal Mama geworden, sodass eine professionelle und kompetente Unterstützung für mich sehr wichtig war. Dank Marina waren die ersten Schritte mit den Kleinen ziemlich stressfrei und unproblematisch. Sie war immer sehr hilfreich und beantwortete gerne meine Fragen. Marina ist eine sehr erfahrene Hebamme, die Ihren Beruf sehr liebt und sich stets über die neuesten Entwicklungen und Forchungsergebnisse informiert. Es ist faszinierend zu zuschauen, wie gut sie mit Babys umgehen kann! Dank Ihrer Hinweise konnten wir schnell die Routine bekommen. Auch im Hinblick auf Stillen war sie für uns eine große Hilfe: Trotz einigen Schwierigkeiten am Anfang (Kaiserschnitt, verspäteter Milchfluss, Saugverwirrung bei den Babys) hat es mit dem Stillen am Ende doch ganz gut geklappt. Ich kann Marina allen werdenden und neugebackenen Mamas sehr empfehlen: Mit ihr ist man in guten Händen!",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1677833208125464,
+          "publishedRelative": "vor 3 Jahren",
+          "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjXrc2ACNonQGr80VXjLNhlpfK1tbDCZL4WGx2luMmTd_z8QGa8=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/113726740725610005576/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/113726740725610005576?hl=de",
+          "authorNumericId": "113726740725610005576",
+          "authorReviewCount": 2,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURoekpfSHhBRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIDhzJ_HxAE%7C%7C?hl=de",
+          "ownerResponseText": "Liebe Nadja , vielen Dank für deine wunderschöne Worte und für die Zeit, die du dich  für eine so ausführliche Rezension genommen hast ,die ich sehr zu schätzen weiß …\nIch habe mich natürlich sehr gefreut! \n\nIch wünsche euch weiterhin schöne Zeit mit eure Babys 👶👶\n🤍",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1677942654000000,
+          "ownerResponseRelative": "vor 3 Jahren",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:baby"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pCWkxYRm5NSEp0TnpkUlMwcGhlVFphVWpacVRVRRAB",
+          "author": "Veronica Landolfo",
+          "rating": 5,
+          "textOriginal": "Normalerweise bin ich im Leben eher skeptisch auch, was Betreuung und Beratung betrifft. Doch bei dieser Hebamme war vom ersten Moment an alles anders. Bereits in der Schwangerschaft, noch vor der Geburt, hatte ich sofort das Gefühl: Diese Frau weiß ganz genau, was sie tut. Sie bringt nicht nur enormes Fachwissen und viel Erfahrung mit, sondern auch ein echtes Muttergefühl. Man merkt sofort, dass sie selbst Kinder hat und genau weiß, wie man mit Müttern und Kindern umgeht.\nSie hat mich während der Schwangerschaft, nach der Geburt und auch in einer Phase mit Komplikationen sowohl körperlich als auch psychisch sehr unterstützt immer einfühlsam, verständnisvoll und professionell. Sie hat mich als Frau und Mutter wirklich verstanden und begleitet, ebenso meinen Sohn.\nEs ist bereits meine zweite Schwangerschaft. Bei meiner ersten hatte ich ehrlich gesagt keine große Freude an den Hebammenbesuchen und habe sie eher als Pflicht empfunden. Bei ihr war es komplett anders: Ich habe mich jedes Mal gefreut, wenn sie gekommen ist. Diese Freude und dieses Vertrauen sprechen für sich.\nBesonders schätze ich auch ihre Ehrlichkeit und Kompetenz in der Beratung. Ich weiß, dass sie nur das empfiehlt, was wirklich sinnvoll und fachlich korrekt ist. Deshalb werde ich mich auch weiterhin von ihr beraten lassen, zum Beispiel beim Start mit Beikost.\nSie ist zudem sehr freundlich, liebevoll, äußerst sauber (was mir persönlich sehr wichtig ist) und ging wunderbar auf meine Kinder ein. Mein Sohn hat sich bei ihr sofort wohlgefühlt, ebenso mein erstes Kind und auch mein Mann. Sie hat mit allen auf eine sehr sympathische und respektvolle Art kommuniziert.\nIch kann diese Hebamme von ganzem Herzen weiterempfehlen. Sollte ich noch einmal schwanger werden, würde ich mich ohne zu zögern sofort wieder bei ihr melden. Meine anfängliche Unsicherheit aufgrund meiner ersten Erfahrung mit einer anderen Hebamme hat sich in keiner Sekunde bestätigt – im Gegenteil: Ich habe es keine Sekunde bereut. Ich danke dir von Herzen Marina",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1765983289983673,
+          "publishedRelative": "vor 9 Monaten",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocI-TVVEBtsEgCgaZv-nGDpjOJyCjpBdtJmHkE2l7EzoFkisaw=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/113166469828905309494/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/113166469828905309494?hl=de",
+          "authorNumericId": "113166469828905309494",
+          "authorReviewCount": 8,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pCWkxYRm5NSEp0TnpkUlMwcGhlVFphVWpacVRVRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOjBZLXFnMHJtNzdRS0pheTZaUjZqTUE%7C%7C?hl=de",
+          "ownerResponseText": "Vielen Dank Veronika für die Zeit, die du dich für so eine ausführliche Rezension genommen hast, die ich sehr zu schätzen weiß.\n\nEs war mir eine große Ehre euch auf diesem Weg ein Stück begleiten zu dürfen… Danke für eure Vertrauen ! ",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1766438966000000,
+          "ownerResponseRelative": "vor 8 Monaten",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:geburt",
+            "topic:schwangerschaft",
+            "topic:fachwissen",
+            "topic:psychisch"
+          ]
+        },
+        {
+          "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnTUNZdUtXRThnRRAB",
+          "author": "Edina Kahvedzic",
+          "rating": 5,
+          "textOriginal": "Marina hat mich bereits im meiner Schwangerschaft betreut und die geburtsvorbereitende Akupunktur durchgeführt. Nach der Geburt war sie für uns immer da ,war immer erreichbar und hatte immer einen Rat und Antwort auf alle unsere Fragen .Sie ist sehr kompetent, hilfsbereit ,aufmerksam und strahlt die Ruhe aus.Es ist toll ,dass es noch jemanden wie Marina gibt ,die ihre Arbeit mit Liebe und Engagement macht.\nMarina, wir sind sehr froh und unendlich dankbar dass du die unsere Hebamme warst.\nHerzlichen Dank für alles!!!",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1746078805444819,
+          "publishedRelative": "vor einem Jahr",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJA8wiTk362BLiXEd8ZSm1ornGLr2SUSs99oscj3uxYXuUBTw=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/114439769846762158885/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/114439769846762158885?hl=de",
+          "authorNumericId": "114439769846762158885",
+          "authorReviewCount": 3,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNZdUtXRThnRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgMCYuKWE8gE%7C%7C?hl=de",
+          "ownerResponseText": "Liebe Edina , ich möchte mich bei dir aus tiefstem Herzen für deine Worte bedanken . \nEs war eine schöne Zeit zusammen 🩷",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1746173525000000,
+          "ownerResponseRelative": "vor einem Jahr",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:geburt",
+            "topic:schwangerschaft"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xkSmQwbFJPVWsxT1RCT2Nta3lhMWMxTUdVNWRHYxAB",
+          "author": "Andreas Schneider",
+          "rating": 5,
+          "textOriginal": "Wir hätten uns keine bessere Hebamme wünschen können!\n\nHebamme mit Herz, passt genau zu Marina!\nSie ist einfach GROßARTIG – kompetent, herzlich, zuverlässig und mit ganzem Herzen bei der Sache. Sie hat mich bereits in meiner ersten Schwangerschaft 2021 betreut und jetzt in der zweiten auch. Ich hatte damals verzweifelt nach einer Hebamme gesucht und trotz das Marina keine Kapazität mehr frei hatte, hat Sie mich aufgenommen weil Sie einfach ein gutes Herz hat.\nVom ersten Kennenlernen bis zur Nachsorge haben wir uns rundum gut betreut und verstanden gefühlt. Sie hatte auf all unsere Fragen immer eine klare, beruhigende Antwort und hat uns mit ihrer ruhigen Art viel Sicherheit gegeben – gerade beim ersten Kind ist das unbezahlbar!\n\nBesonders beeindruckt hat uns, wie individuell Marina auf unsere Bedürfnisse eingegangen ist. Sie nimmt sich Zeit, hört wirklich zu und vermittelt das Gefühl, dass man mit allem zu ihr kommen kann – ob fachlich oder emotional. Auch in stressigen Situationen blieb sie immer gelassen und professionell.\n\nDanke, liebe Marina, für deine unglaubliche Unterstützung – wir sind so dankbar, dass wir dich an unserer Seite hatten!\nWir werden dich vermissen und werden dich nie vergessen !\n\nAbsolute Herzensempfehlung für alle (werdenden) Eltern!\n\nDeine Familie Schneider",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1752647766452898,
+          "publishedRelative": "vor einem Jahr",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJOL-UIXdgRO3rYqMMCbqM7tKd5afhxUNHCfh3whUPfLqZoqQ=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/118272653394474989769/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/118272653394474989769?hl=de",
+          "authorNumericId": "118272653394474989769",
+          "authorReviewCount": 7,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xkSmQwbFJPVWsxT1RCT2Nta3lhMWMxTUdVNWRHYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOldJd0lROUk1OTBOcmkya1c1MGU5dGc%7C%7C?hl=de",
+          "ownerResponseText": " Vielen lieben Dank für Rezension und die Zeit dafür! \nEs war sehr schöne Zeit zusammen!",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1753019397000000,
+          "ownerResponseRelative": "vor einem Jahr",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:schwangerschaft",
+            "topic:sicherheit"
+          ]
+        },
+        {
+          "sourceReviewId": "ChZDSUhNMG9nS0VJQ0FnSUQxb2NUX2R3EAE",
+          "author": "K.B.",
+          "rating": 5,
+          "textOriginal": "Ich bin unglaublich dankbar und glücklich, dass Marina meine Hebame war 😃\nSie hat mich nach der Geburt meiner ersten Tochter im Wochenbett betreut.\nSie ist sehr aufmerksam, kompetent, strahlt die Ruhe aus.\nSie hat immer Zeit für uns genommen und hat uns immer telefonisch oder mit persönlichem Besuch unterstützt.\nLiebe Marina! Vielen Dank für alles. Ich hoffe sehr, dass wir uns wieder spätestens bei meiner nächsten Schwangerschaft sehen ☺️",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1704649297099065,
+          "publishedRelative": "vor 2 Jahren",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJyNSwoMg2SvezpLQqvXp-YXJ2-K6F_AK3J09D-H7o0WSahGQ=s120-c-rp-mo-ba12-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/101346974783048025122/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/101346974783048025122?hl=de",
+          "authorNumericId": "101346974783048025122",
+          "authorReviewCount": 23,
+          "authorPhotoCount": 39,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUQxb2NUX2R3EAE!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgID1ocT_dw%7C%7C?hl=de",
+          "ownerResponseText": "Ich danke Ihnen für Ihr Vertrauen und diese Worte ! ",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1704705215000000,
+          "ownerResponseRelative": "vor 2 Jahren",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:schwangerschaft"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xsdVFYZHpTamhXVTNaYWFFRkNWRzlwZG1aT1MxRRAB",
+          "author": "Riham (RoOrItA)",
+          "rating": 5,
+          "textOriginal": "Ich bin sehr dankbar für alles, was Marina für uns getan hat.. für ihre Unterstützung, ihre Geduld und all die wertvollen Informationen, die sie mit uns geteilt hat.\nMarina ist immer freundlich, herzlich und offen, und sie hat uns nie eine Frage unbeantwortet gelassen.\nDank ihrer Aufmerksamkeit wurde früh erkannt, dass ich eine Entzündung hatte, und sie hat mir genau erklärt, wie ich damit umgehen soll. Als ich später bei meiner Ärztin war, war sie sehr dankbar für Marinas schnelles Handeln.. so konnte alles rechtzeitig behandelt werden.\nMarina hat mich liebevoll begleitet, mir die richtige Stilltechnik gezeigt und mich auch emotional unterstützt.\nWir alle haben sie sehr ins Herz geschlossen und wünschen ihr von Herzen alles Gute und ganz viel Glück! 💕\nIch kann sie von Herzen weiterempfehlen. 🌸",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1760169701881753,
+          "publishedRelative": "vor 11 Monaten",
+          "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVlu5ptFj4_Z11o9M1KfZKxxxLjibsGIpAaQtj5Nel4hJTcs-k=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/112442160961131544345/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/112442160961131544345?hl=de",
+          "authorNumericId": "112442160961131544345",
+          "authorReviewCount": 2,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xsdVFYZHpTamhXVTNaYWFFRkNWRzlwZG1aT1MxRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOlluQXdzSjhWU3ZaaEFCVG9pdmZOS1E%7C%7C?hl=de",
+          "ownerResponseText": "Liebe Riham, vielen Dank für deine wertschätzende Rückmeldung und dein Vertrauen💗 Es bedeutet mir viel, dass ich euch begleiten und unterstützen durfte. Alles Liebe euch!✨🩷",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1766440783000000,
+          "ownerResponseRelative": "vor 8 Monaten",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:geduld"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT25KRVRuSnFMVlZVV1ZKU1JUQktNM0F4Y2tnMVIwRRAB",
+          "author": "Christina Sourkopoulos (Ditos Oliven)",
+          "rating": 5,
+          "textOriginal": "Maryna hat mich bei beiden Kindern beglitten, ich bin sehr dankbar für Ihre herzliche Art und ihr Fachwissen, sie war stets für mich da und ich würde sie immer weiterempfehlen von ganzem Herzen 💓❤️",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1767953546347883,
+          "publishedRelative": "vor 8 Monaten",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocKcF5ijpjQ3QApnGPTzPGowRDu8DWtDUQxPoXonKDQx46BQOA=s120-c-rp-mo-ba12-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/100829062353462748381/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/100829062353462748381?hl=de",
+          "authorNumericId": "100829062353462748381",
+          "authorReviewCount": 22,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25KRVRuSnFMVlZVV1ZKU1JUQktNM0F4Y2tnMVIwRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOnJETnJqLVVUWVJSRTBKM3Axckg1R0E%7C%7C?hl=de",
+          "ownerResponseText": "Danke ! 💕",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1769371411000000,
+          "ownerResponseRelative": "vor 7 Monaten",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:fachwissen"
+          ]
+        },
+        {
+          "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT25CMmJERTNNWEZaYzNac1NsbDZNMk0zYjBWWGFtYxAB",
+          "author": "Jasemin Niboucha",
+          "rating": 5,
+          "textOriginal": "Ich kann meine Hebamme nur wärmstens empfehlen von Anfang an habe ich mich bei ihr sehr gut aufgehoben gefühlt . Mit viel Einfühlungsvermögen, Geduld und Fachwissen hat sie mich durch das Wochenbett begleitet.Dank ihr konnte ich die Zeit sehr positiv erleben.ich bin ihr sehr dankbar für alles und würde sie jederzeit wieder wählen",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1752908263168420,
+          "publishedRelative": "vor einem Jahr",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocIoZlH4JZCINi2VwsyR5iYIes-jhhaF-hvo2ntnKpHV-6jwpw=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/113788916179436904491/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/113788916179436904491?hl=de",
+          "authorNumericId": "113788916179436904491",
+          "authorReviewCount": 1,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25CMmJERTNNWEZaYzNac1NsbDZNMk0zYjBWWGFtYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOnB2bDE3MXFZc3ZsSll6M2M3b0VXamc%7C%7C?hl=de",
+          "ownerResponseText": "Herzlichen Dank! ",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1753018011000000,
+          "ownerResponseRelative": "vor einem Jahr",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:fachwissen"
+          ]
+        },
+        {
+          "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSUNLdmU3OWxRRRAB",
+          "author": "Azra K.",
+          "rating": 5,
+          "textOriginal": "Mit dieser wundervollen Hebamme kann man definitiv nichts falsch machen! Sie ist sehr zuverlässig, hilfsbereit, freundlich und super kompetent. Sie hat stets all meine Fragen und Wissenslücken beantwortet und mich sehr gut unterstützt. Mein Neugeborenes Baby hat sich in ihrer Gegenwart sehr wohl gefühlt. Sie hat sich immer so viel Zeit genommen wie nötig war, hat all meine Anliegen fachkompetent umgesetzt und mir immer bei Seite gestanden, wann auch immer ich sie gebraucht habe. Einfach weiter zu empfehlen!!!",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1618514667547249,
+          "publishedRelative": "Bearbeitet: vor 2 Jahren",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocLxPcHnbrCDZWU42PzZ1wVKsqyE8hyHUmIdChVs-t7t3doL5w=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/117277109483515304700/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/117277109483515304700?hl=de",
+          "authorNumericId": "117277109483515304700",
+          "authorReviewCount": 6,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNLdmU3OWxRRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgICKve79lQE%7C%7C?hl=de",
+          "ownerResponseText": "Ich bin sehr dankbar für das unglaublich wertschätzende Feedback von dir , liebe Azra\nEs war sehr schön , euch auf diasen Weg ein Stück begleiten zu dürfen  ..\nSchön , dass es dich gibt🤍",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1677950519000000,
+          "ownerResponseRelative": "vor 3 Jahren",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:fachwissen",
+            "topic:neugeborenen"
+          ]
+        },
+        {
+          "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSURoOXJhanNRRRAB",
+          "author": "Анна Глазова",
+          "rating": 5,
+          "textOriginal": "Marina hat uns super als Hebamme betreut. Ihre Unterstützung war super für uns und hat uns viel Sicherheit gegeben. Die Betreuung läuft super professionell und aufmerksam für die Bedürfnisse des Neugeborenen und der Eltern.\n\nVielen Dank dafür 👍",
+          "textTranslated": null,
+          "languageMetadata": [
+            "de"
+          ],
+          "publishedTimestampMicros": 1678286850774199,
+          "publishedRelative": "vor 3 Jahren",
+          "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjVbeaD2ebMKPS0-Q7uWGa_trDrsbnfhEA8uKBFpZ-jgPZZpl0M=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/104679329498172559969/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/104679329498172559969?hl=de",
+          "authorNumericId": "104679329498172559969",
+          "authorReviewCount": 1,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURoOXJhanNRRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIDh9rajsQE%7C%7C?hl=de",
+          "ownerResponseText": "Liebe Anna\n\nHerzlichen Dank für euer Vertrauen! ",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1678360626000000,
+          "ownerResponseRelative": "vor 3 Jahren",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:sicherheit",
+            "topic:neugeborenen"
+          ]
+        },
+        {
+          "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSUNfNHY2bXFnRRAB",
+          "author": "Татьяна Драгуля",
+          "rating": 5,
+          "textOriginal": "Я безмерно благодарна моей хебаме Марине за её профессионализм, чуткость и невероятную поддержку на протяжении всего послеродового периода. Она всегда была рядом, чтобы ответить на мои вопросы, успокоить мои переживания и дать полезные советы. Благодаря ей, я чувствовала себя уверенно и спокойно в столь важный период моей жизни. Рекомендую её всем, кто ищет надёжного и отзывчивого специалиста!",
+          "textTranslated": "Ich bin meiner Ärztin Marina unendlich dankbar für ihre Professionalität, ihr Einfühlungsvermögen und ihre großartige Unterstützung während der gesamten Zeit nach der Geburt. Sie war immer für mich da, um meine Fragen zu beantworten, meine Sorgen zu zerstreuen und mir hilfreiche Ratschläge zu geben. Dank ihr fühlte ich mich in dieser wichtigen Phase meines Lebens selbstsicher und ruhig. Ich kann sie jedem wärmstens empfehlen, der eine zuverlässige und einfühlsame Spezialistin sucht!",
+          "languageMetadata": [
+            "ru",
+            "de",
+            "Russisch",
+            "Deutsch",
+            true
+          ],
+          "publishedTimestampMicros": 1736856657792620,
+          "publishedRelative": "vor einem Jahr",
+          "avatarUrl": "https://lh3.googleusercontent.com/a-/ALV-UjXXpEJq9IuCWghs7g56PTXdYlZdPXhObCwKubGv0R3-Ru_IwWI-Xw=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/109825690724268746782/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/109825690724268746782?hl=de",
+          "authorNumericId": "109825690724268746782",
+          "authorReviewCount": 2,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNfNHY2bXFnRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIC_4v6mqgE%7C%7C?hl=de",
+          "ownerResponseText": "Herzlichen Dank! ",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1736873986000000,
+          "ownerResponseRelative": "vor einem Jahr",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:sowjet"
+          ]
+        },
+        {
+          "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSURHckp6cDdBRRAB",
+          "author": "Дарья Колесник",
+          "rating": 5,
+          "textOriginal": "Очень хороший специалист. Трудолюбивая и доброжелательная. Я рада что именно Марина консультировала нас с рождения. Все советы, которые давала Марина, нам пригодились и пригодятся в дальнейшем. На все вопросы, касающиеся ребёнка, всегда получала необходимый для меня ответ и совет. Не знаю что бы я делала без Марины. Если в дальнейшем запланируем ещё одного малыша то обязательно Марину возьму опять как Hebamme.",
+          "textTranslated": "Eine wirklich gute Spezialistin. Fleißig und freundlich. Ich bin froh, dass Marina uns von Geburt an betreut hat. Alle ihre Ratschläge waren und werden auch in Zukunft hilfreich sein. Ich habe immer die Antworten und Ratschläge bekommen, die ich für alle meine Fragen zum Baby brauchte. Ich weiß nicht, was ich ohne Marina getan hätte. Wenn wir ein weiteres Kind planen, werde ich mich auf jeden Fall wieder für Marina als Hebamme entscheiden.",
+          "languageMetadata": [
+            "ru",
+            "de",
+            "Russisch",
+            "Deutsch",
+            true
+          ],
+          "publishedTimestampMicros": 1637424380305447,
+          "publishedRelative": "vor 4 Jahren",
+          "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJpGkHh8NmDYmUlv6yY9m8ttwmMmDdKnMT0tblyTjqtULkLFw=s120-c-rp-mo-br100",
+          "authorReviewUrl": "https://www.google.com/maps/contrib/116100172345292629485/reviews?hl=de",
+          "authorUrl": "https://www.google.com/maps/contrib/116100172345292629485?hl=de",
+          "authorNumericId": "116100172345292629485",
+          "authorReviewCount": 1,
+          "authorPhotoCount": 0,
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURHckp6cDdBRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIDGrJzp7AE%7C%7C?hl=de",
+          "ownerResponseText": "Herzlichen Dank Daria für deine Bewertung und unsere schöne Zeit zusammen 🤍",
+          "ownerResponseLanguage": "de",
+          "ownerResponseTimestampMicros": 1677945683000000,
+          "ownerResponseRelative": "vor 3 Jahren",
+          "reviewMedia": [],
+          "contexts": [
+            "topic:sowjet"
+          ]
+        }
+      ]
+    },
+    "directReviewVerification": {
+      "method": "Public Google Maps direct review URLs discovered in the existing Elfsight response and opened individually",
+      "reviews": [
+        {
+          "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnTURJN2RYVjh3RRAB",
+          "expectedSourceReviewId": "ChdDSUhNMG9nS0VJQ0FnTURJN2RYVjh3RRAB",
+          "author": "Sandeep Kaur",
+          "authorVerified": true,
+          "ratingLabel": "5 Sterne",
+          "publishedRelative": "vor einem Jahr",
+          "originalLanguage": "Englisch",
+          "originalText": "Thanku Marina,she helped me  lot, she is very kind ,experienced  and very professional. God bless u Marina.",
+          "translatedText": "Vielen Dank, Marina, sie hat mir sehr geholfen. Sie ist sehr freundlich, erfahren und äußerst professionell. Gott segne dich, Marina.",
+          "ownerResponse": "Danke für deine schöne Worte liebe Sandeep und unsere kurze gemeinsame Zeit ! 🩷\n",
+          "ownerResponseRelative": "vor einem Jahr",
+          "reviewMedia": [],
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURJN2RYVjh3RRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgMDI7dXV8wE%7CCgwIp6vovwYQ-Njl2AE%7C?hl=de",
+          "directGoogleVerified": true
+        },
+        {
+          "sourceReviewId": "ChZDSUhNMG9nS0VJQ0FnTUNBcThmb09BEAE",
+          "expectedSourceReviewId": "ChZDSUhNMG9nS0VJQ0FnTUNBcThmb09BEAE",
+          "author": "Anna Rib",
+          "authorVerified": true,
+          "ratingLabel": "5 Sterne",
+          "publishedRelative": "vor einem Jahr",
+          "originalLanguage": null,
+          "originalText": "Sehr gute Hebamme! Sehr freundliche empathievolle und sympathische Dame! Sehr empfehlenswert. Dringt niemals ihre Meinung auf und ist sehr verständnis voll. Jeder Zeit erreichbar und bei allen Fragen gerne zur Verfügung! Meine Familie und ich persönlich werden Marina Rymmer sehr vermissen, war eine sehr schöne Zeit mit ihr! Wir sind sehr dankbar für ihre kompetente Unterstützung voller Liebe!",
+          "translatedText": null,
+          "ownerResponse": "\nDanke liebe Anna für Ihr Feedback .\n\nEs war sehr schön bei euch 💛",
+          "ownerResponseRelative": "vor einem Jahr",
+          "reviewMedia": [],
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNBcThmb09BEAE!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgMCAq8foOA%7CCgwI2v2HvQYQiP2_lgE%7C?hl=de",
+          "directGoogleVerified": true
+        },
+        {
+          "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSURmMnB1R3dRRRAB",
+          "expectedSourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSURmMnB1R3dRRRAB",
+          "author": "Kate",
+          "authorVerified": true,
+          "ratingLabel": "5 Sterne",
+          "publishedRelative": "vor einem Jahr",
+          "originalLanguage": null,
+          "originalText": "Marina hat mich und unsere kleine Maus nach der Geburt betreut. Wir haben uns immer wohl und gut aufgehoben gefühlt. Sie hat jede meiner zahlreichen Fragen kompetent und detailliert beantwortet. Ihr liebevoller Umgang mit unserer Tochter und ihre herzliche, unaufgeregte Art haben uns die Eingewöhnungsphase unglaublich erleichtert. Wir sind so froh, Marina an unserer Seite gehabt zu haben.",
+          "translatedText": null,
+          "ownerResponse": "Liebe Katharina, danke sehr für dein Feedback.\nEs war sehr schön bei euch ",
+          "ownerResponseRelative": "vor einem Jahr",
+          "reviewMedia": [],
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURmMnB1R3dRRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIDf2puGwQE%7CCgwI_pfruwYQ2P3hsAM%7C?hl=de",
+          "directGoogleVerified": true
+        },
+        {
+          "sourceReviewId": "ChZDSUhNMG9nS0VJQ0FnSURYNThUbFl3EAE",
+          "expectedSourceReviewId": "ChZDSUhNMG9nS0VJQ0FnSURYNThUbFl3EAE",
+          "author": "Vanessa Loy",
+          "authorVerified": true,
+          "ratingLabel": "5 Sterne",
+          "publishedRelative": "vor einem Jahr",
+          "originalLanguage": null,
+          "originalText": "Marina ist eine super kompetente Hebamme. Sie hat mich während der Schwangerschaft, sowie im Wochenbett betreut. Mit ihrer langjährigen Erfahrung hat Sie mir stets ein gutes Gefühl gegeben.",
+          "translatedText": null,
+          "ownerResponse": "Herzlichen Dank für eine schöne Zeit zusammen. \nDANKE Vanessa ",
+          "ownerResponseRelative": "vor einem Jahr",
+          "reviewMedia": [],
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURYNThUbFl3EAE!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIDX58TlYw%7CCgwI45qPuQYQ-P2y1wE%7C?hl=de",
+          "directGoogleVerified": true
+        },
+        {
+          "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSUM3N19pMnh3RRAB",
+          "expectedSourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSUM3N19pMnh3RRAB",
+          "author": "Huelya E",
+          "authorVerified": true,
+          "ratingLabel": "5 Sterne",
+          "publishedRelative": "vor 2 Jahren",
+          "originalLanguage": null,
+          "originalText": "Sie ist eine soo liebevolle Hebamme. Habe für meine beiden söhne sie als Hebamme gehabt. Sollte ich irgendwann mal ein drittes bekommen, würde es wieder sie sein 🥰Sie nimmt sich die Zeit, auch wenn es dringend ist kommt sie ganz schnell vorbei. Ihre Tipps und Erfahrungen haben mir und meinen Kindern immer weitergeholfen❤️Sie ist immer so vorsichtig und sanft mit den Babys ☺️Das erste baden und auch beim Stillen stand sie mir immer als Hilfe beiseite, da die Anfangsphase eine sehr schwierige Phase für mich war. Die Nachkontrolle bei mir hat sie auch immer durchgeführt. Bei ihr hatte ich immer ein sicheres Gefühl. Mein Kleinster ist jetzt 3 Jahre alt und ich musste gestern wieder an die Zeit zurück denken, sodass ich ihr einfach Danke geschrieben hab für die wertvolle Zeit ☺️Deshalb 5 Sterne von mir an die wundervolle Marina 🥰",
+          "translatedText": null,
+          "ownerResponse": "Liebe Hülya , ich danke dir für deine liebevolle Worte und natürlich für unsere kurze , aber sehr schöne Zeit zusammen ! ",
+          "ownerResponseRelative": "vor 2 Jahren",
+          "reviewMedia": [],
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUM3N19pMnh3RRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIC77_i2xwE%7CCgwIouiMtgYQ-K2d0wM%7C?hl=de",
+          "directGoogleVerified": true
+        },
+        {
+          "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSUNiay11RW1BRRAB",
+          "expectedSourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSUNiay11RW1BRRAB",
+          "author": "Mirna Macaluso",
+          "authorVerified": true,
+          "ratingLabel": "5 Sterne",
+          "publishedRelative": "vor 2 Jahren",
+          "originalLanguage": null,
+          "originalText": "Marina hat mich durch Schwangerschaft und Wochenbett begleitet. Sehr kompetent, hilfsbereit und strahlt die Ruhe  aus, meine Baby und ich haben uns bei Marina gut aufgehoben gefühlt . Alle meine Fragen könnte sie antworten und mir Sorgen nehmen. Ich danke ihr für alles!",
+          "translatedText": null,
+          "ownerResponse": "Liebe Mirna , vielen lieben Dank  für deine Rezension und euer Vertrauen an mich und meine Arbeit! \nSehr, sehr gerne! ",
+          "ownerResponseRelative": "vor 2 Jahren",
+          "reviewMedia": [],
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNiay11RW1BRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgICbk-uEmAE%7CCgwI9-eetQYQoJPNuAE%7C?hl=de",
+          "directGoogleVerified": true
+        },
+        {
+          "sourceReviewId": "ChZDSUhNMG9nS0VJQ0FnSUNMdG9iQ2NBEAE",
+          "expectedSourceReviewId": "ChZDSUhNMG9nS0VJQ0FnSUNMdG9iQ2NBEAE",
+          "author": "Angyelka Gucunszki",
+          "authorVerified": true,
+          "ratingLabel": "5 Sterne",
+          "publishedRelative": "vor 2 Jahren",
+          "originalLanguage": "Ungarisch",
+          "originalText": "Ich danke Marina von ganzem Herzen für ihre Hilfe. 💗\nSie ist wirklich eine freundliche und liebevolle Hebamme.\nSie hat immer eine Antwort auf alle Fragen, sie ist geduldig, sie weiß, wie man motiviert, sie kann mit Rat und Tat zur Seite stehen.\nIch bin sehr glücklich, dass sie unsere Hebamme war und wir wünschen Marina weiterhin viel Erfolg. 🤗\n\n💐Szívből köszönjük Marinának a sok önzetlen segítséget. Minden kérdésemre választ kaptam, motivált és tanácsokat adott.\nEgy nagyon kedves, nyugodt személy.\nSzívből kívánunk neki további munkájában sok sikert 💗\n\nHvala ti Marina od srca  za svaku pomoć, motivaciju, ljubazne razgovore, savete.\nŽelimo ti od srca puno uspeha u tvom daljem radu!\n💐",
+          "translatedText": "Ich danke Marina von ganzem Herzen für ihre Hilfe. 💗\nSie ist eine wirklich freundliche und liebevolle Hebamme.\n\nSie hat immer eine Antwort auf alle Fragen, ist geduldig, weiß, wie man motiviert, und hilft mit Rat und Tat.\n\nIch bin sehr glücklich, dass sie unsere Hebamme war, und wir wünschen Marina weiterhin viel Erfolg. 🤗\n\n💐Wir danken Marina von ganzem Herzen für ihre selbstlose Hilfe. Ich habe Antworten auf all meine Fragen bekommen, sie hat mich motiviert und mir Ratschläge gegeben.\n\nSie ist ein sehr freundlicher und ruhiger Mensch.\n\nWir wünschen ihr von ganzem Herzen viel Erfolg für ihre zukünftige Arbeit. 💗\n\nVielen Dank, Marina, von ganzem Herzen für deine Hilfe, Motivation, die freundlichen Gespräche und die Ratschläge. Wir wünschen dir von ganzem Herzen alles Gute für deine weitere Arbeit!\n\n💐",
+          "ownerResponse": "Liebe Angyelka, vielen Dank für deine netten Worte und die Zeit , die du dir dafür genommen hast ! \nIch bemühe mich immer mein Bestes zu geben und freue mich zu hören, dass es mir gelungen ist. \n\nDanke dir nochmal! ♥️",
+          "ownerResponseRelative": "vor 2 Jahren",
+          "reviewMedia": [],
+          "sourceUrl": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNMdG9iQ2NBEAE!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgICLtobCcA%7CCgwImaHLswYQ0O7h3QE%7C?hl=de",
+          "directGoogleVerified": true
+        }
+      ]
+    },
+    "secondPass": {
+      "capturedAt": "2026-09-20T23:24:21.859Z",
+      "title": "Hebamme Marina Rymmer - Google Maps",
+      "url": "https://www.google.com/maps/place/Hebamme+Marina+Rymmer/@49.4361307,11.135664,11z/data=!4m8!3m7!1s0x479f574505ef82c1:0xd5a4fe2be59f25dd!8m2!3d49.4361307!4d11.135664!9m1!1b1!16s%2Fg%2F11pwbtw_d_?hl=de&entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D",
+      "overview": "\n\n\nRestaurants\n\nHotels\n\nMögliche Aktivitäten\n\nÖPV/ÖPNV\n\nParkplätze\n\nApotheken\n\nGeld­automaten\n\n\n\nGespeichert\n\nZuletzt verwendet\nHebamme Marina Rymmer\n\nApp herunterladen\nHebamme Marina Rymmer\n5,0\n(66)\n\nHebamme\nÜbersicht\nRezensionen\nInfo\n\nSpeichern\n\nAn Smartphone senden\n\nTeilen\n \n\nGeschlossen · Öffnet um 08:00\n\n\n0176 23488396\n\n\n \n\nÄnderung vorschlagen\n \nFehlende Informationen hinzufügen\n\n\nWebsite hinzufügen\n\nFoto hinzufügen\n \nRezensionen\n5\t\n\n4\t\n\n3\t\n\n2\t\n\n1\t\n5,0\n66 Berichte\n \nRezensionen werden nicht überprüft\n\n \n\nRezension schreiben\n \nRezensionen\n\n\nSortieren\n\nAlle\nbaby\n10\ngeburt\n9\nschwangerschaft\n8\ngeduld\n5\n+6\nElisabeth Bachmann\n4 Rezensionen · 3 Fotos\n\n\n\n\n\n\nvor 3 Monaten\nWir können Marina wärmstens empfehlen. Das war die beste Entscheidung, sie als Hebamme zu haben. Sie weiß was sie macht, ist sowohl menschlich als auch fachlich perfekt. Haben uns seit dem ersten Tag bei ihr wohl gefühlt. Egal ob Akupunktur … Mehr\n\nGefällt mir\n\nTeilen\nAntwort vom Inhaber vor 2 Monaten\nIch danke euch herzlich für eure Vertrauen 💗 …\n \n \nFatima Zahra\n1 Rezension\n\n\n\n\n\n\nvor 2 Monaten\nMarina ist eine außergewöhnlich kompetente und engagierte Hebamme, die ihre Arbeit mit großer Professionalität und spürbarer Leidenschaft ausübt. Dank ihrer einfühlsamen, ruhigen und wertschätzenden Art habe ich mich jederzeit bestens … Mehr\n\nGefällt mir\n\nTeilen\nAntwort vom Inhaber vor 2 Monaten\nDanke von Herzen für eure Rezension Fatima 🧡Es war mir eine große Freude, euch begleiten zu dürfen . Und ich wünsche euch weiter viel Glück zusammen! 🥰 …\n \n \nemi\n2 Rezensionen\n\n\n\n\n\n\nvor 6 Monaten\nMarina war für uns einfach die beste Hebamme, die wir uns hätten vorstellen können. Sie hat uns die ganze Zeit über begleitet, war immer erreichbar und hat uns mit ihrer tol",
+      "stars": [
+        "5 Sterne,65 Rezensionen",
+        "4 Sterne,0 Rezensionen",
+        "3 Sterne,0 Rezensionen",
+        "2 Sterne,1 Rezension",
+        "1 Sterne,0 Rezensionen"
+      ],
+      "sets": {
+        "relevant": [
+          "Ci9DQUlRQUNvZENodHljRjlvT2pNeWVsVkdNRGx0VmxBNFYyOXZNV051UW5SeWVFRRAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT2tReWFrZHZNVEZEWm1ka1kwVkxUa1ZpWjFaV1MzYxAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT2pkV1ZtWmhjMEl6ZG5kT1dsZzNZMVptUlROTGJrRRAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT25OU1ZHOHhSRUkyWVZacVZVNXpNbFp1Y0d4a1lsRRAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT25Cb1RYWnJjMmRVTjNJNFIzZFdTbHB0WTBkblRXYxAB"
+        ],
+        "Neueste": [
+          "Ci9DQUlRQUNvZENodHljRjlvT2tReWFrZHZNVEZEWm1ka1kwVkxUa1ZpWjFaV1MzYxAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT2pNeWVsVkdNRGx0VmxBNFYyOXZNV051UW5SeWVFRRAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT21VM1dFUm9aV2swY2pSMGJYYzNTVFJKYzFCTGFrRRAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT2pkV1ZtWmhjMEl6ZG5kT1dsZzNZMVptUlROTGJrRRAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT25OU1ZHOHhSRUkyWVZacVZVNXpNbFp1Y0d4a1lsRRAB"
+        ],
+        "Niedrigste Bewertung": [
+          "ChZDSUhNMG9nS0VJQ0FnSUN1dXJXYmVBEAE",
+          "Ci9DQUlRQUNvZENodHljRjlvT2pNeWVsVkdNRGx0VmxBNFYyOXZNV051UW5SeWVFRRAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT2tReWFrZHZNVEZEWm1ka1kwVkxUa1ZpWjFaV1MzYxAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT2pkV1ZtWmhjMEl6ZG5kT1dsZzNZMVptUlROTGJrRRAB",
+          "Ci9DQUlRQUNvZENodHljRjlvT25OU1ZHOHhSRUkyWVZacVZVNXpNbFp1Y0d4a1lsRRAB"
+        ]
+      }
+    },
+    "uncapturedAggregate": {
+      "count": 37,
+      "individualIdsAvailable": false,
+      "reason": "Google displayed a limited anonymous view and returned no pagination cursor for the remaining individual records."
+    }
+  },
+  "elfsight": {
+    "role": "secondary cross-check and direct-review discovery only",
+    "widgetId": "6e2e4c6f-ebc0-4005-93a9-b414b24ac284",
+    "requestParameters": {
+      "filter_content": "text_required",
+      "min_rating": 5,
+      "page_length": 100,
+      "order": "date"
+    },
+    "sourceProfile": {
+      "placeId": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+      "rating": 5,
+      "reviewCount": 66,
+      "profileState": [
+        "complete",
+        100
+      ]
+    },
+    "returnedReviewCount": 23,
+    "initialDomReviewCount": 8,
+    "reviews": [
+      {
+        "id": "e21ccbf1-445b-4106-b381-daa4dcad2fc7",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Fatima Zahra",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocJlVl98dSgenNgk9Xa4ynImKaejmIuJy5lADPM6svI7pSobvCE=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Marina ist eine außergewöhnlich kompetente und engagierte Hebamme, die ihre Arbeit mit großer Professionalität und spürbarer Leidenschaft ausübt. Dank ihrer einfühlsamen, ruhigen und wertschätzenden Art habe ich mich jederzeit bestens betreut und verstanden gefühlt. Sie verfügt über ein fundiertes Fachwissen, nimmt sich ausreichend Zeit für individuelle Fragen und vermittelt selbst in herausfordernden Situationen ein Gefühl von Sicherheit und Vertrauen.\n\nDurch ihre wertvolle Unterstützung konnten wir die erste Zeit mit unserem Baby deutlich entspannter erleben.\nFür ihre einfühlsame Begleitung und ihre verlässliche Unterstützung sind wir ihr von Herzen dankbar.\n\nDanke für alles.🫶",
+        "text_html": "Marina ist eine außergewöhnlich kompetente und engagierte Hebamme, die ihre Arbeit mit großer Professionalität und spürbarer Leidenschaft ausübt. Dank ihrer einfühlsamen, ruhigen und wertschätzenden Art habe ich mich jederzeit bestens betreut und verstanden gefühlt. Sie verfügt über ein fundiertes Fachwissen, nimmt sich ausreichend Zeit für individuelle Fragen und vermittelt selbst in herausfordernden Situationen ein Gefühl von Sicherheit und Vertrauen.<br><br>Durch ihre wertvolle Unterstützung konnten wir die erste Zeit mit unserem Baby deutlich entspannter erleben.<br>Für ihre einfühlsame Begleitung und ihre verlässliche Unterstützung sind wir ihr von Herzen dankbar.<br><br>Danke für alles.🫶",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tReWFrZHZNVEZEWm1ka1kwVkxUa1ZpWjFaV1MzYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOkQyakdvMTFDZmdkY0VLTkViZ1ZWS3c%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1784211810,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Danke von Herzen für eure Rezension Fatima 🧡Es war mir eine große Freude, euch begleiten zu dürfen . Und ich wünsche euch weiter viel Glück zusammen! 🥰",
+          "date": 1784246400,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tReWFrZHZNVEZEWm1ka1kwVkxUa1ZpWjFaV1MzYxAB"
+      },
+      {
+        "id": "7aa9fcc2-f5f8-4a75-9d00-7afd93c6eb31",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Elisabeth Bachmann",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a-/ALV-UjWkECOjikm4oVNiF3YX6YHMV60c7aqQV4_HZ4G-v3soPtxiOJ4=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Wir können Marina wärmstens empfehlen. Das war die beste Entscheidung, sie als Hebamme zu haben. Sie weiß was sie macht, ist sowohl menschlich als auch fachlich perfekt. Haben uns seit dem ersten Tag bei ihr wohl gefühlt. Egal ob Akupunktur vor der Geburt oder Nachsorge nach der Geburt, sie ist für alle Fragen zu haben. Hebamme mit Herz.\nJederzeit wieder. Liebe Grüße, Lisa, Alex und Katharina ❤️❤️❤️",
+        "text_html": "Wir können Marina wärmstens empfehlen. Das war die beste Entscheidung, sie als Hebamme zu haben. Sie weiß was sie macht, ist sowohl menschlich als auch fachlich perfekt. Haben uns seit dem ersten Tag bei ihr wohl gefühlt. Egal ob Akupunktur vor der Geburt oder Nachsorge nach der Geburt, sie ist für alle Fragen zu haben. Hebamme mit Herz.<br>Jederzeit wieder. Liebe Grüße, Lisa, Alex und Katharina ❤️❤️❤️",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pNeWVsVkdNRGx0VmxBNFYyOXZNV051UW5SeWVFRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOjMyelVGMDltVlA4V29vMWNuQnRyeEE%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1780751739,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Ich danke euch herzlich für eure Vertrauen 💗",
+          "date": 1783468800,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pNeWVsVkdNRGx0VmxBNFYyOXZNV051UW5SeWVFRRAB"
+      },
+      {
+        "id": "f98cced3-24d3-4abc-80bc-f2e721bb3580",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Odreea Sincovschi",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a-/ALV-UjUSzNPl_JfKiBvomv7xSPNCW1oN_GJRGKKJP_Uw0iRHiDXGRF_r=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "У меня был просто замечательный опыт с Мариной Рыммер, и я от всей души её рекомендую! Она очень спокойный, терпеливый и чуткий человек, который оказывает поддержку как физически, так и эмоционально на самом высоком уровне. С ней я всегда чувствовала себя в безопасности и под надёжной заботой, а её объяснения были понятными и очень полезными. Видно, что она выполняет свою работу с любовью и полной отдачей. Без сомнений обращусь к ней и во второй раз! Прекрасный человек и специалист на 10 из 10! Огромное спасибо за всю оказанную поддержку! 🤍",
+        "text_html": "У меня был просто замечательный опыт с Мариной Рыммер, и я от всей души её рекомендую! Она очень спокойный, терпеливый и чуткий человек, который оказывает поддержку как физически, так и эмоционально на самом высоком уровне. С ней я всегда чувствовала себя в безопасности и под надёжной заботой, а её объяснения были понятными и очень полезными. Видно, что она выполняет свою работу с любовью и полной отдачей. Без сомнений обращусь к ней и во второй раз! Прекрасный человек и специалист на 10 из 10! Огромное спасибо за всю оказанную поддержку! 🤍",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21VM1dFUm9aV2swY2pSMGJYYzNTVFJKYzFCTGFrRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOmU3WERoZWk0cjR0bXc3STRJc1BLakE%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1777986517,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Vielen Dank Odrea für eure lieben Worte und eure Vertrauen! 💛",
+          "date": 1778457600,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT21VM1dFUm9aV2swY2pSMGJYYzNTVFJKYzFCTGFrRRAB"
+      },
+      {
+        "id": "4f2fd733-ce7f-4b79-a886-aaab5cb78d75",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "emi",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocJ3P9qD3uC7TkkVr6QdTZPqlbziBlS_FA6JBiVRR9NLdF7H0w=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Marina war für uns einfach die beste Hebamme, die wir uns hätten vorstellen können. Sie hat uns die ganze Zeit über begleitet, war immer erreichbar und hat uns mit ihrer tollen Art unglaublich viel Sicherheit gegeben. Wir haben uns in jeder Situation verstanden und gut aufgehoben gefühlt. Von Herzen eine große Empfehlung und ein riesiges Dankeschön 🩷",
+        "text_html": "Marina war für uns einfach die beste Hebamme, die wir uns hätten vorstellen können. Sie hat uns die ganze Zeit über begleitet, war immer erreichbar und hat uns mit ihrer tollen Art unglaublich viel Sicherheit gegeben. Wir haben uns in jeder Situation verstanden und gut aufgehoben gefühlt. Von Herzen eine große Empfehlung und ein riesiges Dankeschön 🩷",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pkV1ZtWmhjMEl6ZG5kT1dsZzNZMVptUlROTGJrRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOjdWVmZhc0IzdndOWlg3Y1ZmRTNLbkE%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1774018889,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Danke liebe Emilie für eure Vertrauen und eure liebe Worte an mich 💕",
+          "date": 1774396800,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pkV1ZtWmhjMEl6ZG5kT1dsZzNZMVptUlROTGJrRRAB"
+      },
+      {
+        "id": "39ba90e7-f6b4-4420-aabc-6931eacccfb0",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Milana Mitrovic",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocJg_RckG5GxPk_B3LcDx0e6IjfHLAUH_sDoWgj8mz3sdlg30w=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Ich bin sehr zufrieden mit der Betreuung durch meine Hebamme. Sie war immer freundlich, geduldig und sehr professionell. Ich kann sie von Herzen weiterempfehlen und bin sehr dankbar für ihre Hilfe und Fürsorge.",
+        "text_html": "Ich bin sehr zufrieden mit der Betreuung durch meine Hebamme. Sie war immer freundlich, geduldig und sehr professionell. Ich kann sie von Herzen weiterempfehlen und bin sehr dankbar für ihre Hilfe und Fürsorge.",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25OU1ZHOHhSRUkyWVZacVZVNXpNbFp1Y0d4a1lsRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOnNSVG8xREI2YVZqVU5zMlZucGxkYlE%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1773144437,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Danke liebe Milana für unsere Zeit zusammen und natürlich für dein Feedback und schöne Worte an mich ..💗",
+          "date": 1774396800,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT25OU1ZHOHhSRUkyWVZacVZVNXpNbFp1Y0d4a1lsRRAB"
+      },
+      {
+        "id": "b340baab-d69b-4f27-bb11-44e503245ce5",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Christina Sourkopoulos (Ditos Oliven)",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocKcF5ijpjQ3QApnGPTzPGowRDu8DWtDUQxPoXonKDQx46BQOA=s120-c-rp-mo-ba12-br100",
+        "rating": 5,
+        "text": "Maryna hat mich bei beiden Kindern beglitten, ich bin sehr dankbar für Ihre herzliche Art und ihr Fachwissen, sie war stets für mich da und ich würde sie immer weiterempfehlen von ganzem Herzen 💓❤️",
+        "text_html": "Maryna hat mich bei beiden Kindern beglitten, ich bin sehr dankbar für Ihre herzliche Art und ihr Fachwissen, sie war stets für mich da und ich würde sie immer weiterempfehlen von ganzem Herzen 💓❤️",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25KRVRuSnFMVlZVV1ZKU1JUQktNM0F4Y2tnMVIwRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOnJETnJqLVVUWVJSRTBKM3Axckg1R0E%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1767953546,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Danke ! 💕",
+          "date": 1769299200,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT25KRVRuSnFMVlZVV1ZKU1JUQktNM0F4Y2tnMVIwRRAB"
+      },
+      {
+        "id": "5826df7a-86cd-49b6-94c7-7f3fb22140e1",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Kirill Vl",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocIMlAogDAc8Go4Q6MZUh92w2SuQKPulxT3YND0WLF4mIkpLTg=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Ich kann gar nicht genug betonen, wie unglaublich großartig unsere Hebamme ist! Sie ist ohne Zweifel die beste Hebamme, die man sich in Nürnberg nur vorstellen kann. Von Anfang an hat sie uns mit unendlicher Geduld, Freundlichkeit und Professionalität begleitet.\n\nWas mich am meisten beeindruckt, ist ihre unglaubliche Erreichbarkeit: Sie ignoriert nie Anrufe, nimmt immer sofort das Telefon ab und ist bereit, auch in dringenden Fällen jederzeit zu helfen. Selbst während ihres eigenen Urlaubs hat sie uns nicht im Stich gelassen und stand mit Rat und Tat zur Seite – das ist wirklich außergewöhnlich!\n\nSie geht mit unglaublicher Sorgfalt und Weisheit auf Kinder ein. Alles, was sie tut, wirkt bedacht, sanft und sehr umsichtig. Man merkt sofort, dass sie ihr Wissen mit viel Erfahrung und Herz einsetzt. Sie hat ein wunderbares Gespür für die Bedürfnisse von Eltern und Babys und schafft es, sowohl russischsprachige als auch deutschsprachige Familien gleichermaßen zu unterstützen.\n\nJeder Termin mit ihr ist angenehm, professionell und beruhigend. Sie nimmt sich Zeit, erklärt alles verständlich, und man fühlt sich jederzeit gut aufgehoben. Ihre Geduld, ihr Einfühlungsvermögen und ihre Kompetenz machen sie zu einer Hebamme, die man wirklich nur weiterempfehlen kann.\n\nWer eine Hebamme sucht, die mit Herz, Verstand und grenzenloser Hilfsbereitschaft dabei ist – diese Hebamme ist einfach unschlagbar! Wir sind unendlich dankbar, dass wir sie an unserer Seite hatten und können sie von Herzen jedem empfehlen.💕",
+        "text_html": "Ich kann gar nicht genug betonen, wie unglaublich großartig unsere Hebamme ist! Sie ist ohne Zweifel die beste Hebamme, die man sich in Nürnberg nur vorstellen kann. Von Anfang an hat sie uns mit unendlicher Geduld, Freundlichkeit und Professionalität begleitet.<br><br>Was mich am meisten beeindruckt, ist ihre unglaubliche Erreichbarkeit: Sie ignoriert nie Anrufe, nimmt immer sofort das Telefon ab und ist bereit, auch in dringenden Fällen jederzeit zu helfen. Selbst während ihres eigenen Urlaubs hat sie uns nicht im Stich gelassen und stand mit Rat und Tat zur Seite – das ist wirklich außergewöhnlich!<br><br>Sie geht mit unglaublicher Sorgfalt und Weisheit auf Kinder ein. Alles, was sie tut, wirkt bedacht, sanft und sehr umsichtig. Man merkt sofort, dass sie ihr Wissen mit viel Erfahrung und Herz einsetzt. Sie hat ein wunderbares Gespür für die Bedürfnisse von Eltern und Babys und schafft es, sowohl russischsprachige als auch deutschsprachige Familien gleichermaßen zu unterstützen.<br><br>Jeder Termin mit ihr ist angenehm, professionell und beruhigend. Sie nimmt sich Zeit, erklärt alles verständlich, und man fühlt sich jederzeit gut aufgehoben. Ihre Geduld, ihr Einfühlungsvermögen und ihre Kompetenz machen sie zu einer Hebamme, die man wirklich nur weiterempfehlen kann.<br><br>Wer eine Hebamme sucht, die mit Herz, Verstand und grenzenloser Hilfsbereitschaft dabei ist – diese Hebamme ist einfach unschlagbar! Wir sind unendlich dankbar, dass wir sie an unserer Seite hatten und können sie von Herzen jedem empfehlen.💕",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2w4eVRWUXRSVW8yTVVGcWVXeHRka04yU25sb1NXYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOl8yTVQtRUo2MUFqeWxtdkN2SnloSWc%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1766325748,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Von Herzen danke für diese wundervolle Rezension und diese schönen Worte!🤍 Das geht mir sehr nahe und bestärkt mich nur noch mehr in meiner Arbeit. Es war mir eine Freude, euch in dieser besonderen Zeit zu begleiten. Ich wünsche dir und deiner Familie nur alles Liebe 🌸🤍",
+          "date": 1766361600,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2w4eVRWUXRSVW8yTVVGcWVXeHRka04yU25sb1NXYxAB"
+      },
+      {
+        "id": "7c8e1b80-8fa6-4225-a9ce-fe302258cf5d",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Veronica Landolfo",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocI-TVVEBtsEgCgaZv-nGDpjOJyCjpBdtJmHkE2l7EzoFkisaw=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Normalerweise bin ich im Leben eher skeptisch auch, was Betreuung und Beratung betrifft. Doch bei dieser Hebamme war vom ersten Moment an alles anders. Bereits in der Schwangerschaft, noch vor der Geburt, hatte ich sofort das Gefühl: Diese Frau weiß ganz genau, was sie tut. Sie bringt nicht nur enormes Fachwissen und viel Erfahrung mit, sondern auch ein echtes Muttergefühl. Man merkt sofort, dass sie selbst Kinder hat und genau weiß, wie man mit Müttern und Kindern umgeht.\nSie hat mich während der Schwangerschaft, nach der Geburt und auch in einer Phase mit Komplikationen sowohl körperlich als auch psychisch sehr unterstützt immer einfühlsam, verständnisvoll und professionell. Sie hat mich als Frau und Mutter wirklich verstanden und begleitet, ebenso meinen Sohn.\nEs ist bereits meine zweite Schwangerschaft. Bei meiner ersten hatte ich ehrlich gesagt keine große Freude an den Hebammenbesuchen und habe sie eher als Pflicht empfunden. Bei ihr war es komplett anders: Ich habe mich jedes Mal gefreut, wenn sie gekommen ist. Diese Freude und dieses Vertrauen sprechen für sich.\nBesonders schätze ich auch ihre Ehrlichkeit und Kompetenz in der Beratung. Ich weiß, dass sie nur das empfiehlt, was wirklich sinnvoll und fachlich korrekt ist. Deshalb werde ich mich auch weiterhin von ihr beraten lassen, zum Beispiel beim Start mit Beikost.\nSie ist zudem sehr freundlich, liebevoll, äußerst sauber (was mir persönlich sehr wichtig ist) und ging wunderbar auf meine Kinder ein. Mein Sohn hat sich bei ihr sofort wohlgefühlt, ebenso mein erstes Kind und auch mein Mann. Sie hat mit allen auf eine sehr sympathische und respektvolle Art kommuniziert.\nIch kann diese Hebamme von ganzem Herzen weiterempfehlen. Sollte ich noch einmal schwanger werden, würde ich mich ohne zu zögern sofort wieder bei ihr melden. Meine anfängliche Unsicherheit aufgrund meiner ersten Erfahrung mit einer anderen Hebamme hat sich in keiner Sekunde bestätigt – im Gegenteil: Ich habe es keine Sekunde bereut. Ich danke dir von Herzen Marina",
+        "text_html": "Normalerweise bin ich im Leben eher skeptisch auch, was Betreuung und Beratung betrifft. Doch bei dieser Hebamme war vom ersten Moment an alles anders. Bereits in der Schwangerschaft, noch vor der Geburt, hatte ich sofort das Gefühl: Diese Frau weiß ganz genau, was sie tut. Sie bringt nicht nur enormes Fachwissen und viel Erfahrung mit, sondern auch ein echtes Muttergefühl. Man merkt sofort, dass sie selbst Kinder hat und genau weiß, wie man mit Müttern und Kindern umgeht.<br>Sie hat mich während der Schwangerschaft, nach der Geburt und auch in einer Phase mit Komplikationen sowohl körperlich als auch psychisch sehr unterstützt immer einfühlsam, verständnisvoll und professionell. Sie hat mich als Frau und Mutter wirklich verstanden und begleitet, ebenso meinen Sohn.<br>Es ist bereits meine zweite Schwangerschaft. Bei meiner ersten hatte ich ehrlich gesagt keine große Freude an den Hebammenbesuchen und habe sie eher als Pflicht empfunden. Bei ihr war es komplett anders: Ich habe mich jedes Mal gefreut, wenn sie gekommen ist. Diese Freude und dieses Vertrauen sprechen für sich.<br>Besonders schätze ich auch ihre Ehrlichkeit und Kompetenz in der Beratung. Ich weiß, dass sie nur das empfiehlt, was wirklich sinnvoll und fachlich korrekt ist. Deshalb werde ich mich auch weiterhin von ihr beraten lassen, zum Beispiel beim Start mit Beikost.<br>Sie ist zudem sehr freundlich, liebevoll, äußerst sauber (was mir persönlich sehr wichtig ist) und ging wunderbar auf meine Kinder ein. Mein Sohn hat sich bei ihr sofort wohlgefühlt, ebenso mein erstes Kind und auch mein Mann. Sie hat mit allen auf eine sehr sympathische und respektvolle Art kommuniziert.<br>Ich kann diese Hebamme von ganzem Herzen weiterempfehlen. Sollte ich noch einmal schwanger werden, würde ich mich ohne zu zögern sofort wieder bei ihr melden. Meine anfängliche Unsicherheit aufgrund meiner ersten Erfahrung mit einer anderen Hebamme hat sich in keiner Sekunde bestätigt – im Gegenteil: Ich habe es keine Sekunde bereut. Ich danke dir von Herzen Marina",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pCWkxYRm5NSEp0TnpkUlMwcGhlVFphVWpacVRVRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOjBZLXFnMHJtNzdRS0pheTZaUjZqTUE%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1765983289,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Vielen Dank Veronika für die Zeit, die du dich für so eine ausführliche Rezension genommen hast, die ich sehr zu schätzen weiß.\n\nEs war mir eine große Ehre euch auf diesem Weg ein Stück begleiten zu dürfen… Danke für eure Vertrauen ! ",
+          "date": 1766361600,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pCWkxYRm5NSEp0TnpkUlMwcGhlVFphVWpacVRVRRAB"
+      },
+      {
+        "id": "04a77db0-b112-435b-89ae-c1ad3c9fbf70",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Riham (RoOrItA)",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a-/ALV-UjVlu5ptFj4_Z11o9M1KfZKxxxLjibsGIpAaQtj5Nel4hJTcs-k=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Ich bin sehr dankbar für alles, was Marina für uns getan hat.. für ihre Unterstützung, ihre Geduld und all die wertvollen Informationen, die sie mit uns geteilt hat.\nMarina ist immer freundlich, herzlich und offen, und sie hat uns nie eine Frage unbeantwortet gelassen.\nDank ihrer Aufmerksamkeit wurde früh erkannt, dass ich eine Entzündung hatte, und sie hat mir genau erklärt, wie ich damit umgehen soll. Als ich später bei meiner Ärztin war, war sie sehr dankbar für Marinas schnelles Handeln.. so konnte alles rechtzeitig behandelt werden.\nMarina hat mich liebevoll begleitet, mir die richtige Stilltechnik gezeigt und mich auch emotional unterstützt.\nWir alle haben sie sehr ins Herz geschlossen und wünschen ihr von Herzen alles Gute und ganz viel Glück! 💕\nIch kann sie von Herzen weiterempfehlen. 🌸",
+        "text_html": "Ich bin sehr dankbar für alles, was Marina für uns getan hat.. für ihre Unterstützung, ihre Geduld und all die wertvollen Informationen, die sie mit uns geteilt hat.<br>Marina ist immer freundlich, herzlich und offen, und sie hat uns nie eine Frage unbeantwortet gelassen.<br>Dank ihrer Aufmerksamkeit wurde früh erkannt, dass ich eine Entzündung hatte, und sie hat mir genau erklärt, wie ich damit umgehen soll. Als ich später bei meiner Ärztin war, war sie sehr dankbar für Marinas schnelles Handeln.. so konnte alles rechtzeitig behandelt werden.<br>Marina hat mich liebevoll begleitet, mir die richtige Stilltechnik gezeigt und mich auch emotional unterstützt.<br>Wir alle haben sie sehr ins Herz geschlossen und wünschen ihr von Herzen alles Gute und ganz viel Glück! 💕<br>Ich kann sie von Herzen weiterempfehlen. 🌸",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xsdVFYZHpTamhXVTNaYWFFRkNWRzlwZG1aT1MxRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOlluQXdzSjhWU3ZaaEFCVG9pdmZOS1E%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1760169701,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Liebe Riham, vielen Dank für deine wertschätzende Rückmeldung und dein Vertrauen💗 Es bedeutet mir viel, dass ich euch begleiten und unterstützen durfte. Alles Liebe euch!✨🩷",
+          "date": 1766361600,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xsdVFYZHpTamhXVTNaYWFFRkNWRzlwZG1aT1MxRRAB"
+      },
+      {
+        "id": "654507e9-f84c-4aff-b379-c4b9c96aa324",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Adriana-Alexandra Grigore",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a-/ALV-UjU42wLMHFN8CrZdzVoL6rHK9qaEalPZ2XeltUWRAkV-jGXvJZnL=s120-c-rp-mo-ba3-br100",
+        "rating": 5,
+        "text": "Ich hatte das große Glück, diese Hebamme Marina nach der Geburt meiner Tochter Selina an meiner Seite zu haben – und ich kann von ganzem Herzen sagen, sie ist wirklich ein Goldstück. 💛\nSie hat so viel Geduld, Wärme und Einfühlungsvermögen, wie man es nur selten findet. Sie war mit großem Fachwissen, aber auch mit Herz bei uns, hat zugehört, beruhigt und mir das Gefühl gegeben, sicher und gut aufgehoben zu sein – sowohl mit dem Baby als auch mit mir selbst.\n\nSelbst beim vierten Kind merkt man, dass jedes Baby neu und anders ist – und sie wusste genau, wie sie uns begleiten musste: mit Ruhe, Verständnis und liebevoller Unterstützung. 🌷\n\nDank ihr war unser Anfang viel leichter, voller Vertrauen und Gelassenheit. Ich kann sie von ganzem Herzen jeder Mama empfehlen, die sich eine kompetente, warmherzige und wirklich engagierte Hebamme wünscht. ❤️\nMit Liebe Adriana 🤗🥰",
+        "text_html": "Ich hatte das große Glück, diese Hebamme Marina nach der Geburt meiner Tochter Selina an meiner Seite zu haben – und ich kann von ganzem Herzen sagen, sie ist wirklich ein Goldstück. 💛<br>Sie hat so viel Geduld, Wärme und Einfühlungsvermögen, wie man es nur selten findet. Sie war mit großem Fachwissen, aber auch mit Herz bei uns, hat zugehört, beruhigt und mir das Gefühl gegeben, sicher und gut aufgehoben zu sein – sowohl mit dem Baby als auch mit mir selbst.<br><br>Selbst beim vierten Kind merkt man, dass jedes Baby neu und anders ist – und sie wusste genau, wie sie uns begleiten musste: mit Ruhe, Verständnis und liebevoller Unterstützung. 🌷<br><br>Dank ihr war unser Anfang viel leichter, voller Vertrauen und Gelassenheit. Ich kann sie von ganzem Herzen jeder Mama empfehlen, die sich eine kompetente, warmherzige und wirklich engagierte Hebamme wünscht. ❤️<br>Mit Liebe Adriana 🤗🥰",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21oSVZFOWlVWFpUY1hjMmJFWmtOR3N3Wm1KYWRuYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOmhIVE9iUXZTcXc2bEZkNGswZmJadnc%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1759764923,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Danke Adriana für deine Liebevollen Worte ! Ich war sehr gerne auch bei euch 🩷",
+          "date": 1769299200,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT21oSVZFOWlVWFpUY1hjMmJFWmtOR3N3Wm1KYWRuYxAB"
+      },
+      {
+        "id": "60bd5196-a39c-41cc-814e-4d35d87c5998",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "قولدن Dogruoglu",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a-/ALV-UjVqQFDc6OQcu528KvA7oa8AcWMdwfg-chX831kfAeAbZBiC9Pf8=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Ich finde, Hebamme zu sein ist ein Herzensberuf – ein Beruf, den man mit Liebe ausüben muss. Und genau das tut Marina: Sie macht ihren Job mit ganz viel Liebe. ❤️\nMarina ist eine sehr erfahrene, bewusste und einfühlsame Hebamme. Sie hat selbst Kinder und kennt sich mit beiden Geburtsarten sehr gut aus.\nZu manchen Menschen baut man eine ganz besondere Bindung auf – und Marina war für uns so jemand. Sie war wie ein Teil der Familie.\nEs hat uns traurig gemacht, dass sie „nur“ unsere Hebamme war – und eben nur für eine bestimmte Zeit. Wir hätten sie gerne noch viel länger mit offenen Armen empfangen.\n\nIch – bzw. wir – werden ihr für immer dankbar sein, denn ihre Hilfe und Unterstützung werde ich nie vergessen. 🥰\nAn alle werdenden Mamis: Bei Marina könnt ihr euch sicher sein, dass ihr in den besten Händen seid. Sie ist eine absolute Herzensempfehlung! 🫶🏻🫰🏻\n\nDanke, meine liebe Marina! 🧡",
+        "text_html": "Ich finde, Hebamme zu sein ist ein Herzensberuf – ein Beruf, den man mit Liebe ausüben muss. Und genau das tut Marina: Sie macht ihren Job mit ganz viel Liebe. ❤️<br>Marina ist eine sehr erfahrene, bewusste und einfühlsame Hebamme. Sie hat selbst Kinder und kennt sich mit beiden Geburtsarten sehr gut aus.<br>Zu manchen Menschen baut man eine ganz besondere Bindung auf – und Marina war für uns so jemand. Sie war wie ein Teil der Familie.<br>Es hat uns traurig gemacht, dass sie „nur“ unsere Hebamme war – und eben nur für eine bestimmte Zeit. Wir hätten sie gerne noch viel länger mit offenen Armen empfangen.<br><br>Ich – bzw. wir – werden ihr für immer dankbar sein, denn ihre Hilfe und Unterstützung werde ich nie vergessen. 🥰<br>An alle werdenden Mamis: Bei Marina könnt ihr euch sicher sein, dass ihr in den besten Händen seid. Sie ist eine absolute Herzensempfehlung! 🫶🏻🫰🏻<br><br>Danke, meine liebe Marina! 🧡",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25Cb1RYWnJjMmRVTjNJNFIzZFdTbHB0WTBkblRXYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOnBoTXZrc2dUN3I4R3dWSlptY0dnTWc%7C%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1752991796,
+        "images": [
+          "https://lh3.googleusercontent.com/geougc-cs/AMG9lETv7_0xU7AD-Z5hKRLJYp5xC-dCqAVwbsg9VMaqLsrl2sknOmcL5BvTxH_HQQUCpRBhlF7E1bgbnIWbILwDQLZHdEP1qlK3V7_sRjxyKBACCQhgeyJjrghSO2OiO8BOi-lHKDWLAOgbYIUn"
+        ],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Danke! 🩷",
+          "date": 1769299200,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT25Cb1RYWnJjMmRVTjNJNFIzZFdTbHB0WTBkblRXYxAB"
+      },
+      {
+        "id": "3e6dfbf5-8a21-4339-b202-07adfba902b5",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Jasemin Niboucha",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocIoZlH4JZCINi2VwsyR5iYIes-jhhaF-hvo2ntnKpHV-6jwpw=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Ich kann meine Hebamme nur wärmstens empfehlen von Anfang an habe ich mich bei ihr sehr gut aufgehoben gefühlt . Mit viel Einfühlungsvermögen, Geduld und Fachwissen hat sie mich durch das Wochenbett begleitet.Dank ihr konnte ich die Zeit sehr positiv erleben.ich bin ihr sehr dankbar für alles und würde sie jederzeit wieder wählen",
+        "text_html": "Ich kann meine Hebamme nur wärmstens empfehlen von Anfang an habe ich mich bei ihr sehr gut aufgehoben gefühlt . Mit viel Einfühlungsvermögen, Geduld und Fachwissen hat sie mich durch das Wochenbett begleitet.Dank ihr konnte ich die Zeit sehr positiv erleben.ich bin ihr sehr dankbar für alles und würde sie jederzeit wieder wählen",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25CMmJERTNNWEZaYzNac1NsbDZNMk0zYjBWWGFtYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOnB2bDE3MXFZc3ZsSll6M2M3b0VXamc%7C0cTo6b91TEK%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1752908263,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Herzlichen Dank! ",
+          "date": 1752969600,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT25CMmJERTNNWEZaYzNac1NsbDZNMk0zYjBWWGFtYxAB"
+      },
+      {
+        "id": "d5993397-0cb9-4565-abf0-6ad6120c7a1c",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Tatiana K",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a-/ALV-UjVbf6_Ka9eaTUKEI_RDGE2_HIm82Znt_pRKyJMN4uFC888aVWHJ2w=s120-c-rp-mo-ba4-br100",
+        "rating": 5,
+        "text": "Die Liebe Marina hat uns während unserer ersten Reise als werdende Eltern begleitet und was kann ich sagen: Sie ist wirklich eine super kompetente Frau und einfach eine gute Seele.\n\nSie ist immer sehr herzlich zu uns gewesen,egal welche Fragen man auch hatte,Sie hat diese stets beantwortet bzw. weitergeholfen. In der Schwangerschaft hatte Marina auch die Akupunktur bei mir angewendet, was ich persönlich super fand und ich mir sicher bin,dass das die Dauer meiner Geburt gut verkürzt hat.\nIn den ersten Wochen zu Hause kam Marina jeden zweiten Tag zu uns und wog unseren Kleinen,zeigte wie man richtig stillt,kontrollierte den Bauchnabel,badete unser Baby das erste Mal mit uns und ging sicher,dass es mir als frisch gebackene Mama gut geht. Wir konnten sie alles fragen, direkt vor Ort oder jeder Zeit über WhatsApp.\n\nIch bin sehr froh,dass Marina uns in dieser Zeit betreut hat,uns ein gutes Gefühl gegeben hat und einfach mit Rat und Tat zur Seite stand. Ich würde Sie herzlichst jedem weiterempfehlen.",
+        "text_html": "Die Liebe Marina hat uns während unserer ersten Reise als werdende Eltern begleitet und was kann ich sagen: Sie ist wirklich eine super kompetente Frau und einfach eine gute Seele.<br><br>Sie ist immer sehr herzlich zu uns gewesen,egal welche Fragen man auch hatte,Sie hat diese stets beantwortet bzw. weitergeholfen. In der Schwangerschaft hatte Marina auch die Akupunktur bei mir angewendet, was ich persönlich super fand und ich mir sicher bin,dass das die Dauer meiner Geburt gut verkürzt hat.<br>In den ersten Wochen zu Hause kam Marina jeden zweiten Tag zu uns und wog unseren Kleinen,zeigte wie man richtig stillt,kontrollierte den Bauchnabel,badete unser Baby das erste Mal mit uns und ging sicher,dass es mir als frisch gebackene Mama gut geht. Wir konnten sie alles fragen, direkt vor Ort oder jeder Zeit über WhatsApp.<br><br>Ich bin sehr froh,dass Marina uns in dieser Zeit betreut hat,uns ein gutes Gefühl gegeben hat und einfach mit Rat und Tat zur Seite stand. Ich würde Sie herzlichst jedem weiterempfehlen.",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xWMlpFTmxUbGhWUW5BNWFFTXdUazlwVWw5c2JYYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOlV2ZENlTlhVQnA5aEMwTk9pUl9sbXc%7C0cTW8eGffOi%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1752830570,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Herzlichen Dank für dein Feedback Tatiana ! ",
+          "date": 1752969600,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xWMlpFTmxUbGhWUW5BNWFFTXdUazlwVWw5c2JYYxAB"
+      },
+      {
+        "id": "5f178224-cf82-4d2c-a347-5dc2a877184e",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Andreas Schneider",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocJOL-UIXdgRO3rYqMMCbqM7tKd5afhxUNHCfh3whUPfLqZoqQ=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Wir hätten uns keine bessere Hebamme wünschen können!\n\nHebamme mit Herz, passt genau zu Marina!\nSie ist einfach GROßARTIG – kompetent, herzlich, zuverlässig und mit ganzem Herzen bei der Sache. Sie hat mich bereits in meiner ersten Schwangerschaft 2021 betreut und jetzt in der zweiten auch. Ich hatte damals verzweifelt nach einer Hebamme gesucht und trotz das Marina keine Kapazität mehr frei hatte, hat Sie mich aufgenommen weil Sie einfach ein gutes Herz hat.\nVom ersten Kennenlernen bis zur Nachsorge haben wir uns rundum gut betreut und verstanden gefühlt. Sie hatte auf all unsere Fragen immer eine klare, beruhigende Antwort und hat uns mit ihrer ruhigen Art viel Sicherheit gegeben – gerade beim ersten Kind ist das unbezahlbar!\n\nBesonders beeindruckt hat uns, wie individuell Marina auf unsere Bedürfnisse eingegangen ist. Sie nimmt sich Zeit, hört wirklich zu und vermittelt das Gefühl, dass man mit allem zu ihr kommen kann – ob fachlich oder emotional. Auch in stressigen Situationen blieb sie immer gelassen und professionell.\n\nDanke, liebe Marina, für deine unglaubliche Unterstützung – wir sind so dankbar, dass wir dich an unserer Seite hatten!\nWir werden dich vermissen und werden dich nie vergessen !\n\nAbsolute Herzensempfehlung für alle (werdenden) Eltern!\n\nDeine Familie Schneider",
+        "text_html": "Wir hätten uns keine bessere Hebamme wünschen können!<br><br>Hebamme mit Herz, passt genau zu Marina!<br>Sie ist einfach GROßARTIG – kompetent, herzlich, zuverlässig und mit ganzem Herzen bei der Sache. Sie hat mich bereits in meiner ersten Schwangerschaft 2021 betreut und jetzt in der zweiten auch. Ich hatte damals verzweifelt nach einer Hebamme gesucht und trotz das Marina keine Kapazität mehr frei hatte, hat Sie mich aufgenommen weil Sie einfach ein gutes Herz hat.<br>Vom ersten Kennenlernen bis zur Nachsorge haben wir uns rundum gut betreut und verstanden gefühlt. Sie hatte auf all unsere Fragen immer eine klare, beruhigende Antwort und hat uns mit ihrer ruhigen Art viel Sicherheit gegeben – gerade beim ersten Kind ist das unbezahlbar!<br><br>Besonders beeindruckt hat uns, wie individuell Marina auf unsere Bedürfnisse eingegangen ist. Sie nimmt sich Zeit, hört wirklich zu und vermittelt das Gefühl, dass man mit allem zu ihr kommen kann – ob fachlich oder emotional. Auch in stressigen Situationen blieb sie immer gelassen und professionell.<br><br>Danke, liebe Marina, für deine unglaubliche Unterstützung – wir sind so dankbar, dass wir dich an unserer Seite hatten!<br>Wir werden dich vermissen und werden dich nie vergessen !<br><br>Absolute Herzensempfehlung für alle (werdenden) Eltern!<br><br>Deine Familie Schneider",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xkSmQwbFJPVWsxT1RCT2Nta3lhMWMxTUdVNWRHYxAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CAIQACodChtycF9oOldJd0lROUk1OTBOcmkya1c1MGU5dGc%7C0cSoWLPzesC%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1752647766,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": " Vielen lieben Dank für Rezension und die Zeit dafür! \nEs war sehr schöne Zeit zusammen!",
+          "date": 1752969600,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xkSmQwbFJPVWsxT1RCT2Nta3lhMWMxTUdVNWRHYxAB"
+      },
+      {
+        "id": "09e65152-419b-43c3-a5ef-67d84b1bc422",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Edina Kahvedzic",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocJA8wiTk362BLiXEd8ZSm1ornGLr2SUSs99oscj3uxYXuUBTw=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Marina hat mich bereits im meiner Schwangerschaft betreut und die geburtsvorbereitende Akupunktur durchgeführt. Nach der Geburt war sie für uns immer da ,war immer erreichbar und hatte immer einen Rat und Antwort auf alle unsere Fragen .Sie ist sehr kompetent, hilfsbereit ,aufmerksam und strahlt die Ruhe aus.Es ist toll ,dass es noch jemanden wie Marina gibt ,die ihre Arbeit mit Liebe und Engagement macht.\nMarina, wir sind sehr froh und unendlich dankbar dass du die unsere Hebamme warst.\nHerzlichen Dank für alles!!!",
+        "text_html": "Marina hat mich bereits im meiner Schwangerschaft betreut und die geburtsvorbereitende Akupunktur durchgeführt. Nach der Geburt war sie für uns immer da ,war immer erreichbar und hatte immer einen Rat und Antwort auf alle unsere Fragen .Sie ist sehr kompetent, hilfsbereit ,aufmerksam und strahlt die Ruhe aus.Es ist toll ,dass es noch jemanden wie Marina gibt ,die ihre Arbeit mit Liebe und Engagement macht.<br>Marina, wir sind sehr froh und unendlich dankbar dass du die unsere Hebamme warst.<br>Herzlichen Dank für alles!!!",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNZdUtXRThnRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgMCYuKWE8gE%7CCgwI1ZjMwAYQuMyN1AE%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1746078805,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Liebe Edina , ich möchte mich bei dir aus tiefstem Herzen für deine Worte bedanken . \nEs war eine schöne Zeit zusammen 🩷",
+          "date": 1746144000,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnTUNZdUtXRThnRRAB"
+      },
+      {
+        "id": "baf9fafc-c7b1-4f8d-aa63-027b73d659b3",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Sandeep Kaur",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocK6kVw5UDH5NNfwvkUbcFoufQwzGwFTfZYtNfju_vvMPpQpnQ=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Thanku Marina,she helped me  lot, she is very kind ,experienced  and very professional. God bless u Marina.",
+        "text_html": "Thanku Marina,she helped me  lot, she is very kind ,experienced  and very professional. God bless u Marina.",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURJN2RYVjh3RRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgMDI7dXV8wE%7CCgwIp6vovwYQ-Njl2AE%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1744442791,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Danke für deine schöne Worte liebe Sandeep und unsere kurze gemeinsame Zeit ! 🩷\n",
+          "date": 1744675200,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnTURJN2RYVjh3RRAB"
+      },
+      {
+        "id": "e7506514-572f-4217-b044-355aeec51a98",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Anna Rib",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a-/ALV-UjUPSAq0BZkYo9_5K9OtTsTnUNqVzzabBUVdHbj0NvnrWC9NToiW=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Sehr gute Hebamme! Sehr freundliche empathievolle und sympathische Dame! Sehr empfehlenswert. Dringt niemals ihre Meinung auf und ist sehr verständnis voll. Jeder Zeit erreichbar und bei allen Fragen gerne zur Verfügung! Meine Familie und ich persönlich werden Marina Rymmer sehr vermissen, war eine sehr schöne Zeit mit ihr! Wir sind sehr dankbar für ihre kompetente Unterstützung voller Liebe!",
+        "text_html": "Sehr gute Hebamme! Sehr freundliche empathievolle und sympathische Dame! Sehr empfehlenswert. Dringt niemals ihre Meinung auf und ist sehr verständnis voll. Jeder Zeit erreichbar und bei allen Fragen gerne zur Verfügung! Meine Familie und ich persönlich werden Marina Rymmer sehr vermissen, war eine sehr schöne Zeit mit ihr! Wir sind sehr dankbar für ihre kompetente Unterstützung voller Liebe!",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNBcThmb09BEAE!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgMCAq8foOA%7CCgwI2v2HvQYQiP2_lgE%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1738669786,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "\nDanke liebe Anna für Ihr Feedback .\n\nEs war sehr schön bei euch 💛",
+          "date": 1739145600,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "ChZDSUhNMG9nS0VJQ0FnTUNBcThmb09BEAE"
+      },
+      {
+        "id": "f9faa6b8-30c4-4a39-b3df-56e1beb7c85a",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Татьяна Драгуля",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a-/ALV-UjXXpEJq9IuCWghs7g56PTXdYlZdPXhObCwKubGv0R3-Ru_IwWI-Xw=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Я безмерно благодарна моей хебаме Марине за её профессионализм, чуткость и невероятную поддержку на протяжении всего послеродового периода. Она всегда была рядом, чтобы ответить на мои вопросы, успокоить мои переживания и дать полезные советы. Благодаря ей, я чувствовала себя уверенно и спокойно в столь важный период моей жизни. Рекомендую её всем, кто ищет надёжного и отзывчивого специалиста!",
+        "text_html": "Я безмерно благодарна моей хебаме Марине за её профессионализм, чуткость и невероятную поддержку на протяжении всего послеродового периода. Она всегда была рядом, чтобы ответить на мои вопросы, успокоить мои переживания и дать полезные советы. Благодаря ей, я чувствовала себя уверенно и спокойно в столь важный период моей жизни. Рекомендую её всем, кто ищет надёжного и отзывчивого специалиста!",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNfNHY2bXFnRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIC_4v6mqgE%7CCgwIl6yZvAYQuKb0ogM%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1736857111,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Herzlichen Dank! ",
+          "date": 1736812800,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSUNfNHY2bXFnRRAB"
+      },
+      {
+        "id": "20f4cf6c-a9de-4e28-b545-ea2819991720",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Kate",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocJ4ggEbvNz9XeSCkj1hVj_f6e3CWcOM0D-VuFNa5nKngAhVUA=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Marina hat mich und unsere kleine Maus nach der Geburt betreut. Wir haben uns immer wohl und gut aufgehoben gefühlt. Sie hat jede meiner zahlreichen Fragen kompetent und detailliert beantwortet. Ihr liebevoller Umgang mit unserer Tochter und ihre herzliche, unaufgeregte Art haben uns die Eingewöhnungsphase unglaublich erleichtert. Wir sind so froh, Marina an unserer Seite gehabt zu haben.",
+        "text_html": "Marina hat mich und unsere kleine Maus nach der Geburt betreut. Wir haben uns immer wohl und gut aufgehoben gefühlt. Sie hat jede meiner zahlreichen Fragen kompetent und detailliert beantwortet. Ihr liebevoller Umgang mit unserer Tochter und ihre herzliche, unaufgeregte Art haben uns die Eingewöhnungsphase unglaublich erleichtert. Wir sind so froh, Marina an unserer Seite gehabt zu haben.",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURmMnB1R3dRRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIDf2puGwQE%7CCgwI_pfruwYQ2P3hsAM%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1736100862,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Liebe Katharina, danke sehr für dein Feedback.\nEs war sehr schön bei euch ",
+          "date": 1736208000,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSURmMnB1R3dRRRAB"
+      },
+      {
+        "id": "dd4e830a-183d-4505-bc7e-122f502fdd3c",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Vanessa Loy",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocJ8j6SecI727VyRfHlwv3p0BcEZtBV-RXk6nT4ML90nI2ui9Q=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Marina ist eine super kompetente Hebamme. Sie hat mich während der Schwangerschaft, sowie im Wochenbett betreut. Mit ihrer langjährigen Erfahrung hat Sie mir stets ein gutes Gefühl gegeben.",
+        "text_html": "Marina ist eine super kompetente Hebamme. Sie hat mich während der Schwangerschaft, sowie im Wochenbett betreut. Mit ihrer langjährigen Erfahrung hat Sie mir stets ein gutes Gefühl gegeben.",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURYNThUbFl3EAE!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIDX58TlYw%7CCgwI45qPuQYQ-P2y1wE%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1730399587,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Herzlichen Dank für eine schöne Zeit zusammen. \nDANKE Vanessa ",
+          "date": 1730419200,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "ChZDSUhNMG9nS0VJQ0FnSURYNThUbFl3EAE"
+      },
+      {
+        "id": "3b038f91-c1c8-4bf9-9d33-56047ee714ab",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Huelya E",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocK_Z8AeuJo4AbSIpa-W6oVzFeSIlSTZfKjkO3cHahX1KUfsxw=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Sie ist eine soo liebevolle Hebamme. Habe für meine beiden söhne sie als Hebamme gehabt. Sollte ich irgendwann mal ein drittes bekommen, würde es wieder sie sein 🥰Sie nimmt sich die Zeit, auch wenn es dringend ist kommt sie ganz schnell vorbei. Ihre Tipps und Erfahrungen haben mir und meinen Kindern immer weitergeholfen❤️Sie ist immer so vorsichtig und sanft mit den Babys ☺️Das erste baden und auch beim Stillen stand sie mir immer als Hilfe beiseite, da die Anfangsphase eine sehr schwierige Phase für mich war. Die Nachkontrolle bei mir hat sie auch immer durchgeführt. Bei ihr hatte ich immer ein sicheres Gefühl. Mein Kleinster ist jetzt 3 Jahre alt und ich musste gestern wieder an die Zeit zurück denken, sodass ich ihr einfach Danke geschrieben hab für die wertvolle Zeit ☺️Deshalb 5 Sterne von mir an die wundervolle Marina 🥰",
+        "text_html": "Sie ist eine soo liebevolle Hebamme. Habe für meine beiden söhne sie als Hebamme gehabt. Sollte ich irgendwann mal ein drittes bekommen, würde es wieder sie sein 🥰Sie nimmt sich die Zeit, auch wenn es dringend ist kommt sie ganz schnell vorbei. Ihre Tipps und Erfahrungen haben mir und meinen Kindern immer weitergeholfen❤️Sie ist immer so vorsichtig und sanft mit den Babys ☺️Das erste baden und auch beim Stillen stand sie mir immer als Hilfe beiseite, da die Anfangsphase eine sehr schwierige Phase für mich war. Die Nachkontrolle bei mir hat sie auch immer durchgeführt. Bei ihr hatte ich immer ein sicheres Gefühl. Mein Kleinster ist jetzt 3 Jahre alt und ich musste gestern wieder an die Zeit zurück denken, sodass ich ihr einfach Danke geschrieben hab für die wertvolle Zeit ☺️Deshalb 5 Sterne von mir an die wundervolle Marina 🥰",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUM3N19pMnh3RRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgIC77_i2xwE%7CCgwIouiMtgYQ-K2d0wM%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1724068898,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Liebe Hülya , ich danke dir für deine liebevolle Worte und natürlich für unsere kurze , aber sehr schöne Zeit zusammen ! ",
+          "date": 1724025600,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSUM3N19pMnh3RRAB"
+      },
+      {
+        "id": "852caf92-5a04-4444-a068-e5ab4a75c864",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Mirna Macaluso",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a-/ALV-UjWaNz9JN-TfsPDGwA3mQURrL_ywmgAGjg1DQYbuvqoveFGehc8=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Marina hat mich durch Schwangerschaft und Wochenbett begleitet. Sehr kompetent, hilfsbereit und strahlt die Ruhe  aus, meine Baby und ich haben uns bei Marina gut aufgehoben gefühlt . Alle meine Fragen könnte sie antworten und mir Sorgen nehmen. Ich danke ihr für alles!",
+        "text_html": "Marina hat mich durch Schwangerschaft und Wochenbett begleitet. Sehr kompetent, hilfsbereit und strahlt die Ruhe  aus, meine Baby und ich haben uns bei Marina gut aufgehoben gefühlt . Alle meine Fragen könnte sie antworten und mir Sorgen nehmen. Ich danke ihr für alles!",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNiay11RW1BRRAB!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgICbk-uEmAE%7CCgwI9-eetQYQoJPNuAE%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1722266615,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Liebe Mirna , vielen lieben Dank  für deine Rezension und euer Vertrauen an mich und meine Arbeit! \nSehr, sehr gerne! ",
+          "date": 1722470400,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "ChdDSUhNMG9nS0VJQ0FnSUNiay11RW1BRRAB"
+      },
+      {
+        "id": "c1358d17-5021-4c8e-aac7-380ee9dd5935",
+        "source": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+        "supplier": "google",
+        "reviewer_name": "Angyelka Gucunszki",
+        "reviewer_picture_url": "https://lh3.googleusercontent.com/a/ACg8ocIqK6E51a4nTvdcav26XCc1ga5vWA2FlHdXrKANvFsd7wtw3Q=s120-c-rp-mo-br100",
+        "rating": 5,
+        "text": "Ich danke Marina von ganzem Herzen für ihre Hilfe. 💗\nSie ist wirklich eine freundliche und liebevolle Hebamme.\nSie hat immer eine Antwort auf alle Fragen, sie ist geduldig, sie weiß, wie man motiviert, sie kann mit Rat und Tat zur Seite stehen.\nIch bin sehr glücklich, dass sie unsere Hebamme war und wir wünschen Marina weiterhin viel Erfolg. 🤗\n\n💐Szívből köszönjük Marinának a sok önzetlen segítséget. Minden kérdésemre választ kaptam, motivált és tanácsokat adott.\nEgy nagyon kedves, nyugodt személy.\nSzívből kívánunk neki további munkájában sok sikert 💗\n\nHvala ti Marina od srca  za svaku pomoć, motivaciju, ljubazne razgovore, savete.\nŽelimo ti od srca puno uspeha u tvom daljem radu!\n💐",
+        "text_html": "Ich danke Marina von ganzem Herzen für ihre Hilfe. 💗<br>Sie ist wirklich eine freundliche und liebevolle Hebamme.<br>Sie hat immer eine Antwort auf alle Fragen, sie ist geduldig, sie weiß, wie man motiviert, sie kann mit Rat und Tat zur Seite stehen.<br>Ich bin sehr glücklich, dass sie unsere Hebamme war und wir wünschen Marina weiterhin viel Erfolg. 🤗<br><br>💐Szívből köszönjük Marinának a sok önzetlen segítséget. Minden kérdésemre választ kaptam, motivált és tanácsokat adott.<br>Egy nagyon kedves, nyugodt személy.<br>Szívből kívánunk neki további munkájában sok sikert 💗<br><br>Hvala ti Marina od srca  za svaku pomoć, motivaciju, ljubazne razgovore, savete.<br>Želimo ti od srca puno uspeha u tvom daljem radu!<br>💐",
+        "url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNMdG9iQ2NBEAE!2m1!1s0x0:0xd5a4fe2be59f25dd!3m1!1s2@1:CIHM0ogKEICAgICLtobCcA%7CCgwImaHLswYQ0O7h3QE%7C",
+        "title": null,
+        "language": null,
+        "published_at": 1718800537,
+        "images": [],
+        "is_pinned": false,
+        "highlights": [],
+        "response": {
+          "text": "Liebe Angyelka, vielen Dank für deine netten Worte und die Zeit , die du dir dafür genommen hast ! \nIch bemühe mich immer mein Bestes zu geben und freue mich zu hören, dass es mir gelungen ist. \n\nDanke dir nochmal! ♥️",
+          "date": 1718755200,
+          "name": null,
+          "logo_url": null
+        },
+        "sourceReviewId": "ChZDSUhNMG9nS0VJQ0FnSUNMdG9iQ2NBEAE"
+      }
+    ]
+  }
+}

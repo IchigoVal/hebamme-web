@@ -1,0 +1,91 @@
+{
+  "capturedAt": "2026-09-20T23:28:02.698Z",
+  "canonicalGooglePlace": {
+    "placeId": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+    "dataId": "0x479f574505ef82c1:0xd5a4fe2be59f25dd",
+    "name": "Hebamme Marina Rymmer",
+    "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJwYLvBUVXn0cR3SWf5Sv-pNU&hl=de",
+    "reportedRating": 5,
+    "reportedReviewCount": 66,
+    "reportedStarDistribution": {
+      "1": 0,
+      "2": 1,
+      "3": 0,
+      "4": 0,
+      "5": 65
+    },
+    "addressDisplayed": null,
+    "phone": "+49 176 23488396",
+    "websiteDisplayed": null,
+    "defaultSort": "Relevanteste"
+  },
+  "projectIdentity": {
+    "name": "Hebamme Marina Rymmer",
+    "phone": "+49 176 23488396",
+    "website": "https://hebamme-marina.de",
+    "address": "Wolframs-Eschenbacher Straße 39, 90449 Nürnberg"
+  },
+  "possibleHistoricalPlaces": [],
+  "historicalDirectoryEvidence": [
+    {
+      "source": "RusOrg",
+      "url": "https://rusorg.de/org/155/de/",
+      "address": "Hornungstr. 39, 90431 Nürnberg",
+      "phone": "0911 4620128"
+    },
+    {
+      "source": "DeutscheBiz",
+      "url": "https://www.deutschebiz.de/hebamme-marina-rymmer-0176-23488396",
+      "phone": "0176 23488396",
+      "website": "www.hebamme-marina.de"
+    },
+    {
+      "source": "Stadtbranchenbuch",
+      "url": "https://nuernberg.stadtbranchenbuch.com/3837555.html",
+      "address": "Hornungstr. 39, 90431 Nürnberg",
+      "phone": "0176 23488396",
+      "reviewCount": 5,
+      "reviewSource": "Stadtbranchenbuch, not Google"
+    },
+    {
+      "source": "Öffnungszeitenbuch",
+      "url": "https://www.oeffnungszeitenbuch.de/filiale/Nuernberg-Maryna%2520Rymmer%2520Hebamme-3273762H.html",
+      "address": "Hornungstraße 39, 90431 Nürnberg",
+      "phone": "0176 23488396"
+    }
+  ],
+  "listingResolution": {
+    "canonicalListing": {
+      "placeId": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+      "dataId": "0x479f574505ef82c1:0xd5a4fe2be59f25dd"
+    },
+    "historicalListings": [],
+    "possibleDuplicates": [],
+    "mergedEvidence": [
+      "Google Maps searches for the canonical name, the old Hornungstraße address, the Maryna spelling and the current Wolframs-Eschenbacher-Straße address all resolved to the same data ID.",
+      "No second active Google Place ID was surfaced by those searches."
+    ],
+    "uncertainty": [
+      "Google does not expose a public merge history.",
+      "The canonical profile currently displays no street address and no website.",
+      "No individual identifiers were accessible for 37 of the 66 reported ratings."
+    ]
+  },
+  "elfsight": {
+    "checked": true,
+    "widgetId": "6e2e4c6f-ebc0-4005-93a9-b414b24ac284",
+    "sourcePlaceId": "ChIJwYLvBUVXn0cR3SWf5Sv-pNU",
+    "reportedRating": 5,
+    "reportedReviewCount": 66,
+    "apiAccessibleReviews": 23,
+    "initialDomReviews": 8,
+    "filters": {
+      "textRequired": true,
+      "minRating": 5,
+      "order": "date"
+    },
+    "overlapWithVerifiedGoogle": 23,
+    "onlyGoogle": 6,
+    "onlyElfsightAfterDirectGoogleVerification": 0
+  }
+}

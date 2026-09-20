@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `astra-final-implementation`. Der jüngste geprüfte Website-Stand ist `checkpoint/final-implementation`; die exakte Commit-ID liefert `git rev-parse --short checkpoint/final-implementation`. Der dokumentierte Ausgangspunkt bleibt als `checkpoint/pre-final-implementation` (`e618fe9`) und auf `astra-targeted-refinement` erhalten; dessen Website-Basis ist weiterhin `5370689` / `checkpoint/targeted-refinement-final`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-final-implementation`.
+Der aktuelle Arbeitsbranch für den Review-Datensnapshot heißt `reviews-data-import`. Der jüngste geprüfte und unveränderte Website-Stand bleibt `checkpoint/final-implementation` auf `astra-final-implementation`; die exakte Commit-ID liefert `git rev-parse --short checkpoint/final-implementation`. Der dokumentierte Ausgangspunkt bleibt als `checkpoint/pre-final-implementation` (`e618fe9`) und auf `astra-targeted-refinement` erhalten; dessen Website-Basis ist weiterhin `5370689` / `checkpoint/targeted-refinement-final`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Website-Stand führt `git switch astra-final-implementation`, zum Review-Datensnapshot `git switch reviews-data-import`.
 
 ## Checkpoints
 
@@ -41,6 +41,15 @@ Der aktuelle Arbeitsbranch heißt `astra-final-implementation`. Der jüngste gep
 | 31 | 21.09.2026 | `checkpoint/pre-final-implementation` | `e618fe9` | Unabhängigen Abschlussaudit separat committed; Website unverändert auf Basis `5370689`. |
 | 32 | 21.09.2026 | `checkpoint/final-sticky-logic` | `6456a3d` | Gemeinsame Sticky-Zustandslogik schützt den Kartenbereich und übergibt an die erreichbare Kontaktaktion. |
 | 33 | 21.09.2026 | `checkpoint/final-implementation` | Über Final-Tag auflösbar | F1–F5 abgeschlossen; 400/400 Implementierungs- und 135/135 Interaction-Checks, visuelle Endkontrolle und Abschlussdokumentation. |
+| 34 | 21.09.2026 | `checkpoint/reviews-data-import-wip-1` | Über WIP-Tag auflösbar | Verifizierter partieller Google-Review-Snapshot: 29 von 66 individuellen Reviews erfasst; Google-Gesamtzahl, Sternverteilung, Listing-Auflösung und Elfsight-Gegenprüfung dokumentiert. Website, Elfsight und Legal-Dateien unverändert. |
+
+## Reviews-Datenimport – 21.09.2026
+
+Ausgangspunkt war der unveränderte Website-Stand `d60b4fb` / `checkpoint/final-implementation`. Der zusätzliche Sicherungspunkt `checkpoint/pre-reviews-data-import` markiert exakt diesen Stand; die Datenerfassung liegt auf dem separaten Branch `reviews-data-import`.
+
+Google Maps löst die vorgegebene Place-ID `ChIJwYLvBUVXn0cR3SWf5Sv-pNU` eindeutig zu „Hebamme Marina Rymmer“ auf und meldet 5,0 bei 66 Rezensionen. Die öffentlich sichtbare Sternverteilung lautet 65 × 5 Sterne und 1 × 2 Sterne. Im anonymen Browser begrenzt Google jede Sortier- beziehungsweise Themenansicht auf fünf individuelle Reviews und liefert keinen Cursor für den Rest. Durch vier Sortierungen, alle zehn Themenfilter und sieben einzeln bei Google geprüfte direkte Review-URLs wurden 29 eindeutige Reviews vollständig verifiziert. Die verbleibenden 37 individuellen Datensätze sind nicht zugänglich und wurden nicht erfunden; der Snapshot ist deshalb ausdrücklich `partial`.
+
+Elfsight wurde erst nach der Google-Erfassung geprüft. Das Widget verwendet dieselbe Place-ID, meldet ebenfalls 5,0 / 66 und liefert 23 texttragende Fünf-Sterne-Reviews, von denen acht zunächst im DOM stehen. Alle 23 wurden bei Google bestätigt; die eine Zwei-Sterne-Rezension wird durch Elfsights `min_rating=5`-Konfiguration ausgeschlossen. Rohdaten, normalisierte Daten, Quellenauflösung und vollständiger Bericht liegen unter `src/data/reviews/`. Keine Avatare oder Reviewbilder wurden heruntergeladen. `index.html`, `src/main.js`, `src/style.css`, `impressum.html`, `datenschutz.html`, `LEGAL_RELEASE_CHECKLIST.md` und die Elfsight-Integration blieben unverändert. Kein Push, kein Deployment.
 
 ## Finaler Implementierungspass – 21.09.2026
 
