@@ -92,7 +92,10 @@
             <a href="#hebammenhilfe" data-i18n="nav.orientation">Hebammenhilfe</a>
             <a href="#leistungen" data-i18n="nav.services">Wann anfragen</a>
             <a href="#wissen" data-i18n="nav.knowledge">Gut zu wissen</a>
-            <a class="btn btn--primary btn--full" href="#kontakt" data-i18n="cta.checkAvailability">Direkt Kontakt aufnehmen</a>
+            <a class="btn btn--primary btn--full" href="#kontakt">
+              <span class="btn__label" data-i18n="cta.checkAvailability">Direkt Kontakt aufnehmen</span>
+              <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></span>
+            </a>
           </div>
         </nav>
       </header>
@@ -111,9 +114,14 @@
                   href="https://wa.me/4917623488396"
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-i18n="cta.whatsapp"
-                >WhatsApp schreiben</a>
-                <a class="btn btn--secondary" href="tel:+4917623488396" data-i18n="cta.call">0176 23488396</a>
+                >
+                  <span class="btn__label" data-i18n="cta.whatsapp">WhatsApp schreiben</span>
+                  <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M6 5h13v13" /></svg></span>
+                </a>
+                <a class="btn btn--secondary" href="tel:+4917623488396">
+                  <span class="btn__label" data-i18n="cta.call">0176 23488396</span>
+                  <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 3 2 5-3 2a15 15 0 0 0 7 7l2-3 5 2v4c0 1-1 1-2 1A18 18 0 0 1 3 5c0-1 0-2 1-2Z" /></svg></span>
+                </a>
               </div>
               <a class="text-link hero-inquiry-link" href="#ablauf">
                 <span data-i18n="hero.inquiryLink">Was gehört in meine Anfrage?</span>
@@ -269,9 +277,10 @@
               </article>
             </div>
             <div class="services-controls" data-services-controls hidden>
-              <span class="services-position" data-services-position aria-live="polite" aria-atomic="true">01 / 04</span>
-              <button type="button" data-services-prev aria-controls="anfragekarten" aria-label="Vorherige Karte" data-i18n="aria.previousCard" data-i18n-attr="aria-label"><span aria-hidden="true">←</span></button>
-              <button type="button" data-services-next aria-controls="anfragekarten" aria-label="Nächste Karte" data-i18n="aria.nextCard" data-i18n-attr="aria-label"><span aria-hidden="true">→</span></button>
+              <span class="services-position" data-services-position aria-live="polite" aria-atomic="true"><span data-services-current>01</span><span class="services-position__total"> / 04</span></span>
+              <span class="services-progress" aria-hidden="true"></span>
+              <button type="button" data-services-prev aria-controls="anfragekarten" aria-label="Vorherige Karte" data-i18n="aria.previousCard" data-i18n-attr="aria-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H5m6-6-6 6 6 6" /></svg></button>
+              <button type="button" data-services-next aria-controls="anfragekarten" aria-label="Nächste Karte" data-i18n="aria.nextCard" data-i18n-attr="aria-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></button>
             </div>
           </div>
         </section>
@@ -299,25 +308,25 @@
 
             <div class="faq-list" data-reveal style="--reveal-delay: 80ms">
               <details>
-                <summary data-i18n="faq.items.0.question">Wann sollte ich mit der Suche beginnen?</summary>
+                <summary><span data-i18n="faq.items.0.question">Wann sollte ich mit der Suche beginnen?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
                   <p data-i18n="faq.items.0.answer">Möglichst früh in der Schwangerschaft. So bleibt mehr Zeit, eine Hebamme mit passenden Kapazitäten zu finden.</p>
                 </div>
               </details>
               <details>
-                <summary data-i18n="faq.items.1.question">Was übernimmt die Krankenversicherung?</summary>
+                <summary><span data-i18n="faq.items.1.question">Was übernimmt die Krankenversicherung?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
                   <p data-i18n="faq.items.1.answer">Gesetzlich Versicherte haben grundsätzlich Anspruch auf Hebammenhilfe in Schwangerschaft und Mutterschaft. Welche Leistungen im Einzelfall umfasst sind, richtet sich nach dem gesetzlichen Rahmen und der persönlichen Situation. Privat Versicherte sollten ihren Tarif prüfen.</p>
                 </div>
               </details>
               <details>
-                <summary data-i18n="faq.items.2.question">Was sollte ich vor einer Betreuung klären?</summary>
+                <summary><span data-i18n="faq.items.2.question">Was sollte ich vor einer Betreuung klären?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
                   <p data-i18n="faq.items.2.answer">Frag nach den angebotenen Leistungen, einer möglichen Betreuung an deinem Wohnort und im gewünschten Zeitraum sowie dem weiteren Ablauf.</p>
                 </div>
               </details>
               <details>
-                <summary data-i18n="faq.items.3.question">Was gilt bei akuten Beschwerden?</summary>
+                <summary><span data-i18n="faq.items.3.question">Was gilt bei akuten Beschwerden?</span><span class="faq-toggle" aria-hidden="true"></span></summary>
                 <div class="faq-answer">
                   <p data-i18n="faq.items.3.answer">Diese Website und WhatsApp sind keine Notfallkanäle. Bei Lebensgefahr oder starken Beschwerden wähle 112. Bei dringenden, nicht lebensbedrohlichen Beschwerden außerhalb ärztlicher Sprechzeiten hilft 116117.</p>
                 </div>
@@ -373,9 +382,14 @@
                     href="https://wa.me/4917623488396"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-i18n="contact.whatsapp"
-                  >WhatsApp schreiben</a>
-                  <a class="btn btn--light" href="tel:+4917623488396" data-i18n="contact.phone">Jetzt anrufen</a>
+                  >
+                    <span class="btn__label" data-i18n="contact.whatsapp">WhatsApp schreiben</span>
+                    <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M6 5h13v13" /></svg></span>
+                  </a>
+                  <a class="btn btn--light" href="tel:+4917623488396">
+                    <span class="btn__label" data-i18n="contact.phone">Jetzt anrufen</span>
+                    <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 3 2 5-3 2a15 15 0 0 0 7 7l2-3 5 2v4c0 1-1 1-2 1A18 18 0 0 1 3 5c0-1 0-2 1-2Z" /></svg></span>
+                  </a>
                 </div>
 
               </div>

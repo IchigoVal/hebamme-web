@@ -502,17 +502,22 @@ function initializeServicesTrack() {
   const controls = document.querySelector('[data-services-controls]')
   const previous = document.querySelector('[data-services-prev]')
   const next = document.querySelector('[data-services-next]')
-  const position = document.querySelector('[data-services-position]')
+  const currentNumber = document.querySelector('[data-services-current]')
   const cards = [...servicesTrack.querySelectorAll('.service-card')]
-  let current = 0
+  let current = -1
   const updatePosition = () => {
+    if (!mobileQuery.matches) return
     const left = servicesTrack.getBoundingClientRect().left
     const distances = cards.map(card => Math.abs(card.getBoundingClientRect().left - left))
-    current = servicesTrack.scrollLeft + servicesTrack.clientWidth >= servicesTrack.scrollWidth - 2
+    const index = servicesTrack.scrollLeft + servicesTrack.clientWidth >= servicesTrack.scrollWidth - 2
       ? cards.length - 1 : distances.indexOf(Math.min(...distances))
+    if (index === current) return
+    current = index
     previous.disabled = current === 0
     next.disabled = current === cards.length - 1
-    position.textContent = `${String(current + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`
+    currentNumber.textContent = String(current + 1).padStart(2, '0')
+    controls.style.setProperty('--services-progress', (current + 1) / cards.length)
+    cards.forEach((card, cardIndex) => card.classList.toggle('is-current', cardIndex === current))
   }
   const goTo = (index) => {
     const card = cards[Math.max(0, Math.min(cards.length - 1, index))]
@@ -527,6 +532,8 @@ function initializeServicesTrack() {
       updatePosition()
     } else {
       servicesTrack.removeAttribute('tabindex')
+      cards.forEach(card => card.classList.remove('is-current'))
+      current = -1
     }
   }
 

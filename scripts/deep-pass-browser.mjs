@@ -1,7 +1,7 @@
 // Windows/Edge regression QA (Node 22+), no extra dependencies.
 // npm run build
 // npm run preview -- --host 127.0.0.1 --port 4175 --strictPort
-// node scripts/deep-pass-browser.mjs [baseUrl] [final|audit|baseline] [optional case: 390/de]
+// node scripts/deep-pass-browser.mjs [baseUrl] [final|interaction|audit|baseline] [optional case: 390/de]
 // Screenshots/reports stay in OS TEMP; BROWSER_PATH optionally selects another Chromium binary.
 import { spawn } from 'node:child_process'
 import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises'
@@ -11,6 +11,7 @@ import vm from 'node:vm'
 
 const base = process.argv[2] || 'http://127.0.0.1:4175/hebamme-web/'
 const phase = process.argv[3] || 'final'
+const verify = phase === 'final' || phase === 'interaction'
 const profile = await mkdtemp(path.join(os.tmpdir(), 'hebamme-deep-browser-'))
 const output = path.join(os.tmpdir(), `hebamme-astra-${phase}`)
 await mkdir(output, { recursive: true })
@@ -63,7 +64,9 @@ const screenshot = async (name, clip) => {
 await send('Page.enable')
 await send('Runtime.enable')
 await send('Network.enable')
-const fullMatrix = phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']] : [[1440,'de'],[1024,'de'],[768,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
+const fullMatrix = phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']]
+  : phase === 'interaction' ? [[1440,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
+  : [[1440,'de'],[1024,'de'],[768,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
 const matrix = process.argv[4] ? fullMatrix.filter(([width,language])=>`${width}/${language}`===process.argv[4]) : fullMatrix
 if (!matrix.length) throw new Error('Unknown viewport/language case')
 const report = []
@@ -111,7 +114,7 @@ try {
       document.querySelector('[data-services-track]').scrollTo({left:0,behavior:'instant'});
     })()`)
     const sections = await evaluate(`Array.from(document.querySelectorAll('main > section')).map(s => ({id:s.id || 'hero', y:s.getBoundingClientRect().top + scrollY, height:s.offsetHeight}))`)
-    if (phase === 'final' || width === 1440 || width === 390) {
+    if (verify || width === 1440 || width === 390) {
       for (const section of sections) {
         const selector = section.id === 'hero' ? '.hero-section' : `#${section.id}`
         await evaluate(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView({behavior:'instant'})`)
@@ -137,15 +140,32 @@ try {
       return typeof expected !== 'string' || item.value !== expected
     })
     report.push({ width, language, ...metrics, missingTranslations })
-    if (phase === 'final') {
+    if (verify) {
       assert(!metrics.overflow && !metrics.clippedText.length, `${width}/${language}: no overflow or clipped text`)
       assert(!missingTranslations.length, `${width}/${language}: translations match`)
       assert(metrics.images.filter(i=>!i.src.startsWith('http')).every(i=>i.ok), `${width}/${language}: local images`)
       assert(!metrics.anchors.length, `${width}/${language}: anchors`)
       assert(metrics.links.filter(l=>l.href.startsWith('tel:')).every(l=>l.href==='tel:+4917623488396') && metrics.links.filter(l=>l.href.includes('wa.me')).every(l=>l.href==='https://wa.me/4917623488396'),`${width}/${language}: telephone and WhatsApp targets`)
-      await evaluate(`document.querySelector('.faq-list summary').focus()`)
+      if (phase === 'interaction') {
+        assert(await evaluate(`(() => {
+          const controls=[...document.querySelectorAll('.btn, .lang-switch__button, .menu-toggle, .services-controls button, .faq-list summary, .hero-inquiry-link, .contact-direct-phone, .desktop-nav a')].filter(e=>e.getClientRects().length && getComputedStyle(e).visibility!=='hidden');
+          return controls.every(e=>{const r=e.getBoundingClientRect();return r.width>=44 && r.height>=44});
+        })()`),`${width}/${language}: interaction targets at least 44px`)
+        assert(await evaluate(`[...document.querySelectorAll('.btn')].filter(e=>e.getClientRects().length && getComputedStyle(e).visibility!=='hidden').every(e=>{const label=e.querySelector('.btn__label').getBoundingClientRect(),icon=e.querySelector('.btn__icon').getBoundingClientRect();return label.right<icon.left && label.width>0 && icon.width>=30})`),`${width}/${language}: button labels and icons fit`)
+        assert(await evaluate(`document.querySelectorAll('.orientation-number').length===3 && document.querySelectorAll('.service-card__number').length===4 && [...document.querySelectorAll('.orientation-number,.service-card__number')].every(e=>getComputedStyle(e).fontFamily.includes('Playfair') && e.scrollWidth<=e.clientWidth+1)`),`${width}/${language}: editorial numbers fit`)
+        await evaluate(`window.scrollTo({top:0,behavior:'instant'});document.querySelector('.hero-actions .btn').focus()`)
+        await press('Tab','Tab',9)
+        assert(await evaluate(`document.activeElement.matches('.hero-actions .btn--secondary:focus-visible') && getComputedStyle(document.activeElement).outlineStyle!=='none'`),`${width}/${language}: contact button keyboard focus`)
+        await screenshot(`${width}-${language}-button-focus`)
+      }
+      await evaluate(`document.querySelector('.faq-list summary').scrollIntoView({block:'center',behavior:'instant'});document.querySelector('.faq-list summary').focus({preventScroll:true})`)
       await press('Enter','Enter',13)
       assert(await evaluate(`document.querySelector('.faq-list details').open && document.activeElement.matches(':focus-visible')`), `${width}/${language}: keyboard FAQ and visible focus`)
+      if (phase === 'interaction') {
+        await wait(250)
+        assert(await evaluate(`getComputedStyle(document.querySelector('.faq-toggle'),'::after').transform==='matrix(1, 0, 0, 1, 0, 0)' && getComputedStyle(document.querySelector('.faq-answer')).opacity==='1'`),`${width}/${language}: open FAQ minus and visible answer`)
+        await screenshot(`${width}-${language}-faq-focus`)
+      }
       await press(' ','Space',32)
       assert(await evaluate(`!document.querySelector('.faq-list details').open`),`${width}/${language}: Space closes FAQ`)
       await evaluate(`document.querySelectorAll('.faq-list details').forEach(d=>d.open=true); document.querySelector('#wissen').scrollIntoView({behavior:'instant'})`)
@@ -178,6 +198,9 @@ try {
         await press('End','End',35)
         await wait(650)
         assert(await evaluate(`document.querySelector('[data-services-position]').textContent.startsWith('04') && document.querySelector('[data-services-next]').disabled`),`${width}/${language}: card end and disabled next`)
+        if (phase === 'interaction') {
+          assert(await evaluate(`document.querySelector('.service-card.is-current')===document.querySelector('.service-card:last-child') && document.querySelector('[data-services-controls]').style.getPropertyValue('--services-progress')==='1'`),`${width}/${language}: last card emphasis and full progress`)
+        }
         await screenshot(`${width}-${language}-card-04`)
         await press('Home','Home',36)
         await wait(650)
@@ -185,6 +208,10 @@ try {
         await click('[data-services-next]')
         await wait(650)
         assert(await evaluate(`document.querySelector('[data-services-position]').textContent.startsWith('02')`),`${width}/${language}: card pointer next`)
+        if (phase === 'interaction') {
+          assert(await evaluate(`document.querySelectorAll('.service-card.is-current').length===1 && document.querySelectorAll('.service-card')[1].classList.contains('is-current') && document.querySelector('[data-services-controls]').style.getPropertyValue('--services-progress')==='0.5'`),`${width}/${language}: second card emphasis and half progress`)
+          await screenshot(`${width}-${language}-card-02`)
+        }
         await click('[data-services-prev]')
         await wait(650)
         assert(await evaluate(`document.querySelector('[data-services-position]').textContent.startsWith('01')`),`${width}/${language}: card pointer previous`)
@@ -192,7 +219,42 @@ try {
     }
     console.log(`Checked ${width}/${language}`)
   }
-  if (phase === 'final') {
+  if (phase === 'interaction') {
+    await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false})
+    await send('Page.navigate',{url:base})
+    await wait(800)
+    await evaluate(`document.querySelector('[data-lang-option="de"]').click();window.scrollTo({top:0,behavior:'instant'})`)
+    await screenshot('1440-de-header')
+    const pointFor = selector => evaluate(`(() => {const e=document.querySelector(${JSON.stringify(selector)});e.scrollIntoView({block:'center',behavior:'instant'});const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`)
+    for (const [name,selector] of [['primary','.hero-actions .btn--primary'],['secondary','.hero-actions .btn--secondary']]) {
+      await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:1,y:1})
+      await wait(250)
+      const before = await evaluate(`getComputedStyle(document.querySelector(${JSON.stringify(selector)})).backgroundColor`)
+      const point = await pointFor(selector)
+      await send('Input.dispatchMouseEvent',{type:'mouseMoved',...point})
+      await wait(250)
+      assert(await evaluate(`document.querySelector(${JSON.stringify(selector)}).matches(':hover') && getComputedStyle(document.querySelector(${JSON.stringify(selector)})).backgroundColor!==${JSON.stringify(before)}`),`${name}: real pointer hover feedback`)
+      await screenshot(`1440-de-${name}-hover`)
+      await send('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',clickCount:1,...point})
+      await wait(180)
+      assert(await evaluate(`document.querySelector(${JSON.stringify(selector)}).matches(':active') && getComputedStyle(document.querySelector(${JSON.stringify(selector)})).transform==='matrix(1, 0, 0, 1, 0, 1)'`),`${name}: pressed feedback`)
+      await screenshot(`1440-de-${name}-pressed`)
+      // Release outside the link: inspect feedback without contacting WhatsApp or a phone handler.
+      await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:1,y:1,buttons:1})
+      await send('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,x:1,y:1})
+    }
+    for (const [name,selector] of [['inline-link','.hero-inquiry-link'],['card','.service-card'],['faq','.faq-list summary'],['navigation','.desktop-nav a']]) {
+      await send('Input.dispatchMouseEvent',{type:'mouseMoved',...await pointFor(selector)})
+      await wait(300)
+      assert(await evaluate(`document.querySelector(${JSON.stringify(selector)}).matches(':hover')`),`${name}: pointer hover reached`)
+      await screenshot(`1440-de-${name}-hover`)
+    }
+    await click('.faq-list summary')
+    assert(await evaluate(`document.querySelector('.faq-list details').open`),'FAQ opens by pointer')
+    await click('.faq-list summary')
+    assert(await evaluate(`!document.querySelector('.faq-list details').open`),'FAQ closes by pointer')
+  }
+  if (verify) {
     await send('Emulation.setDeviceMetricsOverride',{width:390,height:900,deviceScaleFactor:1,mobile:false})
     await send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1})
     await send('Page.navigate',{url:base})
@@ -207,11 +269,13 @@ try {
     await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]})
     await wait(700)
     assert(await evaluate(`document.querySelector('[data-services-track]').scrollLeft>100`),'390: touch swipe moves cards')
+    if (phase === 'interaction') assert(await evaluate(`Number(document.querySelector('[data-services-current]').textContent)>1 && document.querySelectorAll('.service-card.is-current').length===1`),'touch swipe updates number and active card')
     await send('Emulation.setTouchEmulationEnabled',{enabled:false})
     await click('[data-menu-toggle]')
     await send('Emulation.setDeviceMetricsOverride',{width:1024,height:1000,deviceScaleFactor:1,mobile:false})
     await wait(250)
     assert(await evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')==='false' && !document.querySelector('main').inert`),'menu closes at desktop breakpoint')
+    if (phase === 'interaction') assert(await evaluate(`!document.querySelector('.service-card.is-current') && document.querySelector('[data-services-controls]').hidden`),'desktop resize clears mobile card state')
     await send('Emulation.setDeviceMetricsOverride',{width:390,height:900,deviceScaleFactor:1,mobile:false})
     await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]})
     await send('Page.navigate',{url:base})
@@ -221,6 +285,10 @@ try {
     await press('End','End',35)
     await wait(50)
     assert(await evaluate(`document.querySelector('[data-services-position]').textContent.startsWith('04')`),'reduced motion: card jump completes immediately')
+    if (phase === 'interaction') {
+      await click('.faq-list summary')
+      assert(await evaluate(`parseFloat(getComputedStyle(document.querySelector('.faq-answer')).animationDuration)<0.001 && parseFloat(getComputedStyle(document.querySelector('.btn')).transitionDuration)<0.001 && parseFloat(getComputedStyle(document.querySelector('.services-progress'),'::after').transitionDuration)<0.001`),'reduced motion: button, FAQ and progress animations disabled')
+    }
     for (const selector of ['.hero-inquiry-link','.desktop-nav a[href="#hebammenhilfe"]']) {
       await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false})
       await click(selector)
@@ -228,7 +296,7 @@ try {
       assert(await evaluate(`(() => {const a=document.querySelector(${JSON.stringify(selector)});const r=document.querySelector(a.hash).getBoundingClientRect();return r.top>=document.querySelector('.site-header').offsetHeight-1})()`),`${selector}: anchor clears sticky header`)
     }
     assert(await evaluate(`document.querySelector('.desktop-nav a[href="#hebammenhilfe"]').getAttribute('aria-current')==='location'`),'desktop active section marker')
-    for (const pathname of ['favicon.png','apple-touch-icon.png','impressum.html','datenschutz.html']) {
+    for (const pathname of phase === 'final' ? ['favicon.png','apple-touch-icon.png','impressum.html','datenschutz.html'] : []) {
       const response = await fetch(new URL(pathname,base))
       assert(response.ok,`local resource ${pathname}`)
     }
