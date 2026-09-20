@@ -11,6 +11,7 @@ import vm from 'node:vm'
 
 const base = process.argv[2] || 'http://127.0.0.1:4175/hebamme-web/'
 const phase = process.argv[3] || 'final'
+const targeted = ['refinement-before', 'refinement', 'end-user-audit'].includes(phase)
 const verify = phase === 'final' || phase === 'interaction'
 const profile = await mkdtemp(path.join(os.tmpdir(), 'hebamme-deep-browser-'))
 const output = path.join(os.tmpdir(), `hebamme-astra-${phase}`)
@@ -65,7 +66,7 @@ await send('Page.enable')
 await send('Runtime.enable')
 await send('Network.enable')
 const fullMatrix = phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']]
-  : phase === 'interaction' ? [[1440,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
+  : phase === 'interaction' || targeted ? [[1440,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
   : [[1440,'de'],[1024,'de'],[768,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
 const matrix = process.argv[4] ? fullMatrix.filter(([width,language])=>`${width}/${language}`===process.argv[4]) : fullMatrix
 if (!matrix.length) throw new Error('Unknown viewport/language case')
@@ -114,7 +115,7 @@ try {
       document.querySelector('[data-services-track]').scrollTo({left:0,behavior:'instant'});
     })()`)
     const sections = await evaluate(`Array.from(document.querySelectorAll('main > section')).map(s => ({id:s.id || 'hero', y:s.getBoundingClientRect().top + scrollY, height:s.offsetHeight}))`)
-    if (verify || width === 1440 || width === 390) {
+    if (verify || targeted || width === 1440 || width === 390) {
       for (const section of sections) {
         const selector = section.id === 'hero' ? '.hero-section' : `#${section.id}`
         await evaluate(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView({behavior:'instant'})`)
@@ -140,6 +141,10 @@ try {
       return typeof expected !== 'string' || item.value !== expected
     })
     report.push({ width, language, ...metrics, missingTranslations })
+    if (targeted) {
+      assert(!metrics.overflow && !metrics.clippedText.length,`${width}/${language}: targeted layout fits`)
+      assert(!missingTranslations.length,`${width}/${language}: targeted translations match`)
+    }
     if (verify) {
       assert(!metrics.overflow && !metrics.clippedText.length, `${width}/${language}: no overflow or clipped text`)
       assert(!missingTranslations.length, `${width}/${language}: translations match`)
@@ -321,7 +326,16 @@ try {
     assert(fallback.title===translations.de.hero.title && fallback.nav===translations.de.nav.services && !fallback.hidden,'German no-JavaScript fallback and visible content')
     await send('Emulation.setScriptExecutionDisabled',{value:false})
   }
-  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests},null,2))
+  const targetedReport = targeted
+    ? await (await import('./targeted-refinement-checks.mjs')).runTargetedChecks({base,phase,matrix,send,evaluate,screenshot,wait,click,press,assert}) : []
+  if (phase === 'refinement') {
+    const before = JSON.parse(await readFile(path.join(os.tmpdir(),'hebamme-astra-refinement-before','report.json'),'utf8')).targetedReport
+    for (const after of targetedReport.filter(r=>r.width)) {
+      const original = before.find(r=>r.width===after.width && r.language===after.language)
+      assert(['h1Size','heroHeight','heroImageHeight','orientationHeight','identityHeight','contactHeight'].every(key=>original[key]===after[key]),`${after.width}/${after.language}: protected dimensions unchanged`)
+    }
+  }
+  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests,targetedReport},null,2))
   console.log(JSON.stringify({output,report:report.map(({width,language,overflow,clippedText,missingTranslations})=>({width,language,overflow,clippedText,missingTranslations})),interactions,errors,failedRequests},null,2))
   if (interactions.some(check=>!check.pass) || errors.length || failedRequests.some(r=>r.url.startsWith(base))) process.exitCode=1
 } finally {

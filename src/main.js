@@ -316,6 +316,7 @@ const translations = {
 const menuToggle = document.querySelector('[data-menu-toggle]')
 const mobileNav = document.querySelector('[data-mobile-nav]')
 const floatingContact = document.querySelector('.floating-contact')
+const mobileContact = document.querySelector('.mobile-contact')
 const inquirySection = document.querySelector('#ablauf')
 const contactSection = document.querySelector('#kontakt')
 const servicesTrack = document.querySelector('[data-services-track]')
@@ -325,6 +326,7 @@ const translatableElements = document.querySelectorAll('[data-i18n]')
 
 let activeLanguage = getStoredLanguage()
 let isMenuOpen = false
+let updateMobileContact = () => {}
 
 function getStoredLanguage() {
   try {
@@ -378,6 +380,8 @@ function applyLanguage(language, persist = true) {
 
   updateMenuLabel()
 
+  updateMobileContact()
+
   if (persist) {
     try {
       window.localStorage.setItem('preferred-language', language)
@@ -399,6 +403,7 @@ function setMenuState(open) {
   document.querySelector('main')?.toggleAttribute('inert', open)
   document.body.classList.toggle('menu-open', open)
   updateMenuLabel()
+  updateMobileContact()
 
   if (open) {
     window.requestAnimationFrame(() => mobileNav.querySelector('a')?.focus({ preventScroll: true }))
@@ -493,6 +498,46 @@ function initializeFloatingContact() {
   })
 
   hideWithinSections.forEach((section) => observer.observe(section))
+}
+
+function initializeMobileContact() {
+  const hero = document.querySelector('.hero-section')
+  const header = document.querySelector('.site-header')
+  if (!mobileContact || !hero || !contactSection || !header) return
+
+  const mobile = window.matchMedia('(max-width: 719px)')
+  let scheduled = false
+  updateMobileContact = () => {
+    scheduled = false
+    const show = mobile.matches && !isMenuOpen
+      && hero.getBoundingClientRect().bottom <= header.getBoundingClientRect().bottom
+      && contactSection.getBoundingClientRect().top >= window.innerHeight
+    mobileContact.hidden = !mobile.matches
+    mobileContact.classList.toggle('is-visible', show)
+    mobileContact.inert = !show
+    mobileContact.setAttribute('aria-hidden', String(!show))
+    document.documentElement.classList.toggle('mobile-contact-visible', show)
+  }
+  const schedule = () => {
+    if (scheduled) return
+    scheduled = true
+    window.requestAnimationFrame(updateMobileContact)
+  }
+  window.addEventListener('scroll', schedule, { passive: true })
+  window.addEventListener('resize', schedule)
+  window.visualViewport?.addEventListener('resize', schedule)
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(schedule)
+    observer.observe(document.querySelector('main'))
+  }
+  // Keep keyboard targets above the dock, including controls near the bottom edge.
+  document.addEventListener('focusin', event => {
+    if (mobileContact.inert || !event.target.closest('main') || !event.target.matches('a,button,summary')) return
+    const bottom = event.target.getBoundingClientRect().bottom
+    const safeBottom = mobileContact.getBoundingClientRect().top - 12
+    if (bottom > safeBottom) window.scrollBy({ top: bottom - safeBottom, behavior: 'instant' })
+  })
+  updateMobileContact()
 }
 
 function initializeServicesTrack() {
@@ -612,6 +657,7 @@ applyLanguage(activeLanguage, false)
 setMenuState(false)
 initializeReveals()
 initializeFloatingContact()
+initializeMobileContact()
 initializeServicesTrack()
 initializeNavigationState()
 initializeReviewsWidget()

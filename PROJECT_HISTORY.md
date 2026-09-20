@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `astra-interaction-polish`. Der jüngste geprüfte Website-Stand ist `checkpoint/interaction-polish-final`; die exakte Commit-ID liefert `git rev-parse --short checkpoint/interaction-polish-final`. Der Ausgangspunkt bleibt als `checkpoint/pre-interaction-polish` (`1d76e18`) und auf `astra-deep-final` erhalten. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-interaction-polish`.
+Der aktuelle Arbeitsbranch heißt `astra-targeted-refinement`. Der jüngste geprüfte Website-Stand ist `checkpoint/targeted-refinement-final`; die exakte Commit-ID liefert `git rev-parse --short checkpoint/targeted-refinement-final`. Der Ausgangspunkt bleibt als `checkpoint/pre-targeted-refinement` (`c4f594c`) und auf `astra-interaction-polish` erhalten. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-targeted-refinement`.
 
 ## Checkpoints
 
@@ -36,6 +36,8 @@ Der aktuelle Arbeitsbranch heißt `astra-interaction-polish`. Der jüngste gepr�
 | 26 | 20.09.2026 | `checkpoint/pre-interaction-polish` | `1d76e18` | Exakter sauberer Ausgangspunkt des Interaction-Passes. |
 | 27 | 20.09.2026 | `checkpoint/interaction-design` | `9ec0a53` | Editoriale Buttons und Nummern, verfeinerte Kartensteuerung, native FAQ-/Navigationszustände. |
 | 28 | 20.09.2026 | `checkpoint/interaction-polish-final` | Über Final-Tag auflösbar | Interaction-Pass fertig; 134/134 gezielte Produktionsprüfungen bestanden. |
+| 29 | 20.09.2026 | `checkpoint/pre-targeted-refinement` | `c4f594c` | Sauberer Ausgangspunkt vor vier gezielten Anpassungen. |
+| 30 | 20.09.2026 | `checkpoint/targeted-refinement-final` | Über Final-Tag auflösbar | Mobile WhatsApp-Leiste, DE/RU-Abstand, integrierte Telefonnummer und vereinfachter Divider; 112/112 gezielte plus 134/134 Regressionsprüfungen. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -326,6 +328,16 @@ Designcheckpoint `9ec0a53`, anschließend ausschließlich Teststabilisierung und
 Ein intermittierender FAQ-Hover-Testfehler entstand durch eine veraltete Pointer-Koordinate nach asynchronem Review-Nachladen. Das Testskript wartet jetzt auf stabile Zielgeometrie; Website und Widget wurden dafür nicht geändert. Der integrierte Browser war durch einen Verbindungsfehler blockiert, deshalb lokales Edge/CDP über das vorhandene Skript. Keine Prüfung auf physischer Mobilhardware behauptet.
 
 Gezielte Wiederholung nach Build/Preview: `node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ interaction`. Screenshots und Report liegen unversioniert unter `%TEMP%/hebamme-astra-interaction`. Der Final-Tag bezeichnet den Abschlusscommit dieses Eintrags; seine ID lässt sich ohne zirkuläre Selbstreferenz mit `git rev-parse --short checkpoint/interaction-polish-final` auslesen. Keine bestehenden Tags verschoben. Kein Push, kein Deployment.
+
+### 29–30. Vier gezielte Anpassungen, danach separater Audit
+
+Ausgangspunkt `c4f594c`, neuer Branch `astra-targeted-refinement`, Sicherung `checkpoint/pre-targeted-refinement`. Genau vier Änderungen umgesetzt: mobile WhatsApp-Leiste unter 720 px erst nach dem Hero und bis zum sichtbaren Kontaktbereich (im Menü verborgen); Sprach-Touchflächen weiterhin 44 × 44 px, jetzt mit 12 px Abstand; Sprache/Telefonnummer an einer feinen vertikalen Linie gruppiert; doppelte horizontale Trennung zwischen Anfrage-Checkliste und Datenschutzhinweis auf eine Linie reduziert.
+
+Die neue Leiste nutzt einen 48-px-Button und das bestehende Interaction-System ohne Schatten. Safe Area, inert/ARIA-Zustände, Fokusabstand und Reduced Motion sind berücksichtigt. Hero-/Kontaktbuttons, H1, Hero-Bild, Hebammenhilfe, Kartensteuerung, Inhalte, Abschnittsfolge und Bilder bleiben erhalten. Die mobile Kontaktlänge wurde nicht verändert; alle geschützten Abschnittshöhen sind gegen die Baseline gemessen identisch.
+
+Produktionsprüfung: **112/112 gezielte Prüfungen und 134/134 Interaction-Regressionsprüfungen bestanden**, 1440 DE, 390 DE/RU, 320 DE/RU. 34-px-Safe-Area per Browser emuliert. Keine JS-/HTTP-Fehler, Überläufe oder Übersetzungsausfälle. Build und Diff-Prüfung bestanden. In-App-Browser-Verbindungsfehler weiterhin vorhanden; lokales Edge/CDP als bestehender Fallback genutzt. Keine physische Geräteprüfung behauptet. Legal-Dateien und Elfsight-Ladefunktion unangetastet.
+
+Der finale Tag bezeichnet den Abschlusscommit dieses Eintrags. Details und reproduzierbare Testbefehle stehen in `ASTRA_TARGETED_REFINEMENT.md`. Erst nach diesem Commit folgt der ausdrücklich nur lesende kritische Endnutzer-Audit; Ergebnisse werden im Abschlussbericht geliefert, ohne anschließend weitere Dateien zu verändern. Kein Tag/Branch überschrieben, kein Push und kein Deployment.
 
 ## Einen Checkpoint nur ansehen
 
