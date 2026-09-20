@@ -225,7 +225,21 @@ try {
     await wait(800)
     await evaluate(`document.querySelector('[data-lang-option="de"]').click();window.scrollTo({top:0,behavior:'instant'})`)
     await screenshot('1440-de-header')
-    const pointFor = selector => evaluate(`(() => {const e=document.querySelector(${JSON.stringify(selector)});e.scrollIntoView({block:'center',behavior:'instant'});const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`)
+    const pointFor = async selector => {
+      const readPoint = () => evaluate(`(() => {const e=document.querySelector(${JSON.stringify(selector)});e.scrollIntoView({block:'center',behavior:'instant'});const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2,documentY:r.y+scrollY}})()`)
+      let point = await readPoint()
+      // Let existing reveals and asynchronously loaded reviews settle before aiming the pointer.
+      await wait(800)
+      let stable = 0
+      for (let attempt=0;attempt<30;attempt++) {
+        const nextPoint = await readPoint()
+        stable = Math.abs(nextPoint.documentY-point.documentY)<1 ? stable+1 : 0
+        point = nextPoint
+        if (stable>=3) return {x:point.x,y:point.y}
+        await wait(100)
+      }
+      throw new Error(`Pointer target did not settle: ${selector}`)
+    }
     for (const [name,selector] of [['primary','.hero-actions .btn--primary'],['secondary','.hero-actions .btn--secondary']]) {
       await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:1,y:1})
       await wait(250)

@@ -44,7 +44,9 @@
 - Gemeinsame Motion-Tokens: 160/220 ms, `cubic-bezier(.2,.65,.3,1)`. Reduced Motion entfernt zusätzlich dekorative Verschiebungen. Bestehende Section-Reveals bleiben erhalten.
 - Zweite Feinabstimmung nach Browservergleich: Desktop-Nav auf 44-px-Ziele, Menüübergang auf 3 px reduziert, Motion-Zeiten vereinheitlicht.
 
-## Bisherige Prüfung
+## Checkpoints und Prüfung
+
+- Zwischencheckpoint `checkpoint/interaction-design` → `9ec0a53`, nach erfolgreichem Build und Diff-Prüfung erstellt.
 
 - Design-Sichtung: 1440 DE, 390 DE/RU komplett; ergänzende Layoutmessung 1024/768 DE und 320 DE/RU ohne Überläufe, fehlende Übersetzungen oder JS-Fehler.
 - Produktions-Build und `git diff --check` erfolgreich.
@@ -52,6 +54,20 @@
 - Reale Pointer-/Tastaturzustände und Screenshots von Header, Buttons, Menu, Karten und FAQ geprüft. Kontakte ausschließlich auf Ziele/Feedback geprüft, nicht ausgelöst.
 - Bestehendes Browser-QA-Skript um Modus `interaction` ergänzt; keine neue Bibliothek. Bericht/Screenshots: `%TEMP%/hebamme-astra-interaction`.
 
+## Finale QA / Ergebnis
+
+- **134/134 Prüfungen bestanden** am Produktions-Build, 1440 DE, 390 DE/RU und 320 DE/RU. Keine JS-Ausnahmen oder HTTP-Fehler, keine Dokument-/gemessenen Textüberläufe, fehlenden Übersetzungen oder defekten lokalen Bilder/Anker.
+- Geprüft: Buttons samt getrennten Text-/Iconflächen, mindestens 44-px-Ziele der betroffenen Controls, Nummern, echte Hover-/Pressed-Zustände, Keyboard Focus, FAQ Enter/Space/Pointer und offene Antworten, mobile Navigation mit Fokusfalle/Escape/Ankersprung, aktive Desktop-Navigation und Sprachumschaltung.
+- Karten: Prev/Next, Pfeiltaste, Home/End, Randzustände, Position und aktive Karte, Fortschrittslinie, echter emulierter Touch-Swipe sowie Wechsel zurück zum Desktop. Reduced Motion: unmittelbare Kartenwechsel, sichtbarer Inhalt, deaktivierte Micro-Animations. Deutscher No-JavaScript-Fallback erhalten.
+- Ein erster Volltest hatte 133/134 bestanden: Der FAQ-Hover-Pointer landete nach asynchronem Review-Nachladen auf einer veralteten Koordinate. Das Prüfsystem wartet jetzt auf stabile Zielgeometrie. Danach vollständiger Lauf mit 134/134 erfolgreich; kein Website-Fix nötig.
+- Zwei Designrunden einschließlich kleiner Motion-/Touch-Feinabstimmung, danach keine weitere Designänderung. Komplette Seite durchgescrollt und finale Desktop-/Mobile-/RU-Screenshots einschließlich offener und fokussierter Zustände geprüft. Keine zusätzliche Bewegung oder App-Komponenten nötig.
+- Bilder und drei geschützte Legal-Dateien sind bytegleich zum Ausgangspunkt; JS-Diff betrifft ausschließlich die Kartenpositionsanzeige. Elfsight-Ladefunktion, Übersetzungstexte, Inhalte und Abschnittsreihenfolge unverändert.
+- `npm run build` und `git diff --check` erfolgreich. Keine neue Dependency. Tests mit lokalem Edge/CDP; keine Prüfung auf physischer iOS-/Android-Hardware.
+- Finaler Checkpoint: `checkpoint/interaction-polish-final` bezeichnet den Abschlusscommit dieser Dokumentation und QA. Seine exakte ID liefert `git rev-parse --short checkpoint/interaction-polish-final` (keine zirkuläre Commit-ID im eigenen Commit).
+- Branch `astra-interaction-polish`; alte Branches/Tags unverändert. Kein Push, kein Deployment.
+
+Reproduzieren: `npm run build`, Preview auf Port 4175 starten (`npm run preview -- --host 127.0.0.1 --port 4175 --strictPort`), dann `node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ interaction`. Optionale einzelne Größe/Sprache als viertes Argument, z. B. `390/de`.
+
 ## NEXT STEP
 
-Design-Checkpoint erstellen. Dann vollständige gezielte Produktions-QA: 1440 DE, 390 DE/RU, 320 DE/RU, finaler Scroll-/Designcheck und Abschlussdokumentation/Checkpoint.
+**COMPLETE.** Interaction-Pass abgeschlossen, keine offenen Umsetzungsschritte. Finaler Checkpoint und sauberer Working Tree werden abschließend verifiziert. Keine Veröffentlichung veranlasst.

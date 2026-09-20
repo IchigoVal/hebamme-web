@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `astra-deep-final`. Der jüngste geprüfte Website-Stand ist `checkpoint/astra-deep-final` (`d61af2f`); danach folgt nur der Dokumentationscommit für diese endgültige ID. Der Ausgangspunkt bleibt als `checkpoint/pre-astra-deep-final` (`875e1c3`) und auf `legal-pass` erhalten. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-deep-final`.
+Der aktuelle Arbeitsbranch heißt `astra-interaction-polish`. Der jüngste geprüfte Website-Stand ist `checkpoint/interaction-polish-final`; die exakte Commit-ID liefert `git rev-parse --short checkpoint/interaction-polish-final`. Der Ausgangspunkt bleibt als `checkpoint/pre-interaction-polish` (`1d76e18`) und auf `astra-deep-final` erhalten. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-interaction-polish`.
 
 ## Checkpoints
 
@@ -33,6 +33,9 @@ Der aktuelle Arbeitsbranch heißt `astra-deep-final`. Der jüngste geprüfte Web
 | 23 | 19.09.2026 | `checkpoint/astra-deep-content` | `b11abc2` | Neue Rollenverteilung der Abschnitte, organisatorisches FAQ und integrierte Marina-/Anfrageinformation in DE/RU. |
 | 24 | 19.09.2026 | `checkpoint/astra-deep-design` | `ce405a4` | Editorialer Namens-Hero, integrierter Kontaktabschluss, neue Review-Komposition und mobile Karten-/Navigationsbedienung. |
 | 25 | 20.09.2026 | `checkpoint/astra-deep-final` | `d61af2f` | Design unverändert final geprüft; dauerhaftes Browser-Regressionsskript und Abschlussdokumentation. |
+| 26 | 20.09.2026 | `checkpoint/pre-interaction-polish` | `1d76e18` | Exakter sauberer Ausgangspunkt des Interaction-Passes. |
+| 27 | 20.09.2026 | `checkpoint/interaction-design` | `9ec0a53` | Editoriale Buttons und Nummern, verfeinerte Kartensteuerung, native FAQ-/Navigationszustände. |
+| 28 | 20.09.2026 | `checkpoint/interaction-polish-final` | Über Final-Tag auflösbar | Interaction-Pass fertig; 134/134 gezielte Produktionsprüfungen bestanden. |
 
 ### 1. `checkpoint/pre-rethink`
 
@@ -309,6 +312,20 @@ git switch -c ansehen-astra-deep-final checkpoint/astra-deep-final
 ```
 
 Kein Reset nötig. Kein Tag verschoben, kein Push, kein Deployment. Weitere Variationen von Hero-Größe, Weißraum und Bildmotiven sind Geschmacksfragen, keine offenen QA-Fehler.
+
+### 26–28. Interaction & UI Detail Pass
+
+Ausgangsstand `1d76e18` auf `astra-deep-final`, sauber gesichert als `checkpoint/pre-interaction-polish`. Separater Arbeitsbranch `astra-interaction-polish`. Ausschließlich den aktuellen Astra-Stand beurteilt; keine früheren Designs geöffnet, verglichen oder wiederhergestellt. Entscheidungen und Fortsetzungsstatus stehen in `ASTRA_INTERACTION_PASS.md`.
+
+Im Browser waren vor allem die gleichförmigen Buttons, kleinen losgelösten Nummern, blassen mobilen Kartencontrols und das FAQ-Kreuz im offenen Zustand auffällig. Zwei gezielte Designrunden verfeinerten diese Systeme: 56-px-Kontaktbuttons mit linksbündiger Beschriftung, Trennlinie und Pfeil-/Telefonicon; größere Playfair-Ziffern mit feinen Linien; mobile Kartenposition mit Fortschrittslinie, aktiver Kartenmarkierung und 48-px-Pfeilen. Das native FAQ nutzt echtes Plus/Minus, eine betonte offene Frage und eine kurze Antwort-Einblendung. Navigation und Sprachwahl besitzen kurze aktive Linien, der Menütoggle eine präzise kantige Form. Der Anfrage-Link erhält einen separat bewegten Pfeil und eine dezente Unterstreichungsreaktion.
+
+Micro-Interactions teilen sich 160/220 ms und ein gemeinsames Easing. Bewegungen bleiben bei 1–3 px; Reduced Motion deaktiviert dekorative Verschiebungen und Übergänge. Inhalt, Sprachen, Abschnittsreihenfolge, Bilder, die drei geschützten Legal-Dateien und Elfsight-Ladefunktion wurden nicht verändert. Kein neues Carousel-/Accordion-System, keine Bibliothek und keine erfundenen Angaben.
+
+Designcheckpoint `9ec0a53`, anschließend ausschließlich Teststabilisierung und Dokumentation. Finale Produktions-QA: **134/134 Prüfungen bestanden**, 1440 DE, 390 DE/RU, 320 DE/RU; zusätzliche Design-Layoutkontrollen 1024/768 DE. Geprüft wurden Hover/Pressed/Focus, Touch-Ziele, Nummern und Übersetzungen, Karten per Pointer/Tastatur/Swipe inklusive Fortschritt und Randzuständen, native FAQ, Menü/Fokusfalle/Escape, Anker und aktive Navigation, Resize sowie Reduced Motion. Keine JS-/HTTP-Fehler oder gemessenen Überläufe. Vollständiger Scroll-/Screenshot-Check abgeschlossen; Build und Diff-Prüfung bestanden.
+
+Ein intermittierender FAQ-Hover-Testfehler entstand durch eine veraltete Pointer-Koordinate nach asynchronem Review-Nachladen. Das Testskript wartet jetzt auf stabile Zielgeometrie; Website und Widget wurden dafür nicht geändert. Der integrierte Browser war durch einen Verbindungsfehler blockiert, deshalb lokales Edge/CDP über das vorhandene Skript. Keine Prüfung auf physischer Mobilhardware behauptet.
+
+Gezielte Wiederholung nach Build/Preview: `node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ interaction`. Screenshots und Report liegen unversioniert unter `%TEMP%/hebamme-astra-interaction`. Der Final-Tag bezeichnet den Abschlusscommit dieses Eintrags; seine ID lässt sich ohne zirkuläre Selbstreferenz mit `git rev-parse --short checkpoint/interaction-polish-final` auslesen. Keine bestehenden Tags verschoben. Kein Push, kein Deployment.
 
 ## Einen Checkpoint nur ansehen
 
