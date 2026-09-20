@@ -27,7 +27,7 @@ export async function runImplementationChecks({base,phase,caseFilter,send,evalua
   })()`)
   for (const [width,height,language] of cases) {
     const label=`${width}x${height}/${language}`, name=`${width}x${height}-${language}`
-    const mobile=width<720, enabled=mobile && (!final || height>420)
+    const mobile=width<720, enabled=mobile && height>420
     const check=(value,text)=>assert(value,`${label}: ${text}`)
     const shot=async suffix=>{await wait(250);await screenshot(`${name}-${suffix}`)}
     await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile})
@@ -37,6 +37,16 @@ export async function runImplementationChecks({base,phase,caseFilter,send,evalua
     await wait(650)
     await pointer(`[data-lang-option="${language}"]`)
     await evaluate('document.fonts.ready')
+    if(enabled) {
+      // A large first-visit jump can finish revealing the action after the scroll event.
+      const action=await rect('.contact-actions a')
+      await at('.contact-actions a',height-action.height+2)
+      await wait(1200)
+      const revealed=await rect('.contact-actions a')
+      check(revealed.bottom<=height-8 && !await visible(),'first-visit reveal hands over without another scroll')
+      await shot('first-contact-reveal')
+      await scroll(0)
+    }
     // Visit the whole page before measuring boundaries: asynchronous provider layout must settle.
     for(let y=0;y<await evaluate('document.documentElement.scrollHeight');y+=height-140) {
       await scroll(y); await wait(90)
@@ -59,6 +69,13 @@ export async function runImplementationChecks({base,phase,caseFilter,send,evalua
       check(!await visible() && await evaluate(`document.querySelector('main').inert`),'open menu suppresses dock')
       const menu=await rect('.mobile-nav .btn')
       if(final) check(menu.top>=70 && menu.bottom<=height-8,'menu contact button fully visible with breathing room')
+      if(final && height<=420) {
+        await send('Emulation.setSafeAreaInsetsOverride',{insets:{bottom:34}});await frame()
+        const safeMenu=await rect('.mobile-nav .btn')
+        check(safeMenu.top>=70 && safeMenu.bottom<=height-34,'short menu contact button clears 34px safe area')
+        await shot('menu-safe-34')
+        await send('Emulation.setSafeAreaInsetsOverride',{insets:{bottom:0}});await frame()
+      }
       await evaluate(`document.querySelector('.mobile-nav a:last-child').focus()`)
       await press('Tab','Tab',9)
       check(await evaluate(`document.activeElement.matches('[data-menu-toggle]')`),'menu focus loops')
@@ -176,6 +193,8 @@ export async function runImplementationChecks({base,phase,caseFilter,send,evalua
       await press('Tab','Tab',9)
       check(await evaluate(`document.activeElement.getAttribute('href')==='tel:112' && document.activeElement.matches(':focus-visible') && getComputedStyle(document.activeElement).outlineStyle!=='none'`),'emergency number receives visible keyboard focus')
       await shot('emergency-focus')
+      await press('Tab','Tab',9)
+      check(await evaluate(`document.activeElement.getAttribute('href')==='tel:116117' && document.activeElement.matches(':focus-visible')`),'second emergency number follows in keyboard order')
       results.push({width,height,language,geometry,handoffs,colors,emergency})
     } else results.push({width,height,language,geometry,handoffs})
     console.log(`Implementation checks completed: ${label}`)

@@ -367,6 +367,15 @@ function applyLanguage(language, persist = true) {
 
     if (attributes?.length) {
       attributes.forEach((attribute) => element.setAttribute(attribute, value))
+    } else if (element.dataset.i18n === 'faq.items.3.answer') {
+      // Preserve the translated wording while linking only the two existing numbers.
+      element.replaceChildren(...value.split(/\b(112|116117)\b/).map((part) => {
+        if (part !== '112' && part !== '116117') return document.createTextNode(part)
+        const link = document.createElement('a')
+        link.href = `tel:${part}`
+        link.textContent = part
+        return link
+      }))
     } else {
       element.textContent = value
     }
@@ -538,7 +547,8 @@ function initializeMobileContact() {
       ? Math.min(contact.bottom, viewportBottom - safeArea) - Math.max(contact.top, headerBottom) >= 44
       : contact.top >= headerBottom + 8 && contact.bottom <= viewportBottom - bottomPadding
 
-    const show = mobile.matches && !isMenuOpen
+    const enoughHeight = viewportBottom - viewportTop > 420
+    const show = mobile.matches && enoughHeight && !isMenuOpen
       && heroPassed && !cardsInView && !contactReachable
     mobileContact.classList.toggle('is-visible', show)
     mobileContact.inert = !show
@@ -554,6 +564,8 @@ function initializeMobileContact() {
   window.addEventListener('resize', schedule)
   window.visualViewport?.addEventListener('resize', schedule)
   window.visualViewport?.addEventListener('scroll', schedule)
+  // A first-visit reveal can move the regular action into reach without another scroll.
+  contactWhatsapp.closest('[data-reveal]')?.addEventListener('transitionend', schedule)
   if ('ResizeObserver' in window) {
     const observer = new ResizeObserver(schedule)
     observer.observe(document.querySelector('main'))

@@ -151,7 +151,7 @@ try {
       assert(!missingTranslations.length, `${width}/${language}: translations match`)
       assert(metrics.images.filter(i=>!i.src.startsWith('http')).every(i=>i.ok), `${width}/${language}: local images`)
       assert(!metrics.anchors.length, `${width}/${language}: anchors`)
-      assert(metrics.links.filter(l=>l.href.startsWith('tel:')).every(l=>l.href==='tel:+4917623488396') && metrics.links.filter(l=>l.href.includes('wa.me')).every(l=>l.href==='https://wa.me/4917623488396'),`${width}/${language}: telephone and WhatsApp targets`)
+      assert(metrics.links.filter(l=>l.href.startsWith('tel:')).every(l=>l.href===({'112':'tel:112','116117':'tel:116117'}[l.text] || 'tel:+4917623488396')) && metrics.links.filter(l=>l.href.includes('wa.me')).every(l=>l.href==='https://wa.me/4917623488396'),`${width}/${language}: telephone and WhatsApp targets`)
       if (phase === 'interaction') {
         assert(await evaluate(`(() => {
           const controls=[...document.querySelectorAll('.btn, .lang-switch__button, .menu-toggle, .services-controls button, .faq-list summary, .hero-inquiry-link, .contact-direct-phone, .desktop-nav a')].filter(e=>e.getClientRects().length && getComputedStyle(e).visibility!=='hidden');
@@ -325,6 +325,7 @@ try {
     await wait(700)
     const fallback = await evaluate(`({title:document.querySelector('h1').textContent,nav:document.querySelector('.desktop-nav a[href="#leistungen"]').textContent,hidden:[...document.querySelectorAll('main [data-reveal]')].some(e=>getComputedStyle(e).opacity==='0')})`)
     assert(fallback.title===translations.de.hero.title && fallback.nav===translations.de.nav.services && !fallback.hidden,'German no-JavaScript fallback and visible content')
+    assert(await evaluate(`JSON.stringify([...document.querySelectorAll('.faq-list details:last-child a')].map(a=>a.getAttribute('href')))===JSON.stringify(['tel:112','tel:116117'])`),'no-JavaScript fallback retains exact emergency telephone links')
     await send('Emulation.setScriptExecutionDisabled',{value:false})
   }
   const targetedReport = targeted

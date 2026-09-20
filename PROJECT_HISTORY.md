@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `astra-targeted-refinement`. Der jüngste geprüfte Website-Stand ist `checkpoint/targeted-refinement-final`; die exakte Commit-ID liefert `git rev-parse --short checkpoint/targeted-refinement-final`. Der Ausgangspunkt bleibt als `checkpoint/pre-targeted-refinement` (`c4f594c`) und auf `astra-interaction-polish` erhalten. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-targeted-refinement`.
+Der aktuelle Arbeitsbranch heißt `astra-final-implementation`. Der jüngste geprüfte Website-Stand ist `checkpoint/final-implementation`; die exakte Commit-ID liefert `git rev-parse --short checkpoint/final-implementation`. Der dokumentierte Ausgangspunkt bleibt als `checkpoint/pre-final-implementation` (`e618fe9`) und auf `astra-targeted-refinement` erhalten; dessen Website-Basis ist weiterhin `5370689` / `checkpoint/targeted-refinement-final`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Stand führt `git switch astra-final-implementation`.
 
 ## Checkpoints
 
@@ -38,6 +38,21 @@ Der aktuelle Arbeitsbranch heißt `astra-targeted-refinement`. Der jüngste gepr
 | 28 | 20.09.2026 | `checkpoint/interaction-polish-final` | Über Final-Tag auflösbar | Interaction-Pass fertig; 134/134 gezielte Produktionsprüfungen bestanden. |
 | 29 | 20.09.2026 | `checkpoint/pre-targeted-refinement` | `c4f594c` | Sauberer Ausgangspunkt vor vier gezielten Anpassungen. |
 | 30 | 20.09.2026 | `checkpoint/targeted-refinement-final` | Über Final-Tag auflösbar | Mobile WhatsApp-Leiste, DE/RU-Abstand, integrierte Telefonnummer und vereinfachter Divider; 112/112 gezielte plus 134/134 Regressionsprüfungen. |
+| 31 | 21.09.2026 | `checkpoint/pre-final-implementation` | `e618fe9` | Unabhängigen Abschlussaudit separat committed; Website unverändert auf Basis `5370689`. |
+| 32 | 21.09.2026 | `checkpoint/final-sticky-logic` | `6456a3d` | Gemeinsame Sticky-Zustandslogik schützt den Kartenbereich und übergibt an die erreichbare Kontaktaktion. |
+| 33 | 21.09.2026 | `checkpoint/final-implementation` | Über Final-Tag auflösbar | F1–F5 abgeschlossen; 400/400 Implementierungs- und 135/135 Interaction-Checks, visuelle Endkontrolle und Abschlussdokumentation. |
+
+## Finaler Implementierungspass – 21.09.2026
+
+Der unabhängige Audit wurde mit `e618fe9` ausschließlich als Dokumentation gesichert. Anschließend entstand `astra-final-implementation`. Der Pass beschränkt sich auf die fünf freigegebenen Themen; Details und Wiederaufnahmezustand stehen in `ASTRA_FINAL_IMPLEMENTATION_STATUS.md`.
+
+- Sticky schützt den vollständigen Kartenstreifen einschließlich Controls mit stabilen Ein-/Austrittsmargen. Am Kontaktanfang bleibt er verfügbar und übergibt erst an die erreichbare reguläre WhatsApp-Aktion. Ein zusätzlicher `transitionend`-Abgleich deckt den Erstbesuch mit großem Scrollsprung während der bestehenden Kontakt-Einblendanimation ab.
+- Kleine Texte auf Rosé/Sand verwenden gezielt `#625751`: Kontraste 5,0004:1 beziehungsweise 5,2788:1. Das globale Farbsystem und die Typografie bleiben erhalten.
+- Bei höchstens 420 px Höhe verbessert eine begrenzte Menüregel die Erreichbarkeit des Kontaktbuttons; Safe Area berücksichtigt. Die Sticky-Leiste bleibt bei dieser geringen nutzbaren Höhe aus. Normale mobile Menüansichten bleiben unverändert.
+- Bereits vorhandene 112 / 116117 sind in DE/RU und im HTML-Fallback als `tel:`-Links nutzbar; medizinischer Wortlaut unverändert.
+- Finale Prüfung nach dem letzten Website-Fix: **400/400** Implementierungschecks und **135/135** Interaction-Checks, keine JS-/Request-Fehler. Zehn geforderte Desktop-/Mobile-/DE-/RU-Ansichten einschließlich 320 × 360 und 640 × 360 geprüft. Geschützte Geometrie in allen zehn Ansichten unverändert.
+- Eine Unterbrechung unmittelbar vor Abschluss der visuellen Endkontrolle wurde anhand des Status und vorhandener Belege fortgesetzt. Restliche Screenshots geprüft; keine weitere Codekorrektur nötig. Abschließend Build, Diff-Prüfung, Commit und neuer Final-Tag.
+- Desktop-Komposition, Bilder, Kartenmechanik, Legal-Dateien und Elfsight unverändert. Echte Marina-Angaben und die bekannten Release-Themen bleiben separat offen. Kein Push, kein Deployment.
 
 ### 1. `checkpoint/pre-rethink`
 
