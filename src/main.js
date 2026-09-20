@@ -503,16 +503,43 @@ function initializeFloatingContact() {
 function initializeMobileContact() {
   const hero = document.querySelector('.hero-section')
   const header = document.querySelector('.site-header')
-  if (!mobileContact || !hero || !contactSection || !header) return
+  const cardControls = document.querySelector('[data-services-controls]')
+  const contactWhatsapp = document.querySelector('.contact-actions a[href*="wa.me"]')
+  if (!mobileContact || !hero || !servicesTrack || !cardControls || !contactWhatsapp || !header) return
 
   const mobile = window.matchMedia('(max-width: 719px)')
   let scheduled = false
+  let heroPassed = false
+  let cardsInView = false
+  let contactReachable = false
   updateMobileContact = () => {
     scheduled = false
-    const show = mobile.matches && !isMenuOpen
-      && hero.getBoundingClientRect().bottom <= header.getBoundingClientRect().bottom
-      && contactSection.getBoundingClientRect().top >= window.innerHeight
+    // Keep the dock measurable while hidden on mobile, including its safe-area padding.
     mobileContact.hidden = !mobile.matches
+    const viewportTop = window.visualViewport?.offsetTop || 0
+    const viewportBottom = viewportTop + (window.visualViewport?.height || window.innerHeight)
+    const headerBottom = Math.max(viewportTop, header.getBoundingClientRect().bottom)
+    const heroBottom = hero.getBoundingClientRect().bottom
+    heroPassed = heroBottom <= headerBottom - (heroPassed ? 0 : 16)
+
+    // One continuous exclusion zone: every card, its text and the complete control row.
+    // Enter before the zone is visible; leave further away to absorb small scroll reversals.
+    const cardMargin = cardsInView ? 32 : 16
+    cardsInView = servicesTrack.getBoundingClientRect().top < viewportBottom + cardMargin
+      && Math.max(servicesTrack.getBoundingClientRect().bottom, cardControls.getBoundingClientRect().bottom) > headerBottom - cardMargin
+
+    const dockStyle = getComputedStyle(mobileContact)
+    const bottomPadding = parseFloat(dockStyle.paddingBottom) || 0
+    const safeArea = Math.max(0, bottomPadding - (parseFloat(dockStyle.paddingTop) || 0))
+    const contact = contactWhatsapp.getBoundingClientRect()
+    // Hand over once the entire regular button fits. Keep it in charge while at least
+    // a 44px-high target remains reachable, avoiding two competing WhatsApp buttons.
+    contactReachable = contactReachable
+      ? Math.min(contact.bottom, viewportBottom - safeArea) - Math.max(contact.top, headerBottom) >= 44
+      : contact.top >= headerBottom + 8 && contact.bottom <= viewportBottom - bottomPadding
+
+    const show = mobile.matches && !isMenuOpen
+      && heroPassed && !cardsInView && !contactReachable
     mobileContact.classList.toggle('is-visible', show)
     mobileContact.inert = !show
     mobileContact.setAttribute('aria-hidden', String(!show))
@@ -526,6 +553,7 @@ function initializeMobileContact() {
   window.addEventListener('scroll', schedule, { passive: true })
   window.addEventListener('resize', schedule)
   window.visualViewport?.addEventListener('resize', schedule)
+  window.visualViewport?.addEventListener('scroll', schedule)
   if ('ResizeObserver' in window) {
     const observer = new ResizeObserver(schedule)
     observer.observe(document.querySelector('main'))
