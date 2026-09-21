@@ -12,6 +12,7 @@ import vm from 'node:vm'
 const base = process.argv[2] || 'http://127.0.0.1:4175/hebamme-web/'
 const phase = process.argv[3] || 'final'
 const implementation = ['final-sticky', 'final-implementation'].includes(phase)
+const nativeReviews = phase === 'native-reviews'
 const targeted = ['refinement-before', 'refinement', 'end-user-audit'].includes(phase)
 const verify = phase === 'final' || phase === 'interaction'
 const profile = await mkdtemp(path.join(os.tmpdir(), 'hebamme-deep-browser-'))
@@ -38,9 +39,19 @@ let sequence = 0
 const pending = new Map()
 const errors = []
 const failedRequests = []
+const requests = []
+const requestUrls = new Map()
 socket.addEventListener('message', event => {
   const message = JSON.parse(event.data)
   if (message.method === 'Runtime.exceptionThrown') errors.push(message.params.exceptionDetails)
+  if (message.method === 'Runtime.consoleAPICalled' && message.params.type === 'error') errors.push(message.params)
+  if (message.method === 'Network.requestWillBeSent') {
+    requests.push(message.params.request.url)
+    requestUrls.set(message.params.requestId, message.params.request.url)
+  }
+  if (message.method === 'Network.loadingFailed' && !message.params.canceled) {
+    failedRequests.push({ url: requestUrls.get(message.params.requestId) || '', error: message.params.errorText })
+  }
   if (message.method === 'Network.responseReceived' && message.params.response.status >= 400) {
     failedRequests.push({ url: message.params.response.url, status: message.params.response.status })
   }
@@ -66,11 +77,11 @@ const screenshot = async (name, clip) => {
 await send('Page.enable')
 await send('Runtime.enable')
 await send('Network.enable')
-const fullMatrix = implementation ? [] : phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']]
+const fullMatrix = implementation || nativeReviews ? [] : phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']]
   : phase === 'interaction' || targeted ? [[1440,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
   : [[1440,'de'],[1024,'de'],[768,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
 const matrix = process.argv[4] ? fullMatrix.filter(([width,language])=>`${width}/${language}`===process.argv[4]) : fullMatrix
-if (!matrix.length && !implementation) throw new Error('Unknown viewport/language case')
+if (!matrix.length && !implementation && !nativeReviews) throw new Error('Unknown viewport/language case')
 const report = []
 const interactions = []
 const source = await readFile(new URL('../src/main.js', import.meta.url), 'utf8')
@@ -339,7 +350,9 @@ try {
   }
   const implementationReport = implementation
     ? await (await import('./final-implementation-checks.mjs')).runImplementationChecks({base,phase,caseFilter:process.argv[4],send,evaluate,screenshot,wait,press,assert,translations}) : []
-  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests,targetedReport,implementationReport},null,2))
+  const nativeReviewsReport = nativeReviews
+    ? await (await import('./reviews-browser-checks.mjs')).runReviewChecks({base,send,evaluate,screenshot,wait,click,press,assert,requests}) : []
+  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests,requests,targetedReport,implementationReport,nativeReviewsReport},null,2))
   console.log(JSON.stringify({output,report:report.map(({width,language,overflow,clippedText,missingTranslations})=>({width,language,overflow,clippedText,missingTranslations})),interactions,errors,failedRequests},null,2))
   if (interactions.some(check=>!check.pass) || errors.length || failedRequests.some(r=>r.url.startsWith(base))) process.exitCode=1
 } finally {

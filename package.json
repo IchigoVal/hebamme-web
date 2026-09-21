@@ -4,7 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "reviews:prepare": "node scripts/prepare-reviews.mjs",
+    "test": "node --test scripts/reviews.test.mjs",
+    "predev": "npm run reviews:prepare",
     "dev": "vite",
+    "prebuild": "npm run reviews:prepare",
     "build": "vite build",
     "preview": "vite preview"
   },

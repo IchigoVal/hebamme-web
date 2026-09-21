@@ -1,4 +1,5 @@
 import './style.css'
+import { initializeReviews } from './reviews.js'
 
 const translations = {
   de: {
@@ -320,7 +321,7 @@ const mobileContact = document.querySelector('.mobile-contact')
 const inquirySection = document.querySelector('#ablauf')
 const contactSection = document.querySelector('#kontakt')
 const servicesTrack = document.querySelector('[data-services-track]')
-const reviewsWidget = document.querySelector('.reviews-widget')
+const updateReviewsLanguage = initializeReviews(document.querySelector('[data-reviews]'))
 const languageButtons = document.querySelectorAll('[data-lang-option]')
 const translatableElements = document.querySelectorAll('[data-i18n]')
 
@@ -389,6 +390,7 @@ function applyLanguage(language, persist = true) {
 
   updateMenuLabel()
 
+  updateReviewsLanguage(language)
   updateMobileContact()
 
   if (persist) {
@@ -662,37 +664,6 @@ function initializeNavigationState() {
   update()
 }
 
-function initializeReviewsWidget() {
-  if (!reviewsWidget) return
-
-  const loadPlatform = () => {
-    if (document.querySelector('[data-elfsight-platform]')) return
-
-    const script = document.createElement('script')
-    script.src = 'https://elfsightcdn.com/platform.js'
-    script.async = true
-    script.dataset.elfsightPlatform = ''
-    document.head.append(script)
-  }
-
-  if (!('IntersectionObserver' in window)) {
-    loadPlatform()
-    return
-  }
-
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry.isIntersecting) return
-
-      loadPlatform()
-      observer.disconnect()
-    },
-    { rootMargin: '600px 0px' },
-  )
-
-  observer.observe(reviewsWidget)
-}
-
 applyLanguage(activeLanguage, false)
 setMenuState(false)
 initializeReveals()
@@ -700,4 +671,3 @@ initializeFloatingContact()
 initializeMobileContact()
 initializeServicesTrack()
 initializeNavigationState()
-initializeReviewsWidget()
