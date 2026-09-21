@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch für den Review-Datensnapshot heißt `reviews-data-import`. Der jüngste geprüfte und unveränderte Website-Stand bleibt `checkpoint/final-implementation` auf `astra-final-implementation`; die exakte Commit-ID liefert `git rev-parse --short checkpoint/final-implementation`. Der dokumentierte Ausgangspunkt bleibt als `checkpoint/pre-final-implementation` (`e618fe9`) und auf `astra-targeted-refinement` erhalten; dessen Website-Basis ist weiterhin `5370689` / `checkpoint/targeted-refinement-final`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum neuesten Website-Stand führt `git switch astra-final-implementation`, zum Review-Datensnapshot `git switch reviews-data-import`.
+Der aktuelle Arbeitsbranch heißt `feature/native-reviews`. Er enthält die eigene lokale Review-Sektion auf Basis des vollständigen Nutzerexports und der ausdrücklich freigegebenen verifizierten Originaltexte. Ausgangssicherung: `cf2fb2c` / `checkpoint/pre-native-reviews`; funktionale Integration: `55fecde` / `checkpoint/native-reviews-functional`; Design: `e6fc7e2` / `checkpoint/native-reviews-design`. Der vollständige Abschluss wird durch `checkpoint/native-reviews-final` bezeichnet. Details und Teststatus stehen in `NATIVE_REVIEWS_STATUS.md`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum aktuellen Stand führt `git switch feature/native-reviews`, zum früheren partiellen Review-Datensnapshot `git switch reviews-data-import`.
 
 ## Checkpoints
 
@@ -42,6 +42,18 @@ Der aktuelle Arbeitsbranch für den Review-Datensnapshot heißt `reviews-data-im
 | 32 | 21.09.2026 | `checkpoint/final-sticky-logic` | `6456a3d` | Gemeinsame Sticky-Zustandslogik schützt den Kartenbereich und übergibt an die erreichbare Kontaktaktion. |
 | 33 | 21.09.2026 | `checkpoint/final-implementation` | Über Final-Tag auflösbar | F1–F5 abgeschlossen; 400/400 Implementierungs- und 135/135 Interaction-Checks, visuelle Endkontrolle und Abschlussdokumentation. |
 | 34 | 21.09.2026 | `checkpoint/reviews-data-import-wip-1` | Über WIP-Tag auflösbar | Verifizierter partieller Google-Review-Snapshot: 29 von 66 individuellen Reviews erfasst; Google-Gesamtzahl, Sternverteilung, Listing-Auflösung und Elfsight-Gegenprüfung dokumentiert. Website, Elfsight und Legal-Dateien unverändert. |
+| 35 | 21.09.2026 | `checkpoint/pre-native-reviews` | `cf2fb2c` | Vollständigen gelieferten Export auf neuem Branch vor Website-Änderungen gesichert. |
+| 36 | 21.09.2026 | `checkpoint/native-reviews-functional` | `55fecde` | Eigene lokale Review-Daten und Bedienlogik; Elfsight technisch entfernt. |
+| 37 | 21.09.2026 | `checkpoint/native-reviews-design` | `e6fc7e2` | Review-Design und Responsive-Polish; 208 Review- und 135 Interaction-Checks bestanden. |
+| 38 | 21.09.2026 | `checkpoint/native-reviews-final` | Über Final-Tag auflösbar | Abschlussstand der eigenen Review-Sektion; vollständige Ergebnisse in `NATIVE_REVIEWS_STATUS.md`. |
+
+## Eigene Review-Sektion – 21.09.2026
+
+Aufbauend auf `bf2be40` wurde die zunächst unversionierte vollständige Datei `marina-google-reviews.json` auf dem neuen Branch vor jeder Website-Änderung committed und getaggt. Sie liegt nun unverändert unter `src/data/reviews/`. Eine deterministische Aufbereitung erzeugt die einzige öffentliche UI-Datenstruktur: 62 Textrezensionen und eine Zusammenfassung aller 66 Sternebewertungen. Fünf bereits übersetzte Texte des gelieferten Exports wurden nach expliziter Nutzerentscheidung durch verifizierte Originaltexte derselben IDs ersetzt; es wurde keine eigene Übersetzung erstellt. Einzelheiten stehen in `src/data/reviews/README.md`.
+
+Die technische Elfsight-Integration ist entfernt. Die neue Sektion zeigt zunächst sechs Texte und ergänzt auf Wunsch jeweils sechs weitere, bietet zugängliche Volltexte, DE/RU-Bedienung, einen sichtbaren Gesamtfortschritt und eine optionale Sortierung nach niedrigster Bewertung. Die Zwei-Sterne-Rezension bleibt uneingeschränkt enthalten; reine Sternebewertungen zählen zur Summe, ohne leere Einträge zu erzeugen. Ownerantworten, Avatare, Reviewbilder und externe URLs gelangen nicht ins Frontend.
+
+Gestaltung ausschließlich innerhalb der Review-Sektion: Papierfläche, Terrakotta-Ziffern, bestehende Schriften, ruhige Trennlinien und drei/zwei/eine Lesespalte je nach Breite. Hero, Navigation, Karten, Kontakt, übrige Texte und Layoutregeln blieben unverändert. Legal-Seiten wurden nicht umgeschrieben; der spätere Abgleich der Elfsight-Aussagen in `datenschutz.html` ist als offener Punkt dokumentiert. Kein Push, kein Deployment.
 
 ## Reviews-Datenimport – 21.09.2026
 
