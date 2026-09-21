@@ -6,7 +6,12 @@ import os from 'node:os'
 
 export async function runReviewChecks({base,send,evaluate,screenshot,wait,click,press,assert,requests}) {
   const data = JSON.parse(await readFile(new URL('../src/data/reviews/reviews.public.json', import.meta.url), 'utf8'))
-  const baseline = JSON.parse(await readFile(path.join(os.tmpdir(), 'hebamme-astra-baseline/report.json'), 'utf8')).report
+  const baselineFile = await readFile(path.join(os.tmpdir(), 'hebamme-astra-baseline/report.json'), 'utf8').catch(error => {
+    if (error.code !== 'ENOENT') throw error
+    return null
+  })
+  const baseline = baselineFile ? JSON.parse(baselineFile).report : []
+  if (!baselineFile) console.log('No prior baseline in TEMP; geometry comparison skipped.')
   const results = []
   const frame = () => evaluate('new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))')
   const count = () => evaluate("document.querySelectorAll('.review').length")
@@ -77,6 +82,7 @@ export async function runReviewChecks({base,send,evaluate,screenshot,wait,click,
       await frame()
       check(await evaluate(`document.querySelector('#reviews-order').value==='lowest' && document.querySelector('.review-author').textContent==='Andrea Michel' && document.querySelector('.review-rating').getAttribute('aria-label').startsWith('2 ')`), 'lowest-first exposes 2-star review by keyboard')
       check(await count()===6, 'sorting resets to six without filtering')
+      if ([320,1440].includes(width)) await screenshot(`${width}-${language}-reviews-lowest`)
       await press('Home','Home',36)
       await frame()
       check(await evaluate(`document.querySelector('.review-author').textContent===${JSON.stringify(data.reviews[0].author)}`), 'default restores source order')
@@ -107,6 +113,16 @@ export async function runReviewChecks({base,send,evaluate,screenshot,wait,click,
   await focus('.review-toggle')
   await press('Enter','Enter',13)
   await screenshot('320-de-reviews-expanded-reduced-motion')
+
+  // Browser zoom is represented by a 640px layout viewport on a 1280px desktop.
+  await send('Emulation.setDeviceMetricsOverride',{width:640,height:450,deviceScaleFactor:2,mobile:false})
+  await scroll('#bewertungen')
+  assert(await evaluate(`document.documentElement.scrollWidth<=innerWidth && [...document.querySelectorAll('#bewertungen button,#bewertungen select')].filter(e=>!e.hidden).every(e=>e.getBoundingClientRect().height>=44)`), '200% equivalent desktop reflow retains readable controls')
+  await send('Emulation.setDeviceMetricsOverride',{width:320,height:360,deviceScaleFactor:1,mobile:true})
+  await send('Emulation.setSafeAreaInsetsOverride',{insets:{bottom:34}})
+  await click('.reviews-more')
+  assert(await count()===18 && await evaluate(`document.activeElement===document.querySelectorAll('.review')[12] && document.querySelector('.mobile-contact').inert && document.documentElement.scrollWidth<=innerWidth`), 'short 320×360 viewport with 34px safe area remains usable')
+  await send('Emulation.setSafeAreaInsetsOverride',{insets:{bottom:0}})
 
   for (const filename of ['impressum.html','datenschutz.html']) {
     await send('Page.navigate',{url:new URL(filename,base).href})

@@ -9,10 +9,9 @@ const copy = {
     counts: (text, stars) => `${text} mit Text · ${stars} reine Sternebewertungen`,
     distribution: (five, two) => `${five} × 5 Sterne · ${two} × 2 Sterne`,
     snapshot: date => `Stand: ${date}`,
-    introduction: 'Persönliche Einblicke in die Begleitung durch Marina.',
     sort: 'Sortieren',
     original: 'Standard',
-    lowest: 'Niedrigste Bewertung zuerst',
+    lowest: 'Niedrigste zuerst',
     read: 'Weiterlesen',
     close: 'Weniger anzeigen',
     rating: value => `${value} von 5 Sternen`,
@@ -27,10 +26,9 @@ const copy = {
     counts: (text, stars) => `${text} с текстом · ${stars} без текста`,
     distribution: (five, two) => `${five} × 5 звёзд · ${two} × 2 звезды`,
     snapshot: date => `По состоянию на ${date}`,
-    introduction: 'Личный опыт семей, которых сопровождала Марина.',
     sort: 'Порядок',
     original: 'По умолчанию',
-    lowest: 'Сначала низкие оценки',
+    lowest: 'Сначала низкие',
     read: 'Читать полностью',
     close: 'Свернуть',
     rating: value => `${value} из 5 звёзд`,
@@ -69,17 +67,15 @@ export function initializeReviews(root) {
     : textReviews
   const t = () => copy[language]
 
-  const header = element('div', 'reviews-introduction')
-  const introduction = element('p', 'reviews-intro')
   const summary = element('div', 'reviews-summary')
   const score = element('span', 'reviews-score')
+  score.setAttribute('role', 'img')
   const summaryCopy = element('div', 'reviews-summary-copy')
   const total = element('p', 'reviews-total')
   const counts = element('p', 'reviews-counts')
   const distribution = element('p', 'reviews-distribution')
   summaryCopy.append(total, counts, distribution)
   summary.append(score, summaryCopy)
-  header.append(introduction, summary)
 
   const toolbar = element('div', 'reviews-toolbar')
   const source = element('p', 'reviews-source')
@@ -96,6 +92,7 @@ export function initializeReviews(root) {
   toolbar.append(source, sortLabel)
 
   const list = element('ul', 'reviews-list')
+  list.setAttribute('role', 'list')
   list.id = 'reviews-list'
   list.setAttribute('aria-labelledby', 'reviews-heading')
   const footer = element('div', 'reviews-footer')
@@ -107,7 +104,7 @@ export function initializeReviews(root) {
   more.type = 'button'
   more.setAttribute('aria-controls', list.id)
   const moreLabel = element('span', 'btn__label')
-  const moreIcon = element('span', 'reviews-more-icon', '+')
+  const moreIcon = element('span', 'btn__icon reviews-more-icon', '+')
   moreIcon.setAttribute('aria-hidden', 'true')
   more.append(moreLabel, moreIcon)
   const reset = element('button', 'reviews-reset')
@@ -115,7 +112,7 @@ export function initializeReviews(root) {
   reset.setAttribute('aria-controls', list.id)
   actions.append(more, reset)
   footer.append(progress, actions)
-  root.replaceChildren(header, toolbar, list, footer)
+  root.replaceChildren(summary, toolbar, list, footer)
 
   function updateFooter() {
     const all = visible >= textReviews.length
@@ -224,7 +221,6 @@ export function initializeReviews(root) {
     const formattedRating = snapshot.summary.rating.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })
     score.textContent = formattedRating
     score.setAttribute('aria-label', t().rating(formattedRating))
-    introduction.textContent = t().introduction
     total.textContent = t().total(snapshot.summary.total)
     counts.textContent = t().counts(textReviews.length, snapshot.summary.ratingOnly)
     distribution.textContent = t().distribution(snapshot.summary.distribution[5], snapshot.summary.distribution[2])

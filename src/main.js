@@ -124,6 +124,7 @@ const translations = {
     },
     reviews: {
       title: 'Erfahrungen von Familien',
+      intro: 'Persönliche Einblicke in die Begleitung durch Marina.',
     },
     contact: {
       title: 'Deine erste Anfrage',
@@ -280,6 +281,7 @@ const translations = {
     },
     reviews: {
       title: 'Отзывы семей',
+      intro: 'Личный опыт семей, которых сопровождала Марина.',
     },
     contact: {
       title: 'Первое обращение',
