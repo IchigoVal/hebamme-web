@@ -6,6 +6,8 @@ Der aktuelle Arbeitsbranch heißt `feature/native-reviews`. Er enthält die eige
 
 ## Checkpoints
 
+Neuester Stand: `checkpoint/review-header-source-mobile-final` auf `feature/native-reviews`. Der gezielte Folgeauftrag ergänzt den Google-Quellenlink, einen ausgewogeneren Bewertungsblock und Mobile 3/+3 bei unverändertem Desktop 6/+6. Vorab-Sicherung auf `7b80e62`: `checkpoint/pre-review-header-source-mobile`. Details: `REVIEW_HEADER_SOURCE_MOBILE_STATUS.md`.
+
 | Reihenfolge | Datum | Git-Tag | Commit | Zustand |
 | --- | --- | --- | --- | --- |
 | 1 | 19.09.2026 | `checkpoint/pre-rethink` | `22a4fbb` | Website exakt vor der Überarbeitung von Inhalt und Design. Enthält auch alle Änderungen, die zu Beginn noch nicht committed waren. |
@@ -48,6 +50,10 @@ Der aktuelle Arbeitsbranch heißt `feature/native-reviews`. Er enthält die eige
 | 38 | 21.09.2026 | `checkpoint/native-reviews-final` | Über Final-Tag auflösbar | Abschlussstand der eigenen Review-Sektion; vollständige Ergebnisse in `NATIVE_REVIEWS_STATUS.md`. |
 | 39 | 22.09.2026 | `checkpoint/pre-review-ui-polish` | `9ec15fa` | Sauberer, bereits vollständig committeter Review-Stand vor dem gezielten UI/UX-Polish. |
 | 40 | 22.09.2026 | `checkpoint/review-ui-polish-final` | Über Final-Tag auflösbar | Review-Polish ohne Sortierung, mit Google-Zeitangaben, sechszeiligen Vorschauen und stabiler Leseansicht; 351 Review- und 135 Interaction-Checks bestanden. |
+| 41 | 22.09.2026 | `checkpoint/pre-review-count-line-removal` | `0d83177` | Sicherung vor ersatzloser Entfernung der Zählzeile. |
+| 42 | 22.09.2026 | `checkpoint/review-count-line-removed` | `7b80e62` | Zählzeile in DE/RU entfernt, sonst unverändert; 351 Browserchecks und fünf Datentests bestanden. |
+| 43 | 22.09.2026 | `checkpoint/pre-review-header-source-mobile` | `7b80e62` | Sauberer Ausgangspunkt vor den drei offenen Review-Ergänzungen. |
+| 44 | 22.09.2026 | `checkpoint/review-header-source-mobile-final` | Über Final-Tag auflösbar | Bewertungsblock verfeinert, sichere Google-Textaktion, Mobile 3/+3; 439 Reviewchecks, 135 Interaction-Checks und sechs Datentests bestanden. |
 
 ## Gezielter Review-UI/UX-Polish – 22.09.2026
 

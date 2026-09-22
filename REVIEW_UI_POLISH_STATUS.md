@@ -2,6 +2,8 @@
 
 Abgeschlossen auf `feature/native-reviews`. Kein Push, kein Deployment.
 
+Aktueller Folgeabschluss: [REVIEW_HEADER_SOURCE_MOBILE_STATUS.md](REVIEW_HEADER_SOURCE_MOBILE_STATUS.md) dokumentiert die anschließend ausdrücklich beauftragten Änderungen am Bewertungsblock, den Google-Quellenlink und Mobile 3/+3. Die folgenden Abschnitte bleiben als historische Berichte erhalten.
+
 ## Nachtrag: Zählzeile ersatzlos entfernt
 
 Auf ausdrückliche abschließende Korrektur wurde ausschließlich die Zeile „62 mit Text · 4 reine Sternebewertungen“ einschließlich ihres russischen Pendants entfernt, nicht ersetzt oder verschoben. Ungenutzte Übersetzungs- und CSS-Regeln wurden entfernt; der Browsertest erwartet nun das Fehlen der Zeile. Durchschnitt, Gesamtzahl, Datenstand, übriges Design, Originaltexte und Reihenfolge bleiben unverändert. Auch die Ladegröße bleibt unverändert bei sechs Rezensionen auf Desktop und Mobile; keine zusätzliche Badge-/Link- oder Header-Änderung.

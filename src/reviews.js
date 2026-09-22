@@ -1,12 +1,13 @@
 import snapshot from './data/reviews/reviews.public.json'
 import './reviews.css'
 
-const PAGE_SIZE = 6
 const copy = {
   de: {
     average: 'Google-Bewertung im Durchschnitt',
     total: total => 'Aus ' + total + ' Bewertungen',
     snapshot: date => 'Stand: ' + date,
+    google: 'Rezensionen auf Google',
+    newTab: 'öffnet in einem neuen Tab',
     dateContext: date => 'Zeitangabe von Google beim Abruf am ' + date,
     read: 'Weiterlesen',
     close: 'Schließen',
@@ -20,6 +21,8 @@ const copy = {
     average: 'Средняя оценка в Google',
     total: total => 'На основе ' + total + ' оценок',
     snapshot: date => 'Данные на ' + date,
+    google: 'Отзывы в Google',
+    newTab: 'откроется в новой вкладке',
     dateContext: date => 'Срок, указанный Google при сборе данных ' + date,
     read: 'Читать полностью',
     close: 'Закрыть',
@@ -61,7 +64,10 @@ function googleDate(value, language) {
 export function initializeReviews(root) {
   if (!root) return () => {}
   let language = 'de'
-  let visible = PAGE_SIZE
+  // Match the existing single-column review breakpoint.
+  const mobileViewport = window.matchMedia('(max-width: 719px)')
+  const pageSize = () => mobileViewport.matches ? 3 : 6
+  let visible = pageSize()
   let activeReview = null
   let returnFocus = null
   let measurementFrame = 0
@@ -79,8 +85,19 @@ export function initializeReviews(root) {
   const average = element('p', 'reviews-average')
   const total = element('p', 'reviews-total')
   const source = element('p', 'reviews-source')
-  summaryCopy.append(average, total, source)
-  summary.append(score, summaryCopy)
+  const provenance = element('div', 'reviews-provenance')
+  const googleLink = element('a', 'reviews-google-link')
+  googleLink.href = snapshot.sourceUrl
+  googleLink.target = '_blank'
+  googleLink.rel = 'noopener noreferrer'
+  googleLink.referrerPolicy = 'no-referrer'
+  const googleLabel = element('span', 'reviews-google-label')
+  const externalIcon = element('span', null, '↗')
+  externalIcon.setAttribute('aria-hidden', 'true')
+  googleLink.append(googleLabel, externalIcon)
+  summaryCopy.append(average, total)
+  provenance.append(source, googleLink)
+  summary.append(score, summaryCopy, provenance)
 
   const list = element('ul', 'reviews-list')
   list.setAttribute('role', 'list')
@@ -190,8 +207,8 @@ export function initializeReviews(root) {
     progress.textContent = t().progress(Math.min(visible, textReviews.length), textReviews.length)
       + (all ? ' · ' + t().complete : '')
     more.hidden = all
-    moreLabel.textContent = t().more(Math.min(PAGE_SIZE, textReviews.length - visible))
-    reset.hidden = visible <= PAGE_SIZE
+    moreLabel.textContent = t().more(Math.min(pageSize(), textReviews.length - visible))
+    reset.hidden = visible <= pageSize()
     reset.textContent = t().reset
   }
 
@@ -255,7 +272,7 @@ export function initializeReviews(root) {
   }
   more.addEventListener('click', () => {
     const start = visible
-    visible = Math.min(visible + PAGE_SIZE, textReviews.length)
+    visible = Math.min(visible + pageSize(), textReviews.length)
     const newItems = textReviews.slice(start, visible).map(makeReview)
     list.append(...newItems)
     updateFooter()
@@ -265,12 +282,25 @@ export function initializeReviews(root) {
     first?.scrollIntoView({ block: 'start', behavior: 'instant' })
   })
   reset.addEventListener('click', () => {
-    visible = PAGE_SIZE
+    visible = pageSize()
     render()
     list.querySelector('article')?.focus({ preventScroll: true })
     root.closest('section').scrollIntoView({ block: 'start', behavior: 'instant' })
   })
   render()
+  mobileViewport.addEventListener('change', () => {
+    const resetHadFocus = document.activeElement === reset
+    // Never remove already visible reviews on resize or disturb an open reader.
+    // A wider initial view gets at least six; future clicks use the current step.
+    const minimum = Math.min(pageSize(), textReviews.length)
+    if (visible < minimum) {
+      list.append(...textReviews.slice(visible, minimum).map(makeReview))
+      visible = minimum
+      measurePreviews()
+    }
+    updateFooter()
+    if (resetHadFocus && reset.hidden) list.querySelector('article')?.focus({ preventScroll: true })
+  })
   // Re-evaluate real clipping after font loading, localization and viewport changes.
   if ('ResizeObserver' in window) new ResizeObserver(measurePreviews).observe(list)
   window.addEventListener('resize', measurePreviews)
@@ -284,6 +314,8 @@ export function initializeReviews(root) {
     average.textContent = t().average
     total.textContent = t().total(snapshot.summary.total)
     source.textContent = t().snapshot(captureDate())
+    googleLabel.textContent = t().google
+    googleLink.setAttribute('aria-label', t().google + ' (' + t().newTab + ')')
     labels.forEach(update => update())
     updateReader()
     updateFooter()

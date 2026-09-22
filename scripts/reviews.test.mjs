@@ -34,8 +34,20 @@ test('exact source wording, original language and input order survive projection
 
 test('UI includes captured Google dates but excludes owner replies, avatars, media and profiles', () => {
   for (const review of data.reviews) assert.deepEqual(Object.keys(review), ['id', 'author', 'rating', 'text', 'language', 'dateDisplayed'])
-  assert.doesNotMatch(JSON.stringify(data), /https?:\/\/|ownerResponse|avatarUrl|reviewMedia|localGuide|googleTranslation/)
+  assert.doesNotMatch(JSON.stringify(data.reviews), /https?:\/\/|ownerResponse|avatarUrl|reviewMedia|localGuide|googleTranslation/)
   assert.equal(data.reviews.findIndex(review => review.rating === 2), 40)
+})
+
+test('only the existing HTTPS Google listing is exposed as the outbound source link', () => {
+  assert.deepEqual(Object.keys(data), ['capturedAt', 'sourceUrl', 'summary', 'reviews'])
+  assert.equal(data.sourceUrl, source.business.sourceUrl)
+  assert.equal(new URL(data.sourceUrl).origin, 'https://www.google.com')
+  assert.ok(data.sourceUrl.includes('0xd5a4fe2be59f25dd'))
+  for (const sourceUrl of ['javascript:alert(1)', 'http://www.google.com/maps/place/', 'https://www.google.com.evil.test/maps/place/', 'https://www.google.com/maps/contrib/123', 'https://user@www.google.com/maps/place/']) {
+    const changed = structuredClone(source)
+    changed.business.sourceUrl = sourceUrl
+    assert.throws(() => createPublicReviews(changed, verified))
+  }
 })
 
 test('invalid, duplicate or incomplete imports fail rather than silently losing reviews', () => {

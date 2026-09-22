@@ -12,6 +12,10 @@ export function createPublicReviews(source, verified) {
   assert.equal(source.reviews.length, source.capture.totalCaptured, 'Captured total differs from source records')
   assert.equal(new Set(source.reviews.map(review => review.id)).size, source.reviews.length, 'Duplicate review IDs')
   assert.ok(Number.isFinite(Date.parse(source.capture.capturedAt)), 'Missing capture date')
+  const sourceUrl = new URL(source.business.sourceUrl)
+  assert.ok(sourceUrl.protocol === 'https:' && sourceUrl.hostname === 'www.google.com'
+    && sourceUrl.pathname.startsWith('/maps/place/') && !sourceUrl.username && !sourceUrl.password && !sourceUrl.port,
+  'Expected an HTTPS Google Maps listing source')
 
   const originals = new Map(verified.reviews.filter(review => review.verified).map(review => [review.sourceReviewId, review]))
   const distribution = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
@@ -31,7 +35,7 @@ export function createPublicReviews(source, verified) {
     const text = normalizeLineBreaks(original?.text ?? review.textOriginal)
     const language = original?.language ?? review.language
     assert.ok(/^[a-z]{2,3}(?:-[A-Za-z0-9]+)*$/.test(language), 'Missing review language')
-    // Explicit allowlist: owner replies, photos, profiles and Google URLs never enter the bundle.
+    // Per-review allowlist: owner replies, photos, profiles and individual URLs stay private.
     assert.ok(typeof review.dateDisplayed === 'string' && review.dateDisplayed.trim(), 'Missing Google date')
     reviews.push({ id: review.id, author: review.author, rating: review.rating, text, language, dateDisplayed: review.dateDisplayed })
   }
@@ -43,6 +47,7 @@ export function createPublicReviews(source, verified) {
   assert.equal(rating, source.business.reportedRating, 'Rounded rating differs from reported rating')
   return {
     capturedAt: source.capture.capturedAt,
+    sourceUrl: source.business.sourceUrl,
     summary: { total: source.reviews.length, rating, ratingOnly, distribution },
     reviews,
   }
