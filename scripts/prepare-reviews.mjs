@@ -32,7 +32,8 @@ export function createPublicReviews(source, verified) {
     const language = original?.language ?? review.language
     assert.ok(/^[a-z]{2,3}(?:-[A-Za-z0-9]+)*$/.test(language), 'Missing review language')
     // Explicit allowlist: owner replies, photos, profiles and Google URLs never enter the bundle.
-    reviews.push({ id: review.id, author: review.author, rating: review.rating, text, language })
+    assert.ok(typeof review.dateDisplayed === 'string' && review.dateDisplayed.trim(), 'Missing Google date')
+    reviews.push({ id: review.id, author: review.author, rating: review.rating, text, language, dateDisplayed: review.dateDisplayed })
   }
   const ratingOnly = source.reviews.length - reviews.length
   assert.equal(reviews.length, source.capture.textReviews, 'Text count differs from export metadata')

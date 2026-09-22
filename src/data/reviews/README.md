@@ -7,8 +7,8 @@
 ## Tatsächlich verwendete Daten
 
 - Alle 66 Sternebewertungen tragen zu Gesamtzahl, Durchschnitt und Verteilung bei: 65 × 5 Sterne, 1 × 2 Sterne. Der Durchschnitt 327 / 66 wird wie im gelieferten Google-Snapshot auf eine Dezimalstelle zu 5,0 gerundet.
-- Die UI enthält 62 Textrezensionen, je mit ID, Autor, Sternezahl, unverändertem Text und Sprachcode. Die vier Einträge ohne Text erzeugen keine leeren Karten.
-- Reihenfolge: Exportreihenfolge, ohne Bewertungsauswahl oder Sprachfilter. Optional stabile Sortierung nach aufsteigender Sternezahl. Sechs Texte am Anfang, sechs pro weiterem Schritt.
+- Die UI enthält 62 Textrezensionen, je mit ID, Autor, Sternezahl, unverändertem Text, Sprachcode und der vorhandenen Google-Zeitangabe (`dateDisplayed`). Die vier Einträge ohne Text erzeugen keine leeren Karten. Die Sternverteilung wird nicht in der Oberfläche angezeigt.
+- Reihenfolge: unveränderte Exportreihenfolge, ohne Sortier- oder Filterfunktion. Sechs Texte am Anfang, sechs pro weiterem Schritt. Die Zwei-Sterne-Rezension bleibt an Position 41 der Textrezensionen.
 - Bei exakter ID-Übereinstimmung wird nach bestätigter Nutzerentscheidung der bereits verifizierte Originaltext aus `reviews.verified.json` übernommen. Autor und Rating müssen übereinstimmen. 24 Texte sind inhaltlich identisch, fünf ersetzen bereits übersetzte Fassungen im neuen Export:
 
 | Autor | Originalsprache |
@@ -21,9 +21,9 @@
 
 Die verbleibenden 33 Texte stammen ausschließlich aus dem neuen Export. Ihre Originalsprache lässt sich anhand des vorhandenen verifizierten Teilbestands nicht zusätzlich bestätigen; sie werden gemäß Nutzerentscheidung unverändert übernommen. Karolina Reiters Text enthält bereits Deutsch und Russisch; beide Teile bleiben erhalten. Sprachattribute an Textabschnitten unterstützen die Aussprache durch Screenreader.
 
-Nur literal gespeicherte `\n` / `\r\n` werden in echte Zeilenumbrüche umgewandelt. Rechtschreibung, Interpunktion, Emojis, Absätze und Inhalt werden weder übersetzt noch redigiert. Die eingeklappte Vorschau ist ein wortgetreuer Anfang, mit sichtbaren Auslassungspunkten und zugänglichem Volltextschalter.
+Nur literal gespeicherte `\n` / `\r\n` werden in echte Zeilenumbrüche umgewandelt. Rechtschreibung, Interpunktion, Emojis, Absätze und Inhalt werden weder übersetzt noch redigiert. Die Vorschau begrenzt den unveränderten Text ausschließlich per CSS auf sechs Zeilen. Bei tatsächlicher Überlänge öffnet eine einzelne Weiterlesen-Aktion eine native, scrollbar bedienbare Leseansicht; das Raster bleibt unverändert. Escape oder Schließen führt den Fokus zurück zur Rezension.
 
-Nicht in der UI-Datei: `ownerResponse`, Avatare, Reviewbilder, Google-Profile, externe URLs, Google-Übersetzungsfelder, Local-Guide-Metadaten. Relative Altersangaben aus dem Export werden nicht als aktuelle Daten angezeigt und nicht in erfundene exakte Veröffentlichungstage umgerechnet. Die Sektion nennt stattdessen das Erfassungsdatum.
+Nicht in der UI-Datei: `ownerResponse`, Avatare, Reviewbilder, Google-Profile, externe URLs, Google-Übersetzungsfelder, Local-Guide-Metadaten. Die relativen Google-Zeitangaben stammen vom Erfassungsdatum 21.09.2026, das unter dem Durchschnitt steht; ein Tooltip an jeder Zeitangabe erläutert diesen Bezug. Sie werden nicht laufend neu berechnet oder in erfundene exakte Veröffentlichungstage umgerechnet. DE übernimmt die Metadaten unverändert, RU lokalisiert ausschließlich diese Zeitangaben einschließlich des Bearbeitet-Hinweises; die Rezensionstexte bleiben immer unverändert.
 
 ## Pflege und offene Punkte
 

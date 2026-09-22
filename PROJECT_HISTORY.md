@@ -2,7 +2,7 @@
 
 Diese Datei beschreibt die lokalen Git-Sicherungen der Website. Die Tags und Branches liegen nur auf diesem Rechner. Es wurde nichts zu GitHub übertragen.
 
-Der aktuelle Arbeitsbranch heißt `feature/native-reviews`. Er enthält die eigene lokale Review-Sektion auf Basis des vollständigen Nutzerexports und der ausdrücklich freigegebenen verifizierten Originaltexte. Ausgangssicherung: `cf2fb2c` / `checkpoint/pre-native-reviews`; funktionale Integration: `55fecde` / `checkpoint/native-reviews-functional`; Design: `e6fc7e2` / `checkpoint/native-reviews-design`. Der vollständige Abschluss wird durch `checkpoint/native-reviews-final` bezeichnet. Details und Teststatus stehen in `NATIVE_REVIEWS_STATUS.md`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum aktuellen Stand führt `git switch feature/native-reviews`, zum früheren partiellen Review-Datensnapshot `git switch reviews-data-import`.
+Der aktuelle Arbeitsbranch heißt `feature/native-reviews`. Er enthält die eigene lokale Review-Sektion auf Basis des vollständigen Nutzerexports und der ausdrücklich freigegebenen verifizierten Originaltexte. Ausgangssicherung: `cf2fb2c` / `checkpoint/pre-native-reviews`; funktionale Integration: `55fecde` / `checkpoint/native-reviews-functional`; Design: `e6fc7e2` / `checkpoint/native-reviews-design`; erster Abschluss: `9ec15fa` / `checkpoint/native-reviews-final`. Der anschließende gezielte UI/UX-Polish wird durch `checkpoint/review-ui-polish-final` bezeichnet; sein Ausgangspunkt ist `checkpoint/pre-review-ui-polish` auf `9ec15fa`. Aktuelle Details und Teststatus stehen in `REVIEW_UI_POLISH_STATUS.md`, der frühere Abschluss in `NATIVE_REVIEWS_STATUS.md`. Sämtliche früheren Branches und Checkpoints bleiben erhalten. Rückkehrbefehle in älteren Einträgen beziehen sich auf den damaligen Arbeitsstand; zum aktuellen Stand führt `git switch feature/native-reviews`, zum früheren partiellen Review-Datensnapshot `git switch reviews-data-import`.
 
 ## Checkpoints
 
@@ -46,6 +46,14 @@ Der aktuelle Arbeitsbranch heißt `feature/native-reviews`. Er enthält die eige
 | 36 | 21.09.2026 | `checkpoint/native-reviews-functional` | `55fecde` | Eigene lokale Review-Daten und Bedienlogik; Elfsight technisch entfernt. |
 | 37 | 21.09.2026 | `checkpoint/native-reviews-design` | `e6fc7e2` | Review-Design und Responsive-Polish; 208 Review- und 135 Interaction-Checks bestanden. |
 | 38 | 21.09.2026 | `checkpoint/native-reviews-final` | Über Final-Tag auflösbar | Abschlussstand der eigenen Review-Sektion; vollständige Ergebnisse in `NATIVE_REVIEWS_STATUS.md`. |
+| 39 | 22.09.2026 | `checkpoint/pre-review-ui-polish` | `9ec15fa` | Sauberer, bereits vollständig committeter Review-Stand vor dem gezielten UI/UX-Polish. |
+| 40 | 22.09.2026 | `checkpoint/review-ui-polish-final` | Über Final-Tag auflösbar | Review-Polish ohne Sortierung, mit Google-Zeitangaben, sechszeiligen Vorschauen und stabiler Leseansicht; 351 Review- und 135 Interaction-Checks bestanden. |
+
+## Gezielter Review-UI/UX-Polish – 22.09.2026
+
+Die editoriale offene Gestaltung bleibt erhalten. Sortierung und sichtbare Sternverteilung wurden entfernt. Durchschnitt und Datenstand sind zurückhaltender integriert, Sterne etwas präsenter in der vorhandenen warmen Farbwelt. Jede Rezension zeigt ihre gespeicherte Google-Zeitangabe. Eine einzelne Weiterlesen-Aktion öffnet bei überlangen Texten eine ruhige native Leseansicht mit eigener Scrollfläche, jederzeit erreichbarem Schließen und Fokusrückgabe. Sechszeilige CSS-Vorschauen halten das Raster stabil; Fortschritt und Nachladen bilden eine gemeinsame Navigation.
+
+Alle Texte, die autorisierten Originale und die Reihenfolge bleiben unverändert, einschließlich der Zwei-Sterne-Rezension an Position 41. Kein Besucherfilter, keine Avatare, kein Local-Guide-Status, keine externen Review-Requests. Außer der ausschließlich beim Lesen aktiven Scrollsperre keine Website-Änderung außerhalb der Review-Sektion; Legal-Seiten unverändert. Build, fünf Datentests und 486 Browserchecks bestanden. Details und verbleibende separate Legal-Pflege: `REVIEW_UI_POLISH_STATUS.md`. Kein Push, kein Deployment.
 
 ## Eigene Review-Sektion – 21.09.2026
 

@@ -1,5 +1,7 @@
 # Eigene Review-Sektion – Fortsetzungsstatus
 
+Historischer Abschluss vom 21.09.2026. Der anschließende gezielte UI/UX-Polish (ohne Sortierung, mit Google-Zeitangaben und eigener Leseansicht) ist in [REVIEW_UI_POLISH_STATUS.md](REVIEW_UI_POLISH_STATUS.md) dokumentiert; dessen Beschreibung gilt für die aktuelle Bedienung.
+
 Branch: `feature/native-reviews`. Kein Push, kein Deployment.
 
 ## Sicherung und Scope

@@ -25,15 +25,17 @@ test('exact source wording, original language and input order survive projection
     assert.equal(review.rating, raw.rating)
     assert.equal(review.text, normalizeLineBreaks(original?.text ?? raw.textOriginal))
     assert.equal(review.language, original?.language ?? raw.language)
+    assert.equal(review.dateDisplayed, raw.dateDisplayed)
     if (review.text !== normalizeLineBreaks(raw.textOriginal)) originalReplacements++
   }
   assert.equal(originalReplacements, 5)
   assert.deepEqual([...new Set(data.reviews.map(review => review.language))].sort(), ['de', 'en', 'hu', 'ru'])
 })
 
-test('UI allowlist excludes owner replies, avatars, media, profiles and relative dates', () => {
-  for (const review of data.reviews) assert.deepEqual(Object.keys(review), ['id', 'author', 'rating', 'text', 'language'])
-  assert.doesNotMatch(JSON.stringify(data), /https?:\/\/|ownerResponse|avatarUrl|reviewMedia|dateDisplayed|googleTranslation/)
+test('UI includes captured Google dates but excludes owner replies, avatars, media and profiles', () => {
+  for (const review of data.reviews) assert.deepEqual(Object.keys(review), ['id', 'author', 'rating', 'text', 'language', 'dateDisplayed'])
+  assert.doesNotMatch(JSON.stringify(data), /https?:\/\/|ownerResponse|avatarUrl|reviewMedia|localGuide|googleTranslation/)
+  assert.equal(data.reviews.findIndex(review => review.rating === 2), 40)
 })
 
 test('invalid, duplicate or incomplete imports fail rather than silently losing reviews', () => {
@@ -44,6 +46,7 @@ test('invalid, duplicate or incomplete imports fail rather than silently losing 
     value => { value.reviews[0].textOriginal = '' },
     value => { value.capture.completeness = 'partial' },
     value => { value.reviews[0].author = 'Different author' },
+    value => { value.reviews[0].dateDisplayed = '' },
   ]) {
     const changed = structuredClone(source)
     mutate(changed)

@@ -2,41 +2,34 @@ import snapshot from './data/reviews/reviews.public.json'
 import './reviews.css'
 
 const PAGE_SIZE = 6
-const PREVIEW_LENGTH = 300
 const copy = {
   de: {
-    total: total => `${total} Bewertungen auf Google`,
-    counts: (text, stars) => `${text} mit Text · ${stars} reine Sternebewertungen`,
-    distribution: (five, two) => `${five} × 5 Sterne · ${two} × 2 Sterne`,
-    snapshot: date => `Stand: ${date}`,
-    sort: 'Sortieren',
-    original: 'Standard',
-    lowest: 'Niedrigste zuerst',
+    average: 'Google-Bewertung im Durchschnitt',
+    total: total => 'Aus ' + total + ' Bewertungen',
+    counts: (text, stars) => text + ' mit Text · ' + stars + ' reine Sternebewertungen',
+    snapshot: date => 'Stand: ' + date,
+    dateContext: date => 'Zeitangabe von Google beim Abruf am ' + date,
     read: 'Weiterlesen',
-    close: 'Weniger anzeigen',
-    rating: value => `${value} von 5 Sternen`,
-    more: count => `${count} weitere Bewertungen`,
-    progress: (visible, total) => `${visible} von ${total} Textbewertungen`,
+    close: 'Schließen',
+    rating: value => value + ' von 5 Sternen',
+    more: count => count + ' weitere Bewertungen',
+    progress: (visible, total) => visible + ' von ' + total + ' Textbewertungen',
     complete: 'Alle Textbewertungen sind angezeigt.',
     reset: 'Wieder weniger anzeigen',
-    source: 'Quelle: Google-Bewertungen',
   },
   ru: {
-    total: total => `${total} оценок в Google`,
-    counts: (text, stars) => `${text} с текстом · ${stars} без текста`,
-    distribution: (five, two) => `${five} × 5 звёзд · ${two} × 2 звезды`,
-    snapshot: date => `По состоянию на ${date}`,
-    sort: 'Порядок',
-    original: 'По умолчанию',
-    lowest: 'Сначала низкие',
+    average: 'Средняя оценка в Google',
+    total: total => 'На основе ' + total + ' оценок',
+    counts: (text, stars) => text + ' с текстом · ' + stars + ' без текста',
+    snapshot: date => 'Данные на ' + date,
+    dateContext: date => 'Срок, указанный Google при сборе данных ' + date,
     read: 'Читать полностью',
-    close: 'Свернуть',
-    rating: value => `${value} из 5 звёзд`,
-    more: count => `Показать ещё ${count}`,
-    progress: (visible, total) => `${visible} из ${total} отзывов с текстом`,
+    close: 'Закрыть',
+    rating: value => value + ' из 5 звёзд',
+    more: count => 'Показать ещё ' + count,
+    progress: (visible, total) => visible + ' из ' + total + ' отзывов с текстом',
     complete: 'Показаны все отзывы с текстом.',
     reset: 'Снова показать меньше',
-    source: 'Источник: отзывы в Google',
   },
 }
 
@@ -47,49 +40,50 @@ function element(tag, className, text) {
   return node
 }
 
-function preview(text) {
-  if (text.length <= PREVIEW_LENGTH) return text
-  // A verbatim prefix, never a rewritten excerpt. Cut only at a word boundary.
-  const end = text.lastIndexOf(' ', PREVIEW_LENGTH)
-  return text.slice(0, end > 0 ? end : PREVIEW_LENGTH)
+function writeReviewText(node, review) {
+  node.dir = 'auto'
+  // Keep every source character, including mixed-language paragraphs.
+  node.replaceChildren(...review.text.split(/(\n)/).map(part => {
+    const span = element('span', null, part)
+    span.lang = /[А-Яа-яЁё]/u.test(part) ? 'ru' : review.language === 'ru' ? 'de' : review.language
+    return span
+  }))
+}
+
+function googleDate(value, language) {
+  if (language === 'de') return value
+  const match = value.match(/^(Bearbeitet: )?vor (einem|\d+) (Monat(?:en)?|Jahr(?:en)?)$/)
+  if (!match) return value
+  const amount = match[2] === 'einem' ? 1 : Number(match[2])
+  const date = new Intl.RelativeTimeFormat('ru', { numeric: 'always' })
+    .format(-amount, match[3].startsWith('Monat') ? 'month' : 'year')
+  return (match[1] ? 'Изменено: ' : '') + date
 }
 
 export function initializeReviews(root) {
   if (!root) return () => {}
   let language = 'de'
   let visible = PAGE_SIZE
-  let order = 'original'
-  const expanded = new Set()
+  let activeReview = null
+  let returnFocus = null
+  let measurementFrame = 0
   const labels = new Map()
   const textReviews = snapshot.reviews
-  const ordered = () => order === 'lowest'
-    ? [...textReviews].sort((a, b) => a.rating - b.rating)
-    : textReviews
   const t = () => copy[language]
+  const captureDate = () => new Intl.DateTimeFormat(language === 'ru' ? 'ru-RU' : 'de-DE', {
+    day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'Europe/Berlin',
+  }).format(new Date(snapshot.capturedAt))
 
   const summary = element('div', 'reviews-summary')
   const score = element('span', 'reviews-score')
   score.setAttribute('role', 'img')
   const summaryCopy = element('div', 'reviews-summary-copy')
+  const average = element('p', 'reviews-average')
   const total = element('p', 'reviews-total')
   const counts = element('p', 'reviews-counts')
-  const distribution = element('p', 'reviews-distribution')
-  summaryCopy.append(total, counts, distribution)
-  summary.append(score, summaryCopy)
-
-  const toolbar = element('div', 'reviews-toolbar')
   const source = element('p', 'reviews-source')
-  const sortLabel = element('label', 'reviews-sort')
-  const sortText = element('span')
-  const sort = element('select')
-  sort.id = 'reviews-order'
-  const standard = element('option')
-  standard.value = 'original'
-  const lowest = element('option')
-  lowest.value = 'lowest'
-  sort.append(standard, lowest)
-  sortLabel.append(sortText, sort)
-  toolbar.append(source, sortLabel)
+  summaryCopy.append(average, total, counts, source)
+  summary.append(score, summaryCopy)
 
   const list = element('ul', 'reviews-list')
   list.setAttribute('role', 'list')
@@ -112,15 +106,110 @@ export function initializeReviews(root) {
   reset.setAttribute('aria-controls', list.id)
   actions.append(more, reset)
   footer.append(progress, actions)
-  root.replaceChildren(summary, toolbar, list, footer)
+
+  // One native reading dialog keeps the underlying rows and their order stable.
+  const reader = element('dialog', 'review-reader')
+  reader.id = 'review-reader'
+  reader.setAttribute('aria-labelledby', 'review-reader-author')
+  const readerHeader = element('div', 'review-reader-header')
+  const readerAuthor = element('h3', 'review-author')
+  readerAuthor.id = 'review-reader-author'
+  readerAuthor.tabIndex = -1
+  const close = element('button', 'review-reader-close')
+  close.type = 'button'
+  readerHeader.append(readerAuthor, close)
+  const readerBody = element('div', 'review-reader-body')
+  readerBody.tabIndex = 0
+  const readerFacts = element('div', 'review-facts')
+  const readerRating = element('span', 'review-rating')
+  readerRating.setAttribute('role', 'img')
+  const readerDate = element('span', 'review-date')
+  readerFacts.append(readerRating, readerDate)
+  const readerQuote = element('blockquote', 'review-reader-quote')
+  const readerText = element('p', 'review-text')
+  readerQuote.append(readerText)
+  readerBody.append(readerFacts, readerQuote)
+  reader.append(readerHeader, readerBody)
+  root.replaceChildren(summary, list, footer, reader)
+
+  function updateDate(node, review) {
+    node.textContent = googleDate(review.dateDisplayed, language)
+    node.title = t().dateContext(captureDate())
+  }
+
+  function writeRating(node, review) {
+    node.setAttribute('aria-label', t().rating(review.rating))
+    const stars = element('span', null, '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating))
+    stars.setAttribute('aria-hidden', 'true')
+    node.replaceChildren(stars)
+  }
+
+  function updateReader() {
+    close.textContent = t().close
+    if (!activeReview) return
+    readerAuthor.replaceChildren(element('bdi', null, activeReview.author))
+    writeRating(readerRating, activeReview)
+    updateDate(readerDate, activeReview)
+  }
+
+  function openReader(review, trigger) {
+    activeReview = review
+    returnFocus = trigger
+    writeReviewText(readerText, review)
+    updateReader()
+    reader.showModal()
+    document.documentElement.style.setProperty('--review-scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + 'px')
+    document.documentElement.classList.add('review-reader-open')
+    readerBody.scrollTop = 0
+    readerAuthor.focus({ preventScroll: true })
+  }
+
+  close.addEventListener('click', () => reader.close())
+  reader.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return
+    if (event.shiftKey && (document.activeElement === close || document.activeElement === readerAuthor)) {
+      event.preventDefault()
+      readerBody.focus()
+    } else if (!event.shiftKey && document.activeElement === readerBody) {
+      event.preventDefault()
+      close.focus()
+    }
+  })
+  reader.addEventListener('click', event => {
+    const rect = reader.getBoundingClientRect()
+    if (event.target === reader && (event.clientX < rect.left || event.clientX > rect.right
+      || event.clientY < rect.top || event.clientY > rect.bottom)) reader.close()
+  })
+  reader.addEventListener('close', () => {
+    document.documentElement.classList.remove('review-reader-open')
+    document.documentElement.style.removeProperty('--review-scrollbar-width')
+    const target = returnFocus?.hidden ? returnFocus.closest('article') : returnFocus
+    target?.focus({ preventScroll: true })
+    activeReview = null
+  })
 
   function updateFooter() {
     const all = visible >= textReviews.length
-    progress.textContent = `${t().progress(Math.min(visible, textReviews.length), textReviews.length)}${all ? ` · ${t().complete}` : ''}`
+    progress.textContent = t().progress(Math.min(visible, textReviews.length), textReviews.length)
+      + (all ? ' · ' + t().complete : '')
     more.hidden = all
     moreLabel.textContent = t().more(Math.min(PAGE_SIZE, textReviews.length - visible))
     reset.hidden = visible <= PAGE_SIZE
     reset.textContent = t().reset
+  }
+
+  function measurePreviews() {
+    if (measurementFrame) return
+    measurementFrame = requestAnimationFrame(() => {
+      measurementFrame = 0
+      for (const item of list.children) {
+        const text = item.querySelector('.review-text')
+        const toggle = item.querySelector('.review-toggle')
+        const truncated = text.scrollHeight > text.clientHeight + 1
+        if (!truncated && document.activeElement === toggle) item.querySelector('article').focus({ preventScroll: true })
+        toggle.hidden = !truncated
+      }
+    })
   }
 
   function makeReview(review) {
@@ -129,55 +218,31 @@ export function initializeReviews(root) {
     const article = element('article', 'review')
     article.tabIndex = -1
     const name = element('h3', 'review-author')
-    const author = element('bdi', null, review.author)
-    name.id = `review-author-${review.id}`
-    name.append(author)
+    name.id = 'review-author-' + review.id
+    name.append(element('bdi', null, review.author))
     article.setAttribute('aria-labelledby', name.id)
     const rating = element('span', 'review-rating')
     rating.setAttribute('role', 'img')
-    const stars = element('span', null, '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating))
-    stars.setAttribute('aria-hidden', 'true')
-    rating.append(stars)
+    const date = element('span', 'review-date')
+    const facts = element('div', 'review-facts')
+    facts.append(rating, date)
     const meta = element('div', 'review-meta')
-    meta.append(name, rating)
+    meta.append(name, facts)
     const quote = element('blockquote', 'review-quote')
     const text = element('p', 'review-text')
-    text.id = `review-text-${review.id}`
-    text.dir = 'auto'
+    writeReviewText(text, review)
     quote.append(text)
-    article.append(meta, quote)
-    const shortText = preview(review.text)
-    let toggle
-    if (shortText !== review.text) {
-      toggle = element('button', 'review-toggle')
-      toggle.type = 'button'
-      toggle.setAttribute('aria-controls', text.id)
-      toggle.addEventListener('click', () => {
-        const wasExpanded = expanded.has(review.id)
-        if (wasExpanded) expanded.delete(review.id)
-        else expanded.add(review.id)
-        update()
-        // Collapsing a long text must not leave its focused control above the viewport.
-        if (wasExpanded) toggle.scrollIntoView({ block: 'nearest', behavior: 'instant' })
-      })
-      article.append(toggle)
-    }
-    function update() {
-      const isExpanded = expanded.has(review.id)
-      const content = isExpanded ? review.text : shortText
-      // Preserve mixed-language paragraphs without changing any characters.
-      text.replaceChildren(...content.split(/(\n)/).map(part => {
-        const span = element('span', null, part)
-        span.lang = /[А-Яа-яЁё]/u.test(part) ? 'ru' : review.language === 'ru' ? 'de' : review.language
-        return span
-      }))
-      if (!isExpanded && shortText !== review.text) text.append(element('span', 'review-ellipsis', '…'))
-      rating.setAttribute('aria-label', t().rating(review.rating))
-      if (toggle) {
-        toggle.textContent = isExpanded ? t().close : t().read
-        toggle.setAttribute('aria-expanded', String(isExpanded))
-        toggle.setAttribute('aria-label', `${toggle.textContent} – ${review.author}`)
-      }
+    const toggle = element('button', 'review-toggle')
+    toggle.type = 'button'
+    toggle.setAttribute('aria-haspopup', 'dialog')
+    toggle.setAttribute('aria-controls', reader.id)
+    toggle.addEventListener('click', () => openReader(review, toggle))
+    article.append(meta, quote, toggle)
+    const update = () => {
+      writeRating(rating, review)
+      updateDate(date, review)
+      toggle.textContent = t().read
+      toggle.setAttribute('aria-label', t().read + ' – ' + review.author)
     }
     update()
     labels.set(review.id, update)
@@ -187,49 +252,45 @@ export function initializeReviews(root) {
 
   function render() {
     labels.clear()
-    list.replaceChildren(...ordered().slice(0, visible).map(makeReview))
+    list.replaceChildren(...textReviews.slice(0, visible).map(makeReview))
     updateFooter()
+    measurePreviews()
   }
   more.addEventListener('click', () => {
     const start = visible
     visible = Math.min(visible + PAGE_SIZE, textReviews.length)
-    const newItems = ordered().slice(start, visible).map(makeReview)
+    const newItems = textReviews.slice(start, visible).map(makeReview)
     list.append(...newItems)
     updateFooter()
-    // Reading and keyboard order continue at the first newly revealed review.
+    measurePreviews()
     const first = newItems[0]?.querySelector('article')
     first?.focus({ preventScroll: true })
     first?.scrollIntoView({ block: 'start', behavior: 'instant' })
   })
   reset.addEventListener('click', () => {
     visible = PAGE_SIZE
-    expanded.clear()
     render()
     list.querySelector('article')?.focus({ preventScroll: true })
     root.closest('section').scrollIntoView({ block: 'start', behavior: 'instant' })
   })
-  sort.addEventListener('change', () => {
-    order = sort.value
-    visible = PAGE_SIZE
-    render()
-  })
   render()
+  // Re-evaluate real clipping after font loading, localization and viewport changes.
+  if ('ResizeObserver' in window) new ResizeObserver(measurePreviews).observe(list)
+  window.addEventListener('resize', measurePreviews)
+  document.fonts?.ready.then(measurePreviews)
 
   return nextLanguage => {
     language = copy[nextLanguage] ? nextLanguage : 'de'
-    const locale = language === 'ru' ? 'ru-RU' : 'de-DE'
-    const formattedRating = snapshot.summary.rating.toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+    const formattedRating = snapshot.summary.rating.toLocaleString(language, { minimumFractionDigits: 1, maximumFractionDigits: 1 })
     score.textContent = formattedRating
-    score.setAttribute('aria-label', t().rating(formattedRating))
+    score.setAttribute('aria-label', t().average + ': ' + t().rating(formattedRating))
+    average.textContent = t().average
     total.textContent = t().total(snapshot.summary.total)
     counts.textContent = t().counts(textReviews.length, snapshot.summary.ratingOnly)
-    distribution.textContent = t().distribution(snapshot.summary.distribution[5], snapshot.summary.distribution[2])
-    const date = new Intl.DateTimeFormat(locale, { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'Europe/Berlin' }).format(new Date(snapshot.capturedAt))
-    source.textContent = `${t().source} · ${t().snapshot(date)}`
-    sortText.textContent = t().sort
-    standard.textContent = t().original
-    lowest.textContent = t().lowest
+    source.textContent = t().snapshot(captureDate())
     labels.forEach(update => update())
+    updateReader()
     updateFooter()
+    measurePreviews()
   }
 }
