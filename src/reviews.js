@@ -6,7 +6,6 @@ const copy = {
   de: {
     average: 'Google-Bewertung im Durchschnitt',
     total: total => 'Aus ' + total + ' Bewertungen',
-    counts: (text, stars) => text + ' mit Text · ' + stars + ' reine Sternebewertungen',
     snapshot: date => 'Stand: ' + date,
     dateContext: date => 'Zeitangabe von Google beim Abruf am ' + date,
     read: 'Weiterlesen',
@@ -20,7 +19,6 @@ const copy = {
   ru: {
     average: 'Средняя оценка в Google',
     total: total => 'На основе ' + total + ' оценок',
-    counts: (text, stars) => text + ' с текстом · ' + stars + ' без текста',
     snapshot: date => 'Данные на ' + date,
     dateContext: date => 'Срок, указанный Google при сборе данных ' + date,
     read: 'Читать полностью',
@@ -80,9 +78,8 @@ export function initializeReviews(root) {
   const summaryCopy = element('div', 'reviews-summary-copy')
   const average = element('p', 'reviews-average')
   const total = element('p', 'reviews-total')
-  const counts = element('p', 'reviews-counts')
   const source = element('p', 'reviews-source')
-  summaryCopy.append(average, total, counts, source)
+  summaryCopy.append(average, total, source)
   summary.append(score, summaryCopy)
 
   const list = element('ul', 'reviews-list')
@@ -286,7 +283,6 @@ export function initializeReviews(root) {
     score.setAttribute('aria-label', t().average + ': ' + t().rating(formattedRating))
     average.textContent = t().average
     total.textContent = t().total(snapshot.summary.total)
-    counts.textContent = t().counts(textReviews.length, snapshot.summary.ratingOnly)
     source.textContent = t().snapshot(captureDate())
     labels.forEach(update => update())
     updateReader()

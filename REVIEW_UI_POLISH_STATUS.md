@@ -2,6 +2,14 @@
 
 Abgeschlossen auf `feature/native-reviews`. Kein Push, kein Deployment.
 
+## Nachtrag: Zählzeile ersatzlos entfernt
+
+Auf ausdrückliche abschließende Korrektur wurde ausschließlich die Zeile „62 mit Text · 4 reine Sternebewertungen“ einschließlich ihres russischen Pendants entfernt, nicht ersetzt oder verschoben. Ungenutzte Übersetzungs- und CSS-Regeln wurden entfernt; der Browsertest erwartet nun das Fehlen der Zeile. Durchschnitt, Gesamtzahl, Datenstand, übriges Design, Originaltexte und Reihenfolge bleiben unverändert. Auch die Ladegröße bleibt unverändert bei sechs Rezensionen auf Desktop und Mobile; keine zusätzliche Badge-/Link- oder Header-Änderung.
+
+Vorab-Sicherung: `checkpoint/pre-review-count-line-removal` auf `0d83177`. Abschluss: `checkpoint/review-count-line-removed`. Details des ursprünglichen Polish-Passes folgen unverändert als historischer Bericht.
+
+Verifikation dieses Nachtrags: Build und 5/5 Datentests erfolgreich; 351/351 Review-Browserchecks bei 320–1440 px in DE/RU, einschließlich Tastatur, Fokus, Reduced Motion und Nachladen. Keine JS-Fehler, fehlgeschlagenen oder externen Requests. Desktop-DE und Mobile-RU visuell kontrolliert, `git diff --check` sauber. Eine eng begrenzte Korrekturrunde ohne weitere Designänderung. Kein Push, kein Deployment.
+
 ## Sicherung und Scope
 
 - Vor Änderungen: sauberer Working Tree, bereits vollständig committeter Stand `9ec15fa` / `checkpoint/native-reviews-final`. Vorab zusätzlich durch `checkpoint/pre-review-ui-polish` gesichert; kein leerer Commit nötig.
