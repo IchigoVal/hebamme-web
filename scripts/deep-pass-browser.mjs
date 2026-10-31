@@ -1,7 +1,7 @@
 // Windows/Edge regression QA (Node 22+), no extra dependencies.
 // npm run build
 // npm run preview -- --host 127.0.0.1 --port 4175 --strictPort
-// node scripts/deep-pass-browser.mjs [baseUrl] [final|interaction|final-sticky|final-implementation|audit|baseline] [optional case]
+// node scripts/deep-pass-browser.mjs [baseUrl] [final|interaction|final-sticky|final-implementation|native-reviews|marina-services|audit|baseline] [optional case]
 // Screenshots/reports stay in OS TEMP; BROWSER_PATH optionally selects another Chromium binary.
 import { spawn } from 'node:child_process'
 import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises'
@@ -13,6 +13,7 @@ const base = process.argv[2] || 'http://127.0.0.1:4175/hebamme-web/'
 const phase = process.argv[3] || 'final'
 const implementation = ['final-sticky', 'final-implementation'].includes(phase)
 const nativeReviews = phase === 'native-reviews'
+const marinaServices = phase === 'marina-services'
 const targeted = ['refinement-before', 'refinement', 'end-user-audit'].includes(phase)
 const verify = phase === 'final' || phase === 'interaction'
 const profile = await mkdtemp(path.join(os.tmpdir(), 'hebamme-deep-browser-'))
@@ -77,11 +78,11 @@ const screenshot = async (name, clip) => {
 await send('Page.enable')
 await send('Runtime.enable')
 await send('Network.enable')
-const fullMatrix = implementation || nativeReviews ? [] : phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']]
+const fullMatrix = implementation || nativeReviews || marinaServices ? [] : phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']]
   : phase === 'interaction' || targeted ? [[1440,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
   : [[1440,'de'],[1024,'de'],[768,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
 const matrix = process.argv[4] ? fullMatrix.filter(([width,language])=>`${width}/${language}`===process.argv[4]) : fullMatrix
-if (!matrix.length && !implementation && !nativeReviews) throw new Error('Unknown viewport/language case')
+if (!matrix.length && !implementation && !nativeReviews && !marinaServices) throw new Error('Unknown viewport/language case')
 const report = []
 const interactions = []
 const source = await readFile(new URL('../src/main.js', import.meta.url), 'utf8')
@@ -169,7 +170,7 @@ try {
           return controls.every(e=>{const r=e.getBoundingClientRect();return r.width>=44 && r.height>=44});
         })()`),`${width}/${language}: interaction targets at least 44px`)
         assert(await evaluate(`[...document.querySelectorAll('.btn')].filter(e=>e.getClientRects().length && getComputedStyle(e).visibility!=='hidden').every(e=>{const label=e.querySelector('.btn__label').getBoundingClientRect(),icon=e.querySelector('.btn__icon').getBoundingClientRect();return label.right<icon.left && label.width>0 && icon.width>=30})`),`${width}/${language}: button labels and icons fit`)
-        assert(await evaluate(`document.querySelectorAll('.orientation-number').length===3 && document.querySelectorAll('.service-card__number').length===4 && [...document.querySelectorAll('.orientation-number,.service-card__number')].every(e=>getComputedStyle(e).fontFamily.includes('Playfair') && e.scrollWidth<=e.clientWidth+1)`),`${width}/${language}: editorial numbers fit`)
+        assert(await evaluate(`document.querySelectorAll('.marina-service-number').length===5 && document.querySelectorAll('.service-card__number').length===4 && [...document.querySelectorAll('.marina-service-number,.service-card__number')].every(e=>getComputedStyle(e).fontFamily.includes('Playfair') && e.scrollWidth<=e.clientWidth+1)`),`${width}/${language}: five service and four inquiry numbers fit`)
         await evaluate(`window.scrollTo({top:0,behavior:'instant'});document.querySelector('.hero-actions .btn').focus()`)
         await press('Tab','Tab',9)
         assert(await evaluate(`document.activeElement.matches('.hero-actions .btn--secondary:focus-visible') && getComputedStyle(document.activeElement).outlineStyle!=='none'`),`${width}/${language}: contact button keyboard focus`)
@@ -352,7 +353,9 @@ try {
     ? await (await import('./final-implementation-checks.mjs')).runImplementationChecks({base,phase,caseFilter:process.argv[4],send,evaluate,screenshot,wait,press,assert,translations}) : []
   const nativeReviewsReport = nativeReviews
     ? await (await import('./reviews-browser-checks.mjs')).runReviewChecks({base,send,evaluate,screenshot,wait,click,press,assert,requests}) : []
-  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests,requests,targetedReport,implementationReport,nativeReviewsReport},null,2))
+  const marinaServicesReport = marinaServices
+    ? await (await import('./services-browser-checks.mjs')).runServiceChecks({base,send,evaluate,screenshot,wait,click,press,assert,requests,caseFilter:process.argv[4]}) : []
+  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests,requests,targetedReport,implementationReport,nativeReviewsReport,marinaServicesReport},null,2))
   console.log(JSON.stringify({output,report:report.map(({width,language,overflow,clippedText,missingTranslations})=>({width,language,overflow,clippedText,missingTranslations})),interactions,errors,failedRequests},null,2))
   if (interactions.some(check=>!check.pass) || errors.length || failedRequests.some(r=>r.url.startsWith(base))) process.exitCode=1
 } finally {

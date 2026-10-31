@@ -54,7 +54,9 @@ export async function runReviewChecks({base,send,evaluate,screenshot,wait,click,
       const clamp = await evaluate("[...document.querySelectorAll('.review-quote .review-text')].map(e=>({height:e.clientHeight,line:parseFloat(getComputedStyle(e).lineHeight),clamp:getComputedStyle(e).webkitLineClamp,scroll:e.scrollHeight,hasRead:!e.closest('.review').querySelector('.review-toggle').hidden}))")
       check(clamp.every(p=>p.clamp==='6' && Math.abs(p.height-6*p.line)<1 && p.hasRead===(p.scroll>p.height+1)), 'exactly six CSS lines; read action follows actual overflow')
       const original = baseline.find(item=>item.width===width && item.language===language)
-      if (original) check(layout.sections.every(section=>original.sections.find(item=>item.id===section.id)?.height===section.height), 'all protected section heights unchanged')
+      // The confirmed-service integration intentionally replaces #hebammenhilfe and
+      // updates inquiry-card/FAQ copy. Keep the untouched hero/contact guard strict.
+      if (original) check(layout.sections.filter(section=>!['hebammenhilfe','leistungen','wissen'].includes(section.id)).every(section=>original.sections.find(item=>item.id===section.id)?.height===section.height), 'untouched section heights unchanged')
       if ([320,390,1440].includes(width)) {
         await screenshot(width+'-'+language+'-reviews-viewport')
         const rect = await evaluate("(() => {const r=document.querySelector('#bewertungen').getBoundingClientRect();return {x:0,y:r.top+scrollY,width:innerWidth,height:r.height}})()")

@@ -5,8 +5,16 @@ Datum: 01.11.2026. Branch: `feature/native-reviews`. Kein Push, kein Deployment.
 ## Arbeitsstand / Wiederaufnahme
 
 1. Pre-Checkpoint abgeschlossen: `d9efa10` / `checkpoint/pre-marina-services`. Der zuvor unversionierte vollständige Originaltext wurde unverändert mitgesichert; Website-Ausgangsstand `84fa2b8`.
-2. Inhaltsarchitektur, vollständige DE-Daten, statischer HTML-Fallback, RU-Übersetzungsentwurf und native Expand/Collapse-Logik integriert. Build und 11/11 Daten-/Quelltexttests bestanden. Funktionaler Zwischencommit: Tag `checkpoint/marina-services-functional`.
-3. Noch ausstehend: Design-/Responsive-Polish, vollständige Browsermatrix inklusive Review- und Interaction-Regression, visuelle Kontrolle, finaler Commit und Tag.
+2. Inhaltsarchitektur, vollständige DE-Daten, statischer HTML-Fallback, RU-Übersetzungsentwurf und native Expand/Collapse-Logik integriert. Funktionaler Zwischencommit: `3b1510c` / `checkpoint/marina-services-functional`.
+3. Design-/Responsive-/Interaction-Polish abgeschlossen. Finaler Commit über `checkpoint/marina-services-final` auflösbar. Die vollständige Inhaltszuordnung und die offenen Freigaben stehen unten. Kein Push, kein Deployment.
+
+## Architektur und Gestaltung
+
+Fünf native, unabhängig voneinander aufklappbare Bereiche ersetzen die bisherige allgemeine Dreier-Orientierung. Alle Originaleinleitungen und Unterzeilen sind direkt sichtbar. Vollständige Details bleiben jederzeit erreichbar, auch ohne JavaScript. Teilen eines individuellen Leistungsankers öffnet mit JavaScript den passenden Bereich. Sprachwechsel und Viewportwechsel erhalten bereits geöffnete Bereiche.
+
+Die vorhandene warme Rosefläche, Serifentypografie, feinen Linien und offene Gestaltung bleiben die Basis. Desktop zeigt passende Detailgruppen in zwei Spalten; Tablet und Mobile zeigen dieselbe Reihenfolge einspaltig. Keine zusätzlichen Kartenboxen, Schatten, Bilder oder Bibliotheken. Neben dem nativen Summary gibt es am Ende langer Inhalte eine Schließen-Aktion mit sichtbarer Fokusrückgabe zum Anfang.
+
+Drei Umsetzungs-/Prüfrunden: vollständige Inhaltsintegration, editoriale Desktop-/Mobile-Komposition, abschließende Korrektur der mobilen Nummernspalte und des 320-px-Umbruchs. Dabei wurden keine deutschen Originaltexte gekürzt. Zwei rein sprachliche RU-Satzstellungen wurden geglättet; die fachliche Freigabe bleibt offen.
 
 ## Mapping: vollständige Originalinhalte
 
@@ -44,6 +52,42 @@ Alle **94 Texteinträge und 58 Stichpunkte** sind wortgetreu und in Originalreih
 Die gesamte neue RU-Leistungsfassung in `src/data/services/services.ru.json` wurde von uns aus dem bestätigten deutschen Original erstellt, **nicht von Marina bestätigt**. `reviewStatus` ist ausdrücklich `pending-marina-review`. Alle fünf Bereiche einschließlich sämtlicher Einleitungen, Unterzeilen, Unterüberschriften, Absätze und Einzelpunkte müssen von Marina fachlich/sprachlich geprüft werden. Insbesondere: Mutterschaftsrichtlinien/Mutterpass, Vorsorge im Wechsel, vorzeitige Wehentätigkeit, Rückbildung/Beckenboden, Prophylaxen, erweiterte Stillberatung und Kinderschlaf. Es wurden keine Indikationen, Erfolgsaussagen, Abrechnungszusagen oder medizinischen Handlungsanweisungen ergänzt.
 
 Auch die neu angepassten RU-Kurztexte der Karten 02/04, der organisatorischen FAQ-Antwort und die neue Bereichs-/Bedienbeschriftung wurden von uns formuliert und sollten mitgeprüft werden. Bestehende Reviewtexte werden weiterhin nicht übersetzt.
+
+## Prüfung und Ergebnisse
+
+- `npm run build`: erfolgreich; ausschließlich lokale Assets, keine neue Abhängigkeit.
+- `npm test`: **11/11** bestanden (sechs bestehende Reviewtests und fünf neue Inhaltstests). Unabhängiger zeilenweiser Abgleich gegen das Original bestätigt 94 Texteinträge, 58 Einzelpunkte und unveränderte Reihenfolge. Die Originaldatei ist gegenüber dem Pre-Checkpoint unverändert.
+- `node scripts/prepare-services.mjs --check`: generierte DE-Daten und vollständiges HTML reproduzierbar; alle RU-Schlüssel vollständig.
+- **487/487 Leistungs-Browserchecks**: 320, 375, 390, 768, 1024 und 1440 CSS-Pixel, jeweils DE/RU. Alle fünf Bereiche geschlossen/geöffnet, mehrere gleichzeitig geöffnet, vollständige Texte, Enter/Space, Pointer, Fokus, Schließen am Ende, Sprach-/Viewportwechsel, Reduced Motion, Direktanker und No-JavaScript-Fallback. Keine horizontalen Overflows oder abgeschnittenen Inhalte.
+- **439/439 native Reviewchecks**: unveränderte Daten/Reihenfolge, Zwei-Sterne-Bewertung an Position 41, Desktop 6/+6, Mobile 3/+3, vollständiges Nachladen, Reader, Google-Link, Fokus und Breakpointwechsel.
+- **135/135 allgemeine Interaktionschecks**: Navigation, FAQ, Kontakt, Karten/Swipe, Nummern, Fokus, Reduced Motion, No-JavaScript und Ankerabstände. Nach der letzten 320-px-Korrektur erneut vollständig bestanden.
+- **400/400 bestehende Layout-/Sticky-Prüfungen**: einschließlich kleiner Viewporthöhen, Landscape, Safe-Area, Kontaktübergabe und Textkontrasten (geprüfte kleine Texte mindestens 5:1).
+- Visuelle Screenshots kontrolliert: Desktop DE/RU, Mobile 320/390 DE/RU, Übersicht und geöffnete Details. Die abschließende 320-px-Korrektur gibt dem langen Titel mehr Raum, ohne die Titelgröße zu reduzieren. Keine neue medizinische Aussage oder Kürzung.
+- Alle Browserläufe: **0 JS-/Console-Fehler, 0 fehlgeschlagene Requests**. Leistungs- und Reviewtests bestätigen **0 externe Requests** beim Laden/Bedienen. Impressum, Datenschutz und beide Favicons liefern HTTP 200. Keine Elfsight-Laufzeitintegration; historische Provenienz in Rohdaten bleibt unverändert.
+- `git diff --check`: bestanden. Git-Vergleich bestätigt unveränderte Review-Dateien/-Daten, globale Styles und Legal-Dateien. Hero, Kontakt und Reviews zusätzlich gegen die vorab erfassten Abschnittshöhen geprüft. Testselektoren wurden auf die neue Leistungssektion aktualisiert; nur bewusst geänderte Leistungs-/Karten-/FAQ-Bereiche sind vom alten Höhenvergleich ausgenommen.
+
+Die drei Runden sind abgeschlossen; keine bekannte technische Umsetzungsblockade. Die offene RU-Freigabe ist kein bestandener fachlicher Audit und wird ausdrücklich nicht als solcher dargestellt.
+
+### Browserprüfungen wiederholen
+
+Der vorhandene lokale Edge/CDP-Runner benötigt keine zusätzliche Testbibliothek. Build und Preview starten:
+
+```powershell
+npm run build
+npm run preview -- --host 127.0.0.1 --port 4175 --strictPort
+```
+
+In einem zweiten Terminal die vorhandene Baseline vor einer neuen Änderung erfassen, danach die Prüfphasen ausführen:
+
+```powershell
+node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ baseline
+node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ marina-services
+node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ native-reviews
+node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ interaction
+node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ final-implementation
+```
+
+Berichte und Screenshots liegen lokal unter `%TEMP%/hebamme-astra-<phase>/`; sie werden bei erneuten Läufen überschrieben. Für diesen Auftrag wurde die Baseline vor der Integration aufgenommen. Die Browsermatrix emuliert Desktop/Mobile in Edge; kein zusätzlicher physischer iOS-/Safari-Gerätetest.
 
 ## Offene Fragen außerhalb der Umsetzung
 

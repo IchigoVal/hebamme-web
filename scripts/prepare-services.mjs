@@ -84,11 +84,23 @@ const copy = (tag, key, text, attributes = '') => `<${tag} data-marina-copy="${k
 export function renderServices(data) {
   const areas = data.areas.map((area, i) => {
     const key = 'areas.' + i
+    let groupOpen = false
     const blocks = area.blocks.map((block, j) => {
       const blockKey = key + '.blocks.' + j
+      if (block.type === 'heading') {
+        const prefix = groupOpen ? '</section>' : ''
+        groupOpen = true
+        return prefix + `<section class="marina-service-group" aria-labelledby="${area.id}-group-${j}">`
+          + copy('h4', blockKey + '.text', block.text, ` id="${area.id}-group-${j}"`)
+      }
+      // Marina's closing Wochenbett paragraph addresses both mother and baby.
+      if (area.id === 'wochenbett' && j === area.blocks.length - 1 && block.type === 'paragraph') {
+        groupOpen = false
+        return '</section>' + copy('p', blockKey + '.text', block.text)
+      }
       if (block.type === 'list') return '<ul>' + block.items.map((text, k) => copy('li', blockKey + '.items.' + k, text)).join('') + '</ul>'
-      return copy(block.type === 'heading' ? 'h4' : 'p', blockKey + '.text', block.text)
-    }).join('\n')
+      return copy('p', blockKey + '.text', block.text)
+    }).join('\n') + (groupOpen ? '</section>' : '')
     return `<details class="marina-service" id="leistung-${area.id}">
   <summary aria-labelledby="leistung-${area.id}-title" aria-describedby="leistung-${area.id}-intro leistung-${area.id}-topics">
     <span class="marina-service-number" aria-hidden="true">${area.number}</span>

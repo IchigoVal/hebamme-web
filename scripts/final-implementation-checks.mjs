@@ -56,7 +56,7 @@ export async function runImplementationChecks({base,phase,caseFilter,send,evalua
     await scroll(0);await wait(700)
     check(!await visible(),'hero: dock hidden')
     await shot('hero')
-    const geometry=await evaluate(`Object.fromEntries(['.hero-section','.hero-copy h1','.hero-image','#hebammenhilfe','.orientation-number','.services-grid','.service-card','.service-card__body','.services-controls','.contact-identity','.contact-panel','.contact-copy','#kontakt'].map(s=>{const e=document.querySelector(s),c=getComputedStyle(e);return[s,{width:e.offsetWidth,height:e.offsetHeight,fontSize:c.fontSize,padding:c.padding,gap:c.gap,columns:c.gridTemplateColumns}]}))`)
+    const geometry=await evaluate(`Object.fromEntries(['.hero-section','.hero-copy h1','.hero-image','#hebammenhilfe','.marina-service-number','.services-grid','.service-card','.service-card__body','.services-controls','.contact-identity','.contact-panel','.contact-copy','#kontakt'].map(s=>{const e=document.querySelector(s),c=getComputedStyle(e);return[s,{width:e.offsetWidth,height:e.offsetHeight,fontSize:c.fontSize,padding:c.padding,gap:c.gap,columns:c.gridTemplateColumns}]}))`)
     const layout=await evaluate(`({overflow:document.documentElement.scrollWidth>innerWidth,clipped:[...document.querySelectorAll('main h1,main h2,main h3,main p,main summary')].filter(e=>!e.closest('.reviews-widget')&&e.scrollWidth>e.clientWidth+1).map(e=>e.textContent),translated:[...document.querySelectorAll('[data-i18n]')].map(e=>({key:e.dataset.i18n,value:e.dataset.i18nAttr?e.getAttribute(e.dataset.i18nAttr):e.textContent.trim()}))})`)
     check(!layout.overflow && !layout.clipped.length,'no document/text overflow')
     check(layout.translated.every(item=>item.value===item.key.split('.').reduce((o,k)=>o?.[k],translations[language])),'translations unchanged and complete')
@@ -181,7 +181,7 @@ export async function runImplementationChecks({base,phase,caseFilter,send,evalua
     await send('Emulation.setEmulatedMedia',{features:[]})
     if(final) {
       // Added in the subsequent scoped phases: F3, F4 and F5.
-      const colors=await evaluate(`['.orientation-section .section-heading p','.orientation-list p','.orientation-note','.contact-copy > p','.contact-privacy-note'].map(s=>{const e=document.querySelector(s);return {selector:s,color:getComputedStyle(e).color,background:getComputedStyle(e.closest('.orientation-section,.contact-panel')).backgroundColor}})`)
+      const colors=await evaluate(`['.marina-services-introduction p:last-child','.marina-service-topics','.contact-copy > p','.contact-privacy-note'].map(s=>{const e=document.querySelector(s);return {selector:s,color:getComputedStyle(e).color,background:getComputedStyle(e.closest('.marina-services-section,.contact-panel')).backgroundColor}})`)
       const luminance=rgb=>{const c=rgb.match(/[\d.]+/g).slice(0,3).map(Number).map(x=>x/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);return .2126*c[0]+.7152*c[1]+.0722*c[2]}
       for(const c of colors){const a=luminance(c.color),b=luminance(c.background);c.ratio=(Math.max(a,b)+.05)/(Math.min(a,b)+.05)}
       check(colors.every(c=>c.ratio>=5),'targeted small text contrast at least 5:1')

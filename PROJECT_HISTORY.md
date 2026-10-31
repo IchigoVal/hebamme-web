@@ -6,7 +6,7 @@ Der aktuelle Arbeitsbranch heißt `feature/native-reviews`. Er enthält die eige
 
 ## Checkpoints
 
-Neuester Stand: `checkpoint/review-header-source-mobile-final` auf `feature/native-reviews`. Der gezielte Folgeauftrag ergänzt den Google-Quellenlink, einen ausgewogeneren Bewertungsblock und Mobile 3/+3 bei unverändertem Desktop 6/+6. Vorab-Sicherung auf `7b80e62`: `checkpoint/pre-review-header-source-mobile`. Details: `REVIEW_HEADER_SOURCE_MOBILE_STATUS.md`.
+Neuester Stand: `checkpoint/marina-services-final` auf `feature/native-reviews`. Alle fünf von Marina bestätigten Leistungsbereiche sind vollständig mit nativen aufklappbaren Details integriert. Das zuvor abgeschlossene Review-System bleibt unverändert. Vorab-Sicherung: `d9efa10` / `checkpoint/pre-marina-services`; funktionaler Zwischenstand: `3b1510c` / `checkpoint/marina-services-functional`. Inhalts-Mapping, Teststatus und offene RU-Freigabe: `MARINA_CONTENT_INTEGRATION_STATUS.md`. Der vorherige Review-Abschluss bleibt unter `checkpoint/review-header-source-mobile-final` erhalten.
 
 | Reihenfolge | Datum | Git-Tag | Commit | Zustand |
 | --- | --- | --- | --- | --- |
@@ -54,6 +54,15 @@ Neuester Stand: `checkpoint/review-header-source-mobile-final` auf `feature/nati
 | 42 | 22.09.2026 | `checkpoint/review-count-line-removed` | `7b80e62` | Zählzeile in DE/RU entfernt, sonst unverändert; 351 Browserchecks und fünf Datentests bestanden. |
 | 43 | 22.09.2026 | `checkpoint/pre-review-header-source-mobile` | `7b80e62` | Sauberer Ausgangspunkt vor den drei offenen Review-Ergänzungen. |
 | 44 | 22.09.2026 | `checkpoint/review-header-source-mobile-final` | Über Final-Tag auflösbar | Bewertungsblock verfeinert, sichere Google-Textaktion, Mobile 3/+3; 439 Reviewchecks, 135 Interaction-Checks und sechs Datentests bestanden. |
+| 45 | 01.11.2026 | `checkpoint/pre-marina-services` | `d9efa10` | Vollständige bestätigte Originalquelle vor Website-Änderungen unverändert gesichert. |
+| 46 | 01.11.2026 | `checkpoint/marina-services-functional` | `3b1510c` | Alle fünf Bereiche, 94 Texteinträge und 58 Stichpunkte; statisches DE-HTML, RU-Entwurf, native Disclosures; Build und 11 Tests bestanden. |
+| 47 | 01.11.2026 | `checkpoint/marina-services-final` | Über Final-Tag auflösbar | Editorialer Responsive-Polish, 487 Leistungschecks, 439 Reviewchecks, 135 Interaction-Checks, 400 Layout-/Sticky-Prüfungen und 11 Datentests bestanden. |
+
+## Marina-bestätigte Leistungen – 01.11.2026
+
+Die allgemeine Hebammenhilfe-Orientierung wurde durch fünf vollständige Leistungsbereiche aus `MARINA_LEISTUNGEN.md` ersetzt. Einleitungen und Unterzeilen bleiben sichtbar, alle Details sind unabhängig aufklappbar und auch ohne JavaScript erreichbar. Desktop nutzt passende zweispaltige Detailgruppen, Mobile eine ruhige einspaltige Lesefolge. Die vier Bildkarten bleiben bestehen; nur zwei Kurztexte und eine organisatorische FAQ-Antwort wurden passend zu den bestätigten Leistungen aktualisiert. Hero, Review-System, Kontakt, globale Styles und Legal-Seiten bleiben unverändert.
+
+Deutsche Inhalte sind wortgetreu übernommen. Die neue vollständige RU-Übersetzung wurde von uns erstellt und benötigt Marinas fachliche/sprachliche Freigabe. Alle Änderungen lokal committed und getaggt, kein Push und kein Deployment. Vollständiges Mapping und Prüfprotokoll: `MARINA_CONTENT_INTEGRATION_STATUS.md`.
 
 ## Gezielter Review-UI/UX-Polish – 22.09.2026
 
