@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "reviews:prepare": "node scripts/prepare-reviews.mjs",
-    "test": "node --test scripts/reviews.test.mjs",
-    "predev": "npm run reviews:prepare",
+    "services:prepare": "node scripts/prepare-services.mjs",
+    "test": "node --test scripts/reviews.test.mjs scripts/services.test.mjs",
+    "predev": "npm run reviews:prepare && npm run services:prepare",
     "dev": "vite",
-    "prebuild": "npm run reviews:prepare",
+    "prebuild": "npm run reviews:prepare && npm run services:prepare",
     "build": "vite build",
     "preview": "vite preview"
   },

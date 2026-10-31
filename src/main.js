@@ -1,5 +1,6 @@
 import './style.css'
 import { initializeReviews } from './reviews.js'
+import { initializeMarinaServices } from './marina-services.js'
 
 const translations = {
   de: {
@@ -28,7 +29,7 @@ const translations = {
       subline: 'Hebamme',
     },
     nav: {
-      orientation: 'Hebammenhilfe',
+      orientation: 'Meine Leistungen',
       services: 'Wann anfragen',
       about: 'Marina',
       reviews: 'Bewertungen',
@@ -47,29 +48,6 @@ const translations = {
         'Du suchst eine Hebamme? Schreib mir auf Deutsch oder Russisch. Ob ich dich betreuen kann, klären wir im direkten Kontakt.',
       inquiryLink: 'Was gehört in meine Anfrage?',
     },
-    orientation: {
-      title: 'Was Hebammenhilfe umfasst',
-      intro:
-        'Von der Schwangerschaft bis zur ersten Zeit mit deinem Baby: Hebammenhilfe kann in verschiedenen Phasen unterstützen.',
-      note:
-        'Welche dieser Bereiche Marina konkret anbietet und ob eine Betreuung möglich ist, wird bei der Anfrage geklärt.',
-      items: [
-        {
-          title: 'In der Schwangerschaft',
-          text: 'Beratung, Vorsorge und Hilfe bei Schwangerschaftsbeschwerden können zur Hebammenhilfe gehören.',
-        },
-        {
-          title: 'Vorbereitung und Geburt',
-          text:
-            'Hebammen können auf Geburt, Wochenbett und die erste Zeit mit dem Baby vorbereiten und Geburten begleiten.',
-        },
-        {
-          title: 'Nach der Geburt',
-          text:
-            'Im Wochenbett geht es unter anderem um Mutter und Kind, Rückbildung sowie Fragen zu Stillen, Ernährung und Säuglingspflege.',
-        },
-      ],
-    },
     services: {
       title: 'Wann du anfragen kannst',
       cards: [
@@ -80,7 +58,7 @@ const translations = {
         {
           title: 'Vor der Geburt',
           text:
-            'Wenn du klären möchtest, welche Unterstützung bei der Vorbereitung und für die erste Zeit danach möglich ist.',
+            'Wenn du dir eine persönliche Vorbereitung auf Geburt und Wochenbett wünschst.',
         },
         {
           title: 'Für das Wochenbett',
@@ -88,7 +66,7 @@ const translations = {
         },
         {
           title: 'Mit neuen Fragen',
-          text: 'Wenn es um Stillen, Ernährung des Babys oder den Alltag nach der Geburt geht.',
+          text: 'Wenn du Fragen zu Stillen, Ernährung, Kinderschlaf oder dem Alltag mit deinem Baby hast.',
         },
       ],
     },
@@ -108,7 +86,7 @@ const translations = {
         {
           question: 'Was sollte ich vor einer Betreuung klären?',
           answer:
-            'Frag nach den angebotenen Leistungen, einer möglichen Betreuung an deinem Wohnort und im gewünschten Zeitraum sowie dem weiteren Ablauf.',
+            'Kläre, ob eine Betreuung an deinem Wohnort und im gewünschten Zeitraum möglich ist, und wie der weitere Ablauf aussieht.',
         },
         {
           question: 'Was gilt bei akuten Beschwerden?',
@@ -183,7 +161,7 @@ const translations = {
       subline: 'Акушерка',
     },
     nav: {
-      orientation: 'О помощи акушерки',
+      orientation: 'Мои услуги',
       services: 'Когда обратиться',
       about: 'Марина',
       reviews: 'Отзывы',
@@ -202,30 +180,6 @@ const translations = {
         'Ищете акушерку? Напишите мне по-русски или по-немецки. При общении мы уточним, смогу ли я вас сопровождать.',
       inquiryLink: 'Что написать в первом сообщении?',
     },
-    orientation: {
-      title: 'Чем помогает акушерка',
-      intro:
-        'От беременности до первых недель с малышом: помощь акушерки может быть полезна на разных этапах.',
-      note:
-        'Какие именно услуги предлагает Марина и есть ли возможность сопровождения, уточняется при первом обращении.',
-      items: [
-        {
-          title: 'Во время беременности',
-          text:
-            'К помощи акушерки могут относиться консультации, наблюдение беременности и помощь при недомоганиях.',
-        },
-        {
-          title: 'Подготовка и роды',
-          text:
-            'Акушерки могут готовить к родам, послеродовому периоду и первым неделям с малышом, а также сопровождать роды.',
-        },
-        {
-          title: 'После родов',
-          text:
-            'В послеродовом периоде речь может идти о состоянии матери и ребёнка, восстановлении, грудном вскармливании, питании малыша и уходе за ним.',
-        },
-      ],
-    },
     services: {
       title: 'Когда стоит написать',
       cards: [
@@ -236,7 +190,7 @@ const translations = {
         {
           title: 'Перед родами',
           text:
-            'Если вы хотите уточнить, какая поддержка возможна при подготовке и в первое время после родов.',
+            'Если вы хотите индивидуально подготовиться к родам и послеродовому периоду.',
         },
         {
           title: 'Для послеродового периода',
@@ -245,7 +199,7 @@ const translations = {
         {
           title: 'С новыми вопросами',
           text:
-            'Если есть вопросы о грудном вскармливании, питании малыша или первых буднях после родов.',
+            'Если у вас есть вопросы о грудном вскармливании, питании, детском сне или повседневной жизни с малышом.',
         },
       ],
     },
@@ -265,7 +219,7 @@ const translations = {
         {
           question: 'Что уточнить до начала сопровождения?',
           answer:
-            'Уточните, какие услуги предлагает акушерка, возможно ли сопровождение по вашему месту жительства и в нужный период, а также каковы дальнейшие шаги.',
+            'Уточните, возможно ли сопровождение по вашему месту жительства и в нужный период, а также каковы дальнейшие шаги.',
         },
         {
           question: 'Что делать при острых симптомах?',
@@ -324,6 +278,7 @@ const inquirySection = document.querySelector('#ablauf')
 const contactSection = document.querySelector('#kontakt')
 const servicesTrack = document.querySelector('[data-services-track]')
 const updateReviewsLanguage = initializeReviews(document.querySelector('[data-reviews]'))
+const updateMarinaServicesLanguage = initializeMarinaServices(document.querySelector('[data-marina-services]'))
 const languageButtons = document.querySelectorAll('[data-lang-option]')
 const translatableElements = document.querySelectorAll('[data-i18n]')
 
@@ -393,6 +348,7 @@ function applyLanguage(language, persist = true) {
   updateMenuLabel()
 
   updateReviewsLanguage(language)
+  updateMarinaServicesLanguage(language)
   updateMobileContact()
 
   if (persist) {
