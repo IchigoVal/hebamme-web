@@ -33,6 +33,29 @@ export async function runServiceChecks({base,send,evaluate,screenshot,wait,click
       const protectedHeights = await evaluate("[...document.querySelectorAll('.hero-section,#bewertungen,#kontakt')].map(e=>({id:e.id,height:e.offsetHeight}))")
       check(protectedHeights.every(item=>original.sections.find(s=>s.id===item.id)?.height===item.height), 'hero, native reviews and contact heights unchanged')
     }
+    if (width===1440) {
+      check(await evaluate("matchMedia('(hover: hover)').matches"), 'desktop has a real hover-capable pointer')
+      for (let i=0;i<5;i++) {
+        const selector='.marina-service:nth-child('+(i+1)+')'
+        await scroll(selector)
+        await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:0,y:0})
+        await wait(260)
+        const measure = () => evaluate(`(() => {const s=document.querySelector('${selector} summary'),a=s.querySelector('.marina-service-arrow'),r=s.getBoundingClientRect();return {background:getComputedStyle(s).backgroundColor,transform:getComputedStyle(a).transform,cursor:getComputedStyle(s).cursor,rects:[...document.querySelectorAll('.marina-service summary')].map(e=>{const b=e.getBoundingClientRect();return [b.x,b.y+scrollY,b.width,b.height]}),x:r.x+r.width/2,y:r.y+r.height/2}})()`)
+        const before = await measure()
+        await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:before.x,y:before.y})
+        await wait(280)
+        const hovered = await measure()
+        check(hovered.background!==before.background && hovered.transform!==before.transform && hovered.cursor==='pointer', 'area '+(i+1)+' closed row and plus react to pointer hover')
+        check(JSON.stringify(hovered.rects)===JSON.stringify(before.rects), 'area '+(i+1)+' hover does not move or overlap rows')
+        await click(selector+' summary')
+        check(await evaluate("document.querySelector('"+selector+"').open && getComputedStyle(document.querySelector('"+selector+" .marina-service-arrow'),'::after').display==='none'"), 'area '+(i+1)+' opens to its minus state while hovered')
+        await click(selector+' summary')
+        await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:0,y:0})
+        await wait(260)
+        const after = await measure()
+        check(after.background===before.background && after.transform===before.transform, 'area '+(i+1)+' returns to its resting state after hover')
+      }
+    }
     if ([320,390,1440].includes(width)) await screenshot(width+'-'+language+'-services-closed')
     await press('Tab','Tab',9)
     for (let i=0;i<5;i++) {
@@ -73,7 +96,7 @@ export async function runServiceChecks({base,send,evaluate,screenshot,wait,click
     check(await evaluate("document.querySelector('.marina-service [data-marina-action]').textContent==="+JSON.stringify(other==='de'?'Weniger anzeigen':'Свернуть')), 'expanded action label follows language')
     await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]})
     await click('.marina-service:nth-child(2) summary')
-    check(await evaluate("document.querySelectorAll('.marina-service')[1].open && getComputedStyle(document.documentElement).scrollBehavior==='auto' && parseFloat(getComputedStyle(document.querySelector('.marina-service summary')).transitionDuration)<.001"), 'reduced motion preserves immediate disclosure')
+    check(await evaluate("document.querySelectorAll('.marina-service')[1].open && getComputedStyle(document.documentElement).scrollBehavior==='auto' && ['.marina-service summary','.marina-service-arrow'].every(s=>parseFloat(getComputedStyle(document.querySelector(s)).transitionDuration)<.001)"), 'reduced motion preserves immediate disclosure and disables hover animation')
     await send('Emulation.setDeviceMetricsOverride',{width:width<720?1440:390,height:900,deviceScaleFactor:1,mobile:width>=720})
     await frame()
     check(await evaluate("document.querySelectorAll('.marina-service[open]').length===3 && document.documentElement.scrollWidth<=innerWidth"), 'resize retains open state without overflow')
@@ -92,6 +115,18 @@ export async function runServiceChecks({base,send,evaluate,screenshot,wait,click
   await click('.marina-service summary')
   assert(await evaluate("document.querySelector('.marina-service').open && document.querySelectorAll('.marina-service-body li').length===58"), 'native disclosure works without JavaScript; all bullets retained')
   await send('Emulation.setScriptExecutionDisabled',{value:false})
+  await send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1})
+  await send('Page.navigate',{url:base})
+  await wait(600)
+  await scroll('.marina-service:first-child')
+  const touchPoint = await evaluate("(() => {const e=document.querySelector('.marina-service summary'),r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2,background:getComputedStyle(e).backgroundColor}})()")
+  assert(await evaluate("!matchMedia('(hover: hover)').matches"), 'touch-only device does not enable hover styles')
+  const tap = async () => { await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:touchPoint.x,y:touchPoint.y}]}); await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]}); await wait(180) }
+  await tap()
+  assert(await evaluate("document.querySelector('.marina-service').open"), 'touch opens the service')
+  await tap()
+  assert(await evaluate("!document.querySelector('.marina-service').open && getComputedStyle(document.querySelector('.marina-service summary')).backgroundColor==="+JSON.stringify(touchPoint.background)), 'touch closes without a stuck hover background')
+  await send('Emulation.setTouchEmulationEnabled',{enabled:false})
   const external = requests.filter(url=>/^https?:/.test(url) && new URL(url).origin!==new URL(base).origin)
   assert(external.length===0, 'service content introduces no external requests')
   return results

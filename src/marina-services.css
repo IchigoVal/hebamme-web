@@ -8,7 +8,7 @@
 .marina-services-list { display: grid; gap: .65rem; }
 .marina-service { border-bottom: 1px solid rgba(59, 49, 44, .1); border-radius: .5rem; background: #f5e7e2; scroll-margin-top: calc(var(--header-height) + 1.5rem); }
 .marina-service[open] { background: #efdbd5; }
-.marina-service summary { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) 2.75rem; align-items: center; gap: 1.25rem; min-height: 5.75rem; padding: 1.15rem 1.5rem; list-style: none; cursor: pointer; scroll-margin-top: calc(var(--header-height) + 1rem); }
+.marina-service summary { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) 2.75rem; align-items: center; gap: 1.25rem; min-height: 5.75rem; padding: 1.15rem 1.5rem; border-radius: .5rem; list-style: none; cursor: pointer; scroll-margin-top: calc(var(--header-height) + 1rem); }
 .marina-service summary::-webkit-details-marker { display: none; }
 .marina-service-number { display: grid; width: 3.1rem; height: 3.1rem; place-items: center; border-radius: 50%; background: rgba(173, 105, 86, .13); color: var(--clay-dark); font-family: 'Playfair Display', Georgia, serif; font-size: 1.55rem; font-variant-numeric: lining-nums tabular-nums; line-height: 1; }
 .marina-service-overview { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.35fr); align-items: center; min-width: 0; }
@@ -20,7 +20,7 @@
 .marina-service-action { display: grid; width: 2.75rem; height: 2.75rem; place-items: center; color: var(--clay-dark); }
 .marina-service-action [data-marina-action] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .marina-service-arrow { display: grid; width: 1.4rem; height: 1.4rem; place-items: center; font-size: 0; }
-.marina-service-arrow::before, .marina-service-arrow::after { grid-area: 1 / 1; width: 1.2rem; height: 2px; background: currentColor; content: ''; }
+.marina-service-arrow::before, .marina-service-arrow::after { grid-area: 1 / 1; width: 1.3rem; height: 2px; background: currentColor; content: ''; }
 .marina-service-arrow::after { transform: rotate(90deg); }
 .marina-service[open] .marina-service-arrow::after { display: none; }
 .marina-service summary:focus-visible { outline-offset: -3px; border-radius: .5rem; }
@@ -42,6 +42,12 @@
   #leistung-schwangerschaft .marina-service-group:last-child { padding-right: 0; }
 }
 @media (hover: hover) {
+  .marina-service summary { transition: background-color var(--motion-ui) var(--ease-ui); }
+  .marina-service-action { transition: color var(--motion-ui) var(--ease-ui); }
+  .marina-service-arrow { transition: transform var(--motion-ui) var(--ease-ui); }
+  .marina-service:not([open]) summary:hover { background: rgba(173, 105, 86, .1); }
+  .marina-service:not([open]) summary:hover .marina-service-action { color: var(--cocoa); }
+  .marina-service:not([open]) summary:hover .marina-service-arrow { transform: scale(1.1); }
   .marina-service summary:hover .marina-service-title, .marina-service-close:hover { color: var(--clay-dark); }
 }
 @media (max-width: 959px) {

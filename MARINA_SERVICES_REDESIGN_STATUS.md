@@ -1,5 +1,11 @@
 # Redesign „Meine Leistungen“
 
+## Nachtrag: Gliederung und Hover
+
+Bereich 04 wurde in `aeebc73` in die beiden gewünschten Gruppen mit allen elf Originalpunkten gegliedert. Die neuen russischen Gruppenüberschriften sind eigene Übersetzungen und müssen wie die übrige RU-Fassung von Marina geprüft werden. Auf hoverfähigen Geräten erhalten geschlossene Kopfzeilen einen etwas wärmeren Roséton; das Plus wird dezent betont. Es gibt keine Verschiebung der Zeilen oder zusätzlichen sichtbaren Hinweistext. Tastaturfokus und natives Accordion bleiben erhalten; bei Reduced Motion sind Übergänge nahezu deaktiviert. Auf Touchgeräten werden die Hover-Regeln nicht aktiviert.
+
+Vorab-Checkpoint dieses Nachtrags: `checkpoint/pre-leistungen-hover`. Finaler Stand: `checkpoint/leistungen-hover-final`.
+
 ## Gestaltung und Umfang
 
 Die beigefügte Referenz bestimmt Komposition und Hierarchie: heller, warmer Hintergrund; große Serifentitel und Einleitung; fünf ruhige Rosézeilen mit Nummer, Titel, Kurztext, Themenzeile und Plus/Minus. Die geöffnete Zeile bildet eine zusammenhängende Fläche mit hellem Detailbereich, feinen Trennlinien, Serifenzwischenüberschriften und Listen. Die Gestaltung verwendet die vorhandenen Schriftfamilien und warmen Farben, ohne Schatten oder zusätzliche Abhängigkeiten.
