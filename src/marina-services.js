@@ -3,9 +3,9 @@ import russian from './data/services/services.ru.json'
 import './marina-services.css'
 
 const labels = {
-  de: { more: 'Mehr erfahren', less: 'Weniger anzeigen', breastfeeding: 'Stillberatung & Milchbildung', feeding: 'Flaschenernährung, Abstillen & Beikost' },
+  de: { more: 'Mehr erfahren', less: 'Weniger anzeigen', breastfeeding: 'Stillberatung & Milchbildung', feeding: 'Flaschenernährung, Abstillen & Beikost', 'birth-planning': 'Geburt verstehen & planen', 'birth-movement': 'Bewegung, Entspannung & erste Stunden' },
   // These additional headings, like the rest of the RU service copy, await Marina's review.
-  ru: { more: 'Подробнее', less: 'Свернуть', breastfeeding: 'Консультации по грудному вскармливанию и выработке молока', feeding: 'Кормление из бутылочки, завершение грудного вскармливания и прикорм' },
+  ru: { more: 'Подробнее', less: 'Свернуть', breastfeeding: 'Консультации по грудному вскармливанию и выработке молока', feeding: 'Кормление из бутылочки, завершение грудного вскармливания и прикорм', 'birth-planning': 'Понимание и планирование родов', 'birth-movement': 'Движение, расслабление и первые часы' },
 }
 
 export function initializeMarinaServices(root) {

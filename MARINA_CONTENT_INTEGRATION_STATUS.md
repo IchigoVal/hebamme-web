@@ -49,6 +49,8 @@ Alle **94 Texteinträge und 58 Stichpunkte** sind wortgetreu vorhanden. Im Berei
 
 ## Russische Übersetzung: Prüfung durch Marina offen
 
+Die zusätzlichen Zwischenüberschriften in Bereich 02 („Geburt verstehen & planen“ und „Bewegung, Entspannung & erste Stunden“) wurden für die visuelle Gruppierung ergänzt. Die neun Originalpunkte bleiben unverändert, werden jedoch in der Darstellung umsortiert; Einleitung und Schlussabsatz bleiben erhalten. Die dazu von uns erstellten russischen Überschriften sind ebenfalls ungeprüft und müssen von Marina freigegeben werden.
+
 Die gesamte neue RU-Leistungsfassung in `src/data/services/services.ru.json` wurde von uns aus dem bestätigten deutschen Original erstellt, **nicht von Marina bestätigt**. `reviewStatus` ist ausdrücklich `pending-marina-review`. Alle fünf Bereiche einschließlich sämtlicher Einleitungen, Unterzeilen, Unterüberschriften, Absätze und Einzelpunkte müssen von Marina fachlich/sprachlich geprüft werden. Insbesondere: Mutterschaftsrichtlinien/Mutterpass, Vorsorge im Wechsel, vorzeitige Wehentätigkeit, Rückbildung/Beckenboden, Prophylaxen, erweiterte Stillberatung und Kinderschlaf. Es wurden keine Indikationen, Erfolgsaussagen, Abrechnungszusagen oder medizinischen Handlungsanweisungen ergänzt.
 
 Auch die neu angepassten RU-Kurztexte der Karten 02/04, der organisatorischen FAQ-Antwort und die neue Bereichs-/Bedienbeschriftung wurden von uns formuliert und sollten mitgeprüft werden. Bestehende Reviewtexte werden weiterhin nicht übersetzt.

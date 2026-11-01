@@ -69,6 +69,14 @@ export async function runServiceChecks({base,send,evaluate,screenshot,wait,click
       check(await evaluate("document.querySelector('"+selector+"').open && document.activeElement===document.querySelector('"+selector+" summary')"), 'area '+(i+1)+' opens by Enter without moving focus')
       check(await evaluate("[...document.querySelectorAll('"+selector+" .marina-service-text > *, "+selector+" li')].every(e=>e.getClientRects().length && e.scrollWidth<=e.clientWidth+1) && document.documentElement.scrollWidth<=innerWidth"), 'area '+(i+1)+' full detail content visible without clipping')
       if(i===0 && [320,390,1440].includes(width)) await screenshot(width+'-'+language+'-services-open')
+      if (i===1) {
+        const expected = language==='de' ? ['Geburt verstehen & planen','Bewegung, Entspannung & erste Stunden'] : ['Понимание и планирование родов','Движение, расслабление и первые часы']
+        const grouped = await evaluate("(() => {const root=document.querySelector('#leistung-geburtsvorbereitung .marina-service-text'),groups=[...root.querySelectorAll('.marina-service-group')];return {headings:groups.map(g=>g.querySelector('h4').textContent),counts:groups.map(g=>g.querySelectorAll('li').length),paragraphs:[...root.children].filter(e=>e.tagName==='P').map(e=>e.textContent),rects:groups.map(g=>{const r=g.getBoundingClientRect();return {x:r.x,y:r.y}})}})()")
+        const paragraphs = [data.areas[1].blocks[0].text,data.areas[1].blocks[2].text].map(text=>language==='de'?text:russian.strings[text])
+        check(JSON.stringify(grouped.headings)===JSON.stringify(expected) && JSON.stringify(grouped.counts)==='[5,4]' && JSON.stringify(grouped.paragraphs)===JSON.stringify(paragraphs), 'birth preparation headings, nine items and both original paragraphs retained')
+        check(width>=720 ? Math.abs(grouped.rects[0].y-grouped.rects[1].y)<1 && grouped.rects[1].x>grouped.rects[0].x : grouped.rects[1].y>grouped.rects[0].y, 'birth groups use two columns on desktop and one on mobile')
+        if ([320,390,1440].includes(width)) await screenshot(width+'-'+language+'-birth-open')
+      }
       if (i===3) {
         const expected = language==='de' ? ['Stillberatung & Milchbildung','Flaschenernährung, Abstillen & Beikost'] : ['Консультации по грудному вскармливанию и выработке молока','Кормление из бутылочки, завершение грудного вскармливания и прикорм']
         const grouped = await evaluate("(() => {const groups=[...document.querySelectorAll('#leistung-stillen-ernaehrung .marina-service-group')];return {headings:groups.map(g=>g.querySelector('h4').textContent),counts:groups.map(g=>g.querySelectorAll('li').length),rects:groups.map(g=>{const r=g.getBoundingClientRect();return {x:r.x,y:r.y}})}})()")

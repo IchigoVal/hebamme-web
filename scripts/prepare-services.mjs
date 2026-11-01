@@ -5,6 +5,10 @@ import path from 'node:path'
 
 const root = new URL('../', import.meta.url)
 const ids = ['schwangerschaft', 'geburtsvorbereitung', 'wochenbett', 'stillen-ernaehrung', 'rund-ums-baby']
+export const birthGroups = [
+  { key: 'birth-planning', heading: 'Geburt verstehen & planen', indices: [0, 1, 5, 6, 7] },
+  { key: 'birth-movement', heading: 'Bewegung, Entspannung & erste Stunden', indices: [2, 3, 4, 8] },
+]
 export const feedingGroups = [
   { key: 'breastfeeding', heading: 'Stillberatung & Milchbildung', indices: [0, 1, 2, 3, 4, 5, 9] },
   { key: 'feeding', heading: 'Flaschenernährung, Abstillen & Beikost', indices: [6, 7, 8, 10] },
@@ -75,9 +79,16 @@ export function textEntries(data) {
   return entries
 }
 
-// The source stays in its original order; only the display groups one item earlier.
+// The source stays in its original order; grouped display uses the requested order.
 export function displayTextEntries(data) {
   const entries = textEntries(data)
+  const birthPrefix = 'areas.1.blocks.1.items.'
+  const birthStart = entries.findIndex(([key]) => key === birthPrefix + '0')
+  assert.ok(birthStart >= 0)
+  assert.equal(data.areas[1].blocks[1].items.length, 9)
+  const birthReordered = birthGroups.flatMap(group => group.indices.map(index => entries[birthStart + index]))
+  assert.deepEqual(birthReordered.map(([key]) => key).sort(), entries.slice(birthStart, birthStart + 9).map(([key]) => key).sort())
+  entries.splice(birthStart, 9, ...birthReordered)
   const prefix = 'areas.3.blocks.1.items.'
   const start = entries.findIndex(([key]) => key === prefix + '0')
   assert.ok(start >= 0)
@@ -116,10 +127,11 @@ export function renderServices(data) {
         groupOpen = false
         return '</section>' + copy('p', blockKey + '.text', block.text)
       }
-      if (area.id === 'stillen-ernaehrung' && block.type === 'list') {
-        assert.equal(block.items.length, 11)
-        assert.equal(block.items[9], 'Erweiterte Stillberatung')
-        return feedingGroups.map(group => {
+      if ((area.id === 'stillen-ernaehrung' || area.id === 'geburtsvorbereitung') && block.type === 'list') {
+        const groups = area.id === 'geburtsvorbereitung' ? birthGroups : feedingGroups
+        assert.equal(block.items.length, area.id === 'geburtsvorbereitung' ? 9 : 11)
+        if (area.id === 'stillen-ernaehrung') assert.equal(block.items[9], 'Erweiterte Stillberatung')
+        return groups.map(group => {
           const id = `${area.id}-${group.key}`
           const items = group.indices.map(index => copy('li', blockKey + '.items.' + index, block.items[index])).join('')
           return `<section class="marina-service-group" aria-labelledby="${id}"><h4 id="${id}" data-marina-group-heading="${group.key}">${escape(group.heading)}</h4><ul>${items}</ul></section>`
