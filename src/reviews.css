@@ -14,7 +14,9 @@
 .reviews-total { margin-top: .5rem; color: var(--cocoa); font-size: .84rem; line-height: 1.5; }
 .reviews-provenance { grid-column: 2; }
 .reviews-source { color: var(--ink-soft); font-size: .7rem; line-height: 1.65; }
-.reviews-google-link { display: inline-flex; min-height: 44px; align-items: center; gap: .5rem; padding: .4rem 0; color: var(--clay-dark); font-size: .78rem; font-weight: 500; line-height: 1.5; }
+.reviews-google-link { display: inline-flex; min-height: 44px; align-items: center; gap: .15rem; color: var(--clay-dark); font-size: .78rem; font-weight: 500; line-height: 1.5; }
+/* The unmodified official artwork includes the required clear space around the G. */
+.reviews-google-logo { display: block; width: 54px; height: 54px; flex: none; }
 .reviews-google-label { text-decoration: underline; text-underline-offset: .3em; }
 .reviews-google-link:hover { color: var(--ink); }
 .reviews-list, .reviews-footer { grid-column: 1 / -1; }

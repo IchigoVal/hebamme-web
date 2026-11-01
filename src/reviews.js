@@ -1,4 +1,5 @@
 import snapshot from './data/reviews/reviews.public.json'
+import googleMark from './assets/google-g.png'
 import './reviews.css'
 
 const copy = {
@@ -91,10 +92,16 @@ export function initializeReviews(root) {
   googleLink.target = '_blank'
   googleLink.rel = 'noopener noreferrer'
   googleLink.referrerPolicy = 'no-referrer'
+  const googleLogo = element('img', 'reviews-google-logo')
+  googleLogo.src = googleMark
+  googleLogo.alt = ''
+  googleLogo.width = 54
+  googleLogo.height = 54
+  googleLogo.setAttribute('aria-hidden', 'true')
   const googleLabel = element('span', 'reviews-google-label')
   const externalIcon = element('span', null, '↗')
   externalIcon.setAttribute('aria-hidden', 'true')
-  googleLink.append(googleLabel, externalIcon)
+  googleLink.append(googleLogo, googleLabel, externalIcon)
   summaryCopy.append(average, total)
   provenance.append(source, googleLink)
   summary.append(score, summaryCopy, provenance)
