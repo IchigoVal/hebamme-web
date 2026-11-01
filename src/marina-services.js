@@ -3,8 +3,9 @@ import russian from './data/services/services.ru.json'
 import './marina-services.css'
 
 const labels = {
-  de: { more: 'Mehr erfahren', less: 'Weniger anzeigen' },
-  ru: { more: 'Подробнее', less: 'Свернуть' },
+  de: { more: 'Mehr erfahren', less: 'Weniger anzeigen', breastfeeding: 'Stillberatung & Milchbildung', feeding: 'Flaschenernährung, Abstillen & Beikost' },
+  // These additional headings, like the rest of the RU service copy, await Marina's review.
+  ru: { more: 'Подробнее', less: 'Свернуть', breastfeeding: 'Консультации по грудному вскармливанию и выработке молока', feeding: 'Кормление из бутылочки, завершение грудного вскармливания и прикорм' },
 }
 
 export function initializeMarinaServices(root) {
@@ -15,6 +16,7 @@ export function initializeMarinaServices(root) {
     original: node.dataset.marinaCopy.split('.').reduce((value, key) => value[key], german),
   }))
   const details = [...root.querySelectorAll('.marina-service')]
+  const groupHeadings = [...root.querySelectorAll('[data-marina-group-heading]')]
   const updateAction = detail => {
     detail.querySelector('[data-marina-action]').textContent = labels[language][detail.open ? 'less' : 'more']
     detail.querySelector('[data-marina-close]').textContent = labels[language].less + ' ↑'
@@ -42,6 +44,7 @@ export function initializeMarinaServices(root) {
     entries.forEach(({ node, original }) => {
       node.textContent = language === 'ru' ? russian.strings[original] : original
     })
+    groupHeadings.forEach(node => { node.textContent = labels[language][node.dataset.marinaGroupHeading] })
     details.forEach(updateAction)
   }
 }

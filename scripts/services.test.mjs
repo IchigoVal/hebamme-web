@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
-import { parseServices, textEntries, validateRussian, renderServices, readServiceSources, startMarker, endMarker } from './prepare-services.mjs'
+import { parseServices, textEntries, displayTextEntries, feedingGroups, validateRussian, renderServices, readServiceSources, startMarker, endMarker } from './prepare-services.mjs'
 
 const { markdown, data, russian } = await readServiceSources()
 
@@ -23,6 +23,18 @@ test('German generated data and complete no-JavaScript HTML match the source', a
   assert.equal((section.match(/<li /g) || []).length, 58)
   assert.equal((section.match(/data-marina-copy=/g) || []).length, textEntries(data).length)
   assert.doesNotMatch(section, /<details[^>]+ open|<iframe|<img|https?:\/\//)
+})
+
+test('feeding topics are grouped exactly once with the requested source wording', () => {
+  const source = data.areas[3].blocks[1].items
+  assert.deepEqual(feedingGroups.map(group => group.indices.map(index => source[index])), [
+    ['Unterstützung beim Stillstart', 'Stillpositionen und richtiges Anlegen', 'Hilfe bei Schmerzen und wunden Brustwarzen', 'Beratung zu Milchbildung und Milchmenge', 'Hilfe bei Milchstau und anderen Stillproblemen', 'Abpumpen und Aufbewahren von Muttermilch', 'Erweiterte Stillberatung'],
+    ['Kombination von Stillen und Flaschenernährung', 'Flaschenernährung und Säuglingsnahrung', 'Abstillen', 'Beikostberatung und entspannter Beikoststart'],
+  ])
+  assert.deepEqual(displayTextEntries(data).map(([key]) => key).sort(), textEntries(data).map(([key]) => key).sort())
+  const html = renderServices(data)
+  assert.match(html, /data-marina-group-heading="breastfeeding">Stillberatung &amp; Milchbildung<\/h4>/)
+  assert.match(html, /data-marina-group-heading="feeding">Flaschenernährung, Abstillen &amp; Beikost<\/h4>/)
 })
 
 test('RU is a complete explicitly unapproved translation, with one entry per source string', () => {

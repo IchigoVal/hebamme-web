@@ -1,11 +1,11 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import os from 'node:os'
-import { readServiceSources, textEntries } from './prepare-services.mjs'
+import { readServiceSources, displayTextEntries } from './prepare-services.mjs'
 
 export async function runServiceChecks({base,send,evaluate,screenshot,wait,click,press,assert,requests,caseFilter}) {
   const { data, russian } = await readServiceSources()
-  const entries = textEntries(data)
+  const entries = displayTextEntries(data)
   const frame = () => evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
   const focus = selector => evaluate('document.querySelector('+JSON.stringify(selector)+').focus({preventScroll:true})')
   const scroll = async selector => { await evaluate('document.querySelector('+JSON.stringify(selector)+').scrollIntoView({block:"start",behavior:"instant"})'); await wait(250) }
@@ -46,6 +46,13 @@ export async function runServiceChecks({base,send,evaluate,screenshot,wait,click
       check(await evaluate("document.querySelector('"+selector+"').open && document.activeElement===document.querySelector('"+selector+" summary')"), 'area '+(i+1)+' opens by Enter without moving focus')
       check(await evaluate("[...document.querySelectorAll('"+selector+" .marina-service-text > *, "+selector+" li')].every(e=>e.getClientRects().length && e.scrollWidth<=e.clientWidth+1) && document.documentElement.scrollWidth<=innerWidth"), 'area '+(i+1)+' full detail content visible without clipping')
       if(i===0 && [320,390,1440].includes(width)) await screenshot(width+'-'+language+'-services-open')
+      if (i===3) {
+        const expected = language==='de' ? ['Stillberatung & Milchbildung','Flaschenernährung, Abstillen & Beikost'] : ['Консультации по грудному вскармливанию и выработке молока','Кормление из бутылочки, завершение грудного вскармливания и прикорм']
+        const grouped = await evaluate("(() => {const groups=[...document.querySelectorAll('#leistung-stillen-ernaehrung .marina-service-group')];return {headings:groups.map(g=>g.querySelector('h4').textContent),counts:groups.map(g=>g.querySelectorAll('li').length),rects:groups.map(g=>{const r=g.getBoundingClientRect();return {x:r.x,y:r.y}})}})()")
+        check(JSON.stringify(grouped.headings)===JSON.stringify(expected) && JSON.stringify(grouped.counts)==='[7,4]', 'feeding headings and all 11 items grouped in the active language')
+        check(width>=720 ? Math.abs(grouped.rects[0].y-grouped.rects[1].y)<1 && grouped.rects[1].x>grouped.rects[0].x : grouped.rects[1].y>grouped.rects[0].y, 'feeding groups use two columns on desktop and one on mobile')
+        if ([320,390,1440].includes(width)) await screenshot(width+'-'+language+'-feeding-open')
+      }
       await press(' ','Space',32)
       await frame()
       check(await evaluate("!document.querySelector('"+selector+"').open"), 'area '+(i+1)+' closes by Space')

@@ -5,6 +5,10 @@ import path from 'node:path'
 
 const root = new URL('../', import.meta.url)
 const ids = ['schwangerschaft', 'geburtsvorbereitung', 'wochenbett', 'stillen-ernaehrung', 'rund-ums-baby']
+export const feedingGroups = [
+  { key: 'breastfeeding', heading: 'Stillberatung & Milchbildung', indices: [0, 1, 2, 3, 4, 5, 9] },
+  { key: 'feeding', heading: 'Flaschenernährung, Abstillen & Beikost', indices: [6, 7, 8, 10] },
+]
 export const startMarker = '<!-- marina-services:start -->'
 export const endMarker = '<!-- marina-services:end -->'
 
@@ -71,6 +75,20 @@ export function textEntries(data) {
   return entries
 }
 
+// The source stays in its original order; only the display groups one item earlier.
+export function displayTextEntries(data) {
+  const entries = textEntries(data)
+  const prefix = 'areas.3.blocks.1.items.'
+  const start = entries.findIndex(([key]) => key === prefix + '0')
+  assert.ok(start >= 0)
+  assert.equal(data.areas[3].blocks[1].items.length, 11)
+  assert.equal(data.areas[3].blocks[1].items[9], 'Erweiterte Stillberatung')
+  const reordered = feedingGroups.flatMap(group => group.indices.map(index => entries[start + index]))
+  assert.deepEqual(reordered.map(([key]) => key).sort(), entries.slice(start, start + 11).map(([key]) => key).sort())
+  entries.splice(start, 11, ...reordered)
+  return entries
+}
+
 export function validateRussian(data, russian) {
   assert.equal(russian.reviewStatus, 'pending-marina-review')
   const originals = [...new Set(textEntries(data).map(([, text]) => text))].sort()
@@ -97,6 +115,15 @@ export function renderServices(data) {
       if (area.id === 'wochenbett' && j === area.blocks.length - 1 && block.type === 'paragraph') {
         groupOpen = false
         return '</section>' + copy('p', blockKey + '.text', block.text)
+      }
+      if (area.id === 'stillen-ernaehrung' && block.type === 'list') {
+        assert.equal(block.items.length, 11)
+        assert.equal(block.items[9], 'Erweiterte Stillberatung')
+        return feedingGroups.map(group => {
+          const id = `${area.id}-${group.key}`
+          const items = group.indices.map(index => copy('li', blockKey + '.items.' + index, block.items[index])).join('')
+          return `<section class="marina-service-group" aria-labelledby="${id}"><h4 id="${id}" data-marina-group-heading="${group.key}">${escape(group.heading)}</h4><ul>${items}</ul></section>`
+        }).join('\n')
       }
       if (block.type === 'list') return '<ul>' + block.items.map((text, k) => copy('li', blockKey + '.items.' + k, text)).join('') + '</ul>'
       return copy('p', blockKey + '.text', block.text)
