@@ -309,10 +309,15 @@ html.reveal-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0
   .orientation-layout, .faq-layout { gap: 4rem; }
 }
 
+@media (min-width: 720px) and (max-width: 1120px) {
+  .service-card__image, .service-card:nth-child(2) .service-card__image, .service-card:nth-child(4) .service-card__image { aspect-ratio: 1; }
+}
+
 @media (max-width: 959px) {
   :root { --header-height: 76px; }
   .desktop-nav, .leaf-detail { display: none; }
   .header-inner { display: grid; grid-template-columns: minmax(3rem,1fr) auto minmax(3rem,1fr); gap: .75rem; }
+  .header-inner.legal-header-inner { display: flex; gap: 1rem; }
   .header-inner > .brand { justify-self: center; }
   .header-side { justify-self: end; }
   .menu-toggle { position: relative; display: block; width: 3rem; height: 3rem; padding: .8rem; border: 1px solid var(--line); border-radius: .125rem; background: transparent; cursor: pointer; transition: background-color var(--motion-fast) var(--ease-ui), border-color var(--motion-fast) var(--ease-ui); }

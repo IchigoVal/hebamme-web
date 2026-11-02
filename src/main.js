@@ -52,21 +52,21 @@ const translations = {
       title: 'Wann du anfragen kannst',
       cards: [
         {
-          title: 'Früh in der Schwangerschaft',
-          text: 'Sobald du weißt, dass du schwanger bist und eine Betreuung für die nächste Zeit suchst.',
+          title: 'Sobald du schwanger bist',
+          text: 'Du kannst dich frühzeitig melden, um deinen Betreuungsbedarf und den voraussichtlichen Geburtstermin zu besprechen.',
         },
         {
-          title: 'Vor der Geburt',
+          title: 'Wenn du noch unsicher bist',
           text:
-            'Wenn du dir eine persönliche Vorbereitung auf Geburt und Wochenbett wünschst.',
+            'Du musst noch nicht genau wissen, welche Unterstützung du brauchst. Auch offene Fragen kannst du in deiner Anfrage schildern.',
         },
         {
-          title: 'Für das Wochenbett',
-          text: 'Wenn du nach der Geburt Hebammenhilfe für dich und dein Baby suchst.',
+          title: 'Wenn dein Baby bereits da ist',
+          text: 'Du benötigst Unterstützung nach der Geburt? Beschreibe kurz deine Situation, damit Marina prüfen kann, ob eine Betreuung möglich ist.',
         },
         {
-          title: 'Mit neuen Fragen',
-          text: 'Wenn du Fragen zu Stillen, Ernährung, Kinderschlaf oder dem Alltag mit deinem Baby hast.',
+          title: 'Wenn später neue Fragen entstehen',
+          text: 'Auch nach dem Wochenbett können Fragen auftauchen. Du kannst dich mit deinem Anliegen melden und eine mögliche Beratung klären.',
         },
       ],
     },
@@ -184,22 +184,22 @@ const translations = {
       title: 'Когда стоит написать',
       cards: [
         {
-          title: 'В начале беременности',
-          text: 'Когда вы узнали о беременности и ищете сопровождение на ближайшее время.',
+          title: 'Как только вы узнали о беременности',
+          text: 'Вы можете обратиться заранее, чтобы обсудить, какое сопровождение вам нужно, и предполагаемую дату родов.',
         },
         {
-          title: 'Перед родами',
+          title: 'Если вы пока не уверены',
           text:
-            'Если вы хотите индивидуально подготовиться к родам и послеродовому периоду.',
+            'Необязательно уже точно знать, какая поддержка вам нужна. В своём обращении вы также можете рассказать о ваших вопросах.',
         },
         {
-          title: 'Для послеродового периода',
-          text: 'Если после родов вы ищете помощь акушерки для себя и малыша.',
+          title: 'Если ваш малыш уже родился',
+          text: 'Вам нужна поддержка после родов? Кратко опишите вашу ситуацию, чтобы Марина могла проверить, возможно ли сопровождение.',
         },
         {
-          title: 'С новыми вопросами',
+          title: 'Если позже возникнут новые вопросы',
           text:
-            'Если у вас есть вопросы о грудном вскармливании, питании, детском сне или повседневной жизни с малышом.',
+            'Вопросы могут возникнуть и после послеродового периода. Вы можете обратиться со своим вопросом и обсудить возможность консультации.',
         },
       ],
     },

@@ -36,7 +36,7 @@ Alle **94 Texteinträge und 58 Stichpunkte** sind wortgetreu vorhanden. Im Berei
 - Allgemeine Überschrift „Was Hebammenhilfe umfasst“, generische Einleitung und drei allgemeine Phasenbeschreibungen vollständig ersetzt. Die allgemeine Aussage, Hebammen könnten Geburten begleiten, wird nicht als Marina-Angebot übernommen: Die neue Quelle bestätigt individuelle Vorbereitung, nicht Geburtsbegleitung.
 - Hinweis „Welche dieser Bereiche Marina konkret anbietet … wird bei der Anfrage geklärt“ entfernt. Die Leistungen sind nun bestätigt. Individuelle Kapazität, Wohnort und Zeitraum bleiben weiterhin Gegenstand der Anfrage.
 - Beide alten `orientation`-Übersetzungsblöcke aus `src/main.js` entfernt, damit keine parallele veraltete Fassung bestehen bleibt.
-- Vier Bildkarten und ihre Bedienung bleiben erhalten. Sie zeigen weiterhin Anfrageanlässe, nicht eine unvollständige Vierer-Liste der fünf Leistungen. Nur Karte 02 benennt nun persönliche Geburts-/Wochenbettvorbereitung direkt; Karte 04 umfasst auch den bestätigten Kinderschlaf. Keine erneute Detailauflistung in den Karten.
+- Vier Bildkarten und ihre Bedienung bleiben erhalten. Seit dem Folgeauftrag vom 02.11.2026 beschreiben sie vier konkrete Anfragesituationen statt erneut das Leistungsspektrum: früh in der Schwangerschaft, bei Unsicherheit, nach der Geburt und bei späteren Fragen. Die Betreuungsmöglichkeit wird dabei nicht zugesagt.
 - FAQ „Was sollte ich vor einer Betreuung klären?“ auf Wohnort, Zeitraum und Ablauf konzentriert; kein erneutes Infragestellen des jetzt bekannten Leistungsspektrums. Versicherungs- und Notfalltexte unverändert.
 - Hero, Review-Komponente samt Daten und Ladeverhalten, Kontaktbereich, Bildassets, globale CSS-Regeln und Legal-Seiten unverändert.
 
@@ -53,7 +53,7 @@ Die zusätzlichen Zwischenüberschriften in Bereich 02 („Geburt verstehen & pl
 
 Die gesamte neue RU-Leistungsfassung in `src/data/services/services.ru.json` wurde von uns aus dem bestätigten deutschen Original erstellt, **nicht von Marina bestätigt**. `reviewStatus` ist ausdrücklich `pending-marina-review`. Alle fünf Bereiche einschließlich sämtlicher Einleitungen, Unterzeilen, Unterüberschriften, Absätze und Einzelpunkte müssen von Marina fachlich/sprachlich geprüft werden. Insbesondere: Mutterschaftsrichtlinien/Mutterpass, Vorsorge im Wechsel, vorzeitige Wehentätigkeit, Rückbildung/Beckenboden, Prophylaxen, erweiterte Stillberatung und Kinderschlaf. Es wurden keine Indikationen, Erfolgsaussagen, Abrechnungszusagen oder medizinischen Handlungsanweisungen ergänzt.
 
-Auch die neu angepassten RU-Kurztexte der Karten 02/04, der organisatorischen FAQ-Antwort und die neue Bereichs-/Bedienbeschriftung wurden von uns formuliert und sollten mitgeprüft werden. Bestehende Reviewtexte werden weiterhin nicht übersetzt.
+Auch die vier am 02.11.2026 neu formulierten RU-Kartentexte und -Überschriften, die organisatorische FAQ-Antwort und die Bereichs-/Bedienbeschriftung wurden von uns formuliert und sollten von Marina geprüft werden. Bestehende Reviewtexte werden weiterhin nicht übersetzt.
 
 ## Prüfung und Ergebnisse
 
