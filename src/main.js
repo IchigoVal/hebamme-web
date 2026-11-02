@@ -62,7 +62,7 @@ const translations = {
         },
         {
           title: 'Wenn dein Baby bereits da ist',
-          text: 'Du benötigst Unterstützung nach der Geburt? Beschreibe kurz deine Situation, damit Marina prüfen kann, ob eine Betreuung möglich ist.',
+          text: 'Du benötigst Unterstützung nach der Geburt? Beschreibe kurz deine Situation, damit ich prüfen kann, ob eine Betreuung möglich ist.',
         },
         {
           title: 'Wenn später neue Fragen entstehen',
@@ -201,7 +201,7 @@ const translations = {
         },
         {
           title: 'Если ваш малыш уже родился',
-          text: 'Вам нужна поддержка после родов? Кратко опишите вашу ситуацию, чтобы Марина могла проверить, возможно ли сопровождение.',
+          text: 'Вам нужна поддержка после родов? Кратко опишите вашу ситуацию, чтобы я могла проверить, возможно ли сопровождение.',
         },
         {
           title: 'Если позже возникнут новые вопросы',

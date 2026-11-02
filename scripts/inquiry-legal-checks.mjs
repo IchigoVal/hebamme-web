@@ -3,7 +3,7 @@ export async function runInquiryLegalChecks({base,send,evaluate,screenshot,wait,
   const expectedGerman = [
     ['Sobald du schwanger bist','Du kannst dich frühzeitig melden, um deinen Betreuungsbedarf und den voraussichtlichen Geburtstermin zu besprechen.'],
     ['Wenn du noch unsicher bist','Du musst noch nicht genau wissen, welche Unterstützung du brauchst. Auch offene Fragen kannst du in deiner Anfrage schildern.'],
-    ['Wenn dein Baby bereits da ist','Du benötigst Unterstützung nach der Geburt? Beschreibe kurz deine Situation, damit Marina prüfen kann, ob eine Betreuung möglich ist.'],
+    ['Wenn dein Baby bereits da ist','Du benötigst Unterstützung nach der Geburt? Beschreibe kurz deine Situation, damit ich prüfen kann, ob eine Betreuung möglich ist.'],
     ['Wenn später neue Fragen entstehen','Auch nach dem Wochenbett können Fragen auftauchen. Du kannst dich mit deinem Anliegen melden und eine mögliche Beratung klären.'],
   ]
   const output=[]
