@@ -30,16 +30,16 @@ Nicht in der UI-Datei: `ownerResponse`, Avatare, Reviewbilder, Google-Profile, i
 
 Bei einem neuen Export die Gesamtzahlen und vorhandenen Originale prüfen. Abweichende Autoren oder Ratings zu bereits verifizierten IDs führen bewusst zu einem Fehler und müssen anhand der Quelle geklärt werden. Rohdaten sind nicht in `public/` und werden nicht in den Produktions-Build kopiert.
 
-Die Legal-Seiten wurden auf Wunsch nicht umgeschrieben. Die bisherigen Elfsight-Aussagen in `datenschutz.html` und der Datenschutz-/Release-Abgleich sind separate Folgepflege. Es findet kein automatischer Abgleich mit Google statt.
+Die Elfsight-Angaben wurden inzwischen durch eine Beschreibung der lokalen Review-Darstellung ersetzt. Die rechtliche Prüfung der Texte, Datenflüsse und Nutzungsrechte bleibt vor offizieller Veröffentlichung offen. Es findet kein automatischer Abgleich mit Google statt.
 
 ## Prüfungen
 
 `npm test` prüft Datenintegrität, Originaltexte, Reihenfolge, Zwei-Sterne-Rezension, reine Sternebewertungen und die erlaubten Frontendfelder. Für Browserprüfungen erst `npm run build` und `npm run preview -- --host 127.0.0.1 --port 4175 --strictPort` starten, dann:
 
 ```text
-node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ native-reviews
-node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ interaction
-node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/hebamme-web/ final-implementation
+node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/ native-reviews
+node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/ interaction
+node scripts/deep-pass-browser.mjs http://127.0.0.1:4175/ final-implementation
 ```
 
 Der vorhandene Edge-Testweg benötigt Windows/Edge und Node 22+, keine neue Abhängigkeit. `BROWSER_PATH` kann einen anderen Chromium-Pfad setzen. Berichte/Screenshots bleiben in `%TEMP%/hebamme-astra-<phase>/`. Ein vorhandener Baseline-Bericht wird für Geometrievergleiche mitgenutzt; ohne ihn laufen die funktionalen Reviewchecks weiterhin.

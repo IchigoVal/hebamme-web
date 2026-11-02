@@ -37,7 +37,6 @@ const translations = {
       contact: 'Kontakt',
     },
     cta: {
-      checkAvailability: 'Direkt Kontakt aufnehmen',
       whatsapp: 'WhatsApp schreiben',
       call: '0176 23488396',
     },
@@ -138,7 +137,6 @@ const translations = {
       step2Alt: 'Atmosphärisches Motiv einer Schwangeren',
       step3Alt: 'Atmosphärisches Motiv eines Neugeborenen',
       step4Alt: 'Atmosphärisches Mutter-Kind-Motiv',
-      aboutAlt: 'Hände falten Babykleidung auf einem Leinentuch',
       supportAlt: 'Hand legt ein Smartphone neben gefaltete Babywäsche',
     },
   },
@@ -176,7 +174,6 @@ const translations = {
       contact: 'Контакты',
     },
     cta: {
-      checkAvailability: 'Связаться напрямую',
       whatsapp: 'Написать в WhatsApp',
       call: '0176 23488396',
     },
@@ -278,7 +275,6 @@ const translations = {
       step2Alt: 'Атмосферное изображение беременной женщины',
       step3Alt: 'Атмосферное изображение новорождённого',
       step4Alt: 'Атмосферное изображение мамы с ребёнком',
-      aboutAlt: 'Руки складывают детскую одежду на льняной ткани',
       supportAlt: 'Рука кладёт смартфон рядом со сложенной детской тканью',
     },
   },

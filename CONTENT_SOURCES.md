@@ -36,7 +36,7 @@ Diese Datei dokumentiert die Quellen für allgemeine Aussagen über Hebammenhilf
 
 ## Bewusste Abgrenzung
 
-- Die Website nennt keine der allgemeinen Tätigkeiten als bestätigte Leistung von Marina Rymmer.
+- Allgemeine Quellen allein bestätigen keine konkreten Leistungen von Marina Rymmer. Die bestätigten Leistungen stehen in `MARINA_LEISTUNGEN.md`.
 - Es werden keine Verfügbarkeit, Betreuungsform, Einsatzgebiete, Kosten oder Qualifikationen von Marina ergänzt.
 - Konkrete Leistungs- und Kapazitätsfragen werden auf die direkte Anfrage verwiesen.
 - Website und WhatsApp werden ausdrücklich nicht als Notfallkanäle dargestellt.

@@ -1,5 +1,7 @@
 # Reviews Import Report
 
+Historischer Herkunftsnachweis des ersten Teilimports, keine aktuelle Beschreibung der Website. Der spätere vollständige Export und die heutige Datenaufbereitung sind in [README.md](README.md) dokumentiert.
+
 Snapshot: 21. September 2026 (Europe/Berlin)
 
 Branch: `reviews-data-import`
