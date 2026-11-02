@@ -103,6 +103,12 @@ export async function runServiceChecks({base,send,evaluate,screenshot,wait,click
     await send('Emulation.setDeviceMetricsOverride',{width:width<720?1440:390,height:900,deviceScaleFactor:1,mobile:width>=720})
     await frame()
     check(await evaluate("document.querySelectorAll('.marina-service[open]').length===3 && document.documentElement.scrollWidth<=innerWidth"), 'resize retains open state without overflow')
+    for (let i=0;i<5;i++) {
+      const selector='.marina-service:nth-child('+(i+1)+')'
+      await evaluate("document.querySelector('"+selector+"').open=true; history.replaceState(null,'',location.pathname)")
+      await click(selector+' [data-marina-inquire]')
+      check(await evaluate("location.hash==='#kontakt' && !!document.querySelector('#kontakt')"), 'area '+(i+1)+' contact link reaches contact section')
+    }
     results.push({width,language,contentEntries:actual.length})
     console.log('Marina services checked '+label)
   }
