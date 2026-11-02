@@ -29,9 +29,9 @@ const translations = {
       subline: 'Hebamme',
     },
     nav: {
-      orientation: 'Meine Leistungen',
+      orientation: 'Leistungen',
       services: 'Wann anfragen',
-      about: 'Marina',
+      about: 'Über Marina',
       reviews: 'Bewertungen',
       knowledge: 'Gut zu wissen',
       contact: 'Kontakt',
@@ -168,9 +168,9 @@ const translations = {
       subline: 'Акушерка',
     },
     nav: {
-      orientation: 'Мои услуги',
+      orientation: 'Услуги',
       services: 'Когда обратиться',
-      about: 'Марина',
+      about: 'О Марине',
       reviews: 'Отзывы',
       knowledge: 'Полезно знать',
       contact: 'Контакты',
@@ -389,7 +389,14 @@ function setMenuState(open) {
   updateMobileContact()
 
   if (open) {
-    window.requestAnimationFrame(() => mobileNav.querySelector('a')?.focus({ preventScroll: true }))
+    // Wait until the menu's visibility has been painted before moving focus.
+    window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+      if (isMenuOpen && document.activeElement === menuToggle) mobileNav.querySelector('a')?.focus({ preventScroll: true })
+    }))
+    // A delayed first paint must not leave keyboard focus behind the open menu.
+    window.setTimeout(() => {
+      if (isMenuOpen && document.activeElement === menuToggle) mobileNav.querySelector('a')?.focus({ preventScroll: true })
+    }, 100)
   }
 }
 
@@ -431,7 +438,7 @@ document.addEventListener('keydown', (event) => {
 })
 
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 959 && isMenuOpen) {
+  if (window.innerWidth > 1199 && isMenuOpen) {
     setMenuState(false)
   }
 })

@@ -1,7 +1,7 @@
 // Windows/Edge regression QA (Node 22+), no extra dependencies.
 // npm run build
 // npm run preview -- --host 127.0.0.1 --port 4175 --strictPort
-// node scripts/deep-pass-browser.mjs [baseUrl] [final|interaction|final-sticky|final-implementation|native-reviews|marina-services|audit|baseline] [optional case]
+// node scripts/deep-pass-browser.mjs [baseUrl] [final|interaction|final-sticky|final-implementation|native-reviews|marina-services|navigation|audit|baseline] [optional case]
 // Screenshots/reports stay in OS TEMP; BROWSER_PATH optionally selects another Chromium binary.
 import { spawn } from 'node:child_process'
 import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises'
@@ -17,6 +17,7 @@ const marinaServices = phase === 'marina-services'
 const inquiryLegal = phase === 'inquiry-legal'
 const personalProfile = phase === 'personal-profile'
 const headerContact = phase === 'header-contact'
+const navigation = phase === 'navigation'
 const targeted = ['refinement-before', 'refinement', 'end-user-audit'].includes(phase)
 const verify = phase === 'final' || phase === 'interaction'
 const profile = await mkdtemp(path.join(os.tmpdir(), 'hebamme-deep-browser-'))
@@ -81,11 +82,11 @@ const screenshot = async (name, clip) => {
 await send('Page.enable')
 await send('Runtime.enable')
 await send('Network.enable')
-const fullMatrix = implementation || nativeReviews || marinaServices || inquiryLegal || personalProfile || headerContact ? [] : phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']]
+const fullMatrix = implementation || nativeReviews || marinaServices || inquiryLegal || personalProfile || headerContact || navigation ? [] : phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']]
   : phase === 'interaction' || targeted ? [[1440,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
   : [[1440,'de'],[1024,'de'],[768,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
 const matrix = process.argv[4] ? fullMatrix.filter(([width,language])=>`${width}/${language}`===process.argv[4]) : fullMatrix
-if (!matrix.length && !implementation && !nativeReviews && !marinaServices && !inquiryLegal && !personalProfile && !headerContact) throw new Error('Unknown viewport/language case')
+if (!matrix.length && !implementation && !nativeReviews && !marinaServices && !inquiryLegal && !personalProfile && !headerContact && !navigation) throw new Error('Unknown viewport/language case')
 const report = []
 const interactions = []
 const source = await readFile(new URL('../src/main.js', import.meta.url), 'utf8')
@@ -307,7 +308,7 @@ try {
     if (phase === 'interaction') assert(await evaluate(`Number(document.querySelector('[data-services-current]').textContent)>1 && document.querySelectorAll('.service-card.is-current').length===1`),'touch swipe updates number and active card')
     await send('Emulation.setTouchEmulationEnabled',{enabled:false})
     await click('[data-menu-toggle]')
-    await send('Emulation.setDeviceMetricsOverride',{width:1024,height:1000,deviceScaleFactor:1,mobile:false})
+    await send('Emulation.setDeviceMetricsOverride',{width:1200,height:1000,deviceScaleFactor:1,mobile:false})
     await wait(250)
     assert(await evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')==='false' && !document.querySelector('main').inert`),'menu closes at desktop breakpoint')
     if (phase === 'interaction') assert(await evaluate(`!document.querySelector('.service-card.is-current') && document.querySelector('[data-services-controls]').hidden`),'desktop resize clears mobile card state')
@@ -364,7 +365,9 @@ try {
     ? await (await import('./personal-profile-checks.mjs')).runPersonalProfileChecks({base,send,evaluate,screenshot,wait,click,assert,requests,translations}) : []
   const headerContactReport = headerContact
     ? await (await import('./header-contact-checks.mjs')).runHeaderContactChecks({base,send,evaluate,screenshot,wait,click,press,assert,requests,translations,caseFilter:process.argv[4]}) : []
-  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests,requests,targetedReport,implementationReport,nativeReviewsReport,marinaServicesReport,inquiryLegalReport,personalProfileReport,headerContactReport},null,2))
+  const navigationReport = navigation
+    ? await (await import('./navigation-checks.mjs')).runNavigationChecks({base,send,evaluate,screenshot,wait,click,press,assert,caseFilter:process.argv[4]}) : []
+  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests,requests,targetedReport,implementationReport,nativeReviewsReport,marinaServicesReport,inquiryLegalReport,personalProfileReport,headerContactReport,navigationReport},null,2))
   console.log(JSON.stringify({output,report:report.map(({width,language,overflow,clippedText,missingTranslations})=>({width,language,overflow,clippedText,missingTranslations})),interactions,errors,failedRequests},null,2))
   if (interactions.some(check=>!check.pass) || errors.length || failedRequests.some(r=>r.url.startsWith(base))) process.exitCode=1
 } finally {
