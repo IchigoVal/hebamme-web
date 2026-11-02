@@ -15,6 +15,7 @@ const implementation = ['final-sticky', 'final-implementation'].includes(phase)
 const nativeReviews = phase === 'native-reviews'
 const marinaServices = phase === 'marina-services'
 const inquiryLegal = phase === 'inquiry-legal'
+const personalProfile = phase === 'personal-profile'
 const targeted = ['refinement-before', 'refinement', 'end-user-audit'].includes(phase)
 const verify = phase === 'final' || phase === 'interaction'
 const profile = await mkdtemp(path.join(os.tmpdir(), 'hebamme-deep-browser-'))
@@ -79,11 +80,11 @@ const screenshot = async (name, clip) => {
 await send('Page.enable')
 await send('Runtime.enable')
 await send('Network.enable')
-const fullMatrix = implementation || nativeReviews || marinaServices || inquiryLegal ? [] : phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']]
+const fullMatrix = implementation || nativeReviews || marinaServices || inquiryLegal || personalProfile ? [] : phase === 'baseline' ? [[1440,'de'],[390,'de'],[390,'ru']]
   : phase === 'interaction' || targeted ? [[1440,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
   : [[1440,'de'],[1024,'de'],[768,'de'],[390,'de'],[390,'ru'],[320,'de'],[320,'ru']]
 const matrix = process.argv[4] ? fullMatrix.filter(([width,language])=>`${width}/${language}`===process.argv[4]) : fullMatrix
-if (!matrix.length && !implementation && !nativeReviews && !marinaServices && !inquiryLegal) throw new Error('Unknown viewport/language case')
+if (!matrix.length && !implementation && !nativeReviews && !marinaServices && !inquiryLegal && !personalProfile) throw new Error('Unknown viewport/language case')
 const report = []
 const interactions = []
 const source = await readFile(new URL('../src/main.js', import.meta.url), 'utf8')
@@ -358,7 +359,9 @@ try {
     ? await (await import('./services-browser-checks.mjs')).runServiceChecks({base,send,evaluate,screenshot,wait,click,press,assert,requests,caseFilter:process.argv[4]}) : []
   const inquiryLegalReport = inquiryLegal
     ? await (await import('./inquiry-legal-checks.mjs')).runInquiryLegalChecks({base,send,evaluate,screenshot,wait,click,press,assert,requests,translations}) : []
-  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests,requests,targetedReport,implementationReport,nativeReviewsReport,marinaServicesReport,inquiryLegalReport},null,2))
+  const personalProfileReport = personalProfile
+    ? await (await import('./personal-profile-checks.mjs')).runPersonalProfileChecks({base,send,evaluate,screenshot,wait,click,assert,requests,translations}) : []
+  await writeFile(path.join(output,'report.json'), JSON.stringify({report,interactions,errors,failedRequests,requests,targetedReport,implementationReport,nativeReviewsReport,marinaServicesReport,inquiryLegalReport,personalProfileReport},null,2))
   console.log(JSON.stringify({output,report:report.map(({width,language,overflow,clippedText,missingTranslations})=>({width,language,overflow,clippedText,missingTranslations})),interactions,errors,failedRequests},null,2))
   if (interactions.some(check=>!check.pass) || errors.length || failedRequests.some(r=>r.url.startsWith(base))) process.exitCode=1
 } finally {

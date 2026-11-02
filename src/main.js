@@ -100,6 +100,13 @@ const translations = {
       lead: 'Hebamme in Nürnberg',
       languages: 'Deutsch / Русский',
     },
+    profile: {
+      title: 'Über Marina',
+      introduction: 'Ich bin Marina Rymmer, Hebamme in Nürnberg. Ich begleite dich auf Deutsch und Russisch.',
+      portrait: 'Echtes Porträt folgt',
+      pendingTitle: 'Persönlicher Text folgt',
+      pending: 'Vorläufiger Platzhalter: Hier ergänzt Marina ihre persönliche Arbeitsweise, ihren beruflichen Hintergrund und ihre Erfahrung sowie das, was ihr bei der Begleitung von Familien wichtig ist.',
+    },
     reviews: {
       title: 'Erfahrungen von Familien',
       intro: 'Persönliche Einblicke in die Begleitung durch Marina.',
@@ -232,6 +239,13 @@ const translations = {
       title: 'Марина Риммер',
       lead: 'Акушерка в Нюрнберге',
       languages: 'Русский / Deutsch',
+    },
+    profile: {
+      title: 'О Марине',
+      introduction: 'Я Марина Риммер, акушерка в Нюрнберге. Я сопровождаю вас на немецком и русском языках.',
+      portrait: 'Настоящий портрет появится позже',
+      pendingTitle: 'Личный рассказ появится позже',
+      pending: 'Предварительный текст: здесь Марина расскажет о своём подходе к работе, профессиональном пути и опыте, а также о том, что для неё важно в сопровождении семей.',
     },
     reviews: {
       title: 'Отзывы семей',
