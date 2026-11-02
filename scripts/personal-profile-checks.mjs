@@ -15,7 +15,7 @@ export async function runPersonalProfileChecks({base,send,evaluate,screenshot,wa
     const actual=await evaluate(`(() => {const s=document.querySelector('#vorstellung'),portrait=s.querySelector('.personal-portrait'),copy=s.querySelector('.personal-copy'),p=portrait.getBoundingClientRect(),c=copy.getBoundingClientRect();return {previous:s.previousElementSibling.id,next:s.nextElementSibling.id,strings:[...s.querySelectorAll('[data-i18n]')].map(e=>[e.dataset.i18n,e.textContent]),images:s.querySelectorAll('img,iframe').length,overflow:document.documentElement.scrollWidth>innerWidth,clipped:[...s.querySelectorAll('h2,h3,p,span')].some(e=>e.scrollWidth>e.clientWidth+1),portrait:{x:p.x,y:p.y,width:p.width,height:p.height},copy:{x:c.x,y:c.y,width:c.width},background:getComputedStyle(s).backgroundColor}})()`)
     const expected=['title','introduction','portrait','pendingTitle','pending'].map(key=>['profile.'+key,translations[language].profile[key]])
     const sorted=items=>items.toSorted((a,b)=>a[0].localeCompare(b[0]))
-    check(JSON.stringify(sorted(actual.strings))===JSON.stringify(sorted(expected)),'all localized confirmed and explicitly provisional copy is present')
+    check(JSON.stringify(sorted(actual.strings))===JSON.stringify(sorted(expected)),'localized profile copy is present')
     check(actual.previous==='leistungen'&&actual.next==='bewertungen','profile is between inquiry cards and reviews')
     check(actual.images===0,'portrait is an explicit placeholder, not a person or external image')
     check(!actual.overflow&&!actual.clipped,'no horizontal overflow or clipped profile copy')
@@ -29,7 +29,7 @@ export async function runPersonalProfileChecks({base,send,evaluate,screenshot,wa
   await send('Emulation.setScriptExecutionDisabled',{value:true})
   await send('Page.navigate',{url:base})
   await wait(500)
-  assert(await evaluate("document.querySelector('.personal-introduction').textContent==='Ich bin Marina Rymmer, Hebamme in Nürnberg. Ich begleite dich auf Deutsch und Russisch.' && document.querySelector('.personal-pending p').textContent.startsWith('Vorläufiger Platzhalter:')"),'German confirmed introduction and provisional notice work without JavaScript')
+  assert(await evaluate("document.querySelector('.personal-introduction').textContent==='Ich bin Marina Rymmer, Hebamme in Nürnberg. Ich begleite dich auf Deutsch und Russisch.' && document.querySelector('.personal-pending p').textContent.startsWith('Ich begleite dich während der Schwangerschaft')"),'German introduction and profile copy work without JavaScript')
   await send('Emulation.setScriptExecutionDisabled',{value:false})
   assert(!requests.some(url=>/^https?:/.test(url)&&new URL(url).origin!==new URL(base).origin),'profile introduces no external requests')
   return cases

@@ -1,11 +1,11 @@
 # Persönliche Vorstellung: vorläufiger Stand
 
-Der Abschnitt `#vorstellung` steht zwischen den Anfragekarten und den Bewertungen. Er enthält nur die bestätigten Angaben Name, Beruf, Nürnberg und Deutsch/Russisch. Die persönliche Vorstellung und das Bild sind sichtbar als Platzhalter gekennzeichnet; es wird kein Stockfoto oder generiertes Porträt verwendet.
+Der Abschnitt `#vorstellung` steht zwischen den Anfragekarten und den Bewertungen. Der Textentwurf beruht auf den bestätigten Angaben und den Aussagen aus `MARINA_LEISTUNGEN.md`; er ist von uns formuliert und noch nicht als persönlicher Vorstellungstext von Marina freigegeben. Die neutrale Fläche trägt ihren Namen und ihre Berufsbezeichnung; sie zeigt kein Foto, Stockbild oder generiertes Porträt.
 
 ## Vor Veröffentlichung erforderlich
 
-- Marina muss ihren persönlichen Vorstellungstext ergänzen beziehungsweise bestätigen. Der aktuelle Platzhalter benennt lediglich die vorgesehenen Themen Arbeitsweise, beruflicher Hintergrund/Erfahrung und die Begleitung von Familien; er ist kein fertiger persönlicher Text.
-- Ein echtes, von Marina bereitgestelltes Porträt muss die beschriftete Platzhalterfläche ersetzen. Dafür in `index.html` innerhalb von `.personal-portrait` das Platzhalterelement durch ein lokales `<img>` mit passendem Alternativtext und Größenangaben ersetzen; die vorhandene Klasse gestaltet das Bild responsiv. Keine fremde Person als Marina ausgeben.
+- Marina sollte den aktuellen Textentwurf prüfen und ihren persönlichen Vorstellungstext zu Arbeitsweise, beruflichem Hintergrund und Erfahrung bei Bedarf ergänzen.
+- Ein echtes, von Marina bereitgestelltes Porträt ist weiterhin offen. Dafür in `index.html` innerhalb von `.personal-portrait` das neutrale Element durch ein lokales `<img>` mit passendem Alternativtext und Größenangaben ersetzen; die vorhandene Klasse gestaltet das Bild responsiv. Keine fremde Person als Marina ausgeben.
 - Die russischen Texte des neuen Abschnitts (`profile` in `src/main.js`) wurden von uns erstellt und müssen von Marina sprachlich und fachlich geprüft werden. Nach Einfügen des endgültigen persönlichen Textes ist auch dessen RU-Fassung abzustimmen.
 
 Der vorhandene dunkle Kontaktblock bleibt für die Kontaktaufnahme zuständig. Keine neuen Abhängigkeiten oder externen Requests. Kein Push und kein Deployment.
