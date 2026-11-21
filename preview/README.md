@@ -1,0 +1,7 @@
+# Lokale Vorschau der Seitenhintergründe
+
+Diese Dateien gehören nicht zur Website oder zum Produktionsbuild und können nach dem Vergleich entfernt werden. Keine Projektdateien oder veröffentlichten Seiten werden durch die Vorschau geändert.
+
+Im Projektverzeichnis `npm run dev -- --host 127.0.0.1 --port 5176` starten und `http://127.0.0.1:5176/preview/background-compare.html` im Browser öffnen. Die fünf Schaltflächen schalten die vollständige Website zwischen Original und vier Varianten um: A – warmes Off-White, B – dezenter Roséverlauf, C – Leinen mit warmem Sandton, D – sanftes Salbei-Off-White. Nur der übergeordnete Hintergrund und die großen hellen Flächen werden in der Vorschau verändert. Kontaktbereich, Roséelemente, Schaltflächen, Bilder, Inhalte und Layout bleiben unverändert. Der Einstieg zeigt immer das Original, sofern keine Variante per Vorschauparameter angegeben wird.
+
+`screenshots/` enthält weiterhin die Aufnahmen der ersten, ausschließlich den Seitenhintergrund verändernden Vorschau. `screenshots-full-v2/` enthält die neuen Ansichten aller sieben Hauptbereiche je Variante mit identischem Viewport (1920 × 1080 bzw. 390 × 844). Die Bedienleiste wurde für die Aufnahmen ausgeblendet. Mit laufendem Vorschau-Server lassen sich die neuen Bilder unter Windows mit `node preview/capture-backgrounds.mjs` erneut erstellen; für andere Browserpfade kann `BROWSER_PATH` gesetzt werden. Das Skript prüft auch Inhalte, Abschnittsmaße, geschützte Flächen und Kontraste der bestehenden Textfarben gegen die neuen Hintergrundfarben und Verlaufsstopps.

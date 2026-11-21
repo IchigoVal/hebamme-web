@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lokaler Vergleich – Website-Hintergründe</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { font-family: system-ui, sans-serif; background: #fffdf9; }
+    iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .preview-controls { position: fixed; z-index: 100; right: 1rem; bottom: 1rem; max-width: min(28rem, calc(100vw - 2rem)); padding: .85rem 1rem; border: 1px solid #d3bfb6; border-radius: .5rem; background: #fffdf9; color: #3b312c; box-shadow: 0 3px 18px #3b312c22; font-size: .85rem; }
+    .preview-controls strong { display: block; margin-bottom: .35rem; }
+    .preview-controls p { margin: .6rem 0 0; line-height: 1.45; }
+    .preview-controls button { min-height: 2.5rem; margin: .2rem .2rem 0 0; padding: .4rem .65rem; border: 1px solid #b79f95; border-radius: .25rem; background: #fff; color: inherit; cursor: pointer; font: inherit; }
+    .preview-controls button[aria-pressed="true"] { border-color: #824a3c; background: #824a3c; color: #fff; }
+    .preview-controls button:focus-visible { outline: 3px solid #ad6956; outline-offset: 2px; }
+    .preview-controls .swatch { display: inline-block; width: 1.2rem; height: 1.2rem; margin-right: .3rem; vertical-align: middle; border: 1px solid #b79f95; }
+    body.capture .preview-controls { display: none; }
+  </style>
+</head>
+<body>
+  <iframe id="site" src="../" title="Aktuelle Website in lokaler Hintergrundvorschau"></iframe>
+  <aside class="preview-controls" aria-label="Lokale Vorschau der Seitenhintergründe">
+    <strong>Lokaler Hintergrundvergleich</strong>
+    <button type="button" id="preview-toggle" aria-expanded="true" aria-controls="preview-options">Vergleich einklappen</button>
+    <div id="preview-options">
+      <div role="group" aria-label="Variante auswählen">
+        <button type="button" data-variant="original">Original</button>
+        <button type="button" data-variant="a">A · Off-White</button>
+        <button type="button" data-variant="b">B · Verlauf</button>
+        <button type="button" data-variant="c">C · Leinen</button>
+        <button type="button" data-variant="d">D · Salbei</button>
+      </div>
+      <p><span class="swatch" aria-hidden="true"></span><span id="description"></span></p>
+      <p>Die Varianten ändern nur helle Hintergrundflächen. Inhalte, Kontaktblock, Roséflächen und Funktionen bleiben unverändert. Original stellt die aktuelle Website dar.</p>
+    </div>
+  </aside>
+  <script>
+    const variants = {
+      original: { background: '#FFFDF9', css: '', description: 'Original: aktuelle Website' },
+      a: {
+        background: '#FAF7F5',
+        description: 'A: warmes Off-White #FAF7F5',
+        css: `body, .hero-section, .services-section, .reviews-section { background: #FAF7F5 !important; }
+          .marina-services-section { background: #F9F2EF !important; }
+          .personal-section, .faq-section { background: #F7F0EC !important; }`,
+      },
+      b: {
+        background: 'linear-gradient(180deg, #FAF7F5 0%, #FDF9F7 50%, #F7EFEB 100%)',
+        description: 'B: sanfter Verlauf #FAF7F5 → #FDF9F7 → #F7EFEB',
+        css: `body, .hero-section, .services-section, .reviews-section { background: linear-gradient(180deg, #FAF7F5 0%, #FDF9F7 50%, #F7EFEB 100%) !important; }
+          .marina-services-section { background: linear-gradient(180deg, #F7EFEB 0%, #FDF9F7 100%) !important; }
+          .personal-section, .faq-section { background: linear-gradient(180deg, #F7EFEB 0%, #FAF7F5 100%) !important; }`,
+      },
+      c: {
+        background: '#F8F4ED',
+        description: 'C: helles Leinen mit warmen Sandtönen',
+        css: `body, .hero-section, .services-section, .reviews-section { background: #F8F4ED !important; }
+          .marina-services-section { background: #F5EEE5 !important; }
+          .personal-section, .faq-section { background: #F1E9DE !important; }`,
+      },
+      d: {
+        background: '#F5F6F0',
+        description: 'D: sanftes Salbei-Off-White mit einem Hauch Grün',
+        css: `body, .hero-section, .services-section, .reviews-section { background: #F5F6F0 !important; }
+          .marina-services-section { background: #F0F2EA !important; }
+          .personal-section, .faq-section { background: #EDF0E7 !important; }`,
+      },
+    }
+    const params = new URLSearchParams(location.search)
+    let selected = Object.hasOwn(variants, params.get('variant')) ? params.get('variant') : 'original'
+    if (params.has('capture')) document.body.classList.add('capture')
+    const frame = document.getElementById('site')
+    const buttons = document.querySelectorAll('[data-variant]')
+    document.getElementById('preview-toggle').addEventListener('click', event => {
+      const options = document.getElementById('preview-options')
+      options.hidden = !options.hidden
+      event.currentTarget.setAttribute('aria-expanded', String(!options.hidden))
+      event.currentTarget.textContent = options.hidden ? 'Vergleich öffnen' : 'Vergleich einklappen'
+    })
+    function selectVariant(name) {
+      selected = name
+      const variant = variants[name]
+      buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.variant === name)))
+      document.querySelector('.swatch').style.background = variant.background
+      document.getElementById('description').textContent = variant.description
+      const documentInFrame = frame.contentDocument
+      if (!documentInFrame || !documentInFrame.body) return
+      let style = documentInFrame.getElementById('local-background-preview')
+      if (!style) {
+        style = documentInFrame.createElement('style')
+        style.id = 'local-background-preview'
+        documentInFrame.head.appendChild(style)
+      }
+      style.textContent = variant.css
+    }
+    buttons.forEach(button => button.addEventListener('click', () => selectVariant(button.dataset.variant)))
+    frame.addEventListener('load', () => selectVariant(selected))
+    selectVariant(selected)
+  </script>
+</body>
+</html>
